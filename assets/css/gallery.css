@@ -10,8 +10,10 @@
 }
 
 .gallery-item img {
-    width: 100%;
+    width: 90%;
     border-radius: 5px;
+    margin: 0 auto; /* Center the images */
+    display: block; /* Ensures the images are centered */
 }
 
 /* Style for the buttons */
@@ -26,18 +28,18 @@
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
+    z-index: 1; /* Ensures the buttons are above the images */
 }
 
 .next {
-    right: 0;
+    right: -40px; /* Adjust this value to position the button outside the image */
     border-radius: 3px 0 0 3px;
 }
 
 .prev {
-    left: 0;
-    border-radius: 3px 0 0 3px;
+    left: -40px; /* Adjust this value to position the button outside the image */
+    border-radius: 0 3px 3px 0;
 }
 
 /* On hover, add a black background color with a little bit of transparency */
@@ -49,5 +51,6 @@
 .active {
     display: block;
 }
+
 
 
