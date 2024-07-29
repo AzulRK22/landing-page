@@ -7,7 +7,8 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-html,body,
+html,
+body,
 div,
 span,
 applet,
@@ -370,10 +371,93 @@ body {
   font-size: 1em; /* Size of the text */
   margin: 0; /* Remove default margin */
 }
+/* Estilos para la sección de proyectos */
+#projects {
+  padding: 20px;
+  text-align: center; /* Centra el texto del encabezado */
+}
 
+header.major {
+  margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
 
+header.major h2 {
+  font-size: 2em; /* Tamaño del texto del título */
+  margin: 0; /* Elimina el margen por defecto del encabezado */
+  padding: 0; /* Elimina el padding por defecto del encabezado */
+}
 
+/* Contenedor de las tarjetas de proyecto */
+.project-card-container {
+  display: flex;
+  justify-content: center; /* Centra las tarjetas en el contenedor */
+  gap: 20px; /* Espacio entre las tarjetas */
+}
 
+/* Estilos para las tarjetas de proyecto */
+.project-card {
+  flex: 1;
+  max-width: 400px; /* Ancho máximo de cada tarjeta */
+  background: #fff; /* Fondo blanco para las tarjetas */
+  border: 1px solid #ddd; /* Borde suave */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  text-align: left; /* Texto alineado a la izquierda */
+}
+
+.project-card .image.fit img {
+  width: 100%; /* Imagen ocupa el 100% del contenedor */
+  height: auto; /* Mantiene la relación de aspecto de la imagen */
+}
+
+.project-info {
+  padding: 15px; /* Espacio interno */
+}
+
+.project-info h3 {
+  margin-top: 0; /* Elimina el margen superior del título */
+}
+
+.project-info p {
+  margin-bottom: 10px; /* Espacio debajo del párrafo */
+}
+/* Botón de la tarjeta de proyecto */
+/* Contenedor de botones dentro de la tarjeta */
+.project-info .button-container {
+  display: flex;
+  justify-content: center; /* Centra los botones dentro del contenedor */
+}
+/* Estilo para el contenedor de la página de detalles del proyecto */
+#ecommerce-app,
+#fellow-ai {
+    padding: 2em;
+}
+/* Estilo para la descripción del proyecto */
+.project-description,
+.project-features,
+.project-technologies {
+    margin-bottom: 2em;
+}
+
+.project-description h3,
+.project-features h3,
+.project-technologies h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.project-description p,
+.project-features ul,
+.project-technologies ul {
+    font-size: 1em;
+}
+
+.project-features ul,
+.project-technologies ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
 
 ol,
 ul {

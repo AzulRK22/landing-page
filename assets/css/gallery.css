@@ -1,0 +1,53 @@
+/* Container for the image gallery */
+.image-gallery {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+}
+
+.gallery-item {
+    display: none;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Style for the buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 5px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit of transparency */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Active class for the current image */
+.active {
+    display: block;
+}
+
+
