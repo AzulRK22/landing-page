@@ -458,6 +458,30 @@ header.major h2 {
     list-style-type: disc;
     padding-left: 20px;
 }
+.pdf-container {
+  width: 100vw; /* 100% del ancho de la ventana del navegador */
+  height: 100vh; /* 100% de la altura de la ventana del navegador */
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido al inicio del contenedor (izquierda) */
+  align-items: center;
+  padding: -10;
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho y alto */
+}
+
+.pdf-container object {
+  width: 60vw; /* Ajusta el ancho del objeto */
+  height: 60vh; /* Ajusta la altura del objeto */
+  max-width: 100%; /* Asegura que el objeto no exceda el contenedor */
+  max-height: 100%; /* Asegura que el objeto no exceda el contenedor */
+}
+
+@media screen and (max-width: 768px) {
+  .pdf-container object {
+    width: 80vw; /* Ajusta el ancho para pantallas pequeñas */
+    height: 70vh; /* Ajusta la altura para pantallas pequeñas */
+  }
+}
+
 
 ol,
 ul {
