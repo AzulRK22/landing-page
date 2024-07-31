@@ -390,6 +390,7 @@ header.major h2 {
 /* Contenedor de las tarjetas de proyecto */
 .project-card-container {
   display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten a múltiples líneas */
   justify-content: center; /* Centra las tarjetas en el contenedor */
   gap: 20px; /* Espacio entre las tarjetas */
 }
@@ -460,8 +461,15 @@ header.major h2 {
 }
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
+  .project-card-container {
+    flex-direction: column; /* Cambia la dirección del contenedor a columna en pantallas pequeñas */
+    align-items: center; /* Centra las tarjetas verticalmente */
+  }
+  
   .project-card {
     width: 100%; /* Ancho completo en pantallas pequeñas */
+    max-width: none; /* Elimina el ancho máximo en pantallas pequeñas */
+    margin-bottom: 20px; /* Espacio debajo de cada tarjeta */
   }
 }
 .pdf-container {
