@@ -41,7 +41,7 @@ For any inquiries, please reach out to me via:
 - [Instagram](https://www.instagram.com/azulramk/)
 - [LinkedIn](https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/)
 - [GitHub](https://github.com/AzulRK22)
-- 
+
 ##License
 
 © Azul Grisel Ramirez Kuri. Design by HTML5 UP.
