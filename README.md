@@ -29,7 +29,7 @@ Welcome to my personal portfolio page! This webpage showcases my experience, cer
 
 To view the webpage, visit: [https://www.azulrk.com](https://www.azulrk.com)
 
-##Dependencies
+## Dependencies
 - ** Swiper
 - ** Google Analytics
 - ** Contact
@@ -42,6 +42,6 @@ For any inquiries, please reach out to me via:
 - [LinkedIn](https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/)
 - [GitHub](https://github.com/AzulRK22)
 
-##License
+## License
 
 © Azul Grisel Ramirez Kuri. Design by HTML5 UP.
