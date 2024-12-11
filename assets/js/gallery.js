@@ -25,5 +25,6 @@ function changeSlide(step, gallery) {
 document.addEventListener("DOMContentLoaded", function() {
     showSlide(currentIndex, 'ecommerce');
     showSlide(currentIndex, 'headstarter');
+    showSlide(currentIndex, 'EcoVentus');
 });
 
