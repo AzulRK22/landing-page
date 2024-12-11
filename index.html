@@ -5,6 +5,9 @@
 	<title>Azul Grisel Ramirez Kuri</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Explore my proffesional life.">
+    <meta name="keywords" content="projects, portfolio, development, design">
+    <meta name="author" content="Azul Grisel Ramirez Kuri">
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<!-- Google tag (gtag.js) -->
@@ -33,7 +36,7 @@
 				Azul Grisel Ramirez Kuri<br />
 				<span class="intro-text" id="title1">- AI Engineer</span>
 				<span class="intro-text" id="title2">- Software Engineer</span>
-				<span class="intro-text" id="title3">- Mobile Developer</span>
+				<span class="intro-text" id="title3">- Frontend (iOS/Android) Developer</span>
 			</h1>
 			<p>A passionate mobile developer with experience in iOS and Android development, and front-end technologies.
 				Currently pursuing certifications in Front-End Development. Member of Google's Women Techmakers program.
@@ -77,7 +80,20 @@
 			<!-- Featured Post -->
 			<article class="post featured">
 				<header class="major">
-					<span class="date">November 17, 2024</span>
+					<p>Today's date is: <span class="date">November 17, 2024</span></p>
+
+					<script>
+						// Formatea la fecha actual
+						function formatDate(date) {
+							const options = { year: 'numeric', month: 'long', day: 'numeric' };
+							return date.toLocaleDateString('en-US', options);
+						}
+				
+						// Obtén el elemento con la clase 'date' y actualiza su contenido
+						const dateElement = document.querySelector('.date');
+						const today = new Date();
+						dateElement.textContent = formatDate(today);
+					</script>
 					<h2><a href="#">Welcome to my Portfolio</a></h2>
 					<p>Here you can find my projects, experiences, and the skills I've honed over the years. Explore and
 						feel free to reach out!</p>
@@ -286,7 +302,7 @@
 
 					<!-- AI Fellowship Project Card -->
 					<article class="project-card">
-						<a href="projects.html#fellow-ai" class="image fit">
+						<a href="projects.html#headstarter" class="image fit">
 							<img src="images/headstarter.png" alt="AI Project Screenshot" />
 						</a>
 						<div class="project-info">
@@ -295,14 +311,14 @@
 								AI research and development. Worked on innovative AI projects and contributed to
 								significant advancements in the field.</p>
 							<div class="button-container">
-								<a href="projects.html#ai-fellowship" class="button">Learn More</a>
+								<a href="projects.html#headstarter" class="button">Learn More</a>
 							</div>
 						</div>
 					</article>
 					<!-- EcoVentus Dashboard Project Card -->
 					<article class="project-card">
 						<a href="projects.html#EcoVentus-dashboard" class="image fit">
-							<img src="images/home.png" alt="KeepNAI Dashboard Project Screenshot" />
+							<img src="images/home.png" alt="EcoVentus Dashboard Project Screenshot" />
 						</a>
 						<div class="project-info">
 							<h3>EcoVentus: AI-Driven UAV Monitoring Platform </h3>
