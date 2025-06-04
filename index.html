@@ -5,9 +5,9 @@
 	<title>Azul Grisel Ramirez Kuri</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="Explore my proffesional life.">
-    <meta name="keywords" content="projects, portfolio, development, design">
-    <meta name="author" content="Azul Grisel Ramirez Kuri">
+	<meta name="description" content="Explore my professional life.">
+	<meta name="keywords" content="projects, portfolio, development, design">
+	<meta name="author" content="Azul Grisel Ramirez Kuri">
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<!-- Google tag (gtag.js) -->
@@ -31,38 +31,47 @@
 	<div id="wrapper" class="fade-in">
 
 		<!-- Intro -->
-		<div id="intro">
-			<h1>This is<br />
-				Azul Grisel Ramirez Kuri<br />
-				<span class="intro-text" id="title1">- AI Engineer</span>
-				<span class="intro-text" id="title2">- Software Engineer</span>
-				<span class="intro-text" id="title3">- Frontend (iOS/Android) Developer</span>
+		<div id="intro"
+			style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 4rem 1rem; min-height: 100vh;">
+
+			<h1>
+				This is<br />
+				Azul Grisel Ramirez Kuri
 			</h1>
-			<p>A passionate mobile developer with experience in iOS and Android development, and front-end technologies.
-				Currently pursuing certifications in Front-End Development. Member of Google's Women Techmakers program.
+
+			<p style="margin-top: 1rem; font-size: 1.1rem; color: #949191; font-weight: 500;">
+				Software Engineer | 📱 iOS & Android Dev | Infosys Trainee | Huawei App Innovation Award 🥈 | Future
+				WWDC Scholar 🚀
 			</p>
-			<ul class="actions">
+			<p class="intro-paragraph">
+				I'm currently working as a Systems Engineer Trainee at Infosys. I specialize in mobile development with
+				a strong focus on iOS. I'm passionate about creating intuitive, Apple-inspired experiences and
+				constantly improving my skills through hands-on projects and certifications.
+			</p>
+
+			<ul class="actions" style="margin-top: 2rem;">
 				<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
 			</ul>
+
 		</div>
+
 
 		<!-- Header -->
 		<header id="header">
 			<a href="index.html" class="logo">Azul Kuri</a>
 		</header>
 		<!-- Language Switcher -->
-		<div id="language-switcher">
+		<nav id="language-switcher" aria-label="Language selector">
 			<button onclick="translatePage('en')">English</button>
 			<button onclick="translatePage('es')">Español</button>
-		</div>
-
+		  </nav>
 		<!-- Nav -->
 		<nav id="nav">
-			<ul class="links">
-				<li class="active"><a href="index.html">Home</a></li>
-				<li><a href="projects.html">Projects</a></li>
-				<li><a href="#footer">Contact</a></li>
-				<li><a href="resume.html">Resume</a></li>
+			<ul class="links" role="menubar">
+				<li role="none"><a href="index.html" role="menuitem" aria-current="page" class="active">Home</a></li>
+				<li role="none"><a href="projects.html" role="menuitem">Projects</a></li>
+				<li role="none"><a href="#footer" role="menuitem">Contact</a></li>
+				<li role="none"><a href="resume.html" role="menuitem">Resume</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/"
@@ -80,39 +89,29 @@
 			<!-- Featured Post -->
 			<article class="post featured">
 				<header class="major">
-					<p>Today's date is: <span class="date">November 17, 2024</span></p>
-
-					<script>
-						// Formatea la fecha actual
-						function formatDate(date) {
-							const options = { year: 'numeric', month: 'long', day: 'numeric' };
-							return date.toLocaleDateString('en-US', options);
-						}
-				
-						// Obtén el elemento con la clase 'date' y actualiza su contenido
-						const dateElement = document.querySelector('.date');
-						const today = new Date();
-						dateElement.textContent = formatDate(today);
-					</script>
+					<p>Today's date is: <span class="date"></span></p>
 					<h2><a href="#">Welcome to my Portfolio</a></h2>
 					<p>Here you can find my projects, experiences, and the skills I've honed over the years. Explore and
 						feel free to reach out!</p>
 				</header>
 				<!-- Swiper -->
-				<div class="swiper-container">
+				<div class="swiper-container" role="region" aria-label="Image gallery">
 					<div class="swiper-wrapper">
-						<div class="swiper-slide"><img src="images/me.png" alt="Photo 1" /></div>
-						<div class="swiper-slide"><img src="images/me2.png" alt="Photo 2" /></div>
-						<div class="swiper-slide"><img src="images/me3.png" alt="Photo 3" /></div>
-						<div class="swiper-slide"><img src="images/me4.png" alt="Photo 4" /></div>
-						<div class="swiper-slide"><img src="images/me5.png" alt="Photo 5" /></div>
-						<div class="swiper-slide"><img src="images/chile.png" alt="Photo 6" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me.png"
+								alt="Meet/drinks with audible" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me2.png" alt="Madrid" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me3.png" alt="Tuscany" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me4.png" alt="Me and my dog" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me5.png" alt="At the gym" /></div>
+						<div class="swiper-slide" role="group"><img src="images/chile.png" alt="AI Hackathon" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me6.png" alt="Always IOS" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me7.png" alt="Working" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me8.png" alt="Optica Event" /></div>
+						<div class="swiper-slide" role="group"><img src="images/me9.png" alt="Chicago" /></div>
 					</div>
-					<!-- Add Pagination -->
-					<div class="swiper-pagination"></div>
-					<!-- Add Navigation -->
-					<div class="swiper-button-next"></div>
-					<div class="swiper-button-prev"></div>
+					<div class="swiper-pagination" aria-live="polite"></div>
+					<div class="swiper-button-next" aria-label="Next slide"></div>
+					<div class="swiper-button-prev" aria-label="Previous slide"></div>
 				</div>
 				<ul class="actions special">
 					<li><a href="projects.html" class="button large">Explore Projects</a></li>
@@ -124,7 +123,7 @@
 				<header class="major">
 					<h2>Experience</h2>
 				</header>
-				<div class="experience-item">
+				<article class="experience-item">
 					<h3>Xolotl Creative Labs</h3>
 					<p><strong>Role:</strong> Junior Software Developer<br>
 						<strong>Duration:</strong> 2024
@@ -147,7 +146,35 @@
 						<li><strong>Tools:</strong> Android Studio, Git for version control</li>
 						<li><strong>Methodology:</strong> Scrum for agile project management</li>
 					</ul>
-				</div>
+				</article>
+				<article class="experience-item">
+					<h3>Infosys</h3>
+					<p><strong>Role:</strong> Systems Engineer Trainee<br>
+						<strong>Duration:</strong> January 2025 – Present
+					</p>
+					<h4>Project:</h4>
+					<p>Ongoing professional development through enterprise-level projects, focusing on software
+						architecture and agile methodologies within a global, English-speaking environment.</p>
+					<h4>Responsibilities:</h4>
+					<ul>
+						<li>Completing certifications in <strong>Java SE (Associate)</strong>, <strong>Spring
+								Framework</strong>, <strong>React</strong>, and <strong>Angular</strong>.</li>
+						<li>Applying agile methodologies and software architecture principles to real-world enterprise
+							projects.</li>
+						<li>Collaborating with multidisciplinary teams across different geographies to deliver project
+							goals effectively.</li>
+						<li>Enhancing technical and problem-solving skills through hands-on experience and continuous
+							learning.</li>
+					</ul>
+					<h4>Technologies and Tools:</h4>
+					<ul>
+						<li><strong>Programming Languages:</strong> Java, JavaScript, TypeScript</li>
+						<li><strong>Frameworks/Libraries:</strong> Spring, React, Angular</li>
+						<li><strong>Methodologies:</strong> Agile, Scrum</li>
+						<li><strong>Tools:</strong> Eclipse, Postman, VSC</li>
+					</ul>
+				</article>
+
 			</section>
 
 			<!-- Certifications Section -->
@@ -188,6 +215,32 @@
 							<p>Certification in Meta Android Development, focusing on advanced Android
 								programming and development techniques.</p>
 						</div>
+					</div>
+				</div>
+				<!-- Infosys Certifications (sin badges) -->
+				<div class="infosys-certifications-container" style="margin-top: 3rem;">
+					<header class="minor">
+						<h3>Infosys Certifications</h3>
+					</header>
+
+					<div class="infosys-certification-item">
+						<h4>Infosys Certified Spring Associate</h4>
+						<p><strong>Completed:</strong> 2 Jun 2025 </p>
+					</div>
+
+					<div class="infosys-certification-item">
+						<h4>Infosys Certified React Professional</h4>
+						<p><strong>Completed:</strong> 22 May 2025</p>
+					</div>
+
+					<div class="infosys-certification-item">
+						<h4>Infosys Certified Angular Associate</h4>
+						<p><strong>Completed:</strong> 29 Apr 2025</p>
+					</div>
+
+					<div class="infosys-certification-item">
+						<h4>Infosys Certified Software Programmer - WebIDE</h4>
+						<p><em>In progress...</em></p>
 					</div>
 				</div>
 			</section>
@@ -249,7 +302,7 @@
 					</div>
 					<div class="skill-item">
 						<div class="skill-icon"><img src="images/java.png" alt="Java" /></div>
-						<div class="skill-text">Java (Android)</div>
+						<div class="skill-text">Java </div>
 					</div>
 					<div class="skill-item">
 						<div class="skill-icon"><img src="images/kotlin.png" alt="Kotlin" /></div>
@@ -322,7 +375,8 @@
 						</a>
 						<div class="project-info">
 							<h3>EcoVentus: AI-Driven UAV Monitoring Platform </h3>
-							<p>Advanced AI-powered platform to optimize UAV (drone) operations in environmental monitoring, renewable energy and agriculture.</p>
+							<p>Advanced AI-powered platform to optimize UAV (drone) operations in environmental
+								monitoring, renewable energy and agriculture.</p>
 							<div class="button-container">
 								<a href="projects.html#EcoVentus-dashboard" class="button">Learn More</a>
 							</div>
@@ -383,7 +437,32 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+		  function formatDate(date) {
+			const options = { year: 'numeric', month: 'long', day: 'numeric' };
+			return date.toLocaleDateString('en-US', options);
+		  }
+		  const dateElement = document.querySelector('.date');
+		  const today = new Date();
+		  dateElement.textContent = formatDate(today);
+		});
+	  </script>
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script>
+		const swiper = new Swiper('.swiper-container', {
+			loop: true,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+		});
+	</script>
+
 	<script>
 		// JavaScript for the intro text effect
 		let currentIndex = 0;

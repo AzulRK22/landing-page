@@ -113,6 +113,13 @@ section {
 body {
   line-height: 1;
 }
+.intro-paragraph {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #c9c3c3;
+  font-weight: 500;
+}
+
 
 /* Swiper container styling */
 .swiper-container {
@@ -268,6 +275,35 @@ body {
   opacity: 0.7; /* Opacidad reducida para certificaciones futuras */
   border: 2px dashed #ccc; /* Borde punteado para indicar que es próximo */
 }
+.infosys-certifications-container {
+  border-top: 2px solid #0a74da;
+  padding-top: 1.5rem;
+}
+
+.infosys-certification-item {
+  background: #f1f5f9;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.05);
+}
+
+.infosys-certification-item h4 {
+  margin-top: 0;
+  color: #0a74da;
+}
+
+.infosys-certification-item p {
+  margin: 0.25rem 0;
+  color: #444;
+}
+
+header.minor h3 {
+  color: #0a74da;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
@@ -459,6 +495,43 @@ header.major h2 {
     list-style-type: disc;
     padding-left: 20px;
 }
+.apple-logo {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apple-bite {
+  width: 20%;
+  height: 20%;
+  background-color: red;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  border-radius: 50%;
+  transform-origin: center;
+  animation: bite-animation 2s infinite alternate;
+}
+
+.apple-body {
+  width: 80%;
+  height: 80%;
+  background-color: green;
+  border-radius: 50%;
+}
+
+@keyframes bite-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .project-card-container {

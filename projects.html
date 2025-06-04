@@ -17,6 +17,14 @@
 
         gtag('config', 'UA-XXXXXXXXX-X');
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <style>
+        #appleAnimation {
+            width: 150px;
+            height: 150px;
+            margin: 50px auto;
+        }
+    </style>
 </head>
 
 <body class="is-preload">
@@ -177,13 +185,20 @@
                 <!-- Image Gallery for KeepNAI Dashboard -->
                 <div class="image-gallery">
                     <button class="prev" onclick="changeSlide(-1, 'EcoVentus')">&#10094;</button>
-                    <div class="gallery-item EcoVentus active"><img src="images/home.png" alt="EcoVentus Image 1" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring1.png" alt="EcoVentus Image 2" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring2.png" alt="EcoVentus Image 3" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring3.png" alt="EcoVentus Image 4" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring4.png" alt="EcoVentus Image 5" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring5.png" alt="EcoVentus Image 6" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring6.png" alt="EcoVentus Image 7" /></div>
+                    <div class="gallery-item EcoVentus active"><img src="images/home.png" alt="EcoVentus Image 1" />
+                    </div>
+                    <div class="gallery-item EcoVentus"><img src="images/monitoring1.png" alt="EcoVentus Image 2" />
+                    </div>
+                    <div class="gallery-item EcoVentus"><img src="images/monitoring2.png" alt="EcoVentus Image 3" />
+                    </div>
+                    <div class="gallery-item EcoVentus"><img src="images/monitoring3.png" alt="EcoVentus Image 4" />
+                    </div>
+                    <div class="gallery-item EcoVentus"><img src="images/monitoring4.png" alt="EcoVentus Image 5" />
+                    </div>
+                    <div class="gallery-item EcoVentus"><img src="images/monitoring5.png" alt="EcoVentus Image 6" />
+                    </div>
+                    <div class="gallery-item EcoVentus"><img src="images/monitoring6.png" alt="EcoVentus Image 7" />
+                    </div>
                     <div class="gallery-item EcoVentus"><img src="images/reports.png" alt="EcoVentus Image 8" /></div>
                     <div class="gallery-item EcoVentus"><img src="images/incidents.png" alt="EcoVentus Image 9" /></div>
                     <div class="gallery-item EcoVentus"><img src="images/virtual.png" alt="EcoVentus Image 10" /></div>
@@ -240,6 +255,18 @@
                             href="https://github.com/AzulRK22/queenDrones" target="_blank">GitHub</a>.</p>
                 </div>
             </section>
+            <section id="upcoming-projects" style="text-align:center; padding: 2rem;">
+                <h2>Upcoming Projects</h2>
+                <div id="appleAnimation"></div>
+                <ul
+                    style="list-style:none; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                    <li>
+                        <strong>Innovative Social App</strong><br>
+                        Currently in development: A platform focused on connecting users through shared values and soft
+                        skills, built using Swift.
+                    </li>
+                </ul>
+            </section>
 
 
         </div>
@@ -283,6 +310,16 @@
     <script src="assets/js/main.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="assets/js/gallery.js"></script>
+    <script>
+        lottie.loadAnimation({
+          container: document.getElementById('appleAnimation'),
+          renderer: 'svg',
+          loop: true,
+          autoplay: true,
+          path: 'assets/animations/apple.json'
+        });
+      </script>
+    </body>
 
 </body>
 
