@@ -1,0 +1,793 @@
+/* ========== COMPONENTS ========== */
+
+/* ------------------------------
+   Font Awesome base (asegura íconos)
+---------------------------------*/
+.icon > .label {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.icon:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  text-decoration: none;
+  speak: none;
+}
+.icon.regular:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+}
+.icon.brands:before {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
+
+/* ------------------------------
+   Intro / Hero
+---------------------------------*/
+.intro-hero {
+  padding: clamp(2.5rem, 4vw + 1rem, 5rem) 1.25rem 1.25rem;
+  text-align: center;
+}
+.intro-title {
+  margin: 0 0 1rem 0;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+}
+.intro-subtitle {
+  max-width: 60ch;
+  margin: 0.75rem auto;
+  opacity: 0.95;
+}
+.intro-paragraph {
+  max-width: 70ch;
+  margin: 0 auto 1.25rem;
+  opacity: 0.9;
+}
+.intro-actions .button.icon:before {
+  margin-right: 0;
+}
+.intro-rotating {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.intro-rotating.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+button{
+  justify-content: center;
+  text-align: center;
+  border: none;
+  margin: 0;
+  border-radius: 5px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover{
+  background: #8c9195;
+}
+
+/* ------------------------------
+   Header + Nav responsive
+---------------------------------*/
+#header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem 0;
+}
+#header .logo {
+  margin-right: auto;
+}
+
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  padding: 0.55rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+}
+.nav-toggle i {
+  font-size: 1.1rem;
+}
+
+#nav {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem 0;
+}
+
+#nav .links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#nav .links a {
+  text-decoration: none;
+}
+#nav .icons {
+  display: flex;
+  gap: 0.65rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Panel lateral */
+  #nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(86vw, 340px);
+    height: 100dvh;
+    padding: 1rem;
+    background: rgba(20, 24, 30, 0.96);
+    backdrop-filter: saturate(120%) blur(6px);
+    transform: translateX(100%);
+    transition: transform 0.25s ease;
+    z-index: 10010;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  body.nav-open #nav {
+    transform: translateX(0);
+  }
+  body.nav-open {
+    overflow: hidden;
+  }
+
+  #nav .links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  #nav .links a {
+    padding: 0.45rem 0.25rem;
+  }
+  #nav .icons {
+    gap: 0.5rem;
+  }
+}
+
+/* Backdrop para cerrar fuera del panel */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 10000;
+}
+
+/* Oculta cualquier ancla heredada a #menu */
+a[href="#menu"] {
+  display: none !important;
+}
+#menu {
+  display: none !important;
+}
+
+/* ------------------------------
+   Lista de íconos (nav/footer)
+---------------------------------*/
+ul.icons {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+ul.icons li {
+  display: inline-flex;
+}
+
+ul.icons li a.icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  outline: none;
+}
+ul.icons li a.icon > .label {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+ul.icons li a.icon:before {
+  width: 2.35rem;
+  height: 2.35rem;
+  line-height: 2.35rem;
+  text-align: center;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 8px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.18s ease, background-color 0.18s ease,
+    box-shadow 0.18s ease, border-color 0.18s ease;
+}
+ul.icons li a.icon:hover:before,
+ul.icons li a.icon:focus-visible:before {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.05) inset,
+    0 12px 24px rgba(0, 0, 0, 0.35);
+}
+ul.icons li a.icon.brands:before {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
+
+/* ------------------------------
+   Headers y espaciado de secciones
+---------------------------------*/
+header.major {
+  text-align: center;
+  margin: 2.2rem 0 1.4rem;
+}
+header.major h2,
+header.major h3 {
+  margin: 0;
+}
+#main > section {
+  margin: 2rem 0 2.2rem;
+}
+.post.featured header.major {
+  text-align: center;
+}
+.actions.special {
+  display: flex;
+  justify-content: center;
+}
+
+/* Botones */
+.button-primary {
+  /* Explore Projects centrado */
+  background: linear-gradient(135deg, #5cabff, #6bd1ff);
+  color: #0b1220 !important;
+  border: 0;
+  display: inline-flexbox;
+}
+.button-primary:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+/* ------------------------------
+   Experience cards
+---------------------------------*/
+.experience-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: clamp(1rem, 1.2vw + 0.5rem, 1.4rem);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  backdrop-filter: saturate(115%);
+  margin-bottom: 1.25rem;
+}
+
+/* ------------------------------
+   Swiper (galería)
+---------------------------------*/
+.hero-swiper {
+  position: relative;
+  margin: 0 auto;
+  width: min(1100px, 100%);
+  padding-bottom: 34px; /* espacio para paginación */
+  background: transparent;
+}
+.hero-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.hero-swiper .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+.hero-swiper .swiper-slide img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: clamp(220px, 48vh, 520px);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+/* Flechas discretas */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: saturate(120%) blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.18s ease, background-color 0.18s ease,
+    border-color 0.18s ease;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.38);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px;
+  color: #fff;
+}
+/* Paginación debajo */
+.hero-swiper .swiper-pagination {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.hero-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  opacity: 0.6;
+  background: #fff;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.hero-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ------------------------------
+   Certifications (primer bloque)
+---------------------------------*/
+.certifications-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(1rem, 2vw, 1.25rem);
+  align-items: stretch;
+}
+.certification-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+.certification-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.33);
+}
+.certification-badge {
+  display: block;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin: 0 auto 0.6rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+.certification-info h3 {
+  margin: 0 0 0.3rem 0;
+  line-height: 1.15;
+}
+.certification-info p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* ------------------------------
+   Infosys Certifications (3x2 con 🏅)
+---------------------------------*/
+.infosys-certifications-container {
+  margin-top: 2rem;
+}
+.infosys-certifications-container header.minor {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.infosys-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: clamp(0.85rem, 1.6vw, 1.15rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (min-width: 920px) {
+  .infosys-grid {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+}
+.infosys-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.03)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.infosys-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.38);
+}
+.infosys-card__icon {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 0.55rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28) inset,
+    0 8px 18px rgba(0, 0, 0, 0.25);
+}
+.infosys-medal {
+  font-size: 20px;
+  line-height: 1;
+}
+.infosys-card h4 {
+  margin: 0.35rem 0 0.25rem;
+}
+.infosys-card p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------
+   Aptitudes (3x3 desktop)
+---------------------------------*/
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem;
+}
+#aptitudes .skills-container {
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+}
+@media (min-width: 1024px) {
+  #aptitudes .skills-container {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+}
+.skill-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 0.85rem;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+.skill-icon {
+  font-size: 1.35rem;
+  margin-bottom: 0.35rem;
+}
+.skill-text {
+  margin: 0;
+}
+
+/* ------------------------------
+   Languages & Tools (5x2 desktop)
+---------------------------------*/
+.skills-logos .skill-item {
+  display: grid;
+  gap: 0.25rem;
+  justify-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 0.75rem;
+}
+#languages-tools .skills-logos {
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+}
+@media (min-width: 640px) {
+  #languages-tools .skills-logos {
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  #languages-tools .skills-logos {
+    grid-template-columns: repeat(5, minmax(140px, 1fr));
+  }
+}
+
+/* ------------------------------
+   Featured Projects (imagen izq, texto der)
+---------------------------------*/
+.project-card-container--rows {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.25rem);
+}
+.project-card--row {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+  align-items: stretch;
+}
+.project-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 170px;
+  max-height: 220px;
+}
+.project-card__body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem 1.05rem;
+}
+.project-card__title {
+  margin: 0;
+}
+.project-card__desc {
+  margin: 0;
+  opacity: 0.95;
+}
+.project-card__actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.button-accent {
+  background: linear-gradient(135deg, #9d7bff, #5ad1ff);
+  color: #0b1220 !important;
+  border: 0;
+}
+.button-accent:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .project-card--row {
+    grid-template-columns: 1fr;
+  }
+  .project-card__media img {
+    max-height: 240px;
+    min-height: 180px;
+  }
+}
+
+/* ------------------------------
+   Footer
+---------------------------------*/
+#footer .split.contact {
+  gap: 1rem;
+}
+#footer .icons a.icon:before {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Previene cualquier “bloque negro” heredado y “menu” residual */
+body > #menu {
+  display: none;
+}
+a[href="#menu"] {
+  display: none !important;
+}
+/* ===== FIXES FINALES ===== */
+
+/* 1) Oculta por completo el menú inyectado por HTML5 UP si alguna vez aparece */
+#titleBar, #navPanel, #menu, a[href="#menu"] { display: none !important; }
+
+/* 2) Header + toggle */
+#header { display:flex; align-items:center; gap:.75rem; padding:.8rem 1rem 0; }
+#header .logo { margin-right:auto; }
+.nav-toggle {
+  display:none; margin-left:auto; padding:.55rem .65rem;
+  border-radius:10px; border:1px solid rgba(255,255,255,.25);
+  background:rgba(0,0,0,.25); color:#fff; cursor:pointer; line-height:1;
+}
+.nav-toggle i{ font-size:1.1rem; }
+
+/* 3) Nav desktop */
+#nav{
+  display:grid; grid-auto-flow:column; justify-content:space-between; align-items:center;
+  gap:1rem; padding:.5rem 1rem 0; z-index:1;
+}
+#nav .links{ display:flex; gap:1rem; list-style:none; padding:0; margin:0; }
+#nav .icons{ display:flex; gap:.65rem; list-style:none; padding:0; margin:0; }
+
+/* 4) Panel móvil correcto (ítems dentro, no al fondo) */
+@media (max-width:980px){
+  .nav-toggle{ display:inline-flex; align-items:center; justify-content:center; }
+  #nav{
+    position:fixed; top:0; right:0; width:min(86vw,340px); height:100dvh;
+    padding:1rem; background:rgba(20,24,30,.96);
+    backdrop-filter:saturate(120%) blur(6px);
+    transform:translateX(100%); transition:transform .25s ease;
+    z-index:10010; display:flex; flex-direction:column; align-items:stretch; gap:1rem;
+  }
+  body.nav-open #nav{ transform:translateX(0); }
+  body.nav-open{ overflow:hidden; }
+  #nav .links{ flex-direction:column; gap:.75rem; }
+  #nav .links a{ padding:.45rem .25rem; }
+  #nav .icons{ gap:.5rem; }
+}
+/* Fondo clicable para cerrar */
+.nav-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:10000; }
+
+/* 5) Intro siempre visible (por si quedaba alguna regla antigua) */
+#intro{ opacity:1 !important; transform:none !important; }
+
+/* 6) Paginación del Swiper bajo las imágenes (por si el nav la “pisaba”) */
+.hero-swiper{ position:relative; padding-bottom:34px; }
+.hero-swiper .swiper-pagination{ position:absolute; left:0; right:0; bottom:6px; }
+
+/* 7) Asegura Font Awesome (íconos visibles) */
+.icon:before{ font-family:"Font Awesome 5 Free"; font-weight:900; }
+.icon.brands:before{ font-family:"Font Awesome 5 Brands"; font-weight:400; }
+
+/* =========================
+   BOTONES (solo esta sección)
+   ========================= */
+
+/* Base */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem 1.15rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background-color .18s ease,
+    color .18s ease,
+    border-color .18s ease;
+  user-select: none;
+}
+
+/* Mantiene accesibilidad: texto visible para lectores, oculto visualmente */
+.button .label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+}
+
+/* Variantes */
+.button-primary {
+  background: linear-gradient(180deg, #a2ffe5, #7dffd7);
+  color: #495151;
+  box-shadow: 0 8px 20px rgba(162,255,229,.25);
+}
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(162,255,229,.35);
+}
+.button-primary:active {
+  transform: translateY(-1px);
+}
+.button-primary:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(107,212,255,.35);
+}
+
+/* “Learn more” con acento para diferenciar del primary */
+.button-accent {
+  background: transparent;
+  color: #f5f2eb;
+  border-color: #ffd66b;
+}
+.button-accent:hover {
+  background: rgba(255, 255, 254, 0.12);
+  transform: translateY(-2px);
+}
+.button-accent:active {
+  transform: translateY(-1px);
+}
+.button-accent:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(107,212,255,.35);
+}
+
+/* Tamaños */
+.button.large { padding: 1rem 1.35rem; font-size: 1.02rem; }
+.button.small { padding: .55rem .85rem; font-size: .925rem; }
+
+/* Botón de flecha (icon-only) */
+.button.icon.solid.solo {
+  padding: .8rem;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+/* Centrar el botón “Explore Projects” sin <ul>/<li> */
+.post.featured .button-primary {
+  display: inline-flex;
+  margin: .35rem auto 0;
+}
+/* --- Center the "Explore Projects" CTA in the featured post --- */
+.post.featured .button.button-primary {
+  /* centra en layouts normales */
+  display: block;
+  width: fit-content;           /* se ajusta al contenido */
+  margin: .75rem auto 0;        /* margen horizontal auto = centrado */
+
+  /* por si el contenedor es flex o grid */
+  align-self: center;           /* flex */
+  place-self: center;           /* grid (justify-self + align-self) */
+}
+
+/* fallback para navegadores sin fit-content */
+@supports not (width: fit-content) {
+  .post.featured .button.button-primary { display: inline-block; }
+}

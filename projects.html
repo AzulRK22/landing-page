@@ -1,90 +1,104 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
-    <title>Project Details - Azul Grisel Ramirez Kuri</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="assets/css/gallery.css" />
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <title>Azul Grisel Ramirez Kuri — Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H06V4SLX7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'UA-XXXXXXXXX-X');
+        gtag('js', new Date()); gtag('config', 'G-4H06V4SLX7');
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
-    <style>
-        #appleAnimation {
-            width: 150px;
-            height: 150px;
-            margin: 50px auto;
-        }
-    </style>
+
+    <!-- CSS base -->
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/layout.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/home.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Projects CSS (cache-bust) -->
+    <link rel="stylesheet" href="assets/css/projects.css?v=10" />
+
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
 </head>
 
-<body class="is-preload">
-
-    <!-- Wrapper -->
+<body>
     <div id="wrapper" class="fade-in">
+        <!-- Header -->
+        <header id="header" role="banner">
+            <a href="index.html" class="logo" aria-label="Home">Azul RK</a>
+            <button class="nav-toggle" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </header>
 
-		<!-- Header -->
-		<header id="header">
-			<a href="index.html" class="logo">Azul Kuri</a>
-		</header>
-
-		<!-- Nav -->
-		<nav id="nav">
-			<ul class="links" role="menubar">
-				<li role="none"><a href="index.html" role="menuitem">Home</a></li>
-				<li role="none"><a href="projects.html" role="menuitem" aria-current="page" class="active">Projects</a></li>
-				<li role="none"><a href="#footer" role="menuitem">Contact</a></li>
-				<li role="none"><a href="resume.html" role="menuitem">Resume</a></li>
-			</ul>
-			<ul class="icons">
-				<li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/"
-						class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-				<li><a href="https://www.instagram.com/azulramk/" class="icon brands fa-instagram"><span
-							class="label">Instagram</span></a></li>
-				<li><a href="https://github.com/AzulRK22" class="icon brands fa-github"><span
-							class="label">GitHub</span></a></li>
-			</ul>
-		</nav>
+        <!-- Nav -->
+        <nav id="nav" role="navigation" aria-label="Main">
+            <ul class="links" role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="projects.html" role="menuitem" aria-current="page" class="active">Projects</a>
+                </li>
+                <li role="none"><a href="tech.html" role="menuitem">Tech & Media</a></li>
+                <li role="none"><a href="resume.html" role="menuitem">Resume</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/"
+                        class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span
+                            class="label">LinkedIn</span></a></li>
+                <li><a href="https://www.instagram.com/azulramk/" class="icon brands fa-instagram" target="_blank"
+                        rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
+                <li><a href="https://github.com/AzulRK22" class="icon brands fa-github" target="_blank"
+                        rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+                <li><a href="https://www.youtube.com/@azulrk" class="icon brands fa-youtube" target="_blank"
+                        rel="noopener noreferrer"><span class="label">YouTube</span></a></li>
+            </ul>
+        </nav>
+        <div class="nav-backdrop" hidden></div>
 
         <!-- Main -->
         <div id="main">
-
-            <!-- Ecommerce App Project -->
+            <!-- Ecommerce App -->
             <section id="ecommerce-app">
                 <header class="major">
                     <h2>Ecommerce App</h2>
                 </header>
 
-                <!-- Image Gallery for Ecommerce App -->
-                <div class="image-gallery">
-                    <button class="prev" onclick="changeSlide(-1, 'ecommerce')">&#10094;</button>
-                    <div class="gallery-item ecommerce"><img src="images/eco1.jpg" alt="Ecommerce Image 1" /></div>
-                    <div class="gallery-item ecommerce"><img src="images/eco2.jpg" alt="Ecommerce Image 2" /></div>
-                    <div class="gallery-item ecommerce"><img src="images/eco3.jpg" alt="Ecommerce Image 3" /></div>
-                    <div class="gallery-item ecommerce"><img src="images/eco4.jpg" alt="Ecommerce Image 4" /></div>
-                    <div class="gallery-item ecommerce"><img src="images/eco5.jpg" alt="Ecommerce Image 5" /></div>
-                    <button class="next" onclick="changeSlide(1, 'ecommerce')">&#10095;</button>
+                <div class="project-swiper swiper" id="swiper-ecommerce">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/eco1.jpg" alt="Ecommerce 1" /></div>
+                        <div class="swiper-slide"><img src="images/eco2.jpg" alt="Ecommerce 2" /></div>
+                        <div class="swiper-slide"><img src="images/eco3.jpg" alt="Ecommerce 3" /></div>
+                        <div class="swiper-slide"><img src="images/eco4.jpg" alt="Ecommerce 4" /></div>
+                        <div class="swiper-slide"><img src="images/eco5.jpg" alt="Ecommerce 5" /></div>
+                    </div>
+                    <div class="swiper-pagination" aria-live="polite"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
                 </div>
 
-                <!-- Project Description -->
                 <div class="project-description">
                     <h3>Description</h3>
                     <p>This project focuses on the development of a hybrid e-commerce platform, which includes both a
                         mobile application and a web application. The platform is designed to provide users with
-                        efficient tools to manage purchases, sales and personal data, as well as security options and
-                        usage preferences.</p>
+                        efficient tools
+                        to manage purchases, sales and personal data, as well as security options and usage preferences.
+                    </p>
                 </div>
 
-                <!-- Project Features -->
                 <div class="project-features">
                     <h3>Features</h3>
                     <ul>
@@ -98,7 +112,6 @@
                     </ul>
                 </div>
 
-                <!-- Project Technologies -->
                 <div class="project-technologies">
                     <h3>Technologies</h3>
                     <ul>
@@ -109,29 +122,29 @@
                 </div>
             </section>
 
-            <!-- Fellow AI Project -->
+            <!-- HeadStarter -->
             <section id="headstarter">
                 <header class="major">
                     <h2>Fellow AI - HeadStarter</h2>
                 </header>
 
-                <!-- Image Gallery for Fellow AI -->
-                <div class="image-gallery">
-                    <button class="prev" onclick="changeSlide(-1, 'headstarter')">&#10094;</button>
-                    <div class="gallery-item headstarter"><img src="images/head1.jpeg" alt="Photo 1" /></div>
-                    <div class="gallery-item headstarter"><img src="images/headnew.png" alt="Photo 2" /></div>
-                    <div class="gallery-item headstarter"><img src="images/head3.gif" alt="Photo 3" /></div>
-                    <div class="gallery-item headstarter"><img src="images/inv1.png" alt="Photo 4" /></div>
-                    <div class="gallery-item headstarter"><img src="images/in2.png" alt="Photo 5" /></div>
-                    <button class="next" onclick="changeSlide(1, 'headstarter')">&#10095;</button>
+                <div class="project-swiper swiper" id="swiper-headstarter">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/head2.jpeg" alt="HeadStarter 2" /></div>
+                        <div class="swiper-slide"><img src="images/inv1.png" alt="HeadStarter 4" /></div>
+                        <div class="swiper-slide"><img src="images/in2.png" alt="HeadStarter 5" /></div>
+                    </div>
+                    <div class="swiper-pagination" aria-live="polite"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
                 </div>
 
-                <!-- Project Description -->
                 <div class="project-description">
                     <h3>Description</h3>
                     <p>The HeadStarter AI Fellowship is a 7-week, remote and asynchronous program aimed at college
                         students and graduates who want to enhance their software engineering skills, build practical
-                        projects, and gain industry exposure. The fellowship includes:</p>
+                        projects,
+                        and gain industry exposure. The fellowship includes:</p>
                     <ul>
                         <li>Building 5 AI projects.</li>
                         <li>Completing a final project with a goal of acquiring 1,000+ users.</li>
@@ -139,7 +152,6 @@
                     </ul>
                 </div>
 
-                <!-- Project Features -->
                 <div class="project-features">
                     <h3>Features</h3>
                     <ul>
@@ -153,7 +165,6 @@
                     </ul>
                 </div>
 
-                <!-- Project goals-->
                 <div class="project-goals-motivation">
                     <h3>Technologies</h3>
                     <ul>
@@ -164,7 +175,6 @@
                     </ul>
                 </div>
 
-                <!-- More Information Section -->
                 <div class="more-info">
                     <h3>More Information</h3>
                     <p>For more details about the HeadStarter AI Fellowship and to explore other opportunities, please
@@ -176,51 +186,45 @@
                     </ul>
                 </div>
             </section>
-            <!-- EcoVentus Dashboard Project Section -->
+
+            <!-- EcoVentus -->
             <section id="EcoVentus-dashboard">
                 <header class="major">
                     <h2>EcoVentus: AI-Driven UAV Monitoring Platform</h2>
                 </header>
 
-                <!-- Image Gallery for KeepNAI Dashboard -->
-                <div class="image-gallery">
-                    <button class="prev" onclick="changeSlide(-1, 'EcoVentus')">&#10094;</button>
-                    <div class="gallery-item EcoVentus active"><img src="images/home.png" alt="EcoVentus Image 1" />
+                <div class="project-swiper swiper" id="swiper-ecoventus">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/home.png" alt="EcoVentus 1" /></div>
+                        <div class="swiper-slide"><img src="images/monitoring1.png" alt="EcoVentus 2" /></div>
+                        <div class="swiper-slide"><img src="images/monitoring2.png" alt="EcoVentus 3" /></div>
+                        <div class="swiper-slide"><img src="images/monitoring3.png" alt="EcoVentus 4" /></div>
+                        <div class="swiper-slide"><img src="images/monitoring4.png" alt="EcoVentus 5" /></div>
+                        <div class="swiper-slide"><img src="images/monitoring5.png" alt="EcoVentus 6" /></div>
+                        <div class="swiper-slide"><img src="images/monitoring6.png" alt="EcoVentus 7" /></div>
+                        <div class="swiper-slide"><img src="images/reports.png" alt="EcoVentus 8" /></div>
+                        <div class="swiper-slide"><img src="images/incidents.png" alt="EcoVentus 9" /></div>
+                        <div class="swiper-slide"><img src="images/virtual.png" alt="EcoVentus 10" /></div>
+                        <div class="swiper-slide"><img src="images/about.png" alt="EcoVentus 11" /></div>
                     </div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring1.png" alt="EcoVentus Image 2" />
-                    </div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring2.png" alt="EcoVentus Image 3" />
-                    </div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring3.png" alt="EcoVentus Image 4" />
-                    </div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring4.png" alt="EcoVentus Image 5" />
-                    </div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring5.png" alt="EcoVentus Image 6" />
-                    </div>
-                    <div class="gallery-item EcoVentus"><img src="images/monitoring6.png" alt="EcoVentus Image 7" />
-                    </div>
-                    <div class="gallery-item EcoVentus"><img src="images/reports.png" alt="EcoVentus Image 8" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/incidents.png" alt="EcoVentus Image 9" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/virtual.png" alt="EcoVentus Image 10" /></div>
-                    <div class="gallery-item EcoVentus"><img src="images/about.png" alt="EcoVentus Image 11" /></div>
-
-                    <button class="next" onclick="changeSlide(1, 'EcoVentus')">&#10095;</button>
+                    <div class="swiper-pagination" aria-live="polite"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
                 </div>
 
-                <!-- Project Description -->
                 <div class="project-description">
                     <h3>Description</h3>
                     <p>EcoVentus is an advanced AI-powered platform designed to optimize UAV (Unmanned Aerial Vehicle)
                         operations for industries like environmental monitoring, renewable energy, and agriculture. By
-                        combining real-time data collection, route planning, and analytics, EcoVentus enables precise,
-                        efficient, and sustainable solutions for monitoring and managing key resources.
-
-                        The platform integrates a web-based interface to control and visualize UAV missions, leveraging
+                        combining
+                        real-time data collection, route planning, and analytics, EcoVentus enables precise, efficient,
+                        and
+                        sustainable solutions for monitoring and managing key resources.</p>
+                    <p>The platform integrates a web-based interface to control and visualize UAV missions, leveraging
                         artificial intelligence to detect patterns, analyze data, and support informed decision-making.
                     </p>
                 </div>
 
-                <!-- Project Features -->
                 <div class="project-features">
                     <h3>Features</h3>
                     <ul>
@@ -228,19 +232,16 @@
                         <li>Customizable Drone Configuration: Adjust parameters such as altitude, speed, and mission
                             priority.</li>
                         <li>AI-Driven Insights: Automatically detect and analyze patterns in collected data.</li>
-                        <li>Interactive Dashboard: View mission priority scores and flight times,Download Waypoint (WP)
-                            files for custom UAV configurations, Visualize routes on a detailed map.</li>
-                        <li>Scalable Use Cases: Renewable energy: Inspect solar panels and wind turbines for efficiency
-                            and damage detection, Agriculture: Monitor crop health and optimize land use, Environmental
-                            assessment: Track deforestation, wildlife habitats, and urban development impact.</li>
+                        <li>Interactive Dashboard: View mission priority scores and flight times, download Waypoint (WP)
+                            files for custom UAV configurations, visualize routes on a detailed map.</li>
+                        <li>Scalable Use Cases: Renewable energy, agriculture, and environmental assessment.</li>
                     </ul>
                 </div>
 
-                <!-- Project Technologies -->
                 <div class="project-technologies">
                     <h3>Technologies Used</h3>
                     <ul>
-                        <li><strong>Frontend:</strong> Next.js, React.js,CSS3, JavaScrip, Leaflet.js, React Router,
+                        <li><strong>Frontend:</strong> Next.js, React.js, CSS3, JavaScript, Leaflet.js, React Router,
                             Google Fonts</li>
                         <li><strong>Backend:</strong> Flask, Node.js, Python</li>
                         <li><strong>Database:</strong> MongoDB</li>
@@ -248,28 +249,29 @@
                     </ul>
                 </div>
 
-                <!-- GitHub Link -->
                 <div class="project-link">
                     <h3>View on GitHub</h3>
                     <p>Check out the complete project code and documentation on <a
                             href="https://github.com/AzulRK22/queenDrones" target="_blank">GitHub</a>.</p>
                 </div>
             </section>
-            <section id="upcoming-projects" style="text-align:center; padding: 2rem;">
-                <h2>Upcoming Projects</h2>
-                <div id="appleAnimation"></div>
-                <ul
-                    style="list-style:none; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                    <li>
-                        <strong>Innovative Social App</strong><br>
-                        Currently in development: A platform focused on connecting users through shared values and soft
-                        skills, built using Swift.
-                    </li>
-                </ul>
+
+            <!-- Upcoming + Apple animation -->
+            <section id="upcoming-projects" class="upcoming-compact" aria-labelledby="upcoming-title">
+                <div class="upcoming-scale">
+                    <h2 id="upcoming-title">Upcoming Projects</h2>
+                    <div id="appleAnimation"></div>
+                    <ul>
+                        <li>
+                            <strong>Innovative Social App</strong><br />
+                            Currently in development: A platform focused on connecting users through shared values and
+                            soft
+                            skills, built using Swift.
+                        </li>
+                    </ul>
+                </div>
             </section>
-
-
-        </div>
+        </div><!-- /#main -->
 
         <!-- Footer -->
         <footer id="footer">
@@ -284,43 +286,155 @@
                 </section>
                 <section>
                     <h3>Email</h3>
-                    <p><a href="mailto:azul@example.com">azularamk@gmail.com</a></p>
+                    <p><a href="mailto:azularamk@gmail.com">azularamk@gmail.com</a></p>
                 </section>
                 <section>
                     <h3>Social</h3>
                     <ul class="icons">
-                        <li><a href="https://github.com/AzulRK22" class="icon brands fa-github"><span
-                                    class="label">GitHub</span></a></li>
-                        <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/"
-                                class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                        <li><a href="https://www.instagram.com/azulramk/" class="icon brands fa-instagram"><span
-                                    class="label">Instagram</span></a></li>
+                        <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" target="_blank"
+                                rel="noopener noreferrer" class="icon brands fa-linkedin"><span
+                                    class="label">LinkedIn</span></a></li>
+                        <li><a href="https://www.instagram.com/azulramk/" target="_blank" rel="noopener noreferrer"
+                                class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer"
+                                class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="https://www.youtube.com/@azulrk" target="_blank" rel="noopener noreferrer"
+                                class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
                     </ul>
                 </section>
             </section>
         </footer>
 
-    </div>
+        <div id="copyright">
+            <ul>
+                <li>&copy; Azul Grisel Ramirez Kuri</li>
+                <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </div><!-- /#wrapper -->
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <!-- Swiper -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/js/gallery.js"></script>
-    <script>
-        lottie.loadAnimation({
-          container: document.getElementById('appleAnimation'),
-          renderer: 'svg',
-          loop: true,
-          autoplay: true,
-          path: 'assets/animations/apple.json'
-        });
-      </script>
-    </body>
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
 
+    <!-- Nav toggle -->
+    <script>
+        (function () {
+            const body = document.body;
+            const nav = document.getElementById('nav');
+            const btn = document.querySelector('.nav-toggle');
+            const backdrop = document.querySelector('.nav-backdrop');
+
+            function openNav() { body.classList.add('nav-open'); btn?.setAttribute('aria-expanded', 'true'); backdrop?.removeAttribute('hidden'); }
+            function closeNav() { body.classList.remove('nav-open'); btn?.setAttribute('aria-expanded', 'false'); backdrop?.setAttribute('hidden', ''); }
+            function toggleNav() { body.classList.contains('nav-open') ? closeNav() : openNav(); }
+
+            btn?.addEventListener('click', toggleNav);
+            backdrop?.addEventListener('click', closeNav);
+            nav?.querySelectorAll('a[href]').forEach(a => {
+                a.addEventListener('click', () => { if (window.matchMedia('(max-width:980px)').matches) closeNav(); });
+            });
+            window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeNav(); });
+
+            const mq = window.matchMedia('(min-width:981px)');
+            (mq.addEventListener ? mq.addEventListener('change', h => h.matches && closeNav())
+                : mq.addListener(h => h.matches && closeNav()));
+        })();
+    </script>
+
+    <!-- Swipers + Lottie -->
+    <script>
+        // TODOS con autoHeight + 1 slide por vista (evita recortes y el contenedor se adapta)
+        new Swiper('#swiper-ecommerce', {
+            loop: true,
+            speed: 600,
+            spaceBetween: 10,
+            slidesPerView: 1,
+            autoHeight: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            navigation: { nextEl: '#swiper-ecommerce .swiper-button-next', prevEl: '#swiper-ecommerce .swiper-button-prev' },
+            pagination: { el: '#swiper-ecommerce .swiper-pagination', clickable: true }
+        });
+
+        new Swiper('#swiper-headstarter', {
+            loop: true,
+            speed: 600,
+            spaceBetween: 6,
+            slidesPerView: 1,
+            autoHeight: true,
+            preloadImages: false,
+            lazy: true,
+            autoplay: { delay: 3200, disableOnInteraction: false },
+            navigation: { nextEl: '#swiper-headstarter .swiper-button-next', prevEl: '#swiper-headstarter .swiper-button-prev' },
+            pagination: { el: '#swiper-headstarter .swiper-pagination', clickable: true }
+        });
+
+        new Swiper('#swiper-ecoventus', {
+            loop: true,
+            speed: 600,
+            spaceBetween: 8,
+            slidesPerView: 1,
+            autoHeight: true,
+            autoplay: { delay: 3400, disableOnInteraction: false },
+            navigation: { nextEl: '#swiper-ecoventus .swiper-button-next', prevEl: '#swiper-ecoventus .swiper-button-prev' },
+            pagination: { el: '#swiper-ecoventus .swiper-pagination', clickable: true }
+        });
+
+        // Apple animation — quita cualquier fondo (blanco/negro), incluso si aparece al final
+        (function () {
+            const el = document.getElementById('appleAnimation');
+            if (!el || !window.lottie) return;
+
+            const anim = lottie.loadAnimation({
+                container: el,
+                renderer: 'svg',
+                loop: true,
+                autoplay: true,
+                rendererSettings: { preserveAspectRatio: 'xMidYMid meet', progressiveLoad: true },
+                path: 'assets/animations/apple.json'
+            });
+
+            function zapFullscreenBG(svg) {
+                if (!svg) return;
+                const vb = (svg.getAttribute('viewBox') || '').trim().split(/\s+/).map(parseFloat);
+                const vbW = vb[2] || null, vbH = vb[3] || null;
+                const VB_AREA = vbW && vbH ? vbW * vbH : null;
+
+                const candidates = svg.querySelectorAll('rect, path, polygon, circle, ellipse');
+                candidates.forEach(n => {
+                    const fill = (n.getAttribute('fill') || '').toLowerCase().replace(/\s+/g, '');
+                    const isWhite = ['#fff', '#ffffff', 'white', 'rgb(255,255,255)'].includes(fill);
+                    const isBlack = ['#000', '#000000', 'black', 'rgb(0,0,0)'].includes(fill);
+
+                    // Heurística: si cubre ~todo el lienzo, lo hacemos transparente
+                    let coversAll = false;
+                    try {
+                        const bb = n.getBBox && n.getBBox();
+                        if (bb && VB_AREA) {
+                            const area = bb.width * bb.height;
+                            coversAll = area / VB_AREA > 0.9; // 90% o más del SVG
+                        }
+                    } catch (e) { /* algunos nodos pueden fallar getBBox en animaciones */ }
+
+                    if (coversAll || isWhite || isBlack) {
+                        // Sólo “limpiar” si parece fondo (grande) o si es rectángulo plano
+                        if (n.tagName.toLowerCase() === 'rect' || coversAll) {
+                            n.setAttribute('fill', 'transparent');
+                            n.setAttribute('fill-opacity', '0');
+                            n.style.fill = 'transparent';
+                        }
+                    }
+                });
+
+                svg.style.background = 'transparent';
+            }
+
+            const clean = () => zapFullscreenBG(el.querySelector('svg'));
+            anim.addEventListener('DOMLoaded', clean);
+            anim.addEventListener('enterFrame', clean); // por si reaparece en frames posteriores
+        })();
+    </script>
 </body>
 
 </html>

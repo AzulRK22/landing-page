@@ -1,0 +1,42 @@
+/* ========== HOME (portada) ========== */
+
+/* Fondo */
+#wrapper {
+  background-color: #212931;
+  background-image:
+    url("../../images/overlay.png"),
+    linear-gradient(0deg, rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
+    url("../../images/bg.jpg");
+  background-size: auto, auto, 100% auto;
+  background-position: center, center, top center;
+  background-repeat: repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed;
+}
+
+/* Evita flash preload */
+#wrapper.fade-in:before { display: none; }
+body.is-preload #intro { opacity: 1; }
+body.is-preload #intro:not(.hidden) + #header + #nav { transform: none; opacity: 1; }
+
+/* Featured post spacing */
+.post.featured { margin-top: 0.5rem; }
+/* Centrar el CTA "Explore Projects" dentro del featured */
+.post.featured .explore-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;   /* centra horizontal */
+  margin-top: 0.75rem;
+}
+
+/* Z-index para que la paginación de swiper no se meta en el nav */
+@media (min-width: 981px) {
+  #nav { z-index: 1000; }
+  .hero-swiper { z-index: 1; }
+}
+
+/* Ajustes responsivos sutiles */
+@media (max-width: 680px) {
+  .intro-hero { padding-top: 2rem; }
+  .hero-swiper .swiper-slide img { max-height: 360px; }
+}

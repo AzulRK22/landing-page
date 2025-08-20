@@ -1,0 +1,83 @@
+/* =========================
+   Resume page
+   ========================= */
+
+/* Contenedor del viewer */
+.pdf-container {
+  width: min(960px, 95vw);
+  margin: 0 auto 2rem;
+}
+
+/* Marco del PDF: fondo blanco para contraste sobre tema oscuro */
+.pdf-frame {
+  width: 100%;
+  height: clamp(560px, 78vh, 1100px);
+  display: block;
+  background: #ffffff;               /* contraste real con el CV */
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  overflow: hidden;
+}
+
+/* Acciones superiores */
+.resume-actions {
+  width: min(960px, 95vw);
+  margin: 0 auto 1rem;
+  display: flex;
+  gap: .6rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  --btn-bg: #ffffff;
+  --btn-fg: #111;
+  --btn-bd: rgba(255,255,255,0.25);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem .9rem;
+  border-radius: 10px;
+  border: 1px solid var(--btn-bd);
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1;
+  transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn.btn-outline {
+  --btn-bg: transparent;
+  --btn-fg: #fff;
+  --btn-bd: rgba(255,255,255,0.35);
+  box-shadow: none;
+}
+
+/* Encabezado de sección consistente */
+#resume .major h2 {
+  margin-bottom: .5rem;
+}
+
+/* Mobile tweaks */
+@media (max-width: 480px) {
+  .btn { width: 100%; }
+  .pdf-frame { height: 72vh; }
+}
+/* assets/css/resume.css */
+@media print {
+  body { background:#fff; color:#000; }
+  #header, #nav, #footer, .resume-actions, .nav-backdrop { display:none !important; }
+  .pdf-container { width:100%; margin:0; }
+  .pdf-frame {
+    border:0; box-shadow:none; border-radius:0; height:auto; min-height:0;
+    background:#fff;
+  }
+}

@@ -1,15 +1,92 @@
-# Azul Grisel Ramirez Kuri
+# ✨ Azul Grisel Ramirez Kuri — Portafolio & Guía del Sitio
 
-Welcome to my personal portfolio page! This webpage showcases my experience, certifications, skills, and featured projects. Here's a brief overview of what you'll find:
+Bienvenida/o a mi portafolio. Este README mezcla **explicación técnica** (cómo está construido el sitio) con una **presentación visual** de mis proyectos.  
+Si quieres ir directo a ver páginas:
 
-## Overview
+- ▶️ **Home:** [`index.html`](index.html)  
+- 🧪 **Projects:** [`projects.html`](projects.html)  
+- 🎬 **Tech & Media:** [`tech.html`](tech.html)  
+- 📄 **Resume:** [`resume.html`](resume.html)
 
-- **Introduction**: A brief introduction about me, including my roles as an AI Engineer, Software Engineer, and Mobile Developer.
-- **Experience**: Details about my professional experience, including my role at Xolotl Creative Labs.
-- **Certifications**: Information on my certifications and upcoming certifications.
-- **Skills**: A list of my key skills and aptitudes.
-- **Languages and Tools**: Technologies and tools I am proficient in.
-- **Projects**: Featured projects with links to detailed descriptions.
+---
+
+## 🌟 Vistazo Rápido a Proyectos
+
+### 🛒 Ecommerce App
+Experiencia completa de e-commerce (auth, wishlist, carrito, historial).
+  
+![Ecommerce App](images/eco1.jpg "Ecommerce App")
+
+**Stack:** Android Studio (Kotlin), Figma, GitHub.
+
+---
+
+### 🤖 Fellow AI — HeadStarter
+Fellowship de 7 semanas enfocada en proyectos de IA, hackathons y branding.
+  
+![HeadStarter](images/head2.jpeg "HeadStarter")
+
+**Incluye:** 5 proyectos de IA, proyecto final +1000 usuarios, coaching y networking.
+
+---
+
+### 🌿 EcoVentus — AI-Driven UAV Monitoring
+Plataforma para planear, monitorear y analizar misiones UAV con insights de IA.
+
+<div align="center">
+  <img src="images/home.png" alt="EcoVentus Dashboard" width="49%"/>
+  <img src="images/monitoring2.png" alt="EcoVentus Monitoring" width="49%"/>
+</div>
+
+**Stack:** Next.js/React, Flask/Node/Python, MongoDB, Leaflet, Huawei Cloud.
+
+---
+
+### 🎥 Tech & Media
+Embeds de contenido (YouTube/TikTok) con contraste y tarjetas estilizadas.
+
+---
+Embeds TikTok: usan https. Si sirves el sitio por http verás avisos de consola por protocolo mixto. En producción (GitHub Pages con HTTPS) no afecta.
+
+
+
+## 🧩 ¿Cómo está construido?
+
+**Puro Frontend estático** (HTML, CSS, JS) con librerías ligeras:
+
+- **Swiper** para carruseles en `projects.html`.
+- **(Opcional) Lottie** para animaciones SVG (p.ej., Apple).  
+- **Sin frameworks pesados**; CSS modular por página.
+
+
+## 📁 Estructura
+assets/
+animations/      # lotties (apple.json)
+css/             # base.css, layout.css, components.css + {home,projects,tech,resume}.css
+js/              # index.js, tech.js (scripts por página)
+docs/              # CV en PDF
+images/            # imágenes del sitio
+index.html
+projects.html
+tech.html
+resume.html
+CNAME              # dominio para GitHub Pages (si aplica)
+
+
+## 🧩 Tecnologías
+
+- **HTML5** + **CSS3** (modular por página)
+- **JavaScript** vanilla (sin frameworks)
+- **Swiper** (CDN) para carruseles en *Projects*
+- **Lottie** (CDN) opcional para animaciones SVG (p. ej. `apple.json`)
+
+---
+
+## ▶️ Desarrollo local
+
+**Opción 1 (VS Code):**
+
+	•	Extensión Live Server → “Go Live”.
 
 ## Features
 
