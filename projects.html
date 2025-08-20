@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!-- Projects CSS (cache-bust) -->
-    <link rel="stylesheet" href="assets/css/projects.css?v=10" />
+    <link rel="stylesheet" href="assets/css/projects.css?v=11" />
 
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" />
@@ -122,67 +122,75 @@
                 </div>
             </section>
 
-            <!-- HeadStarter -->
+            <!-- Inventory (antes HeadStarter) -->
             <section id="headstarter">
                 <header class="major">
-                    <h2>Fellow AI - HeadStarter</h2>
+                    <h2>Inventory — AI-powered Smart Pantry</h2>
+                    <p class="sub">Detecta, nombra, clasifica y guarda ingredientes en Firebase</p>
                 </header>
 
+                <!-- Carrusel existente (puedes cambiar imágenes cuando gustes) -->
                 <div class="project-swiper swiper" id="swiper-headstarter">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="images/head2.jpeg" alt="HeadStarter 2" /></div>
-                        <div class="swiper-slide"><img src="images/inv1.png" alt="HeadStarter 4" /></div>
-                        <div class="swiper-slide"><img src="images/in2.png" alt="HeadStarter 5" /></div>
+                        <div class="swiper-slide"><img src="images/inv1.png" alt="Inventory – slide 2" /></div>
+                        <div class="swiper-slide"><img src="images/in2.png" alt="Inventory – slide 3" /></div>
+                        <div class="swiper-slide"><img src="images/inv3.png" alt="Inventory – slide 4" /></div>
+                        <div class="swiper-slide"><img src="images/inv4.png" alt="Inventory – slide 5" /></div>
                     </div>
                     <div class="swiper-pagination" aria-live="polite"></div>
                     <div class="swiper-button-prev" aria-label="Previous slide"></div>
                     <div class="swiper-button-next" aria-label="Next slide"></div>
                 </div>
 
-                <div class="project-description">
-                    <h3>Description</h3>
-                    <p>The HeadStarter AI Fellowship is a 7-week, remote and asynchronous program aimed at college
-                        students and graduates who want to enhance their software engineering skills, build practical
-                        projects,
-                        and gain industry exposure. The fellowship includes:</p>
-                    <ul>
-                        <li>Building 5 AI projects.</li>
-                        <li>Completing a final project with a goal of acquiring 1,000+ users.</li>
-                        <li>Improving my personal branding</li>
-                    </ul>
+                <div class="links-row compact" role="group" aria-label="Inventory links">
+                    <a class="link-btn github" href="https://github.com/AzulRK22/inventory" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        GitHub
+                    </a>
+
+                    <a class="link-btn youtube" href="https://www.youtube.com/watch?v=zK0GNoya6rw&t=31s" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                        YouTube
+                    </a>
                 </div>
 
-                <div class="project-features">
+                <!-- Features -->
+                <div class="project-description">
                     <h3>Features</h3>
                     <ul>
-                        <li>Hands-On Projects: Build five different AI projects.</li>
-                        <li>Hackathons: Participate in virtual hackathons every other weekend.</li>
-                        <li>Final Project: Aim for significant user acquisition or revenue generation.</li>
-                        <li>Coaching and Feedback: Weekly AI coaching calls and resume reviews.</li>
-                        <li>Networking Opportunities: Engage with real software engineers and participate in meetups.
-                        </li>
-                        <li>Team Collaboration: Promote collaboration and peer learning from Week 3.</li>
+                        <li><strong>Inventory Management:</strong> Add, delete, and view items in the inventory.</li>
+                        <li><strong>Image Upload:</strong> Upload images or take photos desde la cámara.</li>
+                        <li><strong>Automatic Image Detection:</strong> Google Cloud Vision API detecta el nombre desde
+                            la imagen.</li>
+                        <li><strong>Recipe Suggestions:</strong> Sugerencias de recetas con OpenAI API en base a tu
+                            inventario.</li>
                     </ul>
                 </div>
 
-                <div class="project-goals-motivation">
+                <!-- Technologies -->
+                <div class="project-technologies">
                     <h3>Technologies</h3>
                     <ul>
-                        <li>Career Readiness: The fellowship aims to bridge the gap between academic learning and
-                            industry requirements, making fellows job-ready.</li>
-                        <li>Skill Development: Fellows enhance their coding skills, gain project management experience,
-                            and receive valuable feedback from industry professionals.</li>
+                        <li><strong>React</strong> para la UI</li>
+                        <li><strong>Material-UI</strong> (componentes estilizados)</li>
+                        <li><strong>Firebase</strong> (Storage + DB)</li>
+                        <li><strong>Google Cloud Vision API</strong> (detección de etiquetas)</li>
+                        <li><strong>OpenAI API</strong> (sugerencias de recetas)</li>
                     </ul>
                 </div>
 
-                <div class="more-info">
-                    <h3>More Information</h3>
-                    <p>For more details about the HeadStarter AI Fellowship and to explore other opportunities, please
-                        visit the following pages:</p>
+                <!-- Usage -->
+                <div class="project-usage">
+                    <h3>Usage</h3>
                     <ul>
-                        <li><a href="https://headstarter.co" target="_blank">HeadStarter Official Website</a></li>
-                        <li><a href="https://apply.headstarter.co" target="_blank">HeadStarter Fellowship
-                                Registration</a></li>
+                        <li><strong>Search Items:</strong> filtra con el campo de búsqueda.</li>
+                        <li><strong>Add Items:</strong> “Add New Item” → sube imagen, toma foto o usa detección
+                            automática.</li>
+                        <li><strong>Delete Items:</strong> “Remove” en cualquier tarjeta.</li>
+                        <li><strong>Get Recipe Suggestions:</strong> ícono de foco para sugerencias según tu inventario.
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -211,7 +219,13 @@
                     <div class="swiper-button-prev" aria-label="Previous slide"></div>
                     <div class="swiper-button-next" aria-label="Next slide"></div>
                 </div>
-
+                <div class="links-row compact" role="group" aria-label="Ecoventus links">
+                    <a class="link-btn github" href="https://github.com/AzulRK22/queenDrones" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        GitHub
+                    </a>
+                </div>
                 <div class="project-description">
                     <h3>Description</h3>
                     <p>EcoVentus is an advanced AI-powered platform designed to optimize UAV (Unmanned Aerial Vehicle)
@@ -247,12 +261,6 @@
                         <li><strong>Database:</strong> MongoDB</li>
                         <li><strong>Cloud:</strong> Huawei Cloud</li>
                     </ul>
-                </div>
-
-                <div class="project-link">
-                    <h3>View on GitHub</h3>
-                    <p>Check out the complete project code and documentation on <a
-                            href="https://github.com/AzulRK22/queenDrones" target="_blank">GitHub</a>.</p>
                 </div>
             </section>
 

@@ -109,6 +109,55 @@
   filter: none;
   transition: filter 0.25s ease;
 }
+/* =====================================================
+   Links Row – pills con buen contraste
+   ===================================================== */
+.links-row {
+  --lr-gap: .5rem;
+  --lr-bg: rgba(255,255,255,0.04);
+  --lr-border: rgba(255,255,255,0.12);
+  --lr-text: #fff;
+  --lr-hover: rgba(255,255,255,0.09);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lr-gap);
+  margin: .6rem 0 0;
+}
+
+.links-row .link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem .85rem;
+  border: 1px solid var(--lr-border);
+  border-radius: 999px;
+  background: var(--lr-bg);
+  color: var(--lr-text);
+  text-decoration: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: background .2s ease, border-color .2s ease,
+              transform .15s ease, box-shadow .2s ease;
+  backdrop-filter: blur(2px);
+  -webkit-tap-highlight-color: transparent;
+}
+.links-row .link-btn:hover {
+  background: var(--lr-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+.links-row .link-btn:active { transform: translateY(0); }
+.links-row .link-btn:focus-visible {
+  outline: 3px solid #61dafb;
+  outline-offset: 2px;
+}
+.links-row .link-btn i { font-size: 1rem; line-height: 0; opacity: .95; }
+.links-row.compact .link-btn { padding: .38rem .7rem; font-size: .9rem; }
+.links-row.block   .link-btn { flex: 1 1 auto; justify-content: center; min-width: 180px; }
 
 /* =========================
    Upcoming – panel compacto con fondo blanco
