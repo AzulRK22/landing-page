@@ -1,122 +1,108 @@
 // scripts/update-duo.mjs
-import fs from 'node:fs/promises';
-import path from 'node:path';
-import { chromium } from 'playwright';
+import { writeFile, mkdir } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const OUT_DIR  = 'assets/data';
-const OUT_FILE = path.join(OUT_DIR, 'duolingo.json');
-
-const profile  = process.env.DUO_PROFILE?.trim() || 'azulrk22';
-const user     = process.env.DUO_USER || '';
-const pass     = process.env.DUO_PASS || '';
-
-/** Objeto de salida con valores seguros por defecto */
-const out = {
-  profile,
-  profileUrl: `https://www.duolingo.com/profile/${profile}`,
-  streak: 0,
-  languages: [],
-  lastUpdated: new Date().toISOString()
-};
-
-async function writeOut() {
-  await fs.mkdir(OUT_DIR, { recursive: true });
-  await fs.writeFile(OUT_FILE, JSON.stringify(out, null, 2), 'utf8');
-  console.log('[duo] wrote', OUT_FILE, out);
+// Fallback a Playwright sólo si hace falta
+let chromium;
+async function lazyPlaywright() {
+  if (!chromium) ({ chromium } = await import("playwright"));
+  return chromium;
 }
 
-async function scrape() {
-  const browser = await chromium.launch({ headless: true, args: ['--disable-gpu', '--no-sandbox'] });
-  const page = await browser.newPage({ viewport: { width: 1366, height: 900 } });
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OUT_PATH = resolve(__dirname, "../assets/data/duolingo.json");
 
-  // Bloquea recursos pesados para acelerar y reducir timeouts
-  await page.route('**/*', route => {
-    const rt = route.request().resourceType();
-    if (rt === 'image' || rt === 'media' || rt === 'font' || rt === 'stylesheet') {
-      return route.abort();
-    }
-    route.continue();
+// Config desde env/vars
+const PROFILE = (process.env.DUO_PROFILE || "AzulRK").trim();
+const PROFILE_URL = `https://www.duolingo.com/profile/${encodeURIComponent(PROFILE)}`;
+
+function normalizeUserPayload(json) {
+  // Formatos conocidos: {users:[{siteStreak, streakData, courses:[{title, learningLanguageName, learningLanguage}]}]}
+  const user = json?.users?.[0] || json?.user || json;
+  if (!user) return null;
+
+  const streak =
+    user.siteStreak ??
+    user.totalStreak ??
+    user.streakData?.currentStreak?.length ??
+    user.streak ??
+    0;
+
+  const langs = Array.isArray(user.courses)
+    ? user.courses
+        .map(c => c.title || c.learningLanguageName || c.learningLanguage || c.fromLanguageName)
+        .filter(Boolean)
+    : [];
+
+  return { streak: Number.isFinite(streak) ? streak : 0, languages: [...new Set(langs)] };
+}
+
+async function fetchViaPublicAPI(profile) {
+  const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(profile)}`;
+  const res = await fetch(url, {
+    // Evita cache CDN
+    headers: { "pragma": "no-cache", "cache-control": "no-cache" }
   });
+  if (!res.ok) throw new Error(`Public API HTTP ${res.status}`);
+  const json = await res.json();
+  const parsed = normalizeUserPayload(json);
+  if (!parsed) throw new Error("Public API: unexpected shape");
+  return parsed;
+}
 
-  // (A) Login es opcional; lo hacemos solo si hay credenciales
-  if (user && pass) {
-    console.log('[duo] logging in…');
-    await page.goto('https://www.duolingo.com/log-in', { waitUntil: 'domcontentloaded', timeout: 60000 });
-    await page.fill('input[name="identifier"]', user);
-    await page.fill('input[name="password"]', pass);
-    await Promise.race([
-      page.click('button[type="submit"]'),
-      page.waitForTimeout(2000) // por si el botón dispara XHR y no navegación
-    ]);
-    // da unos segundos a que se hidrate sesión
-    await page.waitForTimeout(5000);
-  }
+async function fetchViaBrowser(profile) {
+  const { chromium } = await lazyPlaywright();
+  const browser = await chromium.launch({ headless: true });
+  const ctx = await browser.newContext({
+    userAgent:
+      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
+    locale: "en-US"
+  });
+  const page = await ctx.newPage();
 
-  // (B) Perfil público
-  const url = `https://www.duolingo.com/profile/${profile}`;
-  console.log('[duo] visiting profile:', url);
-  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  // Visita el dominio y usa fetch desde el mismo origen (evita CORS)
+  await page.goto("https://www.duolingo.com/", { waitUntil: "domcontentloaded", timeout: 60000 });
 
-  // Espera breve para que React hidrate parte del DOM
-  await page.waitForTimeout(5000);
-
-  // 1) Intenta encontrar la racha por texto visible
-  const html = await page.content();
-
-  // Varios patrones que suelen aparecer (“X day streak”, “racha de X días”, etc.)
-  const streakMatchers = [
-    /(\d+)\s*day(?:s)?\s*streak/i,
-    /racha\s+de\s+(\d+)\s*d/i
-  ];
-  for (const rx of streakMatchers) {
-    const m = html.match(rx);
-    if (m) {
-      const n = parseInt(m[1], 10);
-      if (!Number.isNaN(n)) {
-        out.streak = n;
-        break;
-      }
-    }
-  }
-
-  // 2) Extrae idiomas: probamos algunos selectores y, si no, texto plano
-  try {
-    const langsFromDom = await page.$$eval(
-      '[data-test*="language"], [data-test*="course"], [class*="language"], [class*="Course"]',
-      els => Array.from(new Set(
-        els.map(el => (el.getAttribute('aria-label') || el.textContent || '')
-          .replace(/\s+/g, ' ')
-          .trim())
-          .filter(txt => txt && txt.length <= 30)
-      ))
-    );
-    if (langsFromDom?.length) {
-      out.languages = langsFromDom;
-    } else {
-      // fallback por regex sobre el HTML
-      const rxLang = /(?:Language|Idioma|Course|Curso)\s*[:：]\s*([A-Za-zÀ-ÖØ-öø-ÿ ]{2,30})/g;
-      const found = [];
-      for (const m of html.matchAll(rxLang)) {
-        const name = (m[1] || '').trim();
-        if (name && !found.includes(name)) found.push(name);
-      }
-      out.languages = found;
-    }
-  } catch (e) {
-    // si falla, dejamos lenguajes vacío
-  }
+  const payload = await page.evaluate(async (p) => {
+    const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(p)}`;
+    const r = await fetch(url, { credentials: "omit" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }, profile);
 
   await browser.close();
+
+  const parsed = normalizeUserPayload(payload);
+  if (!parsed) throw new Error("Browser fetch: unexpected shape");
+  return parsed;
 }
 
-(async () => {
+async function main() {
+  let data;
   try {
-    await scrape();
-  } catch (err) {
-    console.error('[Duolingo] scrape failed:', err);
-    // No lanzamos el error; seguimos para escribir JSON y no romper el workflow
-  } finally {
-    await writeOut();
-    process.exit(0); // evita que GitHub Actions marque fallo
+    // 1) Intenta API pública directa (rápida y sin dependencias)
+    data = await fetchViaPublicAPI(PROFILE);
+  } catch (e1) {
+    console.warn("[Duolingo] public API failed:", e1?.message || e1);
+    // 2) Fallback: usa navegador para hacer el mismo fetch desde el origen Duolingo
+    data = await fetchViaBrowser(PROFILE);
   }
-})();
+
+  const out = {
+    profile: PROFILE,
+    profileUrl: PROFILE_URL,
+    streak: data.streak ?? 0,
+    languages: Array.isArray(data.languages) ? data.languages : [],
+    lastUpdated: new Date().toISOString()
+  };
+
+  await mkdir(dirname(OUT_PATH), { recursive: true });
+  await writeFile(OUT_PATH, JSON.stringify(out, null, 2), "utf8");
+  console.log("[Duolingo] written:", OUT_PATH, out);
+}
+
+main().catch(err => {
+  console.error("[Duolingo] updater failed:", err);
+  process.exit(1);
+});

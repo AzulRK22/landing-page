@@ -33,66 +33,35 @@
   }, { threshold: 0.15 });
   els.forEach(el=>io.observe(el));
 })();
-
-/* ===== Duolingo live card ===== */
+// ===== Duolingo card (espera a que el DOM esté listo) =====
 (function () {
   const card = document.querySelector(".duo-card");
   if (!card) return;
 
-  const $streak = card.querySelector("[data-duo-streak]");
-  const $langs  = card.querySelector("[data-duo-langs]");
-  const $btn    = card.querySelector(".duo-btn");
+  const $days = card.querySelector("[data-days]");
+  const $langs = card.querySelector("[data-langs]");
+  const src = card.getAttribute("data-src") || "assets/data/duolingo.json";
 
-  function plural(n, one, many) {
-    return `${n} ${n === 1 ? one : many}`;
-  }
+  function render({ streak = 0, languages = [], profile, profileUrl } = {}) {
+    // muestra 0 explícito
+    $days.textContent = Number.isFinite(streak) ? String(streak) : "0";
 
-  function render(data = {}) {
-    const streak    = Number.isFinite(+data.streak) ? +data.streak : 0;
-    const languages = Array.isArray(data.languages) ? data.languages : [];
-    const profileUrl =
-      data.profileUrl
-        || (data.profile ? `https://www.duolingo.com/profile/${encodeURIComponent(data.profile)}` : 'https://www.duolingo.com/');
-
-    // streak
-    if ($streak) $streak.textContent = plural(streak, 'day streak', 'day streak');
-
-    // languages
-    if ($langs) {
-      $langs.innerHTML = "";
-      if (languages.length) {
-        languages.slice(0, 12).forEach(txt => {
-          const li = document.createElement("li");
-          li.textContent = txt;
-          $langs.appendChild(li);
-        });
-        card.classList.remove('is-empty');
-      } else {
-        const li = document.createElement("li");
-        li.textContent = "—";
-        li.style.opacity = ".7";
-        $langs.appendChild(li);
-        card.classList.add('is-empty'); // por si quieres estilizar estado vacío en CSS
-      }
-    }
-
-    // button
-    if ($btn && profileUrl) {
-      $btn.href = profileUrl;
-      $btn.target = "_blank";
-      $btn.rel = "noopener";
-    }
-  }
-
-  fetch(`assets/data/duolingo.json?ts=${Date.now()}`, { cache: "no-store" })
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
-    .then(render)
-    .catch(err => {
-      console.warn("[Duolingo] widget error:", err);
-      // Fallback seguro (no rompe la UI)
-      render({});
+    $langs.innerHTML = "";
+    (languages && languages.length ? languages : ["—"]).slice(0, 18).forEach(txt => {
+      const span = document.createElement("span");
+      span.className = "pill";
+      span.textContent = txt;
+      $langs.appendChild(span);
     });
+
+    const a = card.querySelector(".duo-cta");
+    if (a && (profileUrl || profile)) {
+      a.href = profileUrl || `https://www.duolingo.com/profile/${encodeURIComponent(profile)}`;
+    }
+  }
+
+  fetch(`${src}?ts=${Date.now()}`, { cache: "no-store" })
+    .then(r => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+    .then(render)
+    .catch(e => { console.warn("[Duolingo] widget error:", e); render({}); });
 })();
