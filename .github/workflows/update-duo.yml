@@ -11,6 +11,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -28,25 +29,23 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Ensure assets/data exists
-        run: |
-          mkdir -p assets/data
+        run: mkdir -p assets/data
 
       - name: Run Duolingo updater
         env:
           DUO_PROFILE: ${{ vars.DUO_PROFILE }}
-          DUO_USER: ${{ secrets.DUO_USER }}
-          DUO_PASS: ${{ secrets.DUO_PASS }}
-        run: |
-          node scripts/update-duo.mjs
+          DUO_USER:    ${{ secrets.DUO_USER }}
+          DUO_PASS:    ${{ secrets.DUO_PASS }}
+        run: node scripts/update-duo.mjs
 
       - name: Commit changes (if any)
         run: |
-          if git diff --quiet --exit-code assets/data/duolingo.json; then
-            echo "No changes to commit."
-          else
+          if [ -n "$(git status --porcelain -- assets/data/duolingo.json)" ]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/data/duolingo.json
             git commit -m "chore: update duolingo stats"
             git push
+          else
+            echo "No changes to commit."
           fi
