@@ -19,7 +19,6 @@
   (mq.addEventListener ? mq.addEventListener('change', h=>h.matches && closeNav())
                        : mq.addListener(h=>h.matches && closeNav()));
 })();
-
 /* ===== Scroll reveal simple ===== */
 (function () {
   const els = document.querySelectorAll('.reveal');
@@ -33,4 +32,45 @@
     });
   }, { threshold: 0.15 });
   els.forEach(el=>io.observe(el));
+})();
+(function () {
+  const card = document.querySelector('.duo-card');
+  if (!card) return;
+
+  // lee la ruta del atributo data-src o usa la por defecto
+  const srcAttr = (card.getAttribute('data-src') || 'assets/data/duolingo.json').replace(/^\.\//,'');
+  // cache-bust para evitar que el navegador sirva una versión vieja
+  const url = srcAttr + (srcAttr.includes('?') ? '&' : '?') + 'v=' + Date.now();
+
+  console.log('[Duolingo] fetching:', url);
+
+  fetch(url, { cache: 'no-store' })
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status} — ${r.url}`);
+      return r.json();
+    })
+    .then(data => {
+      // streak
+      const days = Number(data?.streak?.days) || 0;
+      card.querySelector('[data-days]').textContent = days;
+
+      // languages
+      const langsWrap = card.querySelector('[data-langs]');
+      langsWrap.innerHTML = '';
+      (data.languages || []).forEach(l => {
+        const pill = document.createElement('span');
+        pill.className = 'duo-pill';
+        pill.textContent = l;
+        langsWrap.appendChild(pill);
+      });
+
+      // profile link
+      const user = (data.username || '').trim();
+      const a = card.querySelector('.duo-cta');
+      if (user && a) a.href = 'https://www.duolingo.com/profile/' + encodeURIComponent(user);
+    })
+    .catch(err => {
+      console.error('[Duolingo] widget error:', err);
+      card.classList.add('duo--error');
+    });
 })();

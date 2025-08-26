@@ -1,0 +1,49 @@
+name: Update Duolingo Stats
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 7 * * *"  # diario a las 07:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Prepare Node + Playwright
+        run: |
+          npm init -y
+          npm i playwright@latest
+          npx playwright install --with-deps chromium
+
+      - name: Run Duolingo updater
+        env:
+          # Variables/Secrets disponibles para el script
+          DUO_PROFILE: ${{ vars.DUO_PROFILE }}
+          DUO_USER:    ${{ secrets.DUO_USER }}
+          DUO_PASS:    ${{ secrets.DUO_PASS }}
+        run: |
+          node scripts/update-duo.mjs
+
+      - name: Commit changes (if any)
+        run: |
+          if git diff --quiet --exit-code assets/data/duolingo.json; then
+            echo "No changes to commit."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/data/duolingo.json
+            git commit -m "chore: update duolingo stats"
+            git push
+          fi
