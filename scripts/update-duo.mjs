@@ -3,23 +3,25 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Fallback a Playwright sólo si hace falta
 let chromium;
 async function lazyPlaywright() {
-  if (!chromium) ({ chromium } = await import("playwright"));
-  return chromium;
+  try {
+    if (!chromium) ({ chromium } = await import("playwright"));
+    return chromium;
+  } catch (e) {
+    throw new Error("Playwright is not installed. Ensure the workflow installs it.");
+  }
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT_PATH = resolve(__dirname, "../assets/data/duolingo.json");
-
-// Config desde env/vars
-const PROFILE = (process.env.DUO_PROFILE || "AzulRK").trim();
+const PROFILE  = (process.env.DUO_PROFILE || "AzulRK").trim();
 const PROFILE_URL = `https://www.duolingo.com/profile/${encodeURIComponent(PROFILE)}`;
 
 function normalizeUserPayload(json) {
-  // Formatos conocidos: {users:[{siteStreak, streakData, courses:[{title, learningLanguageName, learningLanguage}]}]}
-  const user = json?.users?.[0] || json?.user || json;
+  const user =
+    json?.users?.[0] || json?.user || json;
+
   if (!user) return null;
 
   const streak =
@@ -35,14 +37,20 @@ function normalizeUserPayload(json) {
         .filter(Boolean)
     : [];
 
-  return { streak: Number.isFinite(streak) ? streak : 0, languages: [...new Set(langs)] };
+  return {
+    streak: Number.isFinite(streak) ? streak : 0,
+    languages: [...new Set(langs)]
+  };
 }
 
 async function fetchViaPublicAPI(profile) {
   const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(profile)}`;
   const res = await fetch(url, {
-    // Evita cache CDN
-    headers: { "pragma": "no-cache", "cache-control": "no-cache" }
+    headers: {
+      "pragma": "no-cache",
+      "cache-control": "no-cache",
+      "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari"
+    }
   });
   if (!res.ok) throw new Error(`Public API HTTP ${res.status}`);
   const json = await res.json();
@@ -61,12 +69,12 @@ async function fetchViaBrowser(profile) {
   });
   const page = await ctx.newPage();
 
-  // Visita el dominio y usa fetch desde el mismo origen (evita CORS)
   await page.goto("https://www.duolingo.com/", { waitUntil: "domcontentloaded", timeout: 60000 });
 
+  // Haz el mismo request desde el contexto del navegador (evita CORS/bloqueos simples)
   const payload = await page.evaluate(async (p) => {
     const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(p)}`;
-    const r = await fetch(url, { credentials: "omit" });
+    const r = await fetch(url, { credentials: "omit", cache: "no-store" });
     if (!r.ok) throw new Error("HTTP " + r.status);
     return r.json();
   }, profile);
@@ -81,11 +89,9 @@ async function fetchViaBrowser(profile) {
 async function main() {
   let data;
   try {
-    // 1) Intenta API pública directa (rápida y sin dependencias)
     data = await fetchViaPublicAPI(PROFILE);
   } catch (e1) {
     console.warn("[Duolingo] public API failed:", e1?.message || e1);
-    // 2) Fallback: usa navegador para hacer el mismo fetch desde el origen Duolingo
     data = await fetchViaBrowser(PROFILE);
   }
 

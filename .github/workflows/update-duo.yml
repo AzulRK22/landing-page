@@ -11,7 +11,6 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
       - name: Checkout
@@ -22,10 +21,10 @@ jobs:
         with:
           node-version: 20
 
-      - name: Prepare Node + Playwright
+      # 👇 Necesario para el fallback cuando la API pública responde 403
+      - name: Install Playwright (Chromium)
         run: |
-          npm init -y
-          npm i playwright@latest
+          npm i -D playwright@latest
           npx playwright install --with-deps chromium
 
       - name: Ensure assets/data exists
@@ -33,19 +32,17 @@ jobs:
 
       - name: Run Duolingo updater
         env:
-          DUO_PROFILE: ${{ vars.DUO_PROFILE }}
-          DUO_USER:    ${{ secrets.DUO_USER }}
-          DUO_PASS:    ${{ secrets.DUO_PASS }}
+          DUO_PROFILE: ${{ vars.DUO_PROFILE || 'AzulRK' }}
         run: node scripts/update-duo.mjs
 
       - name: Commit changes (if any)
         run: |
-          if [ -n "$(git status --porcelain -- assets/data/duolingo.json)" ]; then
+          if git diff --quiet --exit-code assets/data/duolingo.json; then
+            echo "No changes to commit."
+          else
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add assets/data/duolingo.json
             git commit -m "chore: update duolingo stats"
             git push
-          else
-            echo "No changes to commit."
           fi
