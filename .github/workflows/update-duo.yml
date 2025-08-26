@@ -3,7 +3,7 @@ name: Update Duolingo Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 7 * * *"  # diario a las 07:00 UTC
+    - cron: "0 7 * * *" # diario a las 07:00 UTC
 
 permissions:
   contents: write
@@ -27,12 +27,15 @@ jobs:
           npm i playwright@latest
           npx playwright install --with-deps chromium
 
+      - name: Ensure assets/data exists
+        run: |
+          mkdir -p assets/data
+
       - name: Run Duolingo updater
         env:
-          # Variables/Secrets disponibles para el script
           DUO_PROFILE: ${{ vars.DUO_PROFILE }}
-          DUO_USER:    ${{ secrets.DUO_USER }}
-          DUO_PASS:    ${{ secrets.DUO_PASS }}
+          DUO_USER: ${{ secrets.DUO_USER }}
+          DUO_PASS: ${{ secrets.DUO_PASS }}
         run: |
           node scripts/update-duo.mjs
 

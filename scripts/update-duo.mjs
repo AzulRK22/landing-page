@@ -1,163 +1,86 @@
-// Duolingo profile fetcher (público) con fallback a login (opcional) usando Playwright.
-// Usa DUO_PROFILE para leer un perfil público.
-// Si además defines DUO_USER + DUO_PASS, intentará login si el modo público no devuelve datos válidos.
-//
-// Env:
-//   DUO_PROFILE  -> username público (recomendado)
-//   DUO_USER     -> usuario/login (opcional: puede ser username o email)
-//   DUO_PASS     -> contraseña (opcional)
-//
-// Salida: assets/data/duolingo.json
-
-import fs from "fs/promises";
-import path from "path";
-import { fileURLToPath } from "url";
+import fs from "node:fs";
+import path from "node:path";
 import { chromium } from "playwright";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const REPO_ROOT = process.cwd();
+const OUT_DIR   = path.join(REPO_ROOT, "assets", "data");
+const OUT_FILE  = path.join(OUT_DIR, "duolingo.json");
 
-const OUT_PATH = path.resolve(__dirname, "..", "assets", "data", "duolingo.json");
+const DUO_PROFILE = process.env.DUO_PROFILE || "";   // opcional (para link)
+const DUO_USER    = process.env.DUO_USER;
+const DUO_PASS    = process.env.DUO_PASS;
 
-const ENV = {
-  DUO_PROFILE: (process.env.DUO_PROFILE || "").trim(),
-  DUO_USER: (process.env.DUO_USER || "").trim(),
-  DUO_PASS: (process.env.DUO_PASS || "").trim()
-};
-
-function pretty(obj) { return JSON.stringify(obj, null, 2); }
-
-// ------------------------- util JSON -------------------------
-async function readPrev() {
-  try { return JSON.parse(await fs.readFile(OUT_PATH, "utf8")); }
-  catch { return null; }
-}
-async function writeJSON(data) {
-  await fs.mkdir(path.dirname(OUT_PATH), { recursive: true });
-  await fs.writeFile(OUT_PATH, pretty(data) + "\n", "utf8");
+if (!DUO_USER || !DUO_PASS) {
+  console.error("[Duolingo] Missing DUO_USER or DUO_PASS in secrets.");
+  process.exit(1);
 }
 
-// --------------------- extracción genérica -------------------
-function parseStreakFromText(text) {
-  // "123 day streak", "123 days", "123 días", etc.
-  const re = /\b(\d{1,4})\s*(day|days|día|días)\s*(streak|racha)?\b/i;
-  const m = text.match(re);
-  return m ? Number(m[1]) : null;
+function normalizeText(t) {
+  return (t || "").replace(/\u00a0/g, " ").trim();
 }
 
-const KNOWN_LANGS = new Set([
-  "Spanish","English","French","German","Italian","Portuguese","Japanese","Korean","Chinese","Russian","Arabic",
-  "Esperanto","Turkish","Hindi","Dutch","Swedish","Norwegian","Polish","Greek","Irish","Hebrew","Ukrainian",
-  "Czech","Indonesian","Romanian","Danish","Finnish","Hungarian","Thai","Vietnamese","Swahili","Haitian Creole",
-  "Welsh","High Valyrian","Navajo","Latin","Scottish Gaelic","Yiddish","Zulu","Klingon","Catalan","Galician","Basque"
-]);
-
-function extractLanguagesFromText(text) {
-  const found = [];
-  for (const lang of KNOWN_LANGS) {
-    const re = new RegExp(`\\b${lang}\\b`, "i");
-    if (re.test(text)) found.push(lang);
-  }
-  return [...new Set(found)].sort((a, b) => a.localeCompare(b));
-}
-
-async function scrapeProfile(page, username) {
-  const PROFILE_URL = `https://www.duolingo.com/profile/${encodeURIComponent(username)}?via=share`;
-  await page.goto(PROFILE_URL, { waitUntil: "networkidle", timeout: 90_000 });
-  await page.waitForTimeout(2500);
-  const bodyText = await page.evaluate(() => document.body.innerText || "");
-  const streak = parseStreakFromText(bodyText) ?? 0;
-  const languages = extractLanguagesFromText(bodyText);
-  return { username, streak: { days: streak }, languages };
-}
-
-// -------------------------- login ----------------------------
-async function loginAndScrape(page, userForProfile) {
-  // Página de login directa (más estable que modal)
-  await page.goto("https://www.duolingo.com/log-in", { waitUntil: "networkidle", timeout: 90_000 });
-
-  // Busca campos de texto y password de forma robusta
-  const userLocator = page.locator('input[type="email"], input[name="email"], input[type="text"]');
-  const passLocator = page.locator('input[type="password"]');
-  await userLocator.first().waitFor({ timeout: 30_000 });
-  await userLocator.first().fill(ENV.DUO_USER);
-  await passLocator.first().fill(ENV.DUO_PASS);
-
-  // Intenta click en algún botón de login típico; si no, Enter
-  const loginBtn = page.locator('button[type="submit"], button:has-text("Log in"), button:has-text("Iniciar sesión")');
-  if (await loginBtn.first().isVisible().catch(() => false)) {
-    await loginBtn.first().click({ timeout: 10_000 }).catch(() => {});
-  } else {
-    await passLocator.first().press("Enter").catch(() => {});
-  }
-
-  // Espera a que redireccione / cargue sesión
-  await page.waitForLoadState("networkidle", { timeout: 60_000 });
-  await page.waitForTimeout(2500);
-
-  // Usa el username visible si no te pasaron DUO_PROFILE
-  const profileName =
-    userForProfile ||
-    (await page.evaluate(() => {
-      // Heurística: algún enlace a /profile/<user>
-      const a = Array.from(document.querySelectorAll('a[href*="/profile/"]'))[0];
-      if (!a) return null;
-      const m = a.getAttribute("href").match(/\/profile\/([^/?#]+)/);
-      return m ? decodeURIComponent(m[1]) : null;
-    })) ||
-    ENV.DUO_USER;
-
-  return await scrapeProfile(page, profileName);
-}
-
-// ----------------------------- main --------------------------
-(async () => {
+async function scrape() {
   const browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext({
-    userAgent:
-      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119 Safari/537.36",
-    viewport: { width: 1280, height: 900 }
-  });
-  const page = await context.newPage();
-
-  let result = null;
-  const preferPublic = Boolean(ENV.DUO_PROFILE);
-  const canLogin = Boolean(ENV.DUO_USER && ENV.DUO_PASS);
+  const page = await browser.newPage();
 
   try {
-    if (preferPublic) {
-      console.log(`▶ Public scrape for @${ENV.DUO_PROFILE}`);
-      result = await scrapeProfile(page, ENV.DUO_PROFILE);
-      // Si no obtuvo nada razonable y podemos loguear, fallback
-      if ((result.streak.days ?? 0) === 0 && canLogin) {
-        console.log("… public data looked empty → trying login mode");
-        result = await loginAndScrape(page, ENV.DUO_PROFILE);
-      }
-    } else if (canLogin) {
-      console.log("▶ Login mode (no DUO_PROFILE provided)");
-      result = await loginAndScrape(page, null);
-    } else {
-      console.error("✖ Provide DUO_PROFILE (public) OR DUO_USER+DUO_PASS (login).");
-      process.exit(1);
+    await page.goto("https://www.duolingo.com/", { waitUntil: "load", timeout: 90000 });
+
+    // login
+    await page.getByRole("button", { name: /i already have an account/i }).click();
+    await page.getByPlaceholder(/email|username/i).fill(DUO_USER);
+    await page.getByPlaceholder(/password/i).fill(DUO_PASS);
+    await page.getByRole("button", { name: /log in/i }).click();
+
+    await page.waitForLoadState("networkidle", { timeout: 90000 });
+
+    // intenta abrir perfil si lo pasaste (no es crítico)
+    if (DUO_PROFILE) {
+      await page.goto(`https://www.duolingo.com/profile/${encodeURIComponent(DUO_PROFILE)}`, {
+        waitUntil: "networkidle",
+        timeout: 90000,
+      });
     }
 
-    const nowISO = new Date().toISOString();
-    const prev = await readPrev();
+    // Heurísticas: busca el streak y las lenguas visibles en UI
+    let streakText = "";
+    const streakNode = page.getByText(/day streak/i).first();
+    if (await streakNode.count()) {
+      streakText = normalizeText(await streakNode.textContent());
+    }
 
-    const final = {
-      username: result.username,
-      streak: { days: Number.isFinite(result.streak?.days) ? result.streak.days : (prev?.streak?.days ?? 0) },
-      languages: result.languages?.length ? result.languages : (prev?.languages ?? []),
-      updatedAt: nowISO
+    const streak = (() => {
+      const m = streakText.match(/(\d+)\s*day/i);
+      return m ? parseInt(m[1], 10) : 0;
+    })();
+
+    // lista de idiomas (heurística por etiquetas/lists)
+    const langs = new Set();
+    const candidates = await page.$$(":is(a, span, div, li)");
+    for (const el of candidates) {
+      const txt = normalizeText(await el.textContent());
+      // filtra strings cortos/típicos de nombres de idioma (ajusta si quieres)
+      if (/^(Spanish|English|French|German|Italian|Portuguese|Japanese|Korean|Chinese|Arabic|Dutch|Greek|Hebrew|Hindi|Irish|Norwegian|Polish|Russian|Swedish|Turkish)\b/i.test(txt)) {
+        langs.add(txt);
+      }
+    }
+
+    const data = {
+      profile: DUO_PROFILE || null,
+      streak,
+      languages: Array.from(langs),
+      lastUpdated: new Date().toISOString(),
     };
 
-    // Escribe siempre (aunque no cambie) para mantener updatedAt fresco
-    await writeJSON(final);
-    console.log(`✓ duolingo.json updated: ${final.streak.days} day(s), ${final.languages.join(", ") || "—"}`);
-  } catch (err) {
-    console.error("✖ Update error:", err.message);
-    process.exitCode = 0;
+    fs.mkdirSync(OUT_DIR, { recursive: true });
+    fs.writeFileSync(OUT_FILE, JSON.stringify(data, null, 2), "utf8");
+    console.log("[Duolingo] Saved", OUT_FILE);
   } finally {
     await browser.close();
   }
-})();
+}
+
+scrape().catch((e) => {
+  console.error("[Duolingo] scrape failed:", e);
+  process.exit(1);
+});

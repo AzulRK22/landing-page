@@ -34,57 +34,46 @@
   els.forEach(el=>io.observe(el));
 })();
 (function () {
-  const card = document.querySelector('.duo-card');
+  const card = document.querySelector(".duo-card");
   if (!card) return;
 
-  const srcAttr = (card.getAttribute('data-src') || 'assets/data/duolingo.json').replace(/^\.\//, '');
-  const url = srcAttr + (srcAttr.includes('?') ? '&' : '?') + 'v=' + Date.now();
+  const $streak = card.querySelector("[data-duo-streak]");
+  const $langs  = card.querySelector("[data-duo-langs]");
+  const $btn    = card.querySelector(".duo-btn");
 
-  function render(data) {
-    const days = Number(data?.streak?.days) || 0;
-    card.querySelector('[data-days]').textContent = days;
+  function render({ streak = 0, languages = [], profile = null } = {}) {
+    $streak.textContent = `${streak} day streak`;
+    $langs.innerHTML = "";
 
-    const langsWrap = card.querySelector('[data-langs]');
-    if (langsWrap) {
-      langsWrap.innerHTML = '';
-      (data.languages || []).forEach(l => {
-        const pill = document.createElement('span');
-        pill.className = 'duo-pill';
-        pill.textContent = l;
-        langsWrap.appendChild(pill);
+    if (languages.length) {
+      languages.slice(0, 12).forEach(txt => {
+        const li = document.createElement("li");
+        li.textContent = txt;
+        $langs.appendChild(li);
       });
+    } else {
+      const li = document.createElement("li");
+      li.textContent = "—";
+      li.style.opacity = ".7";
+      $langs.appendChild(li);
     }
 
-    const user = (data.username || '').trim();
-    const a = card.querySelector('.duo-cta');
-    if (user && a) a.href = 'https://www.duolingo.com/profile/' + encodeURIComponent(user);
-  }
-
-  function tryFallback() {
-    const el = document.getElementById('duo-fallback');
-    if (!el) return false;
-    try {
-      const data = JSON.parse(el.textContent || el.innerText || '{}');
-      render(data);
-      card.classList.add('duo--fallback');
-      console.warn('[Duolingo] usando fallback embebido');
-      return true;
-    } catch (e) {
-      console.error('[Duolingo] fallback inválido:', e);
-      return false;
+    if (profile) {
+      $btn.href = `https://www.duolingo.com/profile/${encodeURIComponent(profile)}`;
+      $btn.target = "_blank";
+      $btn.rel = "noopener";
     }
   }
 
-  console.log('[Duolingo] fetching:', url);
-
-  fetch(url, { cache: 'no-store' })
+  fetch(`assets/data/duolingo.json?ts=${Date.now()}`, { cache: "no-store" })
     .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status} — ${r.url}`);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     })
     .then(render)
     .catch(err => {
-      console.error('[Duolingo] widget error:', err);
-      if (!tryFallback()) card.classList.add('duo--error');
+      console.warn("[Duolingo] widget error:", err);
+      // deja valores en blanco pero visibles
+      render({});
     });
 })();
