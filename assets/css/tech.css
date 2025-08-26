@@ -296,3 +296,17 @@
   .duo-streak [data-days] { font-size: 1.35rem; }
   .duo-card { padding: .9rem; }
 }
+/* pastilla de idioma (por si aún no la tienes) */
+.duo-pill {
+  display: inline-block;
+  padding: .25rem .5rem;
+  margin: .15rem;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  font-size: .85rem;
+  opacity: .9;
+}
+
+/* estado fallback / error */
+.duo--fallback { outline: 1px dashed rgba(255,255,255,.25); }
+.duo--error { outline: 1px solid rgba(220, 0, 0, .5); }
