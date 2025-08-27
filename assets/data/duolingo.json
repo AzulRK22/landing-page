@@ -4,29 +4,35 @@
   "streak": 238,
   "languages": [
     {
-      "name": "French",
       "code": "fr",
-      "level": null,
-      "xp": 51902
+      "name": "French",
+      "xp": 51902,
+      "level": null
     },
     {
-      "name": "English",
       "code": "en",
-      "level": null,
-      "xp": 59139
+      "name": "English",
+      "xp": 59139,
+      "level": null
     },
     {
-      "name": "Spanish",
       "code": "es",
-      "level": null,
-      "xp": 1350
+      "name": "Spanish",
+      "xp": 1350,
+      "level": null
     },
     {
-      "name": "German",
       "code": "de",
-      "level": null,
-      "xp": 13
+      "name": "German",
+      "xp": 13,
+      "level": null
     }
   ],
-  "lastUpdated": "2025-08-27T02:08:43.523Z"
+  "stats": {
+    "totalXp": 112404,
+    "league": "Diamond",
+    "top3": null,
+    "diamondWeeks": null
+  },
+  "lastUpdated": "2025-08-27T02:46:40.133Z"
 }
