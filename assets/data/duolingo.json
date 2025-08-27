@@ -2,37 +2,24 @@
   "profile": "AzulRK",
   "profileUrl": "https://www.duolingo.com/profile/AzulRK",
   "streak": 238,
+  "totalXp": 112404,
   "languages": [
     {
-      "code": "fr",
-      "name": "French",
-      "xp": 51902,
-      "level": null
+      "title": "English",
+      "xp": 59139
     },
     {
-      "code": "en",
-      "name": "English",
-      "xp": 59139,
-      "level": null
+      "title": "French",
+      "xp": 51902
     },
     {
-      "code": "es",
-      "name": "Spanish",
-      "xp": 1350,
-      "level": null
+      "title": "Spanish",
+      "xp": 1350
     },
     {
-      "code": "de",
-      "name": "German",
-      "xp": 13,
-      "level": null
+      "title": "German",
+      "xp": 13
     }
   ],
-  "stats": {
-    "totalXp": 112404,
-    "league": "Diamond",
-    "top3": null,
-    "diamondWeeks": null
-  },
-  "lastUpdated": "2025-08-27T02:46:40.133Z"
+  "lastUpdated": "2025-08-27T03:08:54.759Z"
 }
