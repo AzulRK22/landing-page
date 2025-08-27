@@ -1,111 +1,226 @@
 // scripts/update-duo.mjs
-import { writeFile, mkdir } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
+// Actualiza assets/data/duolingo.json con: streak, idiomas (+nivel/xp), stats y achievements.
+// Estrategia: 1) API pública (si responde), 2) Playwright (login + scrape del __NEXT_DATA__).
+
+import fs from "node:fs/promises";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-let chromium;
-async function lazyPlaywright() {
-  try {
-    if (!chromium) ({ chromium } = await import("playwright"));
-    return chromium;
-  } catch (e) {
-    throw new Error("Playwright is not installed. Ensure the workflow installs it.");
-  }
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const OUT = path.resolve(__dirname, "../assets/data/duolingo.json");
+
+const PROFILE = process.env.DUO_PROFILE || process.env.DUO_USER || "";
+const DUO_USER = process.env.DUO_USER || "";
+const DUO_PASS = process.env.DUO_PASS || "";
+
+if (!PROFILE) {
+  console.error("[Duolingo] DUO_PROFILE vacío.");
+  process.exit(1);
 }
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const OUT_PATH = resolve(__dirname, "../assets/data/duolingo.json");
-const PROFILE  = (process.env.DUO_PROFILE || "AzulRK").trim();
-const PROFILE_URL = `https://www.duolingo.com/profile/${encodeURIComponent(PROFILE)}`;
+// ---------- util -------------
 
-function normalizeUserPayload(json) {
-  const user =
-    json?.users?.[0] || json?.user || json;
+async function writeJSON(file, data) {
+  await fs.mkdir(path.dirname(file), { recursive: true });
+  await fs.writeFile(file, JSON.stringify(data, null, 2) + "\n", "utf8");
+  console.log("[Duolingo] wrote", file);
+}
 
-  if (!user) return null;
+function pick(obj, ...keys) {
+  for (const k of keys) if (obj && Object.prototype.hasOwnProperty.call(obj, k)) return obj[k];
+  return undefined;
+}
 
-  const streak =
-    user.siteStreak ??
-    user.totalStreak ??
-    user.streakData?.currentStreak?.length ??
-    user.streak ??
-    0;
+function normalizeCourses(courses) {
+  if (!Array.isArray(courses)) return [];
+  return courses.map(c => {
+    // Algunos esquemas posibles
+    const name = c.title || c.name || c.languageString || c.learningLanguageName || c.learningLanguage || "Language";
+    const code = (c.code || c.learningLanguage || name || "").toString().toLowerCase();
+    const level = c.level ?? c.levelNum ?? c.levels ?? null;
+    const xp = c.xp ?? c.points ?? c.xpGained ?? null;
+    return { name, code, level, xp };
+  });
+}
 
-  const langs = Array.isArray(user.courses)
-    ? user.courses
-        .map(c => c.title || c.learningLanguageName || c.learningLanguage || c.fromLanguageName)
-        .filter(Boolean)
-    : [];
-
+function buildBase(data = {}) {
   return {
-    streak: Number.isFinite(streak) ? streak : 0,
-    languages: [...new Set(langs)]
+    profile: PROFILE,
+    profileUrl: `https://www.duolingo.com/profile/${encodeURIComponent(PROFILE)}`,
+    streak: 0,
+    languages: [],
+    stats: undefined,
+    achievements: undefined,
+    ...data,
+    lastUpdated: new Date().toISOString()
   };
 }
 
-async function fetchViaPublicAPI(profile) {
-  const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(profile)}`;
-  const res = await fetch(url, {
-    headers: {
-      "pragma": "no-cache",
-      "cache-control": "no-cache",
-      "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari"
+// ---------- 1) API pública (best-effort) -------------
+
+async function tryPublicAPI(profile) {
+  // Varias rutas históricas; Duolingo cambia a veces. Probamos en orden.
+  const candidates = [
+    `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(profile)}`,
+    `https://www.duolingo.com/api/1/users/show?username=${encodeURIComponent(profile)}`
+  ];
+
+  for (const url of candidates) {
+    const res = await fetch(url, { headers: { "accept": "application/json" } });
+    if (!res.ok) {
+      console.log(`[PublicAPI] ${res.status} for ${url}`);
+      continue;
     }
-  });
-  if (!res.ok) throw new Error(`Public API HTTP ${res.status}`);
-  const json = await res.json();
-  const parsed = normalizeUserPayload(json);
-  if (!parsed) throw new Error("Public API: unexpected shape");
-  return parsed;
+    const j = await res.json();
+
+    // Esquema #1: { users: [ { ... } ] }
+    const u = Array.isArray(j?.users) ? j.users[0] : j?.user || j;
+    if (!u) continue;
+
+    const streak = pick(u, "site_streak", "streak", "currentStreak", "streak_extended") || 0;
+    const courses = normalizeCourses(
+      u.courses || u.language_data || u.languages || u.learningLanguages || []
+    );
+
+    // Algunas APIs públicas no dan achievements/stats. Devolvemos lo básico.
+    return buildBase({ streak: Number(streak) || 0, languages: courses });
+  }
+
+  throw new Error("Public API HTTP 4xx/5xx");
 }
 
-async function fetchViaBrowser(profile) {
-  const { chromium } = await lazyPlaywright();
+// ---------- 2) Playwright (login + scrape) -------------
+
+async function fetchViaBrowser(profile, user, pass) {
+  const { chromium } = await import("playwright"); // instalado por el workflow
   const browser = await chromium.launch({ headless: true });
-  const ctx = await browser.newContext({
-    userAgent:
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36",
-    locale: "en-US"
-  });
-  const page = await ctx.newPage();
+  try {
+    const ctx = await browser.newContext({
+      locale: "en-US",
+      colorScheme: "dark"
+    });
+    const page = await ctx.newPage();
 
-  await page.goto("https://www.duolingo.com/", { waitUntil: "domcontentloaded", timeout: 60000 });
+    // Login
+    await page.goto("https://www.duolingo.com/log-in", { waitUntil: "domcontentloaded" });
+    await page.fill('input[name="identifier"]', user);
+    await page.fill('input[name="password"]', pass);
+    await Promise.all([
+      page.click('button[type="submit"]'),
+      page.waitForLoadState("networkidle")
+    ]);
 
-  // Haz el mismo request desde el contexto del navegador (evita CORS/bloqueos simples)
-  const payload = await page.evaluate(async (p) => {
-    const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(p)}`;
-    const r = await fetch(url, { credentials: "omit", cache: "no-store" });
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    return r.json();
-  }, profile);
+    // Ir al perfil público
+    await page.goto(`https://www.duolingo.com/profile/${encodeURIComponent(profile)}`, {
+      waitUntil: "networkidle",
+      timeout: 120_000
+    });
 
-  await browser.close();
+    // Intento 1: __NEXT_DATA__ (Next.js) – contiene casi todo.
+    const data = await page.evaluate(() => {
+      const nextEl = document.querySelector('script#__NEXT_DATA__');
+      if (!nextEl) return null;
+      try { return JSON.parse(nextEl.textContent); } catch { return null; }
+    });
 
-  const parsed = normalizeUserPayload(payload);
-  if (!parsed) throw new Error("Browser fetch: unexpected shape");
-  return parsed;
+    let out = buildBase();
+
+    // Buscador profundo: encuentra el primer objeto que tenga ciertas claves
+    const deepFind = (node, predicate) => {
+      const seen = new Set();
+      const stack = [node];
+      while (stack.length) {
+        const cur = stack.pop();
+        if (!cur || typeof cur !== "object") continue;
+        if (seen.has(cur)) continue;
+        seen.add(cur);
+        if (predicate(cur)) return cur;
+        for (const k of Object.keys(cur)) stack.push(cur[k]);
+      }
+      return null;
+    };
+
+    if (data) {
+      // Diferentes builds de Duolingo pueden cambiar la ruta exacta.
+      // Buscamos objetos que tengan racha/niveles/xp.
+      const userNode = deepFind(data, o =>
+        ("streak" in o || "site_streak" in o) || Array.isArray(o.courses)
+      );
+
+      const streak =
+        pick(userNode ?? {}, "streak", "site_streak", "currentStreak") || 0;
+
+      const courses =
+        normalizeCourses(userNode?.courses || userNode?.learningLanguages || []);
+
+      // Stats (best-effort)
+      const statsNode = deepFind(data, o =>
+        ("totalXp" in o) || ("league" in o) || ("top3" in o)
+      );
+      const stats = statsNode
+        ? {
+            totalXp: statsNode.totalXp ?? undefined,
+            league: statsNode.league ?? undefined,
+            top3: statsNode.top3 ?? undefined
+          }
+        : undefined;
+
+      // Achievements (best-effort)
+      const achNode = deepFind(data, o => Array.isArray(o.achievements));
+      const achievements = Array.isArray(achNode?.achievements)
+        ? achNode.achievements
+            .map(a => ({ name: a.name || a.title || a.badgeName || "Achievement" }))
+            .slice(0, 10)
+        : undefined;
+
+      out = buildBase({
+        streak: Number(streak) || 0,
+        languages: courses,
+        stats,
+        achievements
+      });
+    } else {
+      // Intento 2: heurística DOM (por si __NEXT_DATA__ no aparece)
+      const dom = await page.evaluate(() => ({
+        text: document.body.innerText || "",
+        langs: Array.from(document.querySelectorAll('[class*="flag"], [class*="language"]'))
+          .slice(0, 20)
+          .map(n => n.textContent?.trim())
+          .filter(Boolean)
+      }));
+
+      const m = dom.text.match(/(\d+)\s+(?:day|days|día|días)\s+streak/i);
+      const streak = m ? Number(m[1]) : 0;
+      const languages = [...new Set(dom.langs)].slice(0, 10).map(name => ({ name, code: name.toLowerCase() }));
+
+      out = buildBase({ streak, languages });
+    }
+
+    return out;
+  } finally {
+    await browser.close();
+  }
 }
+
+// ---------- main -------------
 
 async function main() {
   let data;
   try {
-    data = await fetchViaPublicAPI(PROFILE);
-  } catch (e1) {
-    console.warn("[Duolingo] public API failed:", e1?.message || e1);
-    data = await fetchViaBrowser(PROFILE);
+    data = await tryPublicAPI(PROFILE);
+    console.log("[Duolingo] public API ok");
+  } catch (e) {
+    console.warn("[Duolingo] public API failed:", e.message);
+    if (!DUO_USER || !DUO_PASS) {
+      console.warn("[Duolingo] missing DUO_USER/DUO_PASS. Writing minimal file.");
+      data = buildBase({ streak: 0, languages: [] });
+    } else {
+      console.log("[Duolingo] switching to Playwright scrape…");
+      data = await fetchViaBrowser(PROFILE, DUO_USER, DUO_PASS);
+    }
   }
 
-  const out = {
-    profile: PROFILE,
-    profileUrl: PROFILE_URL,
-    streak: data.streak ?? 0,
-    languages: Array.isArray(data.languages) ? data.languages : [],
-    lastUpdated: new Date().toISOString()
-  };
-
-  await mkdir(dirname(OUT_PATH), { recursive: true });
-  await writeFile(OUT_PATH, JSON.stringify(out, null, 2), "utf8");
-  console.log("[Duolingo] written:", OUT_PATH, out);
+  await writeJSON(OUT, data);
 }
 
 main().catch(err => {

@@ -3,7 +3,7 @@ name: Update Duolingo Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 7 * * *" # diario a las 07:00 UTC
+    - cron: "0 7 * * *"  # diario a las 07:00 UTC
 
 permissions:
   contents: write
@@ -21,10 +21,10 @@ jobs:
         with:
           node-version: 20
 
-      # 👇 Necesario para el fallback cuando la API pública responde 403
-      - name: Install Playwright (Chromium)
+      - name: Prepare Node + Playwright
         run: |
-          npm i -D playwright@latest
+          npm init -y
+          npm i playwright@latest
           npx playwright install --with-deps chromium
 
       - name: Ensure assets/data exists
@@ -32,7 +32,9 @@ jobs:
 
       - name: Run Duolingo updater
         env:
-          DUO_PROFILE: ${{ vars.DUO_PROFILE || 'AzulRK' }}
+          DUO_PROFILE: ${{ vars.DUO_PROFILE }}   # e.g. AzulRK
+          DUO_USER:    ${{ secrets.DUO_USER }}    # mismo usuario o email de login
+          DUO_PASS:    ${{ secrets.DUO_PASS }}    # password
         run: node scripts/update-duo.mjs
 
       - name: Commit changes (if any)

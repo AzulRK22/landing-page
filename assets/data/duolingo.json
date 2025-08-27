@@ -1,12 +1,13 @@
 {
   "profile": "AzulRK",
   "profileUrl": "https://www.duolingo.com/profile/AzulRK",
-  "streak": 237,
-  "languages": [
-    "French",
-    "English",
-    "Spanish",
-    "German"
+  "streak": 0,
+  "languages": [],
+  "stats": { "totalXp": 120609, "league": "Diamond", "top3": 13 },
+  "achievements": [
+    { "name": "On Fire" },
+    { "name": "Scholar" },
+    { "name": "Intellectual" }
   ],
-  "lastUpdated": "2025-08-26T07:21:58.926Z"
+  "lastUpdated": "2025-08-26T04:02:03.871Z"
 }

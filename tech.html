@@ -141,44 +141,49 @@
           Follow me on TikTok for more: <a href="https://www.tiktok.com/@azulrk22" target="_blank">@azulrk22</a>
         </p>
       </section>
-      <!-- Duolingo — Live Stats -->
-      <section id="duolingo" aria-labelledby="duo-title">
-        <header class="major">
-          <h2 id="duo-title">Duolingo — Live Stats</h2>
-          <p class="sub">Tracking my daily streak and active languages</p>
-        </header>
+<section id="duolingo" class="panel fat reveal" aria-labelledby="duo-title">
+  <header class="section-head">
+    <h2 id="duo-title">Duolingo — Live Stats</h2>
+    <p class="sub">Tracking my daily streak and active languages</p>
+  </header>
 
-        <article class="duo-card" data-src="assets/data/duolingo.json">
-          <div class="duo-head">
-            <!-- Owl simple SVG para no depender de imágenes -->
-            <svg class="duo-logo" viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="30"></circle>
-              <circle cx="24" cy="28" r="6" class="eye"></circle>
-              <circle cx="40" cy="28" r="6" class="eye"></circle>
-              <polygon points="32,30 37,40 27,40" class="beak"></polygon>
-            </svg>
+  <div class="duo-card" aria-live="polite">
+    <div class="duo-row top">
+      <div class="duo-appicon" aria-hidden="true">
+        <img src="assets/images/duolingo.svg" alt="" />
+      </div>
 
-            <div class="duo-nums">
-              <div class="duo-streak">
-                <span data-days>—</span> day streak
-              </div>
-              <div class="duo-updated">auto-updated daily</div>
-            </div>
-          </div>
+      <div class="duo-streak">
+        <div class="duo-streak-line">
+          <span class="flame" aria-hidden="true"></span>
+          <strong><span data-duo-streak>—</span> day streak</strong>
+        </div>
+        <small>auto-updated daily</small>
+      </div>
 
-          <div class="duo-body">
-            <div class="duo-label">Languages</div>
-            <div class="duo-langs" data-langs>
-              <!-- pills se rellenan por JS -->
-            </div>
-          </div>
+      <a class="duo-btn" href="#" target="_blank" rel="noopener">View profile</a>
+    </div>
 
-          <div class="duo-actions">
-            <a class="duo-cta" href="https://www.duolingo.com/profile/AzulRK" target="_blank" rel="noopener">View
-              profile</a>
-          </div>
-        </article>
-      </section>
+    <hr class="duo-divider" />
+
+    <div class="duo-block">
+      <div class="duo-label">Languages</div>
+      <ul class="duo-langlist" data-duo-langs></ul>
+    </div>
+
+    <!-- Opcional (se oculta si no hay datos) -->
+    <div class="duo-block duo-optional" data-block="stats" hidden>
+      <div class="duo-label">Stats</div>
+      <ul class="duo-stats" data-duo-stats></ul>
+    </div>
+
+    <!-- Opcional (se oculta si no hay datos) -->
+    <div class="duo-block duo-optional" data-block="achievements" hidden>
+      <div class="duo-label">Achievements</div>
+      <ul class="duo-badges" data-duo-achievements></ul>
+    </div>
+  </div>
+</section>
     </div><!-- /#main -->
 
     <!-- Footer -->
