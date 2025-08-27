@@ -3,7 +3,7 @@ name: Update Duolingo Stats
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 7 * * *"  # diario a las 07:00 UTC
+    - cron: "0 7 * * *"   # cada día 07:00 UTC
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 20
 
-      - name: Prepare Node + Playwright
+      - name: Prepare Node + Playwright (Chromium)
         run: |
           npm init -y
           npm i playwright@latest
@@ -32,9 +32,9 @@ jobs:
 
       - name: Run Duolingo updater
         env:
-          DUO_PROFILE: ${{ vars.DUO_PROFILE }}   # e.g. AzulRK
-          DUO_USER:    ${{ secrets.DUO_USER }}    # mismo usuario o email de login
-          DUO_PASS:    ${{ secrets.DUO_PASS }}    # password
+          DUO_PROFILE: ${{ vars.DUO_PROFILE }}   # p.ej. "AzulRK"
+          DUO_USER:    ${{ secrets.DUO_USER }}   # tu email/usuario
+          DUO_PASS:    ${{ secrets.DUO_PASS }}   # tu password
         run: node scripts/update-duo.mjs
 
       - name: Commit changes (if any)

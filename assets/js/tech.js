@@ -33,126 +33,119 @@
   }, { threshold: 0.15 });
   els.forEach(el=>io.observe(el));
 })();
-// ===== Duolingo card (espera a que el DOM esté listo) =====
+
+/* ===== Duolingo widget ===== */
 (function () {
-  const card    = document.querySelector(".duo-card");
+  const card = document.querySelector(".duo-card");
   if (!card) return;
 
   const $streak = card.querySelector("[data-duo-streak]");
   const $langs  = card.querySelector("[data-duo-langs]");
-  const $btn    = card.querySelector(".duo-btn");
-  const $statsB = card.querySelector('[data-block="stats"]');
   const $stats  = card.querySelector("[data-duo-stats]");
-  const $achsB  = card.querySelector('[data-block="achievements"]');
-  const $achs   = card.querySelector("[data-duo-achievements]");
+  const $btn    = card.querySelector(".duo-btn");
 
-  // Mapa sencillo de banderas por idioma
+  const nf = new Intl.NumberFormat('en-US');
+
   const FLAG = {
-    english: "🇺🇸",
-    spanish: "🇪🇸",
-    french:  "🇫🇷",
-    german:  "🇩🇪",
-    italian: "🇮🇹",
-    portuguese: "🇧🇷",
-    japanese: "🇯🇵",
-    korean: "🇰🇷",
-    chinese: "🇨🇳"
+    english:'🇺🇸','en':'🇺🇸','en-us':'🇺🇸','en-gb':'🇬🇧',
+    spanish:'🇪🇸','es':'🇪🇸',
+    french:'🇫🇷','fr':'🇫🇷',
+    german:'🇩🇪','de':'🇩🇪',
+    italian:'🇮🇹','it':'🇮🇹',
+    portuguese:'🇵🇹','pt':'🇵🇹','pt-br':'🇧🇷',
+    japanese:'🇯🇵','ja':'🇯🇵',
+    korean:'🇰🇷','ko':'🇰🇷',
+    chinese:'🇨🇳','zh':'🇨🇳','zh-cn':'🇨🇳','zh-tw':'🇹🇼',
+    irish:'🇮🇪','ga':'🇮🇪',
+    swedish:'🇸🇪','sv':'🇸🇪',
+    dutch:'🇳🇱','nl':'🇳🇱',
+    norwegian:'🇳🇴','no':'🇳🇴',
+    danish:'🇩🇰','da':'🇩🇰',
+    finnish:'🇫🇮','fi':'🇫🇮',
+    polish:'🇵🇱','pl':'🇵🇱',
+    turkish:'🇹🇷','tr':'🇹🇷',
+    arabic:'🇸🇦','ar':'🇸🇦',
+    hebrew:'🇮🇱','he':'🇮🇱',
+    greek:'🇬🇷','el':'🇬🇷'
   };
+  function flagFor(key=''){
+    const k = String(key).trim().toLowerCase();
+    if (FLAG[k]) return FLAG[k];
+    const first = k.split(/\s|-/)[0];
+    return FLAG[first] || '🏁';
+  }
 
-  const normLang = (item) => {
-    if (!item) return null;
-    if (typeof item === "string") {
-      const key = item.toLowerCase();
-      return { name: item, code: key, flag: FLAG[key] || "🏳️", level: null, xp: null };
-    }
-    // objeto enriquecido: {name, code, level, xp, flag?}
-    const key = (item.code || item.name || "").toLowerCase();
-    return {
-      name: item.name || item.code || "—",
-      code: key,
-      flag: item.flag || FLAG[key] || "🏳️",
-      level: item.level ?? null,
-      xp: item.xp ?? null
+  function makeLangPill(lang){
+    const li = document.createElement('li');
+    li.className = 'lang-pill';
+    const flag = flagFor(lang.code || lang.name);
+    const name = lang.name || (lang.code || '').toUpperCase();
+    const xp   = (lang.xp != null) ? `${nf.format(lang.xp)} XP` : null;
+    const lvl  = (lang.level != null) ? `L${lang.level}` : null;
+    li.innerHTML = `
+      <span class="flag" aria-hidden="true">${flag}</span>
+      <span class="name">${name}</span>
+      ${xp ? `<span class="xp">${xp}</span>` : ``}
+      ${lvl ? `<span class="lvl">${lvl}</span>` : ``}
+    `;
+    return li;
+  }
+
+  function renderStats({ totalXp = null, league = null, top3 = null, diamondWeeks = null } = {}){
+    if (!$stats) return;
+    $stats.innerHTML = '';
+    const add = (k, icon, text) => {
+      if (text == null || text === '') return;
+      const li = document.createElement('li');
+      li.className = 'stat-chip';
+      li.innerHTML = `<i>${icon}</i> ${text}`;
+      li.dataset.kind = k;
+      $stats.appendChild(li);
     };
-  };
+    if (totalXp != null) add('xp', '⭐', `${nf.format(totalXp)} XP`);
+    if (league)        add('league', '💎', league);
+    if (diamondWeeks!=null) add('weeks','💠', `${diamondWeeks} wks`);
+    if (top3 != null)  add('top3', '🥇', `${top3}× top-3`);
+  }
 
-  function render(data = {}) {
-    const { streak = 0, languages = [], profile } = data;
+  function render({ streak = 0, languages = [], profile = null, stats = {} } = {}) {
+    $streak.textContent = `${nf.format(streak)} day streak`;
 
-    // Streak
-    $streak.textContent = `${streak}`;
+    $langs.innerHTML = '';
+    if (languages.length) {
+      languages.forEach(l => $langs.appendChild(makeLangPill(l)));
+    } else {
+      const li = document.createElement('li');
+      li.className = 'lang-pill';
+      li.innerHTML = `<span class="flag">🏁</span><span class="name">—</span>`;
+      $langs.appendChild(li);
+    }
 
-    // Profile link
+    // stats (si falta totalXp, se suma desde idiomas)
+    const sumXp = languages.reduce((a,l)=> a + (Number(l.xp)||0), 0);
+    const s = {
+      totalXp: (stats && Number(stats.totalXp)) || (sumXp || null),
+      league : stats?.league || null,
+      top3   : (stats?.top3 ?? null),
+      diamondWeeks: (stats?.diamondWeeks ?? null)
+    };
+    renderStats(s);
+
     if (profile) {
       $btn.href = `https://www.duolingo.com/profile/${encodeURIComponent(profile)}`;
       $btn.target = "_blank";
       $btn.rel = "noopener";
     }
-
-    // Languages (pills)
-    $langs.innerHTML = "";
-    const langs = (languages || []).map(normLang).filter(Boolean);
-    if (!langs.length) {
-      const li = document.createElement("li");
-      li.textContent = "—";
-      li.style.opacity = ".7";
-      $langs.appendChild(li);
-    } else {
-      langs.forEach(l => {
-        const li = document.createElement("li");
-        li.className = "duo-lang";
-        li.innerHTML = `
-          <span class="flag" aria-hidden="true">${l.flag}</span>
-          <span class="name">${l.name}</span>
-          ${l.level != null ? `<span class="lvl">L${l.level}</span>` : ""}
-          ${l.xp != null ? `<span class="xp">${new Intl.NumberFormat().format(l.xp)} XP</span>` : ""}
-        `;
-        $langs.appendChild(li);
-      });
-    }
-
-    // Optional: stats
-    if (data.stats && $stats && $statsB) {
-      $stats.innerHTML = "";
-      const items = [];
-      if (typeof data.stats.totalXp === "number")
-        items.push({ ico:"⚡️", txt:`${new Intl.NumberFormat().format(data.stats.totalXp)} XP` });
-      if (data.stats.league)
-        items.push({ ico:"🏆", txt:`${data.stats.league} league` });
-      if (typeof data.stats.top3 === "number")
-        items.push({ ico:"🥉", txt:`Top 3: ${data.stats.top3}x` });
-
-      if (items.length) {
-        items.forEach(s=>{
-          const li = document.createElement("li");
-          li.className = "duo-stat";
-          li.innerHTML  = `<span class="ico" aria-hidden="true">${s.ico}</span><span>${s.txt}</span>`;
-          $stats.appendChild(li);
-        });
-        $statsB.hidden = false;
-      } else {
-        $statsB.hidden = true;
-      }
-    }
-
-    // Optional: achievements
-    if (Array.isArray(data.achievements) && $achs && $achsB) {
-      $achs.innerHTML = "";
-      data.achievements.slice(0, 6).forEach(a=>{
-        const li = document.createElement("li");
-        li.className = "duo-badge";
-        li.textContent = a.name || "Achievement";
-        $achs.appendChild(li);
-      });
-      $achsB.hidden = $achs.childElementCount === 0;
-    }
   }
 
   fetch(`assets/data/duolingo.json?ts=${Date.now()}`, { cache: "no-store" })
-    .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
     .then(render)
     .catch(err => {
       console.warn("[Duolingo] widget error:", err);
-      render({}); // fallback visible pero vacío
+      render({});
     });
 })();
