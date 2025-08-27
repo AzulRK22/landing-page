@@ -1,13 +1,32 @@
 {
   "profile": "AzulRK",
   "profileUrl": "https://www.duolingo.com/profile/AzulRK",
-  "streak": 0,
-  "languages": [],
-  "stats": { "totalXp": 120609, "league": "Diamond", "top3": 13 },
-  "achievements": [
-    { "name": "On Fire" },
-    { "name": "Scholar" },
-    { "name": "Intellectual" }
+  "streak": 238,
+  "languages": [
+    {
+      "name": "French",
+      "code": "fr",
+      "level": null,
+      "xp": 51902
+    },
+    {
+      "name": "English",
+      "code": "en",
+      "level": null,
+      "xp": 59139
+    },
+    {
+      "name": "Spanish",
+      "code": "es",
+      "level": null,
+      "xp": 1350
+    },
+    {
+      "name": "German",
+      "code": "de",
+      "level": null,
+      "xp": 13
+    }
   ],
-  "lastUpdated": "2025-08-26T04:02:03.871Z"
+  "lastUpdated": "2025-08-27T02:08:43.523Z"
 }
