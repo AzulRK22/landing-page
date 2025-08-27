@@ -1,159 +1,190 @@
 // scripts/update-duo.mjs
-import fs from "fs/promises";
-import path from "path";
-import { chromium } from "playwright";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const OUT_PATH = path.join(process.cwd(), "assets", "data", "duolingo.json");
-const DUO_PROFILE = process.env.DUO_PROFILE || process.env.DUO_USER || "";
-const DUO_USER = process.env.DUO_USER || "";
-const DUO_PASS = process.env.DUO_PASS || "";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = path.dirname(__filename);
 
-if (!DUO_PROFILE) {
-  console.error("DUO_PROFILE (o DUO_USER) requerido.");
-  process.exit(1);
+const OUT = path.join(__dirname, "..", "assets", "data", "duolingo.json");
+
+const USERNAME_ENV = process.env.DUO_PROFILE;
+const DUO_USER     = process.env.DUO_USER;
+const DUO_PASS     = process.env.DUO_PASS;
+
+function cleanNumber(txt = "") {
+  // "120,609" -> 120609 ; "59 139" -> 59139
+  return Number(String(txt).replace(/[^\d]/g, "")) || 0;
 }
 
-async function fetchViaAPI(page, profile) {
-  // Llama al endpoint público autenticado
-  const res = await page.evaluate(async (profile) => {
-    try {
-      const r = await fetch(
-        `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(profile)}`,
-        { credentials: "include" }
-      );
-      if (!r.ok) return { ok: false, status: r.status };
-      const j = await r.json();
-      return { ok: true, j };
-    } catch (e) {
-      return { ok: false, status: "net" };
-    }
-  }, profile);
+async function fetchPublicProfile(username) {
+  // API pública (a veces devuelve 403)
+  const url = `https://www.duolingo.com/2017-06-30/users?username=${encodeURIComponent(username)}`;
+  const r = await fetch(url, { headers: { "accept": "application/json" }});
+  if (!r.ok) throw new Error(`Public API HTTP ${r.status}`);
+  const data = await r.json();
 
-  if (!res.ok) throw new Error("Public API HTTP " + res.status);
+  const user = data?.users?.[0];
+  if (!user) throw new Error("Public API: empty user");
 
-  const user = res.j?.users?.[0] || res.j?.user || res.j;
-  if (!user) throw new Error("No user payload");
+  const streak   = user?.streak || user?.site_streak || user?.currentStreak?.length || 0;
+  const totalXp  = user?.totalXp ?? 0;
 
-  const streak =
-    user.streak ||
-    user.site_streak ||
-    user.siteStreak ||
-    user?.streakData?.currentStreak?.length ||
-    0;
+  // courses traen xp por idioma
+  const languages = (user?.courses || []).map(c => ({
+    title: c.title,  // "French", "Spanish", ...
+    short: c.learningLanguage, // "fr", "es", ...
+    xp: c.xp || 0
+  })).sort((a,b)=> (b.xp||0) - (a.xp||0));
 
-  const totalXp = user.totalXp ?? user.total_xp ?? null;
+  // Algunos campos no están en el API público
+  const league      = undefined;
+  const top3Count   = undefined;
 
-  // cursos → idiomas
-  let languages = [];
-  const courses = user.courses || user.language_data || [];
-  if (Array.isArray(courses)) {
-    languages = courses.map((c) => ({
-      code: c.learningLanguage || c.language || c.language_code || "",
-      name:
-        c.title || c.title_localized || c.title_en || c.name || (c.learningLanguage || "").toUpperCase(),
-      xp: Number(c.xp ?? c.points ?? 0),
-      level: c.level ?? c.levelProgress?.level ?? null,
-    }));
-  } else if (typeof courses === "object") {
-    languages = Object.keys(courses).map((code) => {
-      const d = courses[code] || {};
-      return {
-        code,
-        name: d.language_string || d.title || code,
-        xp: Number(d.points || d.xp || 0),
-        level: d.level || null,
+  return { streak: Number(streak) || 0, totalXp, league, top3Count, languages };
+}
+
+async function fetchViaBrowser(username) {
+  // Login + lectura del perfil con Playwright (Chromium)
+  const { chromium } = await import("playwright");
+
+  const browser = await chromium.launch({ args: ["--no-sandbox"] });
+  const ctx  = await browser.newContext();
+  const page = await ctx.newPage();
+
+  try {
+    // Login
+    await page.goto("https://www.duolingo.com/");
+    await page.getByRole("button", { name: /i already have an account|ya tengo cuenta|sign in/i }).click().catch(()=>{});
+    await page.waitForTimeout(800);
+
+    // Dos posibles formularios (popup o página)
+    const userSel = 'input[name="username"], input[name="login"]';
+    const passSel = 'input[name="password"]';
+    await page.locator(userSel).first().fill(DUO_USER);
+    await page.locator(passSel).first().fill(DUO_PASS);
+    await page.getByRole("button", { name: /log in|iniciar sesión|sign in/i }).first().click();
+
+    // Espera a estar dentro
+    await page.waitForLoadState("networkidle", { timeout: 60000 });
+
+    const profile = username || DUO_USER;
+    await page.goto(`https://www.duolingo.com/profile/${encodeURIComponent(profile)}`, { waitUntil: "domcontentloaded" });
+    await page.waitForLoadState("networkidle", { timeout: 60000 });
+
+    // Extrae textos relevantes del perfil (es/inglés)
+    const info = await page.evaluate(() => {
+      const grabText = () => Array.from(document.querySelectorAll("body *"))
+        .slice(0, 4000)
+        .map(n => (n.childElementCount ? "" : n.textContent || ""))
+        .filter(Boolean)
+        .map(t => t.replace(/\s+/g, " ").trim());
+
+      const texts = grabText().join(" • ").toLowerCase();
+
+      const num = (re) => {
+        const m = texts.match(re);
+        return m ? Number(m[1].replace(/[^\d]/g, "")) : undefined;
       };
+
+      // streak
+      let streak = num(/(\d+)\s*(?:día|dias|days?)\s*de\s*racha|(\d+)\s*day\s*streak/i) || 0;
+
+      // total xp
+      let totalXp = num(/(\d[\d.,\s]+)\s*(?:exp|xp)\s*(?:totales|total)?/i) || undefined;
+
+      // veces en top 3
+      let top3 = num(/(\d+)\s*veces?\s*en\s*el\s*top\s*3|(\d+)\s*times?\s*in\s*top\s*3/i) || undefined;
+
+      // league / division
+      const leagues = [
+        "bronce","plata","oro","zafiro","rubí","rubi","esmeralda","amatista","perla","obsidiana","diamante",
+        "bronze","silver","gold","sapphire","ruby","emerald","amethyst","pearl","obsidian","diamond"
+      ];
+      const foundLeague = leagues.find(l => texts.includes(l));
+      let league = foundLeague ? (foundLeague[0].toUpperCase()+foundLeague.slice(1)) : undefined;
+      if (league === "Rubí") league = "Rubí"; // acento
+
+      return { streak, totalXp, top3, league };
     });
+
+    // Idiomas + XP desde la app (marcados en el DOM con banderitas/nombre)
+    const langs = await page.evaluate(() => {
+      // Buscar tarjetas/filas que tengan nombre de idioma y xp cercano
+      const rows = Array.from(document.querySelectorAll("div,li,section")).slice(0, 2000);
+      const items = [];
+      rows.forEach(row => {
+        const t = row.textContent?.trim() || "";
+        // Heurística: nombre de idioma + número con XP
+        const m = t.match(/\b(english|inglés|spanish|español|french|francés|german|alemán)\b/i);
+        const n = t.match(/(\d[\d.,\s]+)\s*(xp|exp)/i);
+        if (m && n) {
+          const title = m[1];
+          const xp = Number(n[1].replace(/[^\d]/g, "")) || 0;
+          items.push({ title, xp });
+        }
+      });
+      // Preferir únicos por título con mayor XP
+      const map = new Map();
+      items.forEach(i => {
+        const k = i.title.toLowerCase();
+        if (!map.has(k) || map.get(k).xp < i.xp) map.set(k, i);
+      });
+      return Array.from(map.values());
+    });
+
+    await browser.close();
+
+    // Devuelve con lo que tengamos
+    return {
+      streak: info.streak ?? 0,
+      totalXp: info.totalXp,
+      top3Count: info.top3,
+      league: info.league,
+      languages: langs.sort((a,b)=> (b.xp||0) - (a.xp||0))
+    };
+  } catch (e) {
+    await browser.close();
+    throw e;
   }
-
-  return { streak, totalXp, languages };
-}
-
-async function scrapeExtras(page) {
-  // Raspa textos globales de la página del perfil
-  const txt = await page.evaluate(() => document.body.innerText);
-
-  const findNum = (re) => {
-    const m = txt.match(re);
-    if (!m) return null;
-    const raw = (m[1] || m[0]).replace(/[^\d]/g, "");
-    return raw ? parseInt(raw, 10) : null;
-  };
-
-  // Top-3 (es/en)
-  const top3 = findNum(/(?:veces en el top\s*3|top\s*3\s*times)\D*(\d+)/i);
-
-  // League (map básica)
-  let league = null;
-  if (/Diamond|Diamante/i.test(txt)) league = "Diamond";
-  else if (/Obsidian|Obsidiana/i.test(txt)) league = "Obsidian";
-  else if (/Ruby|Rub[ií]/i.test(txt)) league = "Ruby";
-  else if (/Emerald|Esmeralda/i.test(txt)) league = "Emerald";
-  else if (/Pearl|Perla/i.test(txt)) league = "Pearl";
-  else if (/Sapphire|Zafiro/i.test(txt)) league = "Sapphire";
-  else if (/Amethyst|Amatista/i.test(txt)) league = "Amethyst";
-  else if (/Gold|Oro/i.test(txt)) league = "Gold";
-  else if (/Silver|Plata/i.test(txt)) league = "Silver";
-  else if (/Bronze|Bronce/i.test(txt)) league = "Bronze";
-
-  // "3 SEMANAS" cerca de Diamond (o "3 WEEKS")
-  const diamondWeeks = findNum(/(\d+)\s*(?:weeks|semanas).{0,16}(?:Diamond|Diamante)/i);
-
-  return { league, top3, diamondWeeks };
 }
 
 async function main() {
-  const browser = await chromium.launch({ args: ["--no-sandbox", "--disable-dev-shm-usage"] });
-  const page = await browser.newPage();
+  let data;
 
-  // 1) Login
-  await page.goto("https://www.duolingo.com/log-in", { waitUntil: "domcontentloaded" });
-  await page.waitForTimeout(800);
-  const emailSel = 'input[name="login"], input[name="identifier"], input[type="email"], [data-test="email-input"]';
-  const passSel  = 'input[name="password"], input[type="password"], [data-test="password-input"]';
-  await page.fill(emailSel, DUO_USER);
-  await page.fill(passSel, DUO_PASS);
-  const btnSel = 'button[type="submit"], button[data-test="register-button"], button[data-test="login-button"]';
-  await page.click(btnSel).catch(() => {});
-  await page.waitForLoadState("networkidle", { timeout: 45000 }).catch(() => {});
-
-  // 2) Ir al perfil
-  await page.goto(`https://www.duolingo.com/profile/${encodeURIComponent(DUO_PROFILE)}`, {
-    waitUntil: "domcontentloaded",
-  });
-  await page.waitForLoadState("networkidle", { timeout: 45000 }).catch(() => {});
-
-  // 3) API + extras
-  let core = { streak: 0, totalXp: null, languages: [] };
+  const username = USERNAME_ENV || DUO_USER;
   try {
-    core = await fetchViaAPI(page, DUO_PROFILE);
+    data = await fetchPublicProfile(username);
   } catch (e) {
     console.warn("[Duolingo] public API failed:", e.message);
+    // Fallback Playwright
+    data = await fetchViaBrowser(username);
   }
-  const extras = await scrapeExtras(page);
 
-  const payload = {
-    profile: DUO_PROFILE,
-    profileUrl: `https://www.duolingo.com/profile/${encodeURIComponent(DUO_PROFILE)}`,
-    streak: core.streak || 0,
-    languages: core.languages || [],
-    stats: {
-      totalXp: core.totalXp ?? null,
-      league: extras.league ?? null,
-      top3: extras.top3 ?? null,
-      diamondWeeks: extras.diamondWeeks ?? null,
-    },
-    lastUpdated: new Date().toISOString(),
+  // Normaliza idiomas (capitaliza)
+  const pretty = (s="") => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+  const languages = (data.languages || []).map(l => ({
+    title: pretty(l.title || l.label || l.lang || ""),
+    xp: Number(l.xp) || 0
+  }));
+
+  const out = {
+    profile: username,
+    profileUrl: `https://www.duolingo.com/profile/${encodeURIComponent(username)}`,
+    streak: Number(data.streak) || 0,
+    totalXp: (data.totalXp != null) ? Number(data.totalXp) : undefined,
+    league: data.league,
+    top3Count: (data.top3Count != null) ? Number(data.top3Count) : undefined,
+    languages,
+    lastUpdated: new Date().toISOString()
   };
 
-  await fs.mkdir(path.dirname(OUT_PATH), { recursive: true });
-  await fs.writeFile(OUT_PATH, JSON.stringify(payload, null, 2), "utf8");
-  console.log("[Duolingo] wrote", OUT_PATH);
-
-  await browser.close();
+  await fs.mkdir(path.dirname(OUT), { recursive: true });
+  await fs.writeFile(OUT, JSON.stringify(out, null, 2), "utf8");
+  console.log("[Duolingo] wrote", OUT, "ok");
 }
 
-main().catch((e) => {
-  console.error("[Duolingo] updater failed:", e);
+main().catch(err => {
+  console.error("[Duolingo] updater failed:", err);
   process.exit(1);
 });
