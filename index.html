@@ -487,14 +487,15 @@
 
 	<!-- Rotating titles -->
 	<script>
-		let currentIndex = 0;
-		const titles = ['title1', 'title2', 'title3'];
+		// Rotating titles (estable y un poco más rápido)
+		const ids = ['title1', 'title2', 'title3'];
+		let i = 0;
 		function showNextTitle() {
-			titles.forEach(id => document.getElementById(id)?.classList.remove('show'));
-			document.getElementById(titles[currentIndex])?.classList.add('show');
-			currentIndex = (currentIndex + 0.5) % titles.length;
+			ids.forEach(id => document.getElementById(id)?.classList.remove('show'));
+			document.getElementById(ids[i])?.classList.add('show');
+			i = (i + 1) % ids.length; // avanza 1 en entero
 		}
-		setInterval(showNextTitle, 3000);
+		setInterval(showNextTitle, 1800);
 		showNextTitle();
 	</script>
 

@@ -1,38 +1,41 @@
 /* =========================
-   Projects – Swipers (limpio, sin recortes)
+   Projects – Swipers (final)
    ========================= */
 
-/* Contenedor Swiper: transparente, sin cromado, sin recortes */
+/* Contenedor Swiper: transparente y contenido confinado (sin overflow) */
 #main .project-swiper {
   /* altura máxima configurable por carrusel */
   --maxH: clamp(200px, 36vh, 440px);
 
   position: relative;
+  isolation: isolate;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto 1rem;
 
-  /* contenedor “desnudo” (solo flechas/paginación) */
+  /* “caja desnuda” (sin cromado) */
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
   backdrop-filter: none !important;
   padding: 0;
-  overflow: visible; /* deja que las flechas respiren */
-  height: auto !important; /* autoHeight en JS manda */
+  height: auto !important;            /* autoHeight (JS) manda */
   box-sizing: border-box;
+
+  /* que NO se salga del layout */
+  overflow: hidden;
+  max-width: 100%;
+  contain: layout paint;
+
+  /* scroll vertical natural en móvil */
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* Alturas máximas específicas */
-#swiper-ecommerce {
-  --maxH: clamp(150px, 28vh, 320px);
-}
-#swiper-headstarter {
-  --maxH: clamp(150px, 28vh, 330px);
-}
-#swiper-ecoventus {
-  --maxH: clamp(200px, 36vh, 460px);
-}
+/* Alturas máximas específicas por carrusel (ajústalas si necesitas) */
+#swiper-ecommerce   { --maxH: clamp(150px, 28vh, 320px); }
+#swiper-headstarter { --maxH: clamp(150px, 28vh, 330px); }
+#swiper-ecoventus   { --maxH: clamp(200px, 36vh, 460px); }
 
 /* Pista y slides: que el contenido defina el alto */
 #main .project-swiper .swiper-wrapper {
@@ -40,6 +43,7 @@
   display: flex;
   align-items: stretch;
   background: transparent !important;
+  max-width: 100%;
 }
 #main .project-swiper .swiper-slide {
   height: auto !important;
@@ -49,18 +53,20 @@
   padding: 0.15rem;
   box-sizing: border-box;
   background: transparent !important;
+  will-change: transform;
+  max-width: 100%;
 }
 
-/* Imágenes: jamás recortar */
+/* Imágenes: jamás recortar ni estirar */
 #main .project-swiper .swiper-slide img {
   width: auto;
   max-width: 100%;
-  height: auto;
+  height: auto;                       /* clave: no forzar 100% */
   max-height: var(--maxH);
   object-fit: contain !important;
   object-position: center !important;
 
-  background: transparent !important; /* sin letterbox */
+  background: transparent !important;
   border-radius: 10px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
 
@@ -69,9 +75,11 @@
   user-select: none;
 }
 
-/* Controles compactos (flechas y bullets) */
+/* Paginación compacta */
 #main .project-swiper .swiper-pagination-bullets {
   bottom: 6px !important;
+  z-index: 3;
+  pointer-events: auto;
 }
 #main .project-swiper .swiper-pagination-bullet {
   width: 6px;
@@ -84,31 +92,36 @@
   opacity: 1;
 }
 
+/* Flechas SIEMPRE dentro del carrusel (safe-area friendly) */
 #main .project-swiper .swiper-button-prev,
 #main .project-swiper .swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 26px;
   height: 26px;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.35);
   color: #fff;
+  z-index: 5;
+  pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+#main .project-swiper .swiper-button-prev { left:  max(8px, env(safe-area-inset-left, 0px) + 8px); }
+#main .project-swiper .swiper-button-next { right: max(8px, env(safe-area-inset-right, 0px) + 8px); }
+
 #main .project-swiper .swiper-button-prev::after,
-#main .project-swiper .swiper-button-next::after {
-  font-size: 12px;
-}
+#main .project-swiper .swiper-button-next::after { font-size: 12px; }
+
 #main .project-swiper .swiper-button-prev:hover,
-#main .project-swiper .swiper-button-next:hover {
-  background: rgba(0, 0, 0, 0.55);
-}
+#main .project-swiper .swiper-button-next:hover { background: rgba(0, 0, 0, 0.55); }
+
+#main .project-swiper .swiper-button-disabled { opacity: .35; }
 
 /* Lazy (opcional) */
-#main .project-swiper .swiper-lazy {
-  filter: blur(2px);
-}
-#main .project-swiper .swiper-lazy-loaded {
-  filter: none;
-  transition: filter 0.25s ease;
-}
+#main .project-swiper .swiper-lazy         { filter: blur(2px); }
+#main .project-swiper .swiper-lazy-loaded  { filter: none; transition: filter .25s ease; }
+
 /* =====================================================
    Links Row – pills con buen contraste
    ===================================================== */
@@ -126,7 +139,6 @@
   gap: var(--lr-gap);
   margin: .6rem 0 0;
 }
-
 .links-row .link-btn {
   display: inline-flex;
   align-items: center;
@@ -163,14 +175,13 @@
    Upcoming – panel compacto con fondo blanco
    ========================= */
 #upcoming-projects.upcoming-compact {
-  --up-scale: 1; /* ajusta si lo quieres aún más chico: .85, .75, .6... */
+  --up-scale: 1; /* si quieres aún más chico: .85, .75, .6... */
   margin: 0 auto 1.5rem;
   text-align: center;
   display: grid;
   place-items: center;
   padding: 0;
 }
-
 #upcoming-projects.upcoming-compact .upcoming-scale {
   font-size: calc(1rem * var(--up-scale));
   line-height: 1.3;
@@ -179,30 +190,24 @@
   margin: 0 auto;
   padding: calc(1rem * var(--up-scale));
 
-  background: #fff; /* fondo blanco */
+  background: #fff;                 /* fondo blanco */
   color: #111;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
 }
-
 #upcoming-projects.upcoming-compact h2 {
   font-size: 1.6em;
   margin: 0 0 0.6em;
   line-height: 1.2;
 }
-
 #upcoming-projects.upcoming-compact ul {
   list-style: none;
   padding: 0;
   margin: 0.5em 0 0;
   font-size: 1em;
 }
-
-#upcoming-projects.upcoming-compact strong {
-  font-size: 1em;
-}
-
+#upcoming-projects.upcoming-compact strong { font-size: 1em; }
 #upcoming-projects.upcoming-compact #appleAnimation {
   width: 5em;
   height: 5em;
@@ -219,7 +224,5 @@
 
 /* Legibilidad en pantallas muy pequeñas */
 @media (max-width: 420px) {
-  #upcoming-projects.upcoming-compact {
-    --up-scale: 0.6;
-  }
+  #upcoming-projects.upcoming-compact { --up-scale: 0.6; }
 }

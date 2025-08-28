@@ -89,3 +89,7 @@ ul {
   background-repeat: repeat, no-repeat, no-repeat;
   background-attachment: fixed, fixed, fixed;
 }
+/* Nunca permitir scroll horizontal por contenido desbordado */
+html, body, #wrapper, #main {
+  overflow-x: clip; /* (clip es mejor que hidden para no romper efectos) */
+}

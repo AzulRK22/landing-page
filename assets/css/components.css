@@ -791,3 +791,54 @@ a[href="#menu"] {
 @supports not (width: fit-content) {
   .post.featured .button.button-primary { display: inline-block; }
 }
+/* === Fix: Infosys Certifications responsive (sin desbordes) === */
+.infosys-certifications-container {
+  max-width: min(1100px, 100%);
+  margin-inline: auto;
+  padding-inline: clamp(.5rem, 2.5vw, 1rem);
+}
+
+.infosys-grid {
+  /* Se adapta solo: 1 → N columnas sin romper el ancho */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(0.85rem, 1.6vw, 1.15rem);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 420px) {
+  /* En pantallas muy estrechas, forzamos 1 columna */
+  .infosys-grid { grid-template-columns: 1fr; }
+}
+
+/* Contenido que nunca empuja el ancho */
+.infosys-card,
+.infosys-card * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.infosys-card h4,
+.infosys-card p {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+/* === Fix: botón "Learn more" con alto contraste === */
+/* Nota: en tu hoja hay 2 definiciones de .button-accent.
+   Esta es la definitiva (más abajo en el archivo) para restaurar contraste. */
+.button-accent {
+  background: linear-gradient(135deg, #ffd361, #ffb028);
+  color: #121620 !important;       /* texto oscuro, AA+ sobre dorado */
+  border: 0;
+  box-shadow: 0 8px 20px rgba(255, 179, 38, 0.28);
+}
+.button-accent:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(255, 179, 38, 0.38);
+}
+.button-accent:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 179, 38, 0.45);
+}

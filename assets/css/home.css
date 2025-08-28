@@ -40,3 +40,11 @@ body.is-preload #intro:not(.hidden) + #header + #nav { transform: none; opacity:
   .intro-hero { padding-top: 2rem; }
   .hero-swiper .swiper-slide img { max-height: 360px; }
 }
+
+/* Cuando el fondo usa background-attachment: fixed, puede “saltar” en iOS/Android.
+   En móvil forzamos scroll para suavidad. */
+@media (max-width: 980px) {
+  #wrapper {
+    background-attachment: scroll, scroll, scroll;
+  }
+}
