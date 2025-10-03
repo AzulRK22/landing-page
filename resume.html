@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>Azul Grisel Ramirez Kuri — Resume</title>
@@ -9,7 +10,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H06V4SLX7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date()); gtag('config', 'G-4H06V4SLX7');
   </script>
 
@@ -25,7 +26,9 @@
   <!-- Resume CSS específico -->
   <link rel="stylesheet" href="assets/css/resume.css?v=1" />
 
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <noscript>
+    <link rel="stylesheet" href="assets/css/noscript.css" />
+  </noscript>
 </head>
 
 <body>
@@ -47,10 +50,14 @@
         <li role="none"><a href="resume.html" role="menuitem" aria-current="page" class="active">Resume</a></li>
       </ul>
       <ul class="icons">
-        <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" class="icon brands fa-linkedin" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
-        <li><a href="https://www.instagram.com/azulramk/" class="icon brands fa-instagram" target="_blank" rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
-        <li><a href="https://github.com/AzulRK22" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
-        <li><a href="https://www.youtube.com/@azulrk" class="icon brands fa-youtube" target="_blank" rel="noopener noreferrer"><span class="label">YouTube</span></a></li>
+        <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" class="icon brands fa-linkedin"
+            target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://www.instagram.com/azulramk/" class="icon brands fa-instagram" target="_blank"
+            rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
+        <li><a href="https://github.com/AzulRK22" class="icon brands fa-github" target="_blank"
+            rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
+        <li><a href="https://www.youtube.com/@azulrk" class="icon brands fa-youtube" target="_blank"
+            rel="noopener noreferrer"><span class="label">YouTube</span></a></li>
       </ul>
     </nav>
     <div class="nav-backdrop" hidden></div>
@@ -64,20 +71,18 @@
 
         <!-- Acciones -->
         <div class="resume-actions" aria-label="Resume actions">
-          <a class="btn" href="docs/INAzulGrisel_RamirezKuri_CV.pdf" download>Download PDF</a>
-          <a class="btn btn-outline" href="docs/INAzulGrisel_RamirezKuri_CV.pdf" target="_blank" rel="noopener">Open in new tab</a>
+          <a class="btn" href="docs/AGRK-CV-IN-2025.pdf" download>Download PDF</a>
+          <a class="btn btn-outline" href="docs/AGRK-CV-IN-2025.pdf" target="_blank" rel="noopener">Open in
+            new tab</a>
         </div>
 
         <!-- Viewer -->
         <div class="pdf-container">
-          <object
-            class="pdf-frame"
-            data="docs/INAzulGrisel_RamirezKuri_CV.pdf"
-            type="application/pdf"
+          <object class="pdf-frame" data="docs/AGRK-CV-IN-2025.pdf" type="application/pdf"
             aria-label="Resume PDF viewer">
             <p>
               Your browser can’t display PDFs inline.
-              <a href="docs/INAzulGrisel_RamirezKuri_CV.pdf" target="_blank" rel="noopener">Open the PDF</a>.
+              <a href="docs/AGRK-CV-IN-2025.pdf" target="_blank" rel="noopener">Open the PDF</a>.
             </p>
           </object>
         </div>
@@ -102,10 +107,14 @@
         <section>
           <h3>Social</h3>
           <ul class="icons">
-            <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" target="_blank" rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-            <li><a href="https://www.instagram.com/azulramk/" target="_blank" rel="noopener noreferrer" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-            <li><a href="https://www.youtube.com/@azulrk" target="_blank" rel="noopener noreferrer" class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+            <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" target="_blank"
+                rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://www.instagram.com/azulramk/" target="_blank" rel="noopener noreferrer"
+                class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer"
+                class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            <li><a href="https://www.youtube.com/@azulrk" target="_blank" rel="noopener noreferrer"
+                class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
           </ul>
         </section>
       </section>
@@ -127,20 +136,21 @@
       const btn = document.querySelector('.nav-toggle');
       const backdrop = document.querySelector('.nav-backdrop');
 
-      function openNav(){ body.classList.add('nav-open'); btn?.setAttribute('aria-expanded','true'); backdrop?.removeAttribute('hidden'); }
-      function closeNav(){ body.classList.remove('nav-open'); btn?.setAttribute('aria-expanded','false'); backdrop?.setAttribute('hidden',''); }
-      function toggleNav(){ body.classList.contains('nav-open') ? closeNav() : openNav(); }
+      function openNav() { body.classList.add('nav-open'); btn?.setAttribute('aria-expanded', 'true'); backdrop?.removeAttribute('hidden'); }
+      function closeNav() { body.classList.remove('nav-open'); btn?.setAttribute('aria-expanded', 'false'); backdrop?.setAttribute('hidden', ''); }
+      function toggleNav() { body.classList.contains('nav-open') ? closeNav() : openNav(); }
 
       btn?.addEventListener('click', toggleNav);
       backdrop?.addEventListener('click', closeNav);
-      nav?.querySelectorAll('a[href]').forEach(a=>{
-        a.addEventListener('click', ()=>{ if (window.matchMedia('(max-width:980px)').matches) closeNav(); });
+      nav?.querySelectorAll('a[href]').forEach(a => {
+        a.addEventListener('click', () => { if (window.matchMedia('(max-width:980px)').matches) closeNav(); });
       });
-      window.addEventListener('keydown', e=>{ if (e.key === 'Escape') closeNav(); });
+      window.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
 
       const mq = window.matchMedia('(min-width:981px)');
       (mq.addEventListener ? mq.addEventListener('change', h => h.matches && closeNav()) : mq.addListener(h => h.matches && closeNav()));
     })();
   </script>
 </body>
+
 </html>
