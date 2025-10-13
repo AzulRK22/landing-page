@@ -19,7 +19,7 @@
   box-shadow: none !important;
   backdrop-filter: none !important;
   padding: 0;
-  height: auto !important;            /* autoHeight (JS) manda */
+  height: auto !important; /* autoHeight (JS) manda */
   box-sizing: border-box;
 
   /* que NO se salga del layout */
@@ -33,9 +33,15 @@
 }
 
 /* Alturas máximas específicas por carrusel (ajústalas si necesitas) */
-#swiper-ecommerce   { --maxH: clamp(150px, 28vh, 320px); }
-#swiper-headstarter { --maxH: clamp(150px, 28vh, 330px); }
-#swiper-ecoventus   { --maxH: clamp(200px, 36vh, 460px); }
+#swiper-ecommerce {
+  --maxH: clamp(150px, 28vh, 320px);
+}
+#swiper-headstarter {
+  --maxH: clamp(150px, 28vh, 330px);
+}
+#swiper-ecoventus {
+  --maxH: clamp(200px, 36vh, 460px);
+}
 
 /* Pista y slides: que el contenido defina el alto */
 #main .project-swiper .swiper-wrapper {
@@ -61,7 +67,7 @@
 #main .project-swiper .swiper-slide img {
   width: auto;
   max-width: 100%;
-  height: auto;                       /* clave: no forzar 100% */
+  height: auto; /* clave: no forzar 100% */
   max-height: var(--maxH);
   object-fit: contain !important;
   object-position: center !important;
@@ -105,45 +111,60 @@
   color: #fff;
   z-index: 5;
   pointer-events: auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
-#main .project-swiper .swiper-button-prev { left:  max(8px, env(safe-area-inset-left, 0px) + 8px); }
-#main .project-swiper .swiper-button-next { right: max(8px, env(safe-area-inset-right, 0px) + 8px); }
+#main .project-swiper .swiper-button-prev {
+  left: max(8px, env(safe-area-inset-left, 0px) + 8px);
+}
+#main .project-swiper .swiper-button-next {
+  right: max(8px, env(safe-area-inset-right, 0px) + 8px);
+}
 
 #main .project-swiper .swiper-button-prev::after,
-#main .project-swiper .swiper-button-next::after { font-size: 12px; }
+#main .project-swiper .swiper-button-next::after {
+  font-size: 12px;
+}
 
 #main .project-swiper .swiper-button-prev:hover,
-#main .project-swiper .swiper-button-next:hover { background: rgba(0, 0, 0, 0.55); }
+#main .project-swiper .swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
 
-#main .project-swiper .swiper-button-disabled { opacity: .35; }
+#main .project-swiper .swiper-button-disabled {
+  opacity: 0.35;
+}
 
 /* Lazy (opcional) */
-#main .project-swiper .swiper-lazy         { filter: blur(2px); }
-#main .project-swiper .swiper-lazy-loaded  { filter: none; transition: filter .25s ease; }
+#main .project-swiper .swiper-lazy {
+  filter: blur(2px);
+}
+#main .project-swiper .swiper-lazy-loaded {
+  filter: none;
+  transition: filter 0.25s ease;
+}
 
 /* =====================================================
    Links Row – pills con buen contraste
    ===================================================== */
 .links-row {
-  --lr-gap: .5rem;
-  --lr-bg: rgba(255,255,255,0.04);
-  --lr-border: rgba(255,255,255,0.12);
+  --lr-gap: 0.5rem;
+  --lr-bg: rgba(255, 255, 255, 0.04);
+  --lr-border: rgba(255, 255, 255, 0.12);
   --lr-text: #fff;
-  --lr-hover: rgba(255,255,255,0.09);
+  --lr-hover: rgba(255, 255, 255, 0.09);
 
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: var(--lr-gap);
-  margin: .6rem 0 0;
+  margin: 0.6rem 0 0;
 }
 .links-row .link-btn {
   display: inline-flex;
   align-items: center;
-  gap: .5rem;
-  padding: .45rem .85rem;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
   border: 1px solid var(--lr-border);
   border-radius: 999px;
   background: var(--lr-bg);
@@ -151,25 +172,38 @@
   text-decoration: none;
   line-height: 1;
   font-weight: 600;
-  font-size: .95rem;
-  transition: background .2s ease, border-color .2s ease,
-              transform .15s ease, box-shadow .2s ease;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease,
+    box-shadow 0.2s ease;
   backdrop-filter: blur(2px);
   -webkit-tap-highlight-color: transparent;
 }
 .links-row .link-btn:hover {
   background: var(--lr-hover);
   transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
 }
-.links-row .link-btn:active { transform: translateY(0); }
+.links-row .link-btn:active {
+  transform: translateY(0);
+}
 .links-row .link-btn:focus-visible {
   outline: 3px solid #61dafb;
   outline-offset: 2px;
 }
-.links-row .link-btn i { font-size: 1rem; line-height: 0; opacity: .95; }
-.links-row.compact .link-btn { padding: .38rem .7rem; font-size: .9rem; }
-.links-row.block   .link-btn { flex: 1 1 auto; justify-content: center; min-width: 180px; }
+.links-row .link-btn i {
+  font-size: 1rem;
+  line-height: 0;
+  opacity: 0.95;
+}
+.links-row.compact .link-btn {
+  padding: 0.38rem 0.7rem;
+  font-size: 0.9rem;
+}
+.links-row.block .link-btn {
+  flex: 1 1 auto;
+  justify-content: center;
+  min-width: 180px;
+}
 
 /* =========================
    Upcoming – panel compacto con fondo blanco
@@ -190,7 +224,7 @@
   margin: 0 auto;
   padding: calc(1rem * var(--up-scale));
 
-  background: #fff;                 /* fondo blanco */
+  background: #fff; /* fondo blanco */
   color: #111;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
@@ -207,7 +241,9 @@
   margin: 0.5em 0 0;
   font-size: 1em;
 }
-#upcoming-projects.upcoming-compact strong { font-size: 1em; }
+#upcoming-projects.upcoming-compact strong {
+  font-size: 1em;
+}
 #upcoming-projects.upcoming-compact #appleAnimation {
   width: 5em;
   height: 5em;
@@ -224,5 +260,14 @@
 
 /* Legibilidad en pantallas muy pequeñas */
 @media (max-width: 420px) {
-  #upcoming-projects.upcoming-compact { --up-scale: 0.6; }
+  #upcoming-projects.upcoming-compact {
+    --up-scale: 0.6;
+  }
+}
+/* --- Quick fix: zoom-in for HoneyRoute images --- */
+#swiper-honeyroute .swiper-slide img {
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 8px;
+  background-color: #000; /* disimula restos de borde */
 }

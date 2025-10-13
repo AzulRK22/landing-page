@@ -262,6 +262,89 @@
                     </ul>
                 </div>
             </section>
+            <!-- HoneyRoute -->
+            <section id="HoneyRoute">
+                <header class="major">
+                    <h2>HoneyRoute — Apiary Intelligence Platform (Powered by EcoVentus)</h2>
+                    <p class="sub">AI-powered PWA for hive health detection and actionable recommendations</p>
+                </header>
+
+                <div class="project-swiper swiper" id="swiper-honeyroute">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/Picture1.png" alt="HoneyRoute onboarding" /></div>
+                        <div class="swiper-slide"><img src="images/Picture2.png" alt="Login" /></div>
+                        <div class="swiper-slide"><img src="images/Picture3.png" alt="Home" /></div>
+                        <div class="swiper-slide"><img src="images/Picture4.png" alt="New hive" /></div>
+                        <div class="swiper-slide"><img src="images/Picture5.png" alt="New apiary" /></div>
+                        <div class="swiper-slide"><img src="images/Picture6.png" alt="Apiary Details - status" /></div>
+                        <div class="swiper-slide"><img src="images/Picture7.png" alt="Apiary Details - history" /></div>
+                        <div class="swiper-slide"><img src="images/Picture8.png"
+                                alt="Apiary Details - recommendations" />
+                        </div>
+                        <div class="swiper-slide"><img src="images/Picture9.png" alt="Apiary Details - evidence" />
+                        </div>
+                        <div class="swiper-slide"><img src="images/Picture10.png" alt="Analysis result" /></div>
+                        <div class="swiper-slide"><img src="images/Picture11.png" alt="History" /></div>
+                        <div class="swiper-slide"><img src="images/Picture12.png" alt="Alerts Details" /></div>
+                        <div class="swiper-slide"><img src="images/Picture13.png" alt="Map" /></div>
+                        <div class="swiper-slide"><img src="images/Picture14.png" alt="Settings" /></div>
+                    </div>
+                    <div class="swiper-pagination" aria-live="polite"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
+                </div>
+
+                <div class="links-row compact" role="group" aria-label="HoneyRoute links">
+                    <a class="link-btn github" href="https://github.com/AzulRK22/honey-route" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        GitHub
+                    </a>
+                    <a class="link-btn youtube" href="https://www.youtube.com/watch?v=O1Ph-gjRWcY&t=22s" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-youtube" aria-hidden="true"></i>
+                        Demo
+                    </a>
+                </div>
+
+                <div class="project-description">
+                    <h3>Description</h3>
+                    <p>HoneyRoute is a mobile-first Progressive Web App that empowers beekeepers to detect hive health
+                        risks
+                        using AI-based image analysis, receive smart recommendations, and log actions — even while
+                        offline.
+                        Designed for rural environments, it supports English and Spanish (ES-MX) and integrates a
+                        sustainability-oriented UX.</p>
+                    <p>Developed as part of the <strong>Huawei Developer Competition LATAM 2025 (Brazil)</strong>,
+                        HoneyRoute
+                        was recognized for its impact on sustainable agriculture and AI innovation in LATAM.</p>
+                </div>
+
+                <div class="project-features">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><strong>AI Risk Detection:</strong> Capture hive photos and detect health or pest issues.
+                        </li>
+                        <li><strong>Actionable Recommendations:</strong> Step-by-step actions with “Done” tracking.</li>
+                        <li><strong>Alerts Inbox:</strong> Filter alerts by severity and resolve them quickly.</li>
+                        <li><strong>Hive Management:</strong> Create, view, and monitor hives with KPIs and history.
+                        </li>
+                        <li><strong>Offline Mode:</strong> Operate fully offline with background synchronization.</li>
+                        <li><strong>Bilingual Interface:</strong> EN/ES-MX with instant switch and accessible UI.</li>
+                    </ul>
+                </div>
+
+                <div class="project-technologies">
+                    <h3>Technologies Used</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> React.js, TypeScript, Tailwind CSS, Service Workers</li>
+                        <li><strong>Backend:</strong> Node.js, Supabase (comming soon), REST/GraphQL API</li>
+                        <li><strong>AI Integration:</strong> Custom vision API for hive health risk detection</li>
+                        <li><strong>Architecture:</strong> Offline-first with IndexedDB queue and background sync</li>
+                        <li><strong>Localization:</strong> i18n (EN base + ES-MX)</li>
+                    </ul>
+                </div>
+            </section>
 
             <!-- Upcoming + Apple animation -->
             <section id="upcoming-projects" class="upcoming-compact" aria-labelledby="upcoming-title">
@@ -387,7 +470,16 @@
             navigation: { nextEl: '#swiper-ecoventus .swiper-button-next', prevEl: '#swiper-ecoventus .swiper-button-prev' },
             pagination: { el: '#swiper-ecoventus .swiper-pagination', clickable: true }
         });
-
+        new Swiper('#swiper-honeyroute', {
+            loop: true,
+            speed: 600,
+            spaceBetween: 8,
+            slidesPerView: 1,
+            autoHeight: true,
+            autoplay: { delay: 3600, disableOnInteraction: false },
+            navigation: { nextEl: '#swiper-honeyroute .swiper-button-next', prevEl: '#swiper-honeyroute .swiper-button-prev' },
+            pagination: { el: '#swiper-honeyroute .swiper-pagination', clickable: true }
+        });
         // Apple animation — quita cualquier fondo (blanco/negro), incluso si aparece al final
         (function () {
             const el = document.getElementById('appleAnimation');
