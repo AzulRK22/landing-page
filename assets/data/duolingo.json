@@ -1,8 +1,8 @@
 {
   "profile": "AzulRK",
   "profileUrl": "https://www.duolingo.com/profile/AzulRK",
-  "streak": 315,
-  "totalXp": 125388,
+  "streak": 316,
+  "totalXp": 125490,
   "languages": [
     {
       "title": "English",
@@ -10,7 +10,7 @@
     },
     {
       "title": "French",
-      "xp": 60738
+      "xp": 60840
     },
     {
       "title": "Spanish",
@@ -21,5 +21,5 @@
       "xp": 13
     }
   ],
-  "lastUpdated": "2025-11-12T07:22:24.964Z"
+  "lastUpdated": "2025-11-13T07:22:18.735Z"
 }
