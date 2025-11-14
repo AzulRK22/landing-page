@@ -42,6 +42,14 @@
 #swiper-ecoventus {
   --maxH: clamp(200px, 36vh, 460px);
 }
+#swiper-honeyroute {
+  --maxH: clamp(200px, 34vh, 420px);
+}
+
+/* Nuevo: CongestionAI */
+#swiper-congestionai {
+  --maxH: clamp(180px, 32vh, 380px);
+}
 
 /* Pista y slides: que el contenido defina el alto */
 #main .project-swiper .swiper-wrapper {

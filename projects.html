@@ -345,6 +345,94 @@
                     </ul>
                 </div>
             </section>
+            <!-- CongestionAI – Hack-Nation 2025 -->
+            <section id="CongestionAI">
+                <header class="major">
+                    <h2>CongestionAI — AI-Powered Departure Advisor</h2>
+                    <p class="sub">Built for Hack-Nation Global AI Hackathon 2025 (Venture Track)</p>
+                </header>
+
+                <div class="project-swiper swiper" id="swiper-congestionai">
+                    <div class="swiper-wrapper">
+                        <!-- Ajusta los nombres de archivo a tus screenshots reales -->
+                        <div class="swiper-slide">
+                            <img src="images/plan.jpg" alt="CongestionAI — Plan view" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/result1.jpg" alt="CongestionAI — Result advisor" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/result2.jpg" alt="CongestionAI — Risk window" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/result3.jpg" alt="CongestionAI — Departure Advisor Chart" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/history.jpg" alt="CongestionAI — History" />
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="images/settings.jpg" alt="CongestionAI — Settings" />
+                        </div>
+                    </div>
+                    <div class="swiper-pagination" aria-live="polite"></div>
+                    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+                    <div class="swiper-button-next" aria-label="Next slide"></div>
+                </div>
+
+                <div class="links-row compact" role="group" aria-label="CongestionAI links">
+                    <a class="link-btn github" href="https://github.com/AzulRK22/congestionai" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                        GitHub
+                    </a>
+                </div>
+
+                <div class="project-description">
+                    <h3>Description</h3>
+                    <p>
+                        CongestionAI is an AI-powered departure advisor that helps you decide <strong>when</strong>
+                        to
+                        leave,
+                        not just <strong>how</strong> to get there. It samples traffic over a time window, estimates
+                        ETA,
+                        risk, and potential savings, and then surfaces the best departure slot.
+                    </p>
+                    <p>
+                        Built for the <strong>Hack-Nation Global AI Hackathon 2025 (Venture Track)</strong>, the
+                        goal is
+                        to
+                        enable proactive, data-driven mobility decisions for drivers, city planners, and fleets.
+                    </p>
+                </div>
+
+                <div class="project-features">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><strong>Plan:</strong> Origin/destination input (address, @lat,lng, or placeId) with
+                            tunables like window, step, budget mode, avoid tolls/highways.</li>
+                        <li><strong>Result:</strong> Best departure time with ETA, risk level, and “Don’t leave yet”
+                            /
+                            “OK to go” advisor.</li>
+                        <li><strong>Departure Advisor Chart:</strong> Custom SVG chart overlaying ETA over your
+                            window
+                            with risk-tinted background (green → red).</li>
+                        <li><strong>History:</strong> Save evaluations with baseline vs. savings (time, fuel, CO₂ /
+                            money), search, filters, pin/unpin, import/export JSON.</li>
+                        <li><strong>Settings:</strong> Map provider, units, country/city/locale, and savings model
+                            defaults (fuel price, consumption profiles, typical distance).</li>
+                    </ul>
+                </div>
+
+                <div class="project-technologies">
+                    <h3>Technologies Used</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> Next.js 15, React, TypeScript, Tailwind CSS</li>
+                        <li><strong>APIs:</strong> Google Routes API v2 for traffic-aware routing</li>
+                        <li><strong>Storage:</strong> Local/session storage for cache, settings, and history</li>
+                        <li><strong>Visualization:</strong> Custom SVG charts (no heavy chart libraries)</li>
+                    </ul>
+                </div>
+            </section>
 
             <!-- Upcoming + Apple animation -->
             <section id="upcoming-projects" class="upcoming-compact" aria-labelledby="upcoming-title">
@@ -479,6 +567,22 @@
             autoplay: { delay: 3600, disableOnInteraction: false },
             navigation: { nextEl: '#swiper-honeyroute .swiper-button-next', prevEl: '#swiper-honeyroute .swiper-button-prev' },
             pagination: { el: '#swiper-honeyroute .swiper-pagination', clickable: true }
+        });
+        new Swiper('#swiper-congestionai', {
+            loop: true,
+            speed: 600,
+            spaceBetween: 8,
+            slidesPerView: 1,
+            autoHeight: true,
+            autoplay: { delay: 3800, disableOnInteraction: false },
+            navigation: {
+                nextEl: '#swiper-congestionai .swiper-button-next',
+                prevEl: '#swiper-congestionai .swiper-button-prev'
+            },
+            pagination: {
+                el: '#swiper-congestionai .swiper-pagination',
+                clickable: true
+            }
         });
         // Apple animation — quita cualquier fondo (blanco/negro), incluso si aparece al final
         (function () {
