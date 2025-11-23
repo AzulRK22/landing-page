@@ -1,87 +1,54 @@
-# ✨ Azul Grisel Ramirez Kuri — Portafolio & Guía del Sitio
+# Azul Grisel Ramirez Kuri — Portfolio & Landing Page
 
-Bienvenida/o a mi portafolio. Este README mezcla **explicación técnica** (cómo está construido el sitio) con una **presentación visual** de mis proyectos.  
-Si quieres ir directo a ver páginas:
+This repository contains the source code of my personal portfolio and landing page, deployed at **https://www.azulrk.com** (with GitHub Pages as the backing host).
 
-- ▶️ **Home:** [`index.html`](index.html)  
-- 🧪 **Projects:** [`projects.html`](projects.html)  
-- 🎬 **Tech & Media:** [`tech.html`](tech.html)  
-- 📄 **Resume:** [`resume.html`](resume.html)
+The site is a **static HTML/CSS portfolio** that showcases my projects, tech stack, media presence and resume.
 
----
+## 🌐 Live Site
 
-## 🌟 Vistazo Rápido a Proyectos
+- **Main domain:** https://www.azulrk.com  
+- **GitHub Pages:** https://azulrk22.github.io/landing-page/ (backup / dev preview)
 
-### 🛒 Ecommerce App
-Experiencia completa de e-commerce (auth, wishlist, carrito, historial).
-  
-![Ecommerce App](images/eco1.jpg "Ecommerce App")
+## ✨ What you will find
 
-**Stack:** Android Studio (Kotlin), Figma, GitHub.
+- **Home** – brief intro, highlights and quick links.  
+- **Projects** – selected projects with short descriptions and links.  
+- **Tech & Media** – tech stack, tools, certifications and media presence.  
+- **Resume** – web version of my CV.
 
----
+Each section is a separate HTML page:
 
-### 🤖 Fellow AI — HeadStarter
-Fellowship de 7 semanas enfocada en proyectos de IA, hackathons y branding.
-  
-![HeadStarter](images/head2.jpeg "HeadStarter")
+- `index.html` → Home  
+- `projects.html` → Projects  
+- `tech.html` → Tech & Media  
+- `resume.html` → Resume  
 
-**Incluye:** 5 proyectos de IA, proyecto final +1000 usuarios, coaching y networking.
+## 🛠 Tech Stack
 
----
+- **HTML5** for structure  
+- **SCSS/CSS3** for styling (custom layout + components)  
+- **Vanilla JavaScript** for small interactions  
+- **GitHub Pages** for hosting  
+- **GitHub Actions** for automated deployments
 
-### 🌿 EcoVentus — AI-Driven UAV Monitoring
-Plataforma para planear, monitorear y analizar misiones UAV con insights de IA.
+No frontend framework is required; the site is intentionally lightweight and easy to maintain.
 
-<div align="center">
-  <img src="images/home.png" alt="EcoVentus Dashboard" width="49%"/>
-  <img src="images/monitoring2.png" alt="EcoVentus Monitoring" width="49%"/>
-</div>
+## 📁 Project Structure
 
-**Stack:** Next.js/React, Flask/Node/Python, MongoDB, Leaflet, Huawei Cloud.
-
----
-
-### 🎥 Tech & Media
-Embeds de contenido (YouTube/TikTok) con contraste y tarjetas estilizadas.
-
----
-Embeds TikTok: usan https. Si sirves el sitio por http verás avisos de consola por protocolo mixto. En producción (GitHub Pages con HTTPS) no afecta.
-
-
-
-## 🧩 ¿Cómo está construido?
-
-**Puro Frontend estático** (HTML, CSS, JS) con librerías ligeras:
-
-- **Swiper** para carruseles en `projects.html`.
-- **(Opcional) Lottie** para animaciones SVG (p.ej., Apple).  
-- **Sin frameworks pesados**; CSS modular por página.
-
-
-## 📁 Estructura
-assets/
-animations/      # lotties (apple.json)
-css/             # base.css, layout.css, components.css + {home,projects,tech,resume}.css
-js/              # index.js, tech.js (scripts por página)
-docs/              # CV en PDF
-images/            # imágenes del sitio
-index.html
-projects.html
-tech.html
-resume.html
-CNAME              # dominio para GitHub Pages (si aplica)
-
-
-## 🧩 Tecnologías
-
-- **HTML5** + **CSS3** (modular por página)
-- **JavaScript** vanilla (sin frameworks)
-- **Swiper** (CDN) para carruseles en *Projects*
-- **Lottie** (CDN) opcional para animaciones SVG (p. ej. `apple.json`)
-
----
-
+```
+landing-page/
+├── assets/
+│   ├── css/           # Base, layout and components styles
+│   └── js/            # (Optional) scripts for small interactions
+├── docs/              # Extra docs / exports (e.g. PDFs)
+├── images/            # Portfolio images, logos, favicons
+├── index.html         # Home
+├── projects.html      # Projects page
+├── tech.html          # Tech & Media page
+├── resume.html        # Resume page
+├── CNAME              # Custom domain (azulrk.com)
+└── .github/workflows/ # GitHub Actions for Pages deployment
+```
 ## ▶️ Desarrollo local
 
 **Opción 1 (VS Code):**
@@ -102,7 +69,14 @@ CNAME              # dominio para GitHub Pages (si aplica)
 - **Swiper**: For the image carousel functionality.
 - **Google Analytics**: For tracking website metrics.
 
-## Getting Started
+## 🧭 Roadmap / Ideas
+
+- Add light/dark theme toggle  
+- Add detailed case studies  
+- Add EN/ES switch  
+- Improve accessibility  
+- Add microinteractions
+- ## Getting Started
 
 To view the webpage, visit: [https://www.azulrk.com](https://www.azulrk.com)
 
@@ -111,8 +85,11 @@ To view the webpage, visit: [https://www.azulrk.com](https://www.azulrk.com)
 - ** Google Analytics
 - ** Contact
 
-For any inquiries, please reach out to me via:
+## 👤 About Me
 
+I’m **Azul Grisel Ramírez Kuri**, a systems engineer and frontend developer focused on building clean UIs, useful products and tech with real-world impact.
+
+- Portfolio: https://www.azulrk.com  
 - Email: azularamk@gmail.com
 - Phone: (+52) 777-328-92-18
 - [Instagram](https://www.instagram.com/azulramk/)
