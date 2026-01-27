@@ -1,59 +1,116 @@
-# Azul Grisel Ramirez Kuri — Portfolio & Landing Page
+# ✨ Azul Grisel Ramirez Kuri — Portfolio & Site Guide
 
-This repository contains the source code of my personal portfolio and landing page, deployed at **https://www.azulrk.com** (with GitHub Pages as the backing host).
+Welcome to my portfolio. This README combines a **technical overview** (how the site is built) with a **visual showcase** of my projects.  
+Quick access:
 
-The site is a **static HTML/CSS portfolio** that showcases my projects, tech stack, media presence and resume.
+- ▶️ **Home:** [`index.html`](index.html)
+- 🧪 **Projects:** [`projects.html`](projects.html)
+- 🎬 **Tech & Media:** [`tech.html`](tech.html)
+- 📄 **Resume:** [`resume.html`](resume.html)
+
+---
 
 ## 🌐 Live Site
 
-- **Main domain:** https://www.azulrk.com  
-- **GitHub Pages:** https://azulrk22.github.io/landing-page/ (backup / dev preview)
+- Website: https://www.azulrk.com
+- Shopify Store: https://shop.azulrk.com
 
-## ✨ What you will find
+---
 
-- **Home** – brief intro, highlights and quick links.  
-- **Projects** – selected projects with short descriptions and links.  
-- **Tech & Media** – tech stack, tools, certifications and media presence.  
-- **Resume** – web version of my CV.
+## 📈 Analytics (GA4)
 
-Each section is a separate HTML page:
+I use GA4 to measure portfolio engagement and outbound navigation to the Shopify store.
 
-- `index.html` → Home  
-- `projects.html` → Projects  
-- `tech.html` → Tech & Media  
-- `resume.html` → Resume  
+- **Portfolio GA4:** enabled via `gtag.js` in the `<head>`
+- **Shopify GA4:** configured within Shopify
+- **Tracking:** outbound link events (`shop_link_click`) + engagement time events (`engaged_10s`)
 
-## 🛠 Tech Stack
+> Note: GA Measurement IDs are intentionally not listed here.
 
-- **HTML5** for structure  
-- **SCSS/CSS3** for styling (custom layout + components)  
-- **Vanilla JavaScript** for small interactions  
-- **GitHub Pages** for hosting  
-- **GitHub Actions** for automated deployments
+---
 
-No frontend framework is required; the site is intentionally lightweight and easy to maintain.
+## 🌟 Projects Snapshot
+
+### 🛍️ AzulRK Shop — Ecommerce Store (Business/Operations)
+
+A production-ready Shopify store with a complete online sales workflow, multi-market setup (Mexico + North America), and Zendrop integration for fulfillment.
+
+**Focus:** Business execution (catalog, variants, product copy, collections, markets, fulfillment, analytics).  
+**Stack:** Shopify, Shopify Markets, Zendrop, GA4.
+
+**Link:** https://shop.azulrk.com/?utm_source=portfolio&utm_medium=readme&utm_campaign=shop_featured
+
+---
+
+### 🤖 Inventory — AI-powered Smart Pantry
+
+AI-assisted pantry inventory tool: detects ingredients from images, stores data in Firebase, and suggests recipes using OpenAI.
+
+**Highlights:** image upload/capture, label detection, inventory CRUD, recipe suggestions.  
+**Stack:** React, Firebase, Google Cloud Vision API, OpenAI API.
+
+---
+
+### 🌿 EcoVentus — AI-Driven UAV Monitoring Platform
+
+Web platform to plan, monitor, and analyze UAV missions with AI-driven insights and map-based visualization.
+
+**Stack:** Next.js/React, Flask/Node/Python, MongoDB, Leaflet, Huawei Cloud.
+
+<div align="center">
+  <img src="images/home.png" alt="EcoVentus Dashboard" width="49%"/>
+  <img src="images/monitoring2.png" alt="EcoVentus Monitoring" width="49%"/>
+</div>
+
+---
+
+### 🎥 Tech & Media
+
+Curated content embeds (YouTube/TikTok) with styled cards and contrast-safe layout.
+
+> TikTok embeds require HTTPS. If you serve the site locally via HTTP you may see mixed-content warnings. In production (GitHub Pages over HTTPS) it’s fine.
+
+---
+
+## 🧩 How It’s Built
+
+Static frontend website (HTML/CSS/JS) with lightweight libraries:
+
+- **Swiper** for carousels in `projects.html`
+- **Lottie (optional)** for SVG animations (e.g., Apple animation)
+- **No heavy frameworks**; modular CSS per page
+
+---
 
 ## 📁 Project Structure
 
-```
-landing-page/
-├── assets/
-│   ├── css/           # Base, layout and components styles
-│   └── js/            # (Optional) scripts for small interactions
-├── docs/              # Extra docs / exports (e.g. PDFs)
-├── images/            # Portfolio images, logos, favicons
-├── index.html         # Home
-├── projects.html      # Projects page
-├── tech.html          # Tech & Media page
-├── resume.html        # Resume page
-├── CNAME              # Custom domain (azulrk.com)
-└── .github/workflows/ # GitHub Actions for Pages deployment
-```
+assets/
+animations/ # Lottie files (e.g., apple.json)
+css/ # base.css, layout.css, components.css + page styles (home/projects/tech/resume)
+js/ # page scripts (e.g., index.js, tech.js) + analytics.js
+docs/ # CV PDF (if applicable)
+images/ # site images
+index.html
+projects.html
+tech.html
+resume.html
+CNAME # custom domain for GitHub Pages (if applicable)
+
+## 🧩 Tech Stack
+
+- **HTML5** + **CSS3** (page-modular styling)
+- **Vanilla JavaScript** (no frameworks)
+- **Swiper (CDN)** for carousels in **Projects**
+- **Lottie (CDN, optional)** for SVG animations (e.g., `apple.json`)
+- **Google Analytics 4 (GA4)** for site analytics
+
+---
+
 ## ▶️ Desarrollo local
 
 **Opción 1 (VS Code):**
 
-	•	Extensión Live Server → “Go Live”.
+    •	Extensión Live Server → “Go Live”.
 
 ## Features
 
@@ -71,25 +128,23 @@ landing-page/
 
 ## 🧭 Roadmap / Ideas
 
-- Add light/dark theme toggle  
-- Add detailed case studies  
-- Add EN/ES switch  
-- Improve accessibility  
+- Add light/dark theme toggle
+- Add detailed case studies
+- Add EN/ES switch
+- Improve accessibility
 - Add microinteractions
 - ## Getting Started
 
 To view the webpage, visit: [https://www.azulrk.com](https://www.azulrk.com)
 
 ## Dependencies
-- ** Swiper
-- ** Google Analytics
-- ** Contact
 
-## 👤 About Me
+- \*\* Swiper
+- \*\* Google Analytics
+- \*\* Contact
 
-I’m **Azul Grisel Ramírez Kuri**, a systems engineer and frontend developer focused on building clean UIs, useful products and tech with real-world impact.
+For any inquiries, please reach out to me via:
 
-- Portfolio: https://www.azulrk.com  
 - Email: azularamk@gmail.com
 - Phone: (+52) 777-328-92-18
 - [Instagram](https://www.instagram.com/azulramk/)
