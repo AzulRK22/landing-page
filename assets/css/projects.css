@@ -214,10 +214,10 @@ section.project-section[data-category].hidden {
    Permiten que las imágenes grandes no se salgan de escala
    pero dejan que las pequeñas se vean naturales */
 
-/* EcoVentus: screenshots de dashboard horizontales */
+/* EcoVentus: screenshots de dashboard — adaptable a cualquier aspecte ratio */
 #swiper-ecoventus .swiper-slide img {
   max-width: 100%;
-  max-height: clamp(150px, 50vw, 550px);
+  max-height: none;
 }
 
 /* HoneyRoute: logos/imágenes cuadradas */
