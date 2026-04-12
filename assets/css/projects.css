@@ -165,7 +165,8 @@ section.project-section[data-category].hidden {
 #main .project-swiper {
   position: relative;
   isolation: isolate;
-  width: 100%;
+  display: flex;
+  justify-content: center;
   margin: 0 auto 1.5rem;
   background: var(--surface-2) !important;
   border: 1px solid var(--border) !important;
@@ -173,6 +174,8 @@ section.project-section[data-category].hidden {
   overflow: hidden;
   touch-action: pan-y;
   padding: 0;
+  width: auto;
+  max-width: 100%;
 }
 
 #main .project-swiper .swiper-wrapper {
@@ -185,8 +188,11 @@ section.project-section[data-category].hidden {
   background: transparent !important;
   padding: 0;
   box-sizing: border-box;
-  width: 100%;
+  width: fit-content !important;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── Imágenes dentro del swiper ── */
@@ -213,35 +219,35 @@ section.project-section[data-category].hidden {
 /* EcoVentus: screenshots de dashboard horizontales */
 #swiper-ecoventus .swiper-slide img {
   width: auto;
-  max-width: 95%;
+  max-width: 85%;
   max-height: clamp(160px, 55vw, 600px);
 }
 
 /* HoneyRoute: app screenshots vertical */
 #swiper-honeyroute .swiper-slide img {
   width: auto;
-  max-width: 95%;
+  max-width: 85%;
   max-height: clamp(150px, 50vw, 650px);
 }
 
 /* CongestionAI: cover horizontal */
 #swiper-congestionai .swiper-slide img {
   width: auto;
-  max-width: 95%;
+  max-width: 85%;
   max-height: clamp(140px, 50vw, 550px);
 }
 
 /* Inventory: screenshots de app */
 #swiper-inventory .swiper-slide img {
   width: auto;
-  max-width: 95%;
+  max-width: 85%;
   max-height: clamp(140px, 50vw, 550px);
 }
 
 /* Ecommerce: screenshots de app */
 #swiper-ecommerce .swiper-slide img {
   width: auto;
-  max-width: 95%;
+  max-width: 85%;
   max-height: clamp(130px, 45vw, 500px);
 }
 
