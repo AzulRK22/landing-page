@@ -166,16 +166,19 @@ section.project-section[data-category].hidden {
   position: relative;
   isolation: isolate;
   width: 100%;
+  margin: 0 auto 1.5rem;
   background: var(--surface-2) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--r-lg) !important;
   overflow: hidden;
-  margin: 0 auto 1.5rem;
   touch-action: pan-y;
+  padding: 0;
 }
 
 #main .project-swiper .swiper-wrapper {
   background: transparent !important;
+  padding: 0 !important;
+  height: fit-content !important;
 }
 
 #main .project-swiper .swiper-slide {
@@ -188,8 +191,9 @@ section.project-section[data-category].hidden {
 
 /* ── Imágenes dentro del swiper ── */
 #main .project-swiper .swiper-slide img {
-  /* Ancho máximo al 100% del contenedor */
-  width: 100%;
+  /* Ancho máximo al 95% para dejar padding pequeño */
+  width: auto;
+  max-width: 95%;
   /* Altura automática — se ajusta a la proporción real */
   height: auto;
   /* Contiene la imagen completa sin recortar */
