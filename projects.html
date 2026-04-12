@@ -19,7 +19,6 @@
     <link rel="stylesheet" href="assets/css/layout.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
     <link rel="stylesheet" href="assets/css/projects.css" />
-    <link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -39,8 +38,8 @@
         </header>
 
         <nav id="nav" role="navigation" aria-label="Main">
-            <ul class="links" role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+            <ul class="links">
+                <li role=" none"><a href="index.html" role="menuitem">Home</a></li>
                 <li role="none"><a href="projects.html" role="menuitem" aria-current="page" class="active">Projects</a>
                 </li>
                 <li role="none"><a href="tech.html" role="menuitem">Tech & Media</a></li>
@@ -60,7 +59,7 @@
         </nav>
         <div class="nav-backdrop" hidden></div>
 
-        <div id="main">
+        <main id="main">
 
             <div class="projects-page-hero">
                 <span class="section-label">Portfolio</span>
@@ -110,7 +109,8 @@
                         class="tag">Huawei Cloud</span>
                 </div>
                 <div class="links-row">
-                    <a class="link-btn" href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer">
+                    <a class="link-btn" href="https://github.com/AzulRK22/queenDrones" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
@@ -158,54 +158,8 @@
                         class="tag">AI/ML</span><span class="tag">Huawei Cloud</span>
                 </div>
                 <div class="links-row">
-                    <a class="link-btn" href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i> View Code
-                    </a>
-                </div>
-            </section>
-
-            <!-- ══════════════════════════════════════
-         KEEPNAI — OpenAI Hackathon Chile 2024
-    ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="keepnai">
-                <div class="project-header">
-                    <div class="project-meta">
-                        <div class="project-badges">
-                            <span class="award-badge">🏆 OpenAI Hackathon Chile 2024</span>
-                            <span class="tag">Web</span>
-                            <span class="tag">AI</span>
-                        </div>
-                        <h2 class="project-name">KEEPNAI</h2>
-                        <p class="project-tagline">AI-Powered Wildfire Detection Dashboard — real-time environmental
-                            monitoring.</p>
-                    </div>
-                </div>
-
-                <!-- KEEPNAI images — hackathon photo -->
-                <div class="swiper-container project-swiper" id="swiper-keepnai" role="region"
-                    aria-label="KEEPNAI screenshots">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="images/chile.png" alt="OpenAI Hackathon Chile 2024"
-                                loading="lazy" /></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next" aria-label="Next image"></div>
-                    <div class="swiper-button-prev" aria-label="Previous image"></div>
-                </div>
-
-                <p class="project-description">
-                    KEEPNAI is an AI-driven wildfire monitoring dashboard built during the OpenAI Hackathon Chile 2024.
-                    The platform uses OpenAI models to process environmental data and deliver real-time wildfire
-                    detection alerts.
-                    Built a complete full-stack solution in 48 hours: Next.js frontend, Python API backend, and OpenAI
-                    integration.
-                </p>
-                <div class="exp-tags" style="margin-bottom: 1rem;">
-                    <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Python
-                        API</span><span class="tag">OpenAI</span>
-                </div>
-                <div class="links-row">
-                    <a class="link-btn" href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer">
+                    <a class="link-btn" href="https://github.com/AzulRK22/honey-route" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
@@ -218,7 +172,9 @@
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
-                            <span class="tag">Web</span><span class="tag">AI</span>
+                            <span class="award-badge">🏆 Top 12 · HackNation</span>
+                            <span class="tag">Web</span>
+                            <span class="tag">AI</span>
                         </div>
                         <h2 class="project-name">CongestionAI</h2>
                         <p class="project-tagline">Smart Traffic Management — AI-driven urban mobility optimization.</p>
@@ -228,8 +184,9 @@
                 <div class="swiper-container project-swiper" id="swiper-congestionai" role="region"
                     aria-label="CongestionAI screenshots">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="images/COVER-CongestionAI.png" alt="CongestionAI cover"
-                                loading="lazy" /></div>
+                        <div class="swiper-slide">
+                            <img src="images/COVER-CongestionAI.png" alt="CongestionAI cover" loading="lazy" />
+                        </div>
                     </div>
                     <div class="swiper-pagination"></div>
                     <div class="swiper-button-next" aria-label="Next image"></div>
@@ -237,15 +194,21 @@
                 </div>
 
                 <p class="project-description">
-                    CongestionAI is an AI-driven platform that analyzes real-time traffic data to dynamically optimize
-                    signal timings, reduce congestion, and improve urban mobility outcomes.
-                    Provides actionable insights for city planners and traffic management authorities.
+                    CongestionAI is an AI-driven platform that analyzes real-time traffic data to dynamically
+                    optimize signal timings, reduce congestion, and improve urban mobility outcomes.
+                    Ranked top 12 at HackNation, it provides actionable insights for city planners and traffic
+                    management authorities.
                 </p>
+
                 <div class="exp-tags" style="margin-bottom: 1rem;">
-                    <span class="tag">React</span><span class="tag">Python</span><span class="tag">AI/ML</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">AI/ML</span>
                 </div>
+
                 <div class="links-row">
-                    <a class="link-btn" href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer">
+                    <a class="link-btn" href="https://github.com/AzulRK22/congestionai" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
@@ -254,7 +217,7 @@
             <!-- ══════════════════════════════════════
          Inventory — AI Smart Pantry
     ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="headstarter">
+            <section class="project-section reveal" id="Inventory">
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
@@ -267,7 +230,7 @@
                 </div>
 
                 <!-- Inventory images — all inv* files -->
-                <div class="swiper-container project-swiper" id="swiper-headstarter" role="region"
+                <div class="swiper-container project-swiper" id="swiper-inventory" role="region"
                     aria-label="Inventory app screenshots">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="images/inv1.png" alt="Inventory app - main view"
@@ -293,7 +256,8 @@
                         Vision</span><span class="tag">OpenAI API</span>
                 </div>
                 <div class="links-row">
-                    <a class="link-btn" href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer">
+                    <a class="link-btn" href="https://github.com/AzulRK22/inventory" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
@@ -384,7 +348,7 @@
                 </ul>
             </section>
 
-        </div><!-- /#main -->
+        </main><!-- /#main -->
 
         <footer id="footer">
             <section class="split contact">
@@ -429,30 +393,9 @@
     </div><!-- /#wrapper -->
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        // Init each project swiper independently
-        document.querySelectorAll('.project-swiper').forEach(function (el) {
-            new Swiper(el, {
-                loop: false,
-                autoHeight: true,
-                navigation: {
-                    nextEl: el.querySelector('.swiper-button-next'),
-                    prevEl: el.querySelector('.swiper-button-prev'),
-                },
-                pagination: {
-                    el: el.querySelector('.swiper-pagination'),
-                    clickable: true
-                }
-            });
-        });
-    </script>
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-        }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    </script>
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/analytics.js"></script>
+    <script src="assets/js/projects.js"></script>
 </body>
 
 </html>

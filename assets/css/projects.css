@@ -149,18 +149,13 @@
   --slide-maxH: clamp(200px, 40vw, 420px);
 }
 
-/* KEEPNAI: fotos de evento, horizontales */
-#swiper-keepnai {
-  --slide-maxH: clamp(180px, 36vw, 400px);
-}
-
 /* CongestionAI: cover horizontal */
 #swiper-congestionai {
   --slide-maxH: clamp(180px, 36vw, 400px);
 }
 
 /* Inventory: screenshots de app */
-#swiper-headstarter {
+#swiper-inventory {
   --slide-maxH: clamp(180px, 36vw, 400px);
 }
 

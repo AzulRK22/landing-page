@@ -40,7 +40,6 @@
 	<link rel="stylesheet" href="assets/css/layout.css" />
 	<link rel="stylesheet" href="assets/css/components.css" />
 	<link rel="stylesheet" href="assets/css/home.css" />
-	<link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 		crossorigin="anonymous" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -94,11 +93,11 @@
 
 		<!-- ═══ NAV ═══ -->
 		<nav id="nav" role="navigation" aria-label="Main">
-			<ul class="links" role="menubar">
-				<li role="none"><a href="index.html" role="menuitem" aria-current="page" class="active">Home</a></li>
-				<li role="none"><a href="projects.html" role="menuitem">Projects</a></li>
-				<li role="none"><a href="tech.html" role="menuitem">Tech & Media</a></li>
-				<li role="none"><a href="resume.html" role="menuitem">Resume</a></li>
+			<ul class="links">
+				<li><a href="index.html" aria-current="page" class="active">Home</a></li>
+				<li><a href="projects.html">Projects</a></li>
+				<li><a href="tech.html">Tech & Media</a></li>
+				<li><a href="resume.html">Resume</a></li>
 			</ul>
 			<ul class="icons">
 				<li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/"
@@ -115,7 +114,7 @@
 		<div class="nav-backdrop" hidden></div>
 
 		<!-- ═══ MAIN ═══ -->
-		<div id="main">
+		<main id="main">
 
 			<!-- ── EXPERIENCE ── -->
 			<section id="experience">
@@ -232,7 +231,7 @@
 						<span class="bring-icon">🏆</span>
 						<p class="bring-title">Proven under pressure</p>
 						<p class="bring-body">3 international hackathons, 2 top-2 finishes. I go from zero to working
-							product fast — EcoVentus, KEEPNAI, and HoneyRoute were all built in under 48 hours.</p>
+							product fast — EcoVentus and HoneyRoute were both built in under 48 hours.</p>
 					</div>
 					<div class="bring-card reveal">
 						<span class="bring-icon">🌎</span>
@@ -394,59 +393,17 @@
 					</article>
 
 					<article class="project-card-v2 reveal">
-						<img src="images/chile.png" alt="KEEPNAI Wildfire Detection" loading="lazy" />
-						<div class="project-card-body">
-							<span class="award-badge">🏆 OpenAI Hackathon Chile 2024</span>
-							<h3 class="project-card-title">KEEPNAI — AI Wildfire Detection</h3>
-							<p class="project-card-desc">Real-time wildfire monitoring dashboard built in 48 hours. Full
-								Next.js frontend with a Python AI backend and OpenAI integration.</p>
-							<div class="project-tech">
-								<span class="tag">Next.js</span><span class="tag">React</span><span
-									class="tag">Python</span><span class="tag">OpenAI</span>
-							</div>
-							<a href="projects.html#keepnai" class="project-link">View project →</a>
-						</div>
-					</article>
-
-					<article class="project-card-v2 reveal">
-						<img src="images/inv1.png" alt="AI Smart Pantry" loading="lazy" />
-						<div class="project-card-body">
-							<h3 class="project-card-title">Inventory — AI Smart Pantry</h3>
-							<p class="project-card-desc">Detect ingredients from photos, classify in Firebase, and
-								generate recipes via OpenAI. End-to-end AI-assisted pantry management.</p>
-							<div class="project-tech">
-								<span class="tag">React</span><span class="tag">Firebase</span><span class="tag">Google
-									Vision</span><span class="tag">OpenAI</span>
-							</div>
-							<a href="projects.html#headstarter" class="project-link">View project →</a>
-						</div>
-					</article>
-
-					<article class="project-card-v2 reveal">
 						<img src="images/COVER-CongestionAI.png" alt="CongestionAI" loading="lazy" />
 						<div class="project-card-body">
+							<span class="award-badge">🏆 Top 12 · HackNation</span>
 							<h3 class="project-card-title">CongestionAI — Traffic Management</h3>
 							<p class="project-card-desc">AI-driven platform analyzing real-time traffic data to optimize
-								signal timings and reduce urban congestion.</p>
+								signal timings and reduce urban congestion. Ranked top 12 at HackNation.</p>
 							<div class="project-tech">
 								<span class="tag">React</span><span class="tag">Python</span><span
 									class="tag">AI/ML</span>
 							</div>
 							<a href="projects.html#CongestionAI" class="project-link">View project →</a>
-						</div>
-					</article>
-
-					<article class="project-card-v2 reveal">
-						<img src="images/ecommerce.png" alt="Android Marketplace" loading="lazy" />
-						<div class="project-card-body">
-							<h3 class="project-card-title">Android Marketplace App</h3>
-							<p class="project-card-desc">Full-featured marketplace with authentication, catalog, cart,
-								and REST API integration. Built at Xolotl Creative Labs.</p>
-							<div class="project-tech">
-								<span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">Android
-									Studio</span><span class="tag">REST API</span>
-							</div>
-							<a href="projects.html#ecommerce-app" class="project-link">View project →</a>
 						</div>
 					</article>
 
@@ -469,7 +426,7 @@
 
 			<p class="signature-quote">"Building technology with empathy, impact, and purpose."</p>
 
-		</div><!-- /#main -->
+		</main><!-- /#main -->
 
 		<!-- ═══ FOOTER ═══ -->
 		<footer id="footer">
@@ -515,32 +472,9 @@
 	</div><!-- /#wrapper -->
 
 	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-	<script>
-		// Gallery swiper — flechas con clases personalizadas fuera del container
-		new Swiper('.hero-swiper', {
-			loop: true,
-			autoplay: { delay: 3800, disableOnInteraction: false },
-			speed: 700,
-			navigation: {
-				nextEl: '.gallery-next',
-				prevEl: '.gallery-prev',
-			},
-			pagination: { el: '.hero-swiper .swiper-pagination', clickable: true }
-		});
-	</script>
-	<script>
-		// Reveal on scroll — marca .visible para que el hover de los project cards funcione limpio
-		const revealObserver = new IntersectionObserver((entries) => {
-			entries.forEach(e => {
-				if (e.isIntersecting) {
-					e.target.classList.add('visible');
-					revealObserver.unobserve(e.target);
-				}
-			});
-		}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-		document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-	</script>
 	<script src="assets/js/nav.js"></script>
+	<script src="assets/js/analytics.js"></script>
+	<script src="assets/js/home.js"></script>
 </body>
 
 </html>

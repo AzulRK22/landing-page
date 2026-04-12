@@ -19,6 +19,8 @@
   --cream-2: #c8c3b8; /* secondary text — readable */
 
   /* Muted */
+  --ink: #111009;
+  --ink-2: #c8c3b8;
   --ink-3: #8a867d; /* labels / captions */
   --ink-4: #6b6760; /* very muted / placeholders */
 

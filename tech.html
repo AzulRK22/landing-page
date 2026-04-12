@@ -19,7 +19,6 @@
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
   <link rel="stylesheet" href="assets/css/tech.css" />
-  <link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" />
   <link rel="preconnect" href="https://www.youtube.com" />
   <link rel="preconnect" href="https://www.tiktok.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -41,7 +40,7 @@
 
     <!-- ═══ NAV ═══ -->
     <nav id="nav" role="navigation" aria-label="Main">
-      <ul class="links" role="menubar">
+      <ul class="links">
         <li role="none"><a href="index.html" role="menuitem">Home</a></li>
         <li role="none"><a href="projects.html" role="menuitem">Projects</a></li>
         <li role="none"><a href="tech.html" role="menuitem" aria-current="page" class="active">Tech & Media</a></li>
@@ -61,7 +60,7 @@
     <div class="nav-backdrop" hidden></div>
 
     <!-- ═══ MAIN ═══ -->
-    <div id="main">
+    <main id="main">
 
       <!-- Page hero -->
       <div class="tech-hero">
@@ -199,7 +198,7 @@
         </div>
       </section>
 
-    </div><!-- /#main -->
+    </main><!-- /#main -->
 
     <!-- ═══ FOOTER ═══ -->
     <footer id="footer">
@@ -241,14 +240,9 @@
   </div><!-- /#wrapper -->
 
   <script async src="https://www.tiktok.com/embed.js"></script>
-  <script defer src="assets/js/tech.js?v=3"></script>
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
   <script src="assets/js/nav.js"></script>
+  <script src="assets/js/analytics.js"></script>
+  <script defer src="assets/js/tech.js?v=3"></script>
 </body>
 
 </html>
