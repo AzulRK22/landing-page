@@ -177,22 +177,18 @@ section.project-section[data-category].hidden {
 }
 
 #main .project-swiper .swiper-wrapper {
-  height: auto !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: transparent !important;
 }
 
 #main .project-swiper .swiper-slide {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
   background: transparent !important;
   padding: 0;
   box-sizing: border-box;
-  height: auto !important;
-  width: 100% !important;
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ── Imágenes dentro del swiper ── */

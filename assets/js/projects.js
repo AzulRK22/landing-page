@@ -22,11 +22,42 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => el.classList.add("visible"));
   }
 
+  // Project filter functionality
+  const filterBtns = document.querySelectorAll(".filter-btn");
+  const projectSections = document.querySelectorAll(
+    "section.project-section[data-category]",
+  );
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.getAttribute("data-filter");
+
+      // Update active button
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Filter projects
+      projectSections.forEach((section) => {
+        const categories = section.getAttribute("data-category").split(" ");
+        if (filter === "all" || categories.includes(filter)) {
+          section.classList.remove("hidden");
+        } else {
+          section.classList.add("hidden");
+        }
+      });
+    });
+  });
+
   if (window.Swiper) {
+    const swipers = [];
     document.querySelectorAll(".project-swiper").forEach((el) => {
-      new Swiper(el, {
+      const swiper = new Swiper(el, {
         loop: false,
         autoHeight: true,
+        observer: true,
+        observeParents: true,
+        slidesPerView: 1,
+        spaceBetween: 0,
         navigation: {
           nextEl: el.querySelector(".swiper-button-next"),
           prevEl: el.querySelector(".swiper-button-prev"),
@@ -34,11 +65,18 @@ document.addEventListener("DOMContentLoaded", () => {
         pagination: {
           el: el.querySelector(".swiper-pagination"),
           clickable: true,
+          dynamicBullets: false,
         },
         a11y: {
           enabled: true,
         },
       });
+      swipers.push(swiper);
+    });
+
+    // Recalcular swipers al cambiar tamaño de ventana
+    window.addEventListener("resize", () => {
+      swipers.forEach((swiper) => swiper.update());
     });
   }
 });
