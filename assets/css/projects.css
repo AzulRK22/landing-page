@@ -20,6 +20,79 @@
   color: var(--cream-2);
   max-width: 52ch;
   margin: 0;
+  margin-bottom: 2rem;
+}
+
+/* ── Project filters ── */
+.project-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.filter-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-2);
+  background: transparent;
+  color: var(--ink-4) !important;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.filter-btn:hover {
+  border-color: var(--border-3);
+  color: var(--cream) !important;
+  background: var(--surface-2);
+}
+.filter-btn.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff !important;
+}
+
+/* ── Project metrics ── */
+.project-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.project-metrics .metric {
+  font-size: 0.9rem;
+  color: var(--cream-2);
+  line-height: 1.5;
+}
+.project-metrics .metric strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Category tags ── */
+.category-tag {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--r-sm);
+  background: var(--surface-3);
+  color: var(--ink-3) !important;
+  font-size: 0.75rem !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.4rem;
+}
+
+/* ── Hidden projects by filter ── */
+section.project-section[data-category] {
+  display: block;
+}
+section.project-section[data-category].hidden {
+  display: none;
 }
 
 /* ── Project section ── */
@@ -93,6 +166,7 @@
   position: relative;
   isolation: isolate;
   width: 100%;
+  height: auto;
   background: var(--surface-2) !important;
   border: 1px solid var(--border) !important;
   border-radius: var(--r-lg) !important;
@@ -106,6 +180,7 @@
   height: auto !important;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: transparent !important;
 }
 
@@ -114,20 +189,19 @@
   align-items: center;
   justify-content: center;
   background: transparent !important;
-  /* padding da un poco de aire visual alrededor */
-  padding: 1rem;
+  padding: 0;
   box-sizing: border-box;
+  height: auto !important;
+  width: 100% !important;
 }
 
 /* ── Imágenes dentro del swiper ── */
 #main .project-swiper .swiper-slide img {
-  /* Ancho siempre al 100% del slide */
+  /* Ancho máximo al 100% del contenedor */
   width: 100%;
-  /* Altura automática — respeta la proporción real de la imagen */
+  /* Altura automática — se ajusta a la proporción real */
   height: auto;
-  /* Límite máximo para que no sean enormes */
-  max-height: var(--slide-maxH, 420px);
-  /* contain: muestra la imagen completa, sin recortar */
+  /* Contiene la imagen completa sin recortar */
   object-fit: contain;
   object-position: center;
   border-radius: var(--r-md);
@@ -137,31 +211,37 @@
 }
 
 /* ── Alturas máximas por carrusel ──
-   Ajustadas según el tipo de contenido de cada proyecto */
+   Permiten que las imágenes grandes no se salgan de escala
+   pero dejan que las pequeñas se vean naturales */
 
 /* EcoVentus: screenshots de dashboard horizontales */
-#swiper-ecoventus {
-  --slide-maxH: clamp(180px, 38vw, 480px);
+#swiper-ecoventus .swiper-slide img {
+  max-width: 100%;
+  max-height: clamp(150px, 50vw, 550px);
 }
 
 /* HoneyRoute: logos/imágenes cuadradas */
-#swiper-honeyroute {
-  --slide-maxH: clamp(200px, 40vw, 420px);
+#swiper-honeyroute .swiper-slide img {
+  max-width: 100%;
+  max-height: clamp(150px, 45vw, 500px);
 }
 
 /* CongestionAI: cover horizontal */
-#swiper-congestionai {
-  --slide-maxH: clamp(180px, 36vw, 400px);
+#swiper-congestionai .swiper-slide img {
+  max-width: 100%;
+  max-height: clamp(140px, 40vw, 420px);
 }
 
 /* Inventory: screenshots de app */
-#swiper-inventory {
-  --slide-maxH: clamp(180px, 36vw, 400px);
+#swiper-inventory .swiper-slide img {
+  max-width: 100%;
+  max-height: clamp(140px, 40vw, 420px);
 }
 
 /* Ecommerce: screenshots de app */
-#swiper-ecommerce {
-  --slide-maxH: clamp(180px, 34vw, 360px);
+#swiper-ecommerce .swiper-slide img {
+  max-width: 100%;
+  max-height: clamp(130px, 40vw, 380px);
 }
 
 /* ── Flechas de navegación ── */
@@ -312,8 +392,5 @@
 @media (max-width: 680px) {
   .project-header {
     flex-direction: column;
-  }
-  #main .project-swiper .swiper-slide {
-    padding: 0.5rem;
   }
 }
