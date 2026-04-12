@@ -1,318 +1,324 @@
-/* =========================
-   Projects – Swipers (final)
-   ========================= */
+/* ============================================================
+   PROJECTS.CSS — Projects page
+   azulrk.com · 2026
+   ============================================================ */
 
-/* Contenedor Swiper: transparente y contenido confinado (sin overflow) */
+/* ── Page hero ── */
+.projects-page-hero {
+  padding: 4rem 0 3rem;
+}
+.projects-page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--cream) !important;
+  margin: 0 0 0.75rem;
+}
+.projects-page-hero p {
+  font-size: 1rem;
+  color: var(--cream-2);
+  max-width: 52ch;
+  margin: 0;
+}
+
+/* ── Project section ── */
+.project-section {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.project-section:first-of-type {
+  border-top: none;
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.project-meta {
+  flex: 1;
+  min-width: 200px;
+}
+
+.project-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--cream) !important;
+  margin: 0 0 0.4rem;
+}
+.project-tagline {
+  font-size: 0.95rem;
+  color: var(--cream-2);
+  margin: 0;
+  max-width: 55ch;
+  line-height: 1.6;
+}
+.project-badges {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: var(--cream-2);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  max-width: 80ch;
+}
+
+/* ────────────────────────────────────────────────
+   FIX: Project swipers
+   
+   Problema anterior:
+   - object-fit:contain forzaba imágenes horizontales
+     a verse muy pequeñas dentro de un contenedor alto
+   - Cada proyecto tiene imágenes con proporciones distintas
+   
+   Solución:
+   - El contenedor tiene height auto (se adapta al contenido)
+   - Las imágenes usan max-height específico por carrusel
+   - Las fotos de pantalla/dashboard: object-fit:contain con bg oscuro
+   - Las fotos cuadradas/logo: object-fit:contain
+   - Todo dentro de un borde redondeado elegante
+────────────────────────────────────────────────── */
 #main .project-swiper {
-  /* altura máxima configurable por carrusel */
-  --maxH: clamp(200px, 36vh, 440px);
-
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 1rem;
-
-  /* “caja desnuda” (sin cromado) */
-  background: transparent !important;
-  border: 0 !important;
+  background: var(--surface-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--r-lg) !important;
   box-shadow: none !important;
-  backdrop-filter: none !important;
-  padding: 0;
-  height: auto !important; /* autoHeight (JS) manda */
-  box-sizing: border-box;
-
-  /* que NO se salga del layout */
   overflow: hidden;
-  max-width: 100%;
-  contain: layout paint;
-
-  /* scroll vertical natural en móvil */
+  margin: 0 auto 1.5rem;
   touch-action: pan-y;
-  -webkit-overflow-scrolling: touch;
 }
 
-/* Alturas máximas específicas por carrusel (ajústalas si necesitas) */
-#swiper-ecommerce {
-  --maxH: clamp(150px, 28vh, 320px);
-}
-#swiper-headstarter {
-  --maxH: clamp(150px, 28vh, 330px);
-}
-#swiper-ecoventus {
-  --maxH: clamp(200px, 36vh, 460px);
-}
-#swiper-honeyroute {
-  --maxH: clamp(200px, 34vh, 420px);
-}
-
-/* Nuevo: CongestionAI */
-#swiper-congestionai {
-  --maxH: clamp(180px, 32vh, 380px);
-}
-
-/* Pista y slides: que el contenido defina el alto */
 #main .project-swiper .swiper-wrapper {
   height: auto !important;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   background: transparent !important;
-  max-width: 100%;
 }
+
 #main .project-swiper .swiper-slide {
-  height: auto !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  padding: 0.15rem;
-  box-sizing: border-box;
   background: transparent !important;
-  will-change: transform;
-  max-width: 100%;
+  /* padding da un poco de aire visual alrededor */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-/* Imágenes: jamás recortar ni estirar */
+/* ── Imágenes dentro del swiper ── */
 #main .project-swiper .swiper-slide img {
-  width: auto;
-  max-width: 100%;
-  height: auto; /* clave: no forzar 100% */
-  max-height: var(--maxH);
-  object-fit: contain !important;
-  object-position: center !important;
-
-  background: transparent !important;
-  border-radius: 10px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
-
+  /* Ancho siempre al 100% del slide */
+  width: 100%;
+  /* Altura automática — respeta la proporción real de la imagen */
+  height: auto;
+  /* Límite máximo para que no sean enormes */
+  max-height: var(--slide-maxH, 420px);
+  /* contain: muestra la imagen completa, sin recortar */
+  object-fit: contain;
+  object-position: center;
+  border-radius: var(--r-md);
   display: block;
   -webkit-user-drag: none;
   user-select: none;
 }
 
-/* Paginación compacta */
-#main .project-swiper .swiper-pagination-bullets {
-  bottom: 6px !important;
-  z-index: 3;
-  pointer-events: auto;
-}
-#main .project-swiper .swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.6);
-  opacity: 0.7;
-}
-#main .project-swiper .swiper-pagination-bullet-active {
-  background: #fff;
-  opacity: 1;
+/* ── Alturas máximas por carrusel ──
+   Ajustadas según el tipo de contenido de cada proyecto */
+
+/* EcoVentus: screenshots de dashboard horizontales */
+#swiper-ecoventus {
+  --slide-maxH: clamp(180px, 38vw, 480px);
 }
 
-/* Flechas SIEMPRE dentro del carrusel (safe-area friendly) */
+/* HoneyRoute: logos/imágenes cuadradas */
+#swiper-honeyroute {
+  --slide-maxH: clamp(200px, 40vw, 420px);
+}
+
+/* KEEPNAI: fotos de evento, horizontales */
+#swiper-keepnai {
+  --slide-maxH: clamp(180px, 36vw, 400px);
+}
+
+/* CongestionAI: cover horizontal */
+#swiper-congestionai {
+  --slide-maxH: clamp(180px, 36vw, 400px);
+}
+
+/* Inventory: screenshots de app */
+#swiper-headstarter {
+  --slide-maxH: clamp(180px, 36vw, 400px);
+}
+
+/* Ecommerce: screenshots de app */
+#swiper-ecommerce {
+  --slide-maxH: clamp(180px, 34vw, 360px);
+}
+
+/* ── Flechas de navegación ── */
 #main .project-swiper .swiper-button-prev,
 #main .project-swiper .swiper-button-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
-  z-index: 5;
-  pointer-events: auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(11, 10, 9, 0.7);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border-2);
+  color: var(--cream);
+  z-index: 10;
+  margin-top: 0;
+  transition: background var(--t-fast);
 }
 #main .project-swiper .swiper-button-prev {
-  left: max(8px, env(safe-area-inset-left, 0px) + 8px);
+  left: 10px;
 }
 #main .project-swiper .swiper-button-next {
-  right: max(8px, env(safe-area-inset-right, 0px) + 8px);
+  right: 10px;
 }
-
-#main .project-swiper .swiper-button-prev::after,
-#main .project-swiper .swiper-button-next::after {
-  font-size: 12px;
-}
-
 #main .project-swiper .swiper-button-prev:hover,
 #main .project-swiper .swiper-button-next:hover {
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--accent);
 }
-
+#main .project-swiper .swiper-button-prev::after,
+#main .project-swiper .swiper-button-next::after {
+  font-size: 11px;
+  font-weight: 700;
+}
 #main .project-swiper .swiper-button-disabled {
-  opacity: 0.35;
+  opacity: 0.25;
+  pointer-events: none;
 }
 
-/* Lazy (opcional) */
-#main .project-swiper .swiper-lazy {
-  filter: blur(2px);
+/* ── Paginación ── */
+#main .project-swiper .swiper-pagination {
+  bottom: 8px;
 }
-#main .project-swiper .swiper-lazy-loaded {
-  filter: none;
-  transition: filter 0.25s ease;
+#main .project-swiper .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: rgba(240, 236, 227, 0.35);
+  opacity: 1;
+}
+#main .project-swiper .swiper-pagination-bullet-active {
+  background: var(--cream);
 }
 
-/* =====================================================
-   Links Row – pills con buen contraste
-   ===================================================== */
+/* ── Links row ── */
 .links-row {
-  --lr-gap: 0.5rem;
-  --lr-bg: rgba(255, 255, 255, 0.04);
-  --lr-border: rgba(255, 255, 255, 0.12);
-  --lr-text: #fff;
-  --lr-hover: rgba(255, 255, 255, 0.09);
-
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: var(--lr-gap);
-  margin: 0.6rem 0 0;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
 }
 .links-row .link-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--lr-border);
-  border-radius: 999px;
-  background: var(--lr-bg);
-  color: var(--lr-text);
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-2);
+  border-radius: var(--r-pill);
+  background: var(--surface-3);
+  color: var(--cream) !important;
   text-decoration: none;
-  line-height: 1;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  font-family: var(--font-body);
   transition:
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-  backdrop-filter: blur(2px);
-  -webkit-tap-highlight-color: transparent;
+    background var(--t-fast),
+    border-color var(--t-fast),
+    transform var(--t-fast);
 }
 .links-row .link-btn:hover {
-  background: var(--lr-hover);
+  background: var(--surface-4);
+  border-color: var(--border-3);
   transform: translateY(-1px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
-}
-.links-row .link-btn:active {
-  transform: translateY(0);
-}
-.links-row .link-btn:focus-visible {
-  outline: 3px solid #61dafb;
-  outline-offset: 2px;
 }
 .links-row .link-btn i {
-  font-size: 1rem;
-  line-height: 0;
-  opacity: 0.95;
-}
-.links-row.compact .link-btn {
-  padding: 0.38rem 0.7rem;
-  font-size: 0.9rem;
-}
-.links-row.block .link-btn {
-  flex: 1 1 auto;
-  justify-content: center;
-  min-width: 180px;
+  font-size: 0.85rem;
 }
 
-/* =========================
-   Upcoming – panel compacto con fondo blanco
-   ========================= */
-#upcoming-projects.upcoming-compact {
-  --up-scale: 1; /* si quieres aún más chico: .85, .75, .6... */
-  margin: 0 auto 1.5rem;
-  text-align: center;
-  display: grid;
-  place-items: center;
-  padding: 0;
+/* ── Upcoming ── */
+#upcoming-projects {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
 }
-#upcoming-projects.upcoming-compact .upcoming-scale {
-  font-size: calc(1rem * var(--up-scale));
-  line-height: 1.3;
-
-  width: min(640px, 92vw);
-  margin: 0 auto;
-  padding: calc(1rem * var(--up-scale));
-
-  background: #fff; /* fondo blanco */
-  color: #111;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+#upcoming-projects h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  color: var(--cream) !important;
+  margin-bottom: 1rem;
 }
-#upcoming-projects.upcoming-compact h2 {
-  font-size: 1.6em;
-  margin: 0 0 0.6em;
-  line-height: 1.2;
-}
-#upcoming-projects.upcoming-compact ul {
+#upcoming-projects ul {
   list-style: none;
   padding: 0;
-  margin: 0.5em 0 0;
-  font-size: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
-#upcoming-projects.upcoming-compact strong {
-  font-size: 1em;
-}
-#upcoming-projects.upcoming-compact #appleAnimation {
-  width: 5em;
-  height: 5em;
-  margin: 0.4em auto 0;
-  background: transparent;
-  display: grid;
-  place-items: center;
-}
-#upcoming-projects.upcoming-compact #appleAnimation svg {
-  width: 100% !important;
-  height: 100% !important;
-  background: transparent !important;
+#upcoming-projects li {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+  color: var(--cream-2);
 }
 
-/* Legibilidad en pantallas muy pequeñas */
-@media (max-width: 420px) {
-  #upcoming-projects.upcoming-compact {
-    --up-scale: 0.6;
-  }
-}
-/* --- Quick fix: zoom-in for HoneyRoute images --- */
-#swiper-honeyroute .swiper-slide img {
-  transform-origin: center;
-  transition: transform 0.3s ease-in-out;
-  border-radius: 8px;
-  background-color: #000; /* disimula restos de borde */
-}
+/* ── Shop CTA ── */
 .shop-cta-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 1rem 0 1.5rem;
 }
-
 .shop-logo-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
+  border-radius: var(--r-lg);
   padding: 10px 14px;
   text-decoration: none;
-  outline: none;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  transition: border-color var(--t-fast);
 }
-
+.shop-logo-link:hover {
+  border-color: var(--border-3);
+}
 .shop-logo-img {
-  max-width: 220px;
+  max-width: 200px;
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 180ms ease;
 }
-
 .shop-logo-link:hover .shop-logo-img {
   transform: translateY(-1px);
 }
 
-.shop-logo-img {
-  transition: transform 180ms ease;
-}
-
-.shop-logo-link:focus-visible {
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.18);
+@media (max-width: 680px) {
+  .project-header {
+    flex-direction: column;
+  }
+  #main .project-swiper .swiper-slide {
+    padding: 0.5rem;
+  }
 }

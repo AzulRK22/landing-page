@@ -1,83 +1,134 @@
-/* =========================
-   Resume page
-   ========================= */
+/* ============================================================
+   RESUME.CSS — Resume page
+   azulrk.com · 2026
+   ============================================================ */
 
-/* Contenedor del viewer */
-.pdf-container {
-  width: min(960px, 95vw);
-  margin: 0 auto 2rem;
+/* ── Page intro ── */
+.resume-intro {
+  padding: 4rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.resume-intro h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--cream);
+  margin: 0 0 0.5rem;
+}
+.resume-intro p {
+  font-size: 0.95rem;
+  color: var(--ink-2);
+  margin: 0;
+  max-width: 48ch;
 }
 
-/* Marco del PDF: fondo blanco para contraste sobre tema oscuro */
+/* ── Action buttons ── */
+.resume-actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border-2);
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform var(--t-fast),
+    box-shadow var(--t-fast),
+    background var(--t-fast);
+  box-shadow: var(--shadow-sm);
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  border-color: var(--border-2);
+  box-shadow: none;
+}
+.btn.btn-outline:hover {
+  background: var(--surface-3);
+  border-color: var(--border-3);
+}
+
+/* ── PDF viewer ── */
+.pdf-container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 3rem;
+}
+
 .pdf-frame {
   width: 100%;
   height: clamp(560px, 78vh, 1100px);
   display: block;
-  background: #ffffff;               /* contraste real con el CV */
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.28);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
   overflow: hidden;
 }
 
-/* Acciones superiores */
-.resume-actions {
-  width: min(960px, 95vw);
-  margin: 0 auto 1rem;
-  display: flex;
-  gap: .6rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  --btn-bg: #ffffff;
-  --btn-fg: #111;
-  --btn-bd: rgba(255,255,255,0.25);
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: .5rem .9rem;
-  border-radius: 10px;
-  border: 1px solid var(--btn-bd);
-  background: var(--btn-bg);
-  color: var(--btn-fg);
-  font-weight: 600;
-  text-decoration: none;
-  line-height: 1;
-  transition: transform .06s ease, box-shadow .2s ease, border-color .2s ease;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-}
-
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
-
-.btn.btn-outline {
-  --btn-bg: transparent;
-  --btn-fg: #fff;
-  --btn-bd: rgba(255,255,255,0.35);
-  box-shadow: none;
-}
-
-/* Encabezado de sección consistente */
-#resume .major h2 {
-  margin-bottom: .5rem;
-}
-
-/* Mobile tweaks */
-@media (max-width: 480px) {
-  .btn { width: 100%; }
-  .pdf-frame { height: 72vh; }
-}
-/* assets/css/resume.css */
+/* ── Print ── */
 @media print {
-  body { background:#fff; color:#000; }
-  #header, #nav, #footer, .resume-actions, .nav-backdrop { display:none !important; }
-  .pdf-container { width:100%; margin:0; }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  #header,
+  #nav,
+  #footer,
+  .resume-actions,
+  .nav-backdrop,
+  .resume-intro {
+    display: none !important;
+  }
+  .pdf-container {
+    width: 100%;
+    margin: 0;
+    max-width: none;
+  }
   .pdf-frame {
-    border:0; box-shadow:none; border-radius:0; height:auto; min-height:0;
-    background:#fff;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    height: auto;
+    min-height: 0;
+    background: #fff;
+  }
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .btn {
+    width: 100%;
+  }
+  .resume-actions {
+    flex-direction: column;
+  }
+  .pdf-frame {
+    height: 72vh;
   }
 }

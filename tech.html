@@ -3,10 +3,11 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Azul Grisel Ramirez Kuri — Tech & Media</title>
+  <title>Tech & Media — Azul Grisel Ramirez Kuri</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Tech content, YouTube episodes, TikTok highlights, and language tracking by Azul Grisel Ramirez Kuri." />
 
-  <!-- Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H06V4SLX7"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,28 +15,23 @@
     gtag('js', new Date()); gtag('config', 'G-4H06V4SLX7');
   </script>
 
-  <!-- Base CSS -->
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/layout.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/home.css" />
-
-  <!-- Icons -->
+  <link rel="stylesheet" href="assets/css/tech.css" />
   <link rel="stylesheet" href="assets/css/vendor/fontawesome-all.min.css" />
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="preconnect" href="https://www.tiktok.com">
-
-  <!-- Tech & Media CSS -->
-  <link rel="stylesheet" href="assets/css/tech.css?v=4" />
-
-  <noscript>
+  <link rel="preconnect" href="https://www.youtube.com" />
+  <link rel="preconnect" href="https://www.tiktok.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" /> <noscript>
     <link rel="stylesheet" href="assets/css/noscript.css" />
   </noscript>
 </head>
 
 <body>
   <div id="wrapper" class="fade-in">
-    <!-- Header -->
+
+    <!-- ═══ HEADER ═══ -->
     <header id="header" role="banner">
       <a href="index.html" class="logo" aria-label="Home">Azul RK</a>
       <button class="nav-toggle" aria-label="Open menu" aria-controls="nav" aria-expanded="false">
@@ -43,7 +39,7 @@
       </button>
     </header>
 
-    <!-- Nav -->
+    <!-- ═══ NAV ═══ -->
     <nav id="nav" role="navigation" aria-label="Main">
       <ul class="links" role="menubar">
         <li role="none"><a href="index.html" role="menuitem">Home</a></li>
@@ -52,107 +48,128 @@
         <li role="none"><a href="resume.html" role="menuitem">Resume</a></li>
       </ul>
       <ul class="icons">
-        <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" class="icon brands fa-linkedin"
+        <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" class="icon fab fa-linkedin"
             target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
-        <li><a href="https://www.instagram.com/azulramk/" class="icon brands fa-instagram" target="_blank"
+        <li><a href="https://www.instagram.com/azulramk/" class="icon fab fa-instagram" target="_blank"
             rel="noopener noreferrer"><span class="label">Instagram</span></a></li>
-        <li><a href="https://github.com/AzulRK22" class="icon brands fa-github" target="_blank"
+        <li><a href="https://github.com/AzulRK22" class="icon fab fa-github" target="_blank"
             rel="noopener noreferrer"><span class="label">GitHub</span></a></li>
-        <li><a href="https://www.youtube.com/@azulrk" class="icon brands fa-youtube" target="_blank"
+        <li><a href="https://www.youtube.com/@azulrk" class="icon fab fa-youtube" target="_blank"
             rel="noopener noreferrer"><span class="label">YouTube</span></a></li>
       </ul>
     </nav>
     <div class="nav-backdrop" hidden></div>
 
-    <!-- Main -->
+    <!-- ═══ MAIN ═══ -->
     <div id="main">
-      <!-- Hero / Major -->
-      <header class="major">
-        <h2>My Tech & Influencer Side</h2>
-        <p>Sharing my journey in tech, creativity, and lifestyle content.</p>
-      </header>
 
-      <!-- YouTube -->
-      <section class="content-section">
-        <h2>🎥 YouTube Episodes</h2>
+      <!-- Page hero -->
+      <div class="tech-hero">
+        <span class="section-label">Content & Community</span>
+        <h1>Tech & Media</h1>
+        <p>Educational content on software, AI, and real-world projects — made to empower developers across Latin
+          America.</p>
+      </div>
+
+      <!-- ── YOUTUBE ── -->
+      <section class="content-section reveal">
+        <h2 class="content-section-title">YouTube Episodes</h2>
+
         <div class="youtube-grid">
-          <article class="youtube-card reveal">
+          <article class="youtube-card">
             <div class="media-frame">
-              <iframe src="https://www.youtube.com/embed/aBZNoGJcWJQ" title="PartyRock de AWS - Episode 1"
-                loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
-              </iframe>
+              <iframe src="https://www.youtube.com/embed/aBZNoGJcWJQ" title="Episode 1: AWS PartyRock" loading="lazy"
+                allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
-            <h3>Episode 1: Partyrock de AWS</h3>
-            <p>Exploring AWS Partyrock: AI apps without code.</p>
+            <div class="youtube-card-body">
+              <h3>Episode 1 — AWS PartyRock</h3>
+              <p>Building AI apps without writing code — exploring AWS PartyRock and what it means for developers.</p>
+            </div>
           </article>
 
-          <article class="youtube-card reveal">
+          <article class="youtube-card">
             <div class="media-frame">
-              <iframe src="https://www.youtube.com/embed/cYbxAB3NyBo?start=40" title="Figma Make - Episode 2"
-                loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
-              </iframe>
+              <iframe src="https://www.youtube.com/embed/cYbxAB3NyBo?start=40" title="Episode 2: Figma Make"
+                loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
             </div>
-            <h3>Episode 2: Figma Make</h3>
-            <p>Designing interactive prototypes with AI in Figma Make.</p>
+            <div class="youtube-card-body">
+              <h3>Episode 2 — Figma Make</h3>
+              <p>Designing AI-powered interactive prototypes with Figma Make — from idea to working UI in minutes.</p>
+            </div>
           </article>
+        </div>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <a href="https://www.youtube.com/@azulrk" target="_blank" rel="noopener noreferrer" class="btn-primary"
+            style="display: inline-flex;">
+            <i class="fab fa-youtube"></i>&nbsp; Subscribe on YouTube
+          </a>
         </div>
       </section>
 
-      <!-- TikTok -->
-      <section class="content-section">
-        <h2>📱 TikTok Highlights</h2>
+      <!-- ── TIKTOK ── -->
+      <section class="content-section reveal">
+        <h2 class="content-section-title">TikTok Highlights</h2>
 
         <div class="tiktok-grid">
-          <article class="tiktok-card reveal">
-            <blockquote class="tiktok-embed" aria-labelledby="tiktok-unboxing"
-              cite="https://www.tiktok.com/@azulrk22/video/7523772792177741074" data-video-id="7523772792177741074">
+          <article class="tiktok-card">
+            <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@azulrk22/video/7523772792177741074"
+              data-video-id="7523772792177741074" aria-label="TikTok: Unboxings">
               <section>
                 <a target="_blank" title="@azulrk22" href="https://www.tiktok.com/@azulrk22">@azulrk22</a>
               </section>
             </blockquote>
-            <h3 id="tiktok-unboxing">Unboxings</h3>
-            <p>First impressions of gadgets and more.</p>
+            <div class="tiktok-card-body">
+              <h3>Unboxings</h3>
+              <p>First impressions of gadgets and dev tools.</p>
+            </div>
           </article>
 
-          <article class="tiktok-card reveal">
+          <article class="tiktok-card">
             <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@azulrk22/video/7528595301205036306"
-              data-video-id="7528595301205036306">
+              data-video-id="7528595301205036306" aria-label="TikTok: Random Findings">
               <section>
                 <a target="_blank" title="@azulrk22" href="https://www.tiktok.com/@azulrk22">@azulrk22</a>
               </section>
             </blockquote>
-            <h3>Random Findings</h3>
-            <p>Easy and fun tryouts with apps.</p>
+            <div class="tiktok-card-body">
+              <h3>Random Findings</h3>
+              <p>Easy and fun tryouts with apps and tools.</p>
+            </div>
           </article>
 
-          <article class="tiktok-card reveal">
+          <article class="tiktok-card">
             <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@azulrk22/video/7535655312733392136"
-              data-video-id="7535655312733392136">
+              data-video-id="7535655312733392136" aria-label="TikTok: Vlogs">
               <section>
                 <a target="_blank" title="@azulrk22" href="https://www.tiktok.com/@azulrk22">@azulrk22</a>
               </section>
             </blockquote>
-            <h3>Vlogs</h3>
-            <p>Day-in-the-life moments, travels, and events.</p>
+            <div class="tiktok-card-body">
+              <h3>Vlogs</h3>
+              <p>Day-in-the-life moments, travels, and events.</p>
+            </div>
           </article>
         </div>
 
         <p class="tiktok-cta">
-          Follow me on TikTok for more: <a href="https://www.tiktok.com/@azulrk22" target="_blank">@azulrk22</a>
+          Follow for more: <a href="https://www.tiktok.com/@azulrk22" target="_blank"
+            rel="noopener noreferrer">@azulrk22</a>
         </p>
       </section>
-      <section id="duolingo" class="panel fat reveal" aria-labelledby="duo-title">
-        <header class="section-head">
-          <h2 id="duo-title">Duolingo — Live Stats</h2>
+
+      <!-- ── DUOLINGO ── -->
+      <section id="duolingo" class="panel reveal" aria-labelledby="duo-title">
+        <div class="section-head">
+          <h2 id="duo-title" class="content-section-title">Duolingo — Live Stats</h2>
           <p class="sub">Tracking my daily streak and active languages</p>
-        </header>
+        </div>
 
         <div class="duo-card" aria-live="polite">
           <div class="duo-row top">
             <div class="duo-appicon" aria-hidden="true">
-              <img src="images/duolingo.svg" alt="duo icon" />
+              <img src="images/duolingo.svg" alt="Duolingo icon" loading="lazy" />
             </div>
-
             <div class="duo-streak">
               <div class="duo-streak-line">
                 <span class="flame" aria-hidden="true"></span>
@@ -160,7 +177,6 @@
               </div>
               <small>auto-updated daily</small>
             </div>
-
             <a class="duo-btn" href="#" target="_blank" rel="noopener">View profile</a>
           </div>
 
@@ -171,26 +187,25 @@
             <ul class="duo-langlist" data-duo-langs></ul>
           </div>
 
-          <!-- Opcional (se oculta si no hay datos) -->
           <div class="duo-block duo-optional" data-block="stats" hidden>
             <div class="duo-label">Stats</div>
             <ul class="duo-stats" data-duo-stats></ul>
           </div>
 
-          <!-- Opcional (se oculta si no hay datos) -->
           <div class="duo-block duo-optional" data-block="achievements" hidden>
             <div class="duo-label">Achievements</div>
             <ul class="duo-badges" data-duo-achievements></ul>
           </div>
         </div>
       </section>
+
     </div><!-- /#main -->
 
-    <!-- Footer -->
+    <!-- ═══ FOOTER ═══ -->
     <footer id="footer">
       <section class="split contact">
         <section class="alt">
-          <h3>Address</h3>
+          <h3>Location</h3>
           <p>Mexico City, Mexico</p>
         </section>
         <section>
@@ -205,31 +220,35 @@
           <h3>Social</h3>
           <ul class="icons">
             <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/" target="_blank"
-                rel="noopener noreferrer" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                rel="noopener noreferrer" class="icon fab fa-linkedin"><span class="label">LinkedIn</span></a></li>
             <li><a href="https://www.instagram.com/azulramk/" target="_blank" rel="noopener noreferrer"
-                class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                class="icon fab fa-instagram"><span class="label">Instagram</span></a></li>
             <li><a href="https://github.com/AzulRK22" target="_blank" rel="noopener noreferrer"
-                class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                class="icon fab fa-github"><span class="label">GitHub</span></a></li>
             <li><a href="https://www.youtube.com/@azulrk" target="_blank" rel="noopener noreferrer"
-                class="icon brands fa-youtube"><span class="label">YouTube</span></a></li>
+                class="icon fab fa-youtube"><span class="label">YouTube</span></a></li>
           </ul>
         </section>
       </section>
     </footer>
-
     <div id="copyright">
       <ul>
         <li>&copy; Azul Grisel Ramirez Kuri</li>
-        <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener">HTML5 UP</a></li>
+        <li>Design: <a href="https://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a></li>
       </ul>
     </div>
+
   </div><!-- /#wrapper -->
 
-  <!-- TikTok Embed script -->
   <script async src="https://www.tiktok.com/embed.js"></script>
-
-  <!-- JS propio (nav + reveal) -->
   <script defer src="assets/js/tech.js?v=3"></script>
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

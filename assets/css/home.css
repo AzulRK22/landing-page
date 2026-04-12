@@ -1,50 +1,196 @@
-/* ========== HOME (portada) ========== */
+/* ============================================================
+   HOME.CSS — Homepage specific styles
+   azulrk.com · 2026
+   ============================================================ */
 
-/* Fondo */
-#wrapper {
-  background-color: #212931;
-  background-image:
-    url("../../images/overlay.png"),
-    linear-gradient(0deg, rgba(0,0,0,0.10), rgba(0,0,0,0.10)),
-    url("../../images/bg.jpg");
-  background-size: auto, auto, 100% auto;
-  background-position: center, center, top center;
-  background-repeat: repeat, no-repeat, no-repeat;
-  background-attachment: fixed, fixed, fixed;
+/* ── HERO ── */
+#intro.intro-hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: clamp(2rem, 6vw, 4rem) clamp(1.5rem, 6vw, 4rem)
+    clamp(3rem, 7vw, 5rem);
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-0);
+}
+#intro.intro-hero::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(26, 108, 255, 0.1) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+#intro.intro-hero::after {
+  content: "AZULRK";
+  position: absolute;
+  bottom: -0.1em;
+  right: -0.05em;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 22rem);
+  font-weight: 800;
+  color: rgba(240, 236, 227, 0.025);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
-/* Evita flash preload */
-#wrapper.fade-in:before { display: none; }
-body.is-preload #intro { opacity: 1; }
-body.is-preload #intro:not(.hidden) + #header + #nav { transform: none; opacity: 1; }
-
-/* Featured post spacing */
-.post.featured { margin-top: 0.5rem; }
-/* Centrar el CTA "Explore Projects" dentro del featured */
-.post.featured .explore-center {
-  display: inline-flex;
+.intro-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.25rem;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  margin-inline: auto;   /* centra horizontal */
-  margin-top: 0.75rem;
+  gap: 0.75rem;
+}
+.intro-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--ink-3);
 }
 
-/* Z-index para que la paginación de swiper no se meta en el nav */
-@media (min-width: 981px) {
-  #nav { z-index: 1000; }
-  .hero-swiper { z-index: 1; }
+.intro-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7.5vw, 7rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--cream) !important;
+  margin: 0 0 1.5rem;
+  max-width: 14ch;
+}
+.intro-title em {
+  font-style: normal;
+  color: #5a9fff;
 }
 
-/* Ajustes responsivos sutiles */
-@media (max-width: 680px) {
-  .intro-hero { padding-top: 2rem; }
-  .hero-swiper .swiper-slide img { max-height: 360px; }
+.intro-subtitle {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  font-weight: 300;
+  color: var(--cream-2);
+  max-width: 50ch;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
 }
 
-/* Cuando el fondo usa background-attachment: fixed, puede “saltar” en iOS/Android.
-   En móvil forzamos scroll para suavidad. */
-@media (max-width: 980px) {
-  #wrapper {
-    background-attachment: scroll, scroll, scroll;
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* ── Section layouts ── */
+#experience {
+  padding: 4rem 0;
+}
+.exp-timeline {
+  display: grid;
+  gap: 1.25rem;
+}
+
+#skills-section {
+  padding: 4rem 0;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+#what-i-bring {
+  padding: 4rem 0;
+}
+.brings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+#gallery {
+  padding: 4rem 0;
+}
+
+#certifications {
+  padding: 4rem 0;
+}
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+  margin-bottom: 2rem;
+}
+.infosys-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+#projects {
+  padding: 4rem 0;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+#media {
+  padding: 4rem 0;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  #intro.intro-hero::after {
+    display: none;
+  }
+  .hero-stats {
+    gap: 1.75rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .cert-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .hero-stats {
+    gap: 1.25rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .hero-cta-group .btn-primary,
+  .hero-cta-group .btn-ghost {
+    width: 100%;
+    justify-content: center;
   }
 }
