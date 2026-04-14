@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
         observeParents: true,
         slidesPerView: 1,
         spaceBetween: 0,
+        grabCursor: true,
+        keyboard: {
+          enabled: true,
+          onlyInViewport: true,
+        },
         navigation: {
           nextEl: el.querySelector(".swiper-button-next"),
           prevEl: el.querySelector(".swiper-button-prev"),

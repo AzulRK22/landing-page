@@ -172,56 +172,75 @@ section.project-section[data-category].hidden {
    - Todo dentro de un borde redondeado elegante
 ────────────────────────────────────────────────── */
 #main .project-swiper {
-  position: relative;
-  isolation: isolate;
   width: 100%;
-  max-width: clamp(280px, 90%, 550px);
+  max-width: 900px;
   margin: 0 auto 1.5rem;
-  background: var(--surface-2) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: var(--r-lg) !important;
-  overflow: hidden;
-  touch-action: pan-y;
+  background: transparent !important;
+  border: none !important;
   padding: 0;
+  box-shadow: none;
 }
 
 #main .project-swiper .swiper-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  transition: transform 0.3s ease;
   background: transparent !important;
   padding: 0 !important;
   height: auto !important;
 }
 
 #main .project-swiper .swiper-slide {
-  background: transparent !important;
+  width: 100% !important;
+  max-width: 100%;
+  min-height: 0;
   padding: 0;
   box-sizing: border-box;
-  width: 100% !important;
-  text-align: center;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+#main .project-swiper .swiper-slide figure {
+  width: auto;
+  max-width: 100%;
+  margin: 0;
 }
 
 /* ── Imágenes dentro del swiper ── */
 #main .project-swiper .swiper-slide img {
   width: auto;
-  max-width: 75%;
-  height: auto;
+  max-width: 100%;
+  max-height: clamp(260px, 68vw, 620px);
   object-fit: contain;
   object-position: center;
-  border-radius: var(--r-md);
+  border-radius: 2rem;
   display: block;
   margin: 0 auto;
+  padding: 0;
+  background: transparent;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.16);
   -webkit-user-drag: none;
   user-select: none;
 }
 
+#main .project-swiper .swiper-slide img:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+#main .project-swiper .swiper-slide:active {
+  cursor: grabbing;
+}
+
+#main .project-swiper {
+  cursor: grab;
+}
+
 .swiper-caption {
-  margin-top: 0.5rem;
-  font-size: 0.8rem;
-  color: var(--cream-2);
-  font-weight: 500;
-  text-align: center;
+  display: none;
 }
 
 /* ── Alturas máximas por carrusel ──
@@ -229,38 +248,14 @@ section.project-section[data-category].hidden {
    pero dejan que las pequeñas se vean naturales */
 
 /* EcoVentus: screenshots de dashboard horizontales */
-#swiper-ecoventus .swiper-slide img {
-  width: auto;
-  max-width: 75%;
-  max-height: clamp(150px, 50vw, 550px);
-}
-
-/* HoneyRoute: app screenshots vertical */
-#swiper-honeyroute .swiper-slide img {
-  width: auto;
-  max-width: 75%;
-  max-height: clamp(140px, 45vw, 600px);
-}
-
-/* CongestionAI: cover horizontal */
-#swiper-congestionai .swiper-slide img {
-  width: auto;
-  max-width: 75%;
-  max-height: clamp(130px, 45vw, 500px);
-}
-
-/* Inventory: screenshots de app */
-#swiper-inventory .swiper-slide img {
-  width: auto;
-  max-width: 75%;
-  max-height: clamp(130px, 45vw, 500px);
-}
-
-/* Ecommerce: screenshots de app */
+#swiper-ecoventus .swiper-slide img,
+#swiper-honeyroute .swiper-slide img,
+#swiper-congestionai .swiper-slide img,
+#swiper-inventory .swiper-slide img,
 #swiper-ecommerce .swiper-slide img {
   width: auto;
-  max-width: 75%;
-  max-height: clamp(120px, 40vw, 450px);
+  max-width: 100%;
+  max-height: clamp(260px, 68vw, 620px);
 }
 
 /* ── Flechas de navegación ── */
