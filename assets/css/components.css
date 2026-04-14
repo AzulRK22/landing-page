@@ -171,6 +171,11 @@
   gap: 0.35rem;
   margin-bottom: 1.25rem;
 }
+.project-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -184,6 +189,24 @@
 }
 .project-link:hover {
   gap: 0.6rem;
+}
+.project-link.secondary {
+  color: var(--cream-2);
+}
+.project-link.secondary:hover {
+  color: var(--cream);
+}
+.project-link.demo {
+  background: var(--accent);
+  color: var(--surface-0);
+  padding: 0.5rem 1rem;
+  border-radius: var(--r-md);
+  font-weight: 600;
+}
+.project-link.demo:hover {
+  background: var(--accent-hover);
+  color: var(--surface-0);
+  gap: 0.35rem;
 }
 
 /* ── Certification card ── */
@@ -222,6 +245,16 @@
   font-size: 0.75rem;
   color: var(--ink-4);
   margin: 0;
+}
+.cert-hover-detail {
+  font-size: 0.7rem;
+  color: var(--cream-2);
+  margin: 0.3rem 0 0;
+  opacity: 0;
+  transition: opacity var(--t-fast);
+}
+.cert-card:hover .cert-hover-detail {
+  opacity: 1;
 }
 
 /* ── Skill group ── */

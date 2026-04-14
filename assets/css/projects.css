@@ -90,15 +90,24 @@
 /* ── Hidden projects by filter ── */
 section.project-section[data-category] {
   display: block;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 section.project-section[data-category].hidden {
-  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
 /* ── Project section ── */
 .project-section {
   padding: 3.5rem 0;
   border-top: 1px solid var(--border);
+  transition: border-color var(--t-fast);
+}
+.project-section:hover {
+  border-color: var(--border-2);
 }
 .project-section:first-of-type {
   border-top: none;
@@ -205,6 +214,14 @@ section.project-section[data-category].hidden {
   margin: 0 auto;
   -webkit-user-drag: none;
   user-select: none;
+}
+
+.swiper-caption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--cream-2);
+  font-weight: 500;
+  text-align: center;
 }
 
 /* ── Alturas máximas por carrusel ──
