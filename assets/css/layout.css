@@ -5,6 +5,7 @@
 
 :root {
   --site-chrome-h: 94px;
+  --site-chrome-offset: calc(var(--site-chrome-h) + 0.5rem);
 }
 
 .skip-link {
@@ -33,6 +34,11 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
+/* ── Global flow offset for fixed chrome ── */
+#wrapper {
+  padding-top: var(--site-chrome-offset);
+}
+
 /* ── #main container ── */
 #main {
   width: min(var(--max-w), 100% - var(--gutter) * 2);
@@ -51,13 +57,17 @@ button:focus-visible,
 
 /* ── HEADER ── */
 .site-chrome {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  width: min(calc(var(--max-w) + (var(--gutter) * 2)), 100%);
-  margin-inline: auto;
+  width: 100%;
   padding-top: 0.5rem;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 header#header {
@@ -77,6 +87,7 @@ header#header {
     border-color var(--t-base),
     box-shadow var(--t-base);
   box-shadow: 0 1px 0 rgba(240, 236, 227, 0.04);
+  width: min(calc(var(--max-w) + (var(--gutter) * 2)), 100%);
 }
 #header .logo {
   font-family: var(--font-display);
@@ -110,6 +121,7 @@ header#header {
     border-color var(--t-base),
     box-shadow var(--t-base);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+  width: min(calc(var(--max-w) + (var(--gutter) * 2)), 100%);
 }
 
 /* Nav links */
@@ -224,17 +236,10 @@ body.nav-open {
 @media (max-width: 880px) {
   :root {
     --site-chrome-h: 56px;
-  }
-
-  #wrapper {
-    padding-top: var(--site-chrome-h);
+    --site-chrome-offset: 56px;
   }
 
   .site-chrome {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     padding-top: 0;
     isolation: auto;
@@ -247,6 +252,7 @@ body.nav-open {
 
   header#header {
     height: 56px;
+    width: 100%;
     border-radius: 0;
     border-left: 0;
     border-right: 0;
