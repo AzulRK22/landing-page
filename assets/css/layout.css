@@ -226,11 +226,19 @@ body.nav-open {
     --site-chrome-h: 56px;
   }
 
+  #wrapper {
+    padding-top: var(--site-chrome-h);
+  }
+
   .site-chrome {
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     padding-top: 0;
     isolation: auto;
+    z-index: 150;
   }
 
   .nav-toggle {
@@ -243,6 +251,7 @@ body.nav-open {
     border-left: 0;
     border-right: 0;
     background: rgba(11, 10, 9, 0.96);
+    box-shadow: none;
   }
 
   #nav {
