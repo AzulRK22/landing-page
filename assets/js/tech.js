@@ -144,7 +144,7 @@
     $achBlock.hidden = !hasAch;
   }
 
-  fetch(`assets/data/duolingo.json?ts=${Date.now()}`, { cache: "no-store" })
+  fetch("assets/data/duolingo.json", { cache: "no-store" })
     .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(render)
     .catch(err => { console.warn("[Duolingo] widget error:", err); render({}); });
