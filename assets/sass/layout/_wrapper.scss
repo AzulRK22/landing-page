@@ -11,6 +11,7 @@
 		position: relative;
 		z-index: 1;
 		overflow: hidden;
+		min-height: 100svh;
 
 		> .bg {
 			position: absolute;
@@ -58,7 +59,8 @@
 
 		@include orientation(portrait) {
 			> .bg {
-				background-size:	auto,								auto,														auto 175%;
+				background-size:	auto,								auto,														cover;
+				background-position: center, center, center top;
 			}
 		}
 	}
