@@ -5,7 +5,7 @@
 
 /* ── HERO ── */
 #intro.intro-hero {
-  min-height: 100svh;
+  min-height: calc(100svh - var(--site-chrome-h));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -14,7 +14,8 @@
     clamp(3rem, 7vw, 5rem);
   position: relative;
   overflow: hidden;
-  background: var(--surface-0);
+  background:
+    linear-gradient(180deg, rgba(11, 10, 9, 0.16) 0%, rgba(11, 10, 9, 0.38) 62%, rgba(11, 10, 9, 0.58) 100%);
 }
 #intro.intro-hero::before {
   content: "";
@@ -69,13 +70,14 @@
 
 .intro-title {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 7.5vw, 7rem);
+  font-size: clamp(2.35rem, 6.1vw, 5.35rem);
   font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
   color: var(--cream) !important;
   margin: 0 0 1.5rem;
-  max-width: 14ch;
+  max-width: 12.5ch;
+  text-wrap: balance;
 }
 .intro-title em {
   font-style: normal;
@@ -83,10 +85,10 @@
 }
 
 .intro-subtitle {
-  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  font-weight: 300;
-  color: var(--cream-2);
-  max-width: 50ch;
+  font-size: clamp(0.95rem, 1.45vw, 1.04rem);
+  font-weight: 400;
+  color: rgba(240, 236, 227, 0.84);
+  max-width: 46ch;
   line-height: 1.65;
   margin-bottom: 2.5rem;
 }
@@ -259,8 +261,8 @@
 
 /* ── PERFORMANCE METRICS ── */
 .performance-metrics {
-  background: var(--surface-1);
-  padding: 2rem;
+  background: transparent;
+  padding: 2.5rem 0 0;
   text-align: center;
   border-top: 1px solid var(--border);
 }
@@ -271,23 +273,28 @@
   margin-bottom: 1.5rem;
 }
 .performance-metrics .metrics-grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 .metric-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.1rem 1rem;
+  background: rgba(17, 16, 9, 0.52);
+  border: 1px solid rgba(240, 236, 227, 0.08);
+  border-radius: var(--r-lg);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
 .metric-score {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(1.7rem, 2vw, 2.2rem);
   font-weight: 800;
   color: var(--accent);
 }
-.metric-label {
+.performance-metrics .metric-label {
   font-size: 0.8rem;
   color: var(--cream-2);
   text-transform: uppercase;
@@ -295,8 +302,8 @@
   margin-top: 0.25rem;
 }
 .metrics-note {
-  font-size: 0.75rem;
-  color: var(--cream-3);
+  font-size: 0.8rem;
+  color: rgba(240, 236, 227, 0.72);
   margin: 0;
 }
 

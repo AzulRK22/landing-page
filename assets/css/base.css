@@ -159,7 +159,7 @@ button:focus-visible {
   background-image:
     url("../../images/overlay.png"),
     linear-gradient(160deg, rgba(26, 108, 255, 0.03) 0%, transparent 55%),
-    url("../../images/bg.jpg");
+    url("../../images/Background/bg.jpg");
   background-size:
     auto,
     auto,

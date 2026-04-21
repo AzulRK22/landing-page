@@ -94,7 +94,8 @@ section.project-section[data-category] {
     opacity 0.3s ease,
     transform 0.3s ease;
 }
-section.project-section[data-category].hidden {
+section.project-section[data-category].project-filter-hidden {
+  display: none;
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
@@ -174,11 +175,13 @@ section.project-section[data-category].hidden {
 #main .project-swiper {
   width: 100%;
   max-width: 900px;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 2.75rem;
   background: transparent !important;
   border: none !important;
-  padding: 0;
+  padding: 0 0 2.5rem;
   box-shadow: none;
+  position: relative;
+  overflow: hidden;
 }
 
 #main .project-swiper .swiper-wrapper {
@@ -297,7 +300,16 @@ section.project-section[data-category].hidden {
 
 /* ── Paginación ── */
 #main .project-swiper .swiper-pagination {
-  bottom: 8px;
+  position: relative;
+  inset: auto;
+  bottom: auto;
+  left: auto;
+  width: 100%;
+  margin-top: 0.95rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
 }
 #main .project-swiper .swiper-pagination-bullet {
   width: 6px;
@@ -307,6 +319,15 @@ section.project-section[data-category].hidden {
 }
 #main .project-swiper .swiper-pagination-bullet-active {
   background: var(--cream);
+}
+
+#swiper-inventory {
+  padding-bottom: 1.4rem;
+  margin-bottom: 1.7rem;
+}
+
+#swiper-inventory .swiper-pagination {
+  margin-top: 0.45rem;
 }
 
 /* ── Links row ── */

@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
       projectSections.forEach((section) => {
         const categories = section.getAttribute("data-category").split(" ");
         if (filter === "all" || categories.includes(filter)) {
-          section.classList.remove("hidden");
+          section.classList.remove("project-filter-hidden");
         } else {
-          section.classList.add("hidden");
+          section.classList.add("project-filter-hidden");
         }
       });
     });

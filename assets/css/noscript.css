@@ -1,0 +1,17 @@
+body {
+  overflow: auto;
+}
+
+#wrapper.fade-in,
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.nav-backdrop {
+  display: none !important;
+}
+
+body.nav-open #nav {
+  transform: none;
+}
