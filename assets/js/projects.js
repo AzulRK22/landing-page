@@ -85,27 +85,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const appleLottieHost = document.getElementById("apple-lottie");
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)",
-  ).matches;
-
-  if (appleLottieHost && window.lottie) {
-    const animation = window.lottie.loadAnimation({
-      container: appleLottieHost,
-      renderer: "svg",
-      loop: !prefersReducedMotion,
-      autoplay: true,
-      path: "assets/animations/apple.json",
-      rendererSettings: {
-        preserveAspectRatio: "xMidYMid meet",
-      },
-    });
-
-    if (prefersReducedMotion) {
-      animation.addEventListener("DOMLoaded", () => {
-        animation.goToAndStop(38, true);
-      });
-    }
-  }
 });

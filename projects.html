@@ -8,26 +8,29 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#111009" />
     <meta name="description"
-        content="Selected projects by Azul Grisel Ramirez Kuri — hackathon winners, enterprise apps, mobile builds, and AI tools." />
+        content="Selected products, AI tools, frontend systems, and mobile builds by Azul Grisel Ramirez Kuri." />
     <link rel="canonical" href="https://www.azulrk.com/projects.html" />
+
     <meta property="og:site_name" content="AzulRK" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Projects — Azul Grisel Ramirez Kuri" />
     <meta property="og:description"
-        content="Selected projects by Azul Grisel Ramirez Kuri — hackathon winners, enterprise apps, mobile builds, and AI tools." />
+        content="Selected products, AI tools, frontend systems, and mobile builds by Azul Grisel Ramirez Kuri." />
     <meta property="og:url" content="https://www.azulrk.com/projects.html" />
     <meta property="og:image" content="https://www.azulrk.com/images/Ecoventus/home.png" />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Projects — Azul Grisel Ramirez Kuri" />
     <meta name="twitter:description"
-        content="Selected projects by Azul Grisel Ramirez Kuri — hackathon winners, enterprise apps, mobile builds, and AI tools." />
+        content="Selected products, AI tools, frontend systems, and mobile builds by Azul Grisel Ramirez Kuri." />
     <meta name="twitter:image" content="https://www.azulrk.com/images/Ecoventus/home.png" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4H06V4SLX7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date()); gtag('config', 'G-4H06V4SLX7');
+        gtag("js", new Date());
+        gtag("config", "G-4H06V4SLX7");
     </script>
 
     <link rel="stylesheet" href="assets/css/base.css" />
@@ -37,6 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
@@ -44,8 +48,8 @@
 
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div id="wrapper" class="fade-in">
 
+    <div id="wrapper" class="fade-in">
         <div class="site-chrome">
             <header id="header" role="banner">
                 <a href="index.html" class="logo" aria-label="Home">Azul RK</a>
@@ -57,11 +61,11 @@
             <nav id="nav" role="navigation" aria-label="Main">
                 <ul class="links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html" aria-current="page" class="active">Projects</a>
-                    </li>
+                    <li><a href="projects.html" aria-current="page" class="active">Projects</a></li>
                     <li><a href="tech.html">Tech & Media</a></li>
                     <li><a href="resume.html">Resume</a></li>
                 </ul>
+
                 <ul class="icons">
                     <li><a href="https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/"
                             class="icon fab fa-linkedin" target="_blank" rel="noopener noreferrer"
@@ -76,41 +80,178 @@
                 </ul>
             </nav>
         </div>
+
         <div class="nav-backdrop" hidden></div>
 
         <main id="main">
-
             <div class="projects-page-hero">
                 <span class="section-label">Portfolio</span>
-                <h1>Award-Winning Products & Enterprise Systems</h1>
-                <p>Top-tier hackathon finishes, production-grade frontends, mobile builds, and AI tools that scale. 2nd
-                    place HDC, Top 12 HackNation, and enterprise delivery across React, Kotlin, and cloud platforms.</p>
+                <h1>Selected Products, AI Tools & Frontend Systems</h1>
+                <p>
+                    Projects built across hackathons, enterprise work, mobile development, and self-directed product
+                    experiments — from award-winning AI tools to production-minded interfaces.
+                </p>
+
                 <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">All projects</button>
+                    <button class="filter-btn" data-filter="hackathon">Award-winning</button>
+                    <button class="filter-btn" data-filter="ai">AI Products</button>
                     <button class="filter-btn" data-filter="mobile">Mobile</button>
-                    <button class="filter-btn" data-filter="hackathon">Hackathons</button>
-                    <button class="filter-btn" data-filter="enterprise">Enterprise</button>
-                    <button class="filter-btn" data-filter="ai">AI & ML</button>
+                    <button class="filter-btn" data-filter="enterprise">Frontend Systems</button>
                 </div>
             </div>
-            <!-- ══════════════════════════════════════
-         EcoVentus — HDC México 2024, 2nd place
-    ══════════════════════════════════════ -->
+
+            <section class="project-section reveal" id="HoneyRoute" data-category="hackathon ai">
+                <div class="project-header">
+                    <div class="project-meta">
+                        <div class="project-badges">
+                            <span class="award-badge"><i class="fas fa-trophy"></i> 2nd Place · HDC Brasil 2025</span>
+                            <span class="category-tag">Award-winning</span>
+                            <span class="category-tag">AI Product</span>
+                        </div>
+                        <h2 class="project-name">HoneyRoute</h2>
+                        <p class="project-tagline">
+                            Offline-first apiary intelligence PWA for hive health monitoring and beekeeper decision
+                            support.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="swiper-container project-swiper" id="swiper-honeyroute" role="region"
+                    aria-label="HoneyRoute screenshots">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture1.png" alt="HoneyRoute onboarding welcome screen"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Onboarding and first-run setup</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture2.png"
+                                    alt="HoneyRoute login authentication screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Secure login experience</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture3.png" alt="HoneyRoute home dashboard"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Hive health dashboard</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture4.png" alt="HoneyRoute new hive creation form"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Create and manage new hives</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture5.png"
+                                    alt="HoneyRoute new apiary setup and configuration" loading="lazy" />
+                                <figcaption class="swiper-caption">Apiary setup and configuration</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture6.png"
+                                    alt="HoneyRoute apiary details and hive health status" loading="lazy" />
+                                <figcaption class="swiper-caption">Detailed hive health status</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture7.png"
+                                    alt="HoneyRoute apiary health history timeline and trends" loading="lazy" />
+                                <figcaption class="swiper-caption">Health history and trend analysis</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture8.png"
+                                    alt="HoneyRoute AI health recommendations and insights" loading="lazy" />
+                                <figcaption class="swiper-caption">AI recommendations and insights</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture9.png"
+                                    alt="HoneyRoute evidence photos and diagnostic data" loading="lazy" />
+                                <figcaption class="swiper-caption">Diagnostic evidence and reports</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture10.png"
+                                    alt="HoneyRoute AI analysis results and predictions" loading="lazy" />
+                                <figcaption class="swiper-caption">AI-driven predictions</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture11.png"
+                                    alt="HoneyRoute historical data and long-term trends" loading="lazy" />
+                                <figcaption class="swiper-caption">Historical trends and long-term analysis</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture12.png"
+                                    alt="HoneyRoute alerts and notifications management" loading="lazy" />
+                                <figcaption class="swiper-caption">Alerts and notification controls</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture13.png"
+                                    alt="HoneyRoute map view of apiary locations" loading="lazy" />
+                                <figcaption class="swiper-caption">Location mapping for apiaries</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/HoneyRoute/Picture14.png"
+                                    alt="HoneyRoute user settings and app preferences" loading="lazy" />
+                                <figcaption class="swiper-caption">User account settings</figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next" aria-label="Next image"></div>
+                    <div class="swiper-button-prev" aria-label="Previous image"></div>
+                </div>
+
+                <p class="project-description">
+                    HoneyRoute is an AI-assisted, offline-first PWA designed for beekeepers working in low-connectivity
+                    rural environments. Built in 48 hours at HDC Brasil, it combines hive records, health observations,
+                    diagnostic evidence, and recommendation flows into a practical field tool.
+                </p>
+
+                <div class="project-metrics">
+                    <div class="metric"><strong>Offline-first</strong> PWA designed for rural beekeeping workflows</div>
+                    <div class="metric"><strong>AI-assisted diagnostics</strong> for hive health observations and
+                        recommendations</div>
+                    <div class="metric"><strong>48-hour build</strong> from concept to working competition prototype
+                    </div>
+                </div>
+
+                <div class="exp-tags" style="margin-bottom: 1rem;">
+                    <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PWA</span><span
+                        class="tag">AI/ML</span><span class="tag">Huawei Cloud</span>
+                </div>
+
+                <div class="links-row">
+                    <a class="link-btn" href="https://github.com/AzulRK22/honey-route" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </section>
+
             <section class="project-section reveal" id="EcoVentus-dashboard" data-category="hackathon ai">
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
                             <span class="award-badge"><i class="fas fa-trophy"></i> 2nd Place · HDC México 2024</span>
-                            <span class="category-tag">Hackathon</span>
-                            <span class="category-tag">AI</span>
+                            <span class="category-tag">Award-winning</span>
+                            <span class="category-tag">AI Product</span>
                         </div>
                         <h2 class="project-name">EcoVentus</h2>
-                        <p class="project-tagline">AI-Driven UAV Monitoring Platform for environmental intelligence and
-                            mission planning.</p>
+                        <p class="project-tagline">
+                            UAV mission planning and monitoring platform for environmental intelligence.
+                        </p>
                     </div>
                 </div>
 
-                <!-- All EcoVentus images -->
                 <div class="swiper-container project-swiper" id="swiper-ecoventus" role="region"
                     aria-label="EcoVentus screenshots">
                     <div class="swiper-wrapper">
@@ -171,20 +312,23 @@
                 </div>
 
                 <p class="project-description">
-                    EcoVentus is an AI-driven web platform for UAV mission planning with real-time monitoring and
-                    analytics. Built in 48 hours at HDC México, it delivered route optimization for precision
-                    agriculture and environmental monitoring.
+                    EcoVentus is an AI-driven web platform for UAV mission planning, live monitoring, and analytics.
+                    Built in 48 hours at HDC México, the system explored how drone operations could support precision
+                    agriculture, environmental monitoring, and mission-level decision support.
                 </p>
+
                 <div class="project-metrics">
-                    <div class="metric"><strong>2+ million hectares</strong> potential coverage per mission</div>
-                    <div class="metric"><strong>48 hours</strong> from concept to production deployment</div>
-                    <div class="metric"><strong>Real-time AI</strong> route optimization with Leaflet maps</div>
+                    <div class="metric"><strong>Mission planning</strong> with map-based route visualization</div>
+                    <div class="metric"><strong>48-hour build</strong> from concept to working dashboard</div>
+                    <div class="metric"><strong>Real-time monitoring</strong> interface for UAV operations</div>
                 </div>
+
                 <div class="exp-tags" style="margin-bottom: 1rem;">
                     <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Python</span><span
                         class="tag">Flask</span><span class="tag">MongoDB</span><span class="tag">Leaflet</span><span
                         class="tag">Huawei Cloud</span>
                 </div>
+
                 <div class="links-row">
                     <a class="link-btn" href="https://github.com/AzulRK22/queenDrones" target="_blank"
                         rel="noopener noreferrer">
@@ -193,123 +337,96 @@
                 </div>
             </section>
 
-            <!-- ══════════════════════════════════════
-         HoneyRoute — HDC Brasil 2025, 2nd place
-    ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="HoneyRoute" data-category="hackathon ai">
+            <section class="project-section reveal" id="signature-experience" data-category="enterprise ai">
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
-                            <span class="award-badge"><i class="fas fa-trophy"></i> 2nd Place · HDC Brasil 2025</span>
-                            <span class="category-tag">Hackathon</span>
-                            <span class="category-tag">AI</span>
+                            <span class="category-tag">AI Product</span>
+                            <span class="category-tag">Frontend System</span>
+                            <span class="category-tag">Product Design</span>
                         </div>
-                        <h2 class="project-name">HoneyRoute</h2>
-                        <p class="project-tagline">Apiary Intelligence Platform — AI-powered hive health monitoring for
-                            beekeepers.</p>
+                        <h2 class="project-name">The Signature Experience</h2>
+                        <p class="project-tagline">
+                            Luxury fragrance discovery system for identity-first recommendations and comparison flows.
+                        </p>
                     </div>
                 </div>
 
-                <!-- HoneyRoute images -->
-                <div class="swiper-container project-swiper" id="swiper-honeyroute" role="region"
-                    aria-label="HoneyRoute screenshots">
+                <div class="swiper-container project-swiper" id="swiper-signature-experience" role="region"
+                    aria-label="The Signature Experience screenshots">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture1.png" alt="HoneyRoute onboarding welcome screen"
+                            <figure><img src="images/loreal/loreal1.png"
+                                    alt="The Signature Experience landing page and fragrance discovery hero"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Onboarding and first-run setup</figcaption>
+                                <figcaption class="swiper-caption">Landing and luxury discovery entry</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture2.png" alt="HoneyRoute login authentication screen"
+                            <figure><img src="images/loreal/loreal2.png"
+                                    alt="The Signature Experience onboarding questionnaire for scent identity"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Secure login experience</figcaption>
+                                <figcaption class="swiper-caption">Identity-first onboarding flow</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture3.png" alt="HoneyRoute home dashboard"
+                            <figure><img src="images/loreal/loreal3.png"
+                                    alt="The Signature Experience profile decoding and recommendation transition"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Hive health dashboard</figcaption>
+                                <figcaption class="swiper-caption">Profile interpretation</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture4.png" alt="HoneyRoute new hive creation form"
+                            <figure><img src="images/loreal/loreal4.png"
+                                    alt="The Signature Experience scent mirror with visual aura scales"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Create and manage new hives</figcaption>
+                                <figcaption class="swiper-caption">Interactive Scent Mirror</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture5.png"
-                                    alt="HoneyRoute new apiary setup and configuration" loading="lazy" />
-                                <figcaption class="swiper-caption">Apiary setup and configuration</figcaption>
+                            <figure><img src="images/loreal/loreal5.png"
+                                    alt="The Signature Experience skin and scent fit questionnaire" loading="lazy" />
+                                <figcaption class="swiper-caption">Skin and scent refinement</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture6.png"
-                                    alt="HoneyRoute apiary details and hive health status" loading="lazy" />
-                                <figcaption class="swiper-caption">Detailed hive health status</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture7.png"
-                                    alt="HoneyRoute apiary health history timeline and trends" loading="lazy" />
-                                <figcaption class="swiper-caption">Health history and trend analysis</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture8.png"
-                                    alt="HoneyRoute AI health recommendations and insights" loading="lazy" />
-                                <figcaption class="swiper-caption">AI recommendations and insights</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture9.png"
-                                    alt="HoneyRoute evidence photos and diagnostic data" loading="lazy" />
-                                <figcaption class="swiper-caption">Diagnostic evidence and reports</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture10.png"
-                                    alt="HoneyRoute AI analysis results and predictions" loading="lazy" />
-                                <figcaption class="swiper-caption">AI-driven predictions</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture11.png"
-                                    alt="HoneyRoute historical data and long-term trends" loading="lazy" />
-                                <figcaption class="swiper-caption">Historical trends and long-term analysis</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture12.png"
-                                    alt="HoneyRoute alerts and notifications management" loading="lazy" />
-                                <figcaption class="swiper-caption">Alerts and notification controls</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture13.png" alt="HoneyRoute map view of apiary locations"
+                            <figure><img src="images/loreal/loreal6.png"
+                                    alt="The Signature Experience signature ritual fragrance selection screen"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Location mapping for apiaries</figcaption>
+                                <figcaption class="swiper-caption">Signature Ritual selection</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/HoneyRoute/Picture14.png"
-                                    alt="HoneyRoute user settings and app preferences" loading="lazy" />
-                                <figcaption class="swiper-caption">User account settings</figcaption>
+                            <figure><img src="images/loreal/loreal7.png"
+                                    alt="The Signature Experience confidence scores and fragrance comparison"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Confidence scoring</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/loreal/loreal8.png"
+                                    alt="The Signature Experience final signature fragrance confirmation"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Signature confirmation</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/loreal/loreal9.png"
+                                    alt="The Signature Experience aura card shareable profile screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Aura Card profile</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/loreal/loreal10.png"
+                                    alt="The Signature Experience fragrance wardrobe and growth system"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Fragrance wardrobe</figcaption>
+                            </figure>
+                        </div>
+                        <div class="swiper-slide">
+                            <figure><img src="images/loreal/loreal11.png"
+                                    alt="The Signature Experience refill and loyalty journey screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Refill and loyalty journey</figcaption>
                             </figure>
                         </div>
                     </div>
@@ -319,37 +436,44 @@
                 </div>
 
                 <p class="project-description">
-                    HoneyRoute is an offline-first PWA for beekeeping health detection and smart recommendations. Built
-                    in 48 hours at HDC Brasil, it delivers AI-driven hive monitoring for rural beekeepers in
-                    low-connectivity regions.
+                    An immersive fragrance discovery experience designed around identity, comparison, and confidence.
+                    The product turns preference discovery into a guided frontend journey with interactive profiling,
+                    confidence scoring, scent comparison, wardrobe logic, and post-selection feedback loops.
                 </p>
+
                 <div class="project-metrics">
-                    <div class="metric"><strong>100% offline-first</strong> PWA for rural beekeeping</div>
-                    <div class="metric"><strong>AI-powered diagnostics</strong> with 85% accuracy on hive health</div>
-                    <div class="metric"><strong>48 hours</strong> from idea to working PWA</div>
+                    <div class="metric"><strong>10-stage journey</strong> from onboarding to loyalty flow</div>
+                    <div class="metric"><strong>Recommendation logic</strong> with profile-based confidence scoring
+                    </div>
+                    <div class="metric"><strong>Retention-ready UX</strong> with email capture, local persistence, and
+                        feedback loops</div>
                 </div>
+
                 <div class="exp-tags" style="margin-bottom: 1rem;">
-                    <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PWA</span><span
-                        class="tag">AI/ML</span><span class="tag">Huawei Cloud</span>
+                    <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span
+                        class="tag">Framer Motion</span><span class="tag">React Router</span><span class="tag">Vercel
+                        Analytics</span><span class="tag">UX Strategy</span>
                 </div>
+
                 <div class="links-row">
-                    <a class="link-btn" href="https://github.com/AzulRK22/honey-route" target="_blank"
+                    <a class="link-btn" href="https://the-signature-ritual.vercel.app/" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a class="link-btn" href="https://github.com/AzulRK22/the-signature-ritual" target="_blank"
                         rel="noopener noreferrer">
                         <i class="fab fa-github"></i> View Code
                     </a>
                 </div>
             </section>
 
-            <!-- ══════════════════════════════════════
-         CongestionAI
-    ══════════════════════════════════════ -->
             <section class="project-section reveal" id="CongestionAI" data-category="hackathon ai">
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
                             <span class="award-badge"><i class="fas fa-trophy"></i> Top 12 · HackNation</span>
-                            <span class="category-tag">Hackathon</span>
-                            <span class="category-tag">AI</span>
+                            <span class="category-tag">Award-winning</span>
+                            <span class="category-tag">AI Product</span>
                         </div>
                         <h2 class="project-name">CongestionAI</h2>
                         <p class="project-tagline">Traffic-aware departure planning for smarter mobility decisions.</p>
@@ -360,70 +484,57 @@
                     aria-label="CongestionAI screenshots">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con1.png"
+                            <figure><img src="images/CongestionAI/con1.png"
                                     alt="CongestionAI home tab with trip planning and departure window setup"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Home tab: trip planning and departure setup
-                                </figcaption>
+                                <figcaption class="swiper-caption">Trip planning setup</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con2.png"
+                            <figure><img src="images/CongestionAI/con2.png"
                                     alt="CongestionAI result tab with best departure recommendation and ETA"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Result tab: best departure recommendation
-                                </figcaption>
+                                <figcaption class="swiper-caption">Best departure recommendation</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con3.png"
+                            <figure><img src="images/CongestionAI/con3.png"
                                     alt="CongestionAI result tab showing route alternatives and congestion insights"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Result tab: route alternatives and congestion
-                                    insights</figcaption>
+                                <figcaption class="swiper-caption">Route alternatives</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con4.png"
+                            <figure><img src="images/CongestionAI/con4.png"
                                     alt="CongestionAI forecast tab with future departure recommendations"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Forecast tab: 72-hour departure outlook</figcaption>
+                                <figcaption class="swiper-caption">72-hour forecast</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con5.png"
+                            <figure><img src="images/CongestionAI/con5.png"
                                     alt="CongestionAI history tab with saved trips and performance trends"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">History tab: saved trips and review flow</figcaption>
+                                <figcaption class="swiper-caption">Saved trip history</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con6.png"
+                            <figure><img src="images/CongestionAI/con6.png"
                                     alt="CongestionAI settings tab with planner defaults and savings preferences"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Settings tab: planner and savings configuration
-                                </figcaption>
+                                <figcaption class="swiper-caption">Planner settings</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con7.png"
+                            <figure><img src="images/CongestionAI/con7.png"
                                     alt="CongestionAI forecast and heatmap visualization" loading="lazy" />
-                                <figcaption class="swiper-caption">Forecast heatmap and route-pressure view</figcaption>
+                                <figcaption class="swiper-caption">Forecast heatmap</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/CongestionAI/con8.png"
+                            <figure><img src="images/CongestionAI/con8.png"
                                     alt="CongestionAI settings and trip personalization panel" loading="lazy" />
-                                <figcaption class="swiper-caption">Personalization, country, and map settings
-                                </figcaption>
+                                <figcaption class="swiper-caption">Personalization panel</figcaption>
                             </figure>
                         </div>
                     </div>
@@ -434,24 +545,20 @@
 
                 <p class="project-description">
                     CongestionAI is a mobility planning web app that helps drivers decide when to leave, not just which
-                    route to take. Built for HackNation, it compares departure windows, estimates traffic-aware ETA,
-                    scores congestion risk, and highlights savings in time, fuel, money, and CO2 through dedicated Home,
-                    Result, Forecast, History, and Settings flows.
+                    route to take. It compares departure windows, estimates traffic-aware ETA, scores congestion risk,
+                    and highlights savings in time, fuel, money, and CO2.
                 </p>
 
                 <div class="project-metrics">
                     <div class="metric"><strong>72-hour forecast</strong> for flexible trip planning</div>
-                    <div class="metric"><strong>Traffic-aware ETA sampling</strong> with Google Routes API</div>
-                    <div class="metric"><strong>Top 12 nationally</strong> at HackNation competition</div>
+                    <div class="metric"><strong>ETA sampling</strong> powered by Google Routes API</div>
+                    <div class="metric"><strong>Top 12</strong> HackNation competition placement</div>
                 </div>
 
                 <div class="exp-tags" style="margin-bottom: 1rem;">
-                    <span class="tag">Next.js</span>
-                    <span class="tag">React</span>
-                    <span class="tag">TypeScript</span>
-                    <span class="tag">Google Routes API</span>
-                    <span class="tag">Google Places API</span>
-                    <span class="tag">Risk Scoring</span>
+                    <span class="tag">Next.js</span><span class="tag">React</span><span
+                        class="tag">TypeScript</span><span class="tag">Google Routes API</span><span class="tag">Google
+                        Places API</span><span class="tag">Risk Scoring</span>
                 </div>
 
                 <div class="links-row">
@@ -466,84 +573,76 @@
                 </div>
             </section>
 
-            <!-- ══════════════════════════════════════
-         BlueShelf AI
-    ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="Inventory" data-category="ai">
+            <section class="project-section reveal" id="BlueShelfAI" data-category="ai">
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
-                            <span class="category-tag">AI</span><span class="category-tag">Web</span>
+                            <span class="category-tag">AI Product</span>
+                            <span class="category-tag">Frontend System</span>
                         </div>
                         <h2 class="project-name">BlueShelf AI</h2>
-                        <p class="project-tagline">AI-assisted pantry management with smart product detection, inventory
-                            tracking, and recipe suggestions.</p>
+                        <p class="project-tagline">
+                            AI-assisted pantry management with product detection, inventory tracking, and recipe
+                            suggestions.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Inventory images — all inv* files -->
                 <div class="swiper-container project-swiper" id="swiper-inventory" role="region"
                     aria-label="BlueShelf AI screenshots">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv0.png" alt="Inventory app - main view" loading="lazy" />
-                                <figcaption class="swiper-caption">Inventory dashboard and item status</figcaption>
+                            <figure><img src="images/Inventory/inv0.png" alt="BlueShelf AI inventory dashboard"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Inventory dashboard</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv1.png" alt="Inventory app - main view" loading="lazy" />
-                                <figcaption class="swiper-caption">Inventory dashboard and item status</figcaption>
+                            <figure><img src="images/Inventory/inv1.png" alt="BlueShelf AI item inventory view"
+                                    loading="lazy" />
+                                <figcaption class="swiper-caption">Item status view</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv2.png" alt="Inventory app - item detection"
+                            <figure><img src="images/Inventory/inv2.png" alt="BlueShelf AI product detection screen"
                                     loading="lazy" />
                                 <figcaption class="swiper-caption">AI-assisted product detection</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv3.png" alt="Inventory app - recipe suggestions"
+                            <figure><img src="images/Inventory/inv3.png" alt="BlueShelf AI recipe suggestion screen"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Smart recipe suggestions</figcaption>
+                                <figcaption class="swiper-caption">Recipe suggestions</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv4.png" alt="Inventory app - recipe suggestions"
+                            <figure><img src="images/Inventory/inv4.png" alt="BlueShelf AI pantry recommendations"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Personalized pantry recommendations</figcaption>
+                                <figcaption class="swiper-caption">Pantry recommendations</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv5.png" alt="Inventory app - recipe suggestions"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Personalized pantry recommendations</figcaption>
+                            <figure><img src="images/Inventory/inv5.png"
+                                    alt="BlueShelf AI personalized pantry recommendations" loading="lazy" />
+                                <figcaption class="swiper-caption">Personalized recommendations</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv6.png" alt="Inventory app - recipe suggestions"
+                            <figure><img src="images/Inventory/inv6.png" alt="BlueShelf AI inventory insight screen"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Personalized pantry recommendations</figcaption>
+                                <figcaption class="swiper-caption">Inventory insights</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv7.png" alt="Inventory app - recipe suggestions"
+                            <figure><img src="images/Inventory/inv7.png" alt="BlueShelf AI product management screen"
                                     loading="lazy" />
-                                <figcaption class="swiper-caption">Personalized pantry recommendations</figcaption>
+                                <figcaption class="swiper-caption">Product management</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Inventory/inv8.png" alt="Inventory app - recipe suggestions"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Personalized pantry recommendations</figcaption>
+                            <figure><img src="images/Inventory/inv8.png"
+                                    alt="BlueShelf AI recipe and pantry planning screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Pantry planning</figcaption>
                             </figure>
                         </div>
                     </div>
@@ -552,22 +651,25 @@
                     <div class="swiper-button-prev" aria-label="Previous image"></div>
                 </div>
 
-                <p class="project-description">A polished household inventory app built with Next.js, Material UI,
-                    Supabase, and OpenAI. It supports full CRUD product management, AI-assisted photo analysis for
-                    product detection, image uploads, inventory insights, and recipe suggestions based on what is
-                    already in stock.</p>
+                <p class="project-description">
+                    BlueShelf AI is a polished household inventory app built with Next.js, Material UI, Supabase, and
+                    OpenAI. It supports CRUD product management, image uploads, AI-assisted photo analysis, inventory
+                    insights, and recipe suggestions based on items already in stock.
+                </p>
+
                 <div class="project-metrics">
-                    <div class="metric"><strong>Full CRUD</strong> inventory management with stock history and inline
-                        quantity updates</div>
-                    <div class="metric"><strong>AI-assisted</strong> product photo analysis and structured recipe
-                        generation</div>
-                    <div class="metric"><strong>Modern stack</strong> built with Next.js, Supabase Storage, and OpenAI
-                        APIs</div>
+                    <div class="metric"><strong>Full CRUD</strong> product and stock management</div>
+                    <div class="metric"><strong>AI-assisted analysis</strong> for product photos and recipe generation
+                    </div>
+                    <div class="metric"><strong>Modern stack</strong> with Next.js, Supabase Storage, and OpenAI APIs
+                    </div>
                 </div>
+
                 <div class="exp-tags" style="margin-bottom: 1rem;">
                     <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Material
                         UI</span><span class="tag">Supabase</span><span class="tag">OpenAI API</span>
                 </div>
+
                 <div class="links-row">
                     <a class="link-btn" href="https://inventory-fawn.vercel.app/" target="_blank"
                         rel="noopener noreferrer">
@@ -580,58 +682,52 @@
                 </div>
             </section>
 
-            <!-- ══════════════════════════════════════
-         Android Marketplace — Xolotl
-    ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="ecommerce-app" data-category="enterprise mobile">
+            <section class="project-section reveal" id="android-commerce-platform" data-category="enterprise mobile">
                 <div class="project-header">
                     <div class="project-meta">
                         <div class="project-badges">
-                            <span class="category-tag">Enterprise</span><span class="category-tag">Mobile</span>
+                            <span class="category-tag">Professional Work</span>
+                            <span class="category-tag">Mobile</span>
                         </div>
-                        <h2 class="project-name">Android Marketplace</h2>
-                        <p class="project-tagline">Full-featured e-commerce app for Android — built at Xolotl Creative
-                            Labs.</p>
+                        <h2 class="project-name">Android Commerce Platform</h2>
+                        <p class="project-tagline">
+                            Client marketplace app built at Xolotl Creative Labs with authentication, catalog, cart, and
+                            order flows.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Ecommerce images -->
                 <div class="swiper-container project-swiper" id="swiper-ecommerce" role="region"
-                    aria-label="Marketplace app screenshots">
+                    aria-label="Android Commerce Platform screenshots">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Android Marketplace/eco1.jpg" alt="Marketplace app screenshot"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Browse the Android store catalog</figcaption>
+                            <figure><img src="images/Android Marketplace/eco1.jpg"
+                                    alt="Android commerce app catalog screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Catalog browsing</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Android Marketplace/eco2.jpg" alt="Marketplace app screenshot"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Product details and reviews</figcaption>
+                            <figure><img src="images/Android Marketplace/eco2.jpg"
+                                    alt="Android commerce app product details screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Product details</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Android Marketplace/eco3.jpg" alt="Marketplace app screenshot"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Add to cart and checkout flow</figcaption>
+                            <figure><img src="images/Android Marketplace/eco3.jpg"
+                                    alt="Android commerce app cart and checkout flow" loading="lazy" />
+                                <figcaption class="swiper-caption">Cart and checkout flow</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Android Marketplace/eco4.jpg" alt="Marketplace app screenshot"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Real-time order management</figcaption>
+                            <figure><img src="images/Android Marketplace/eco4.jpg"
+                                    alt="Android commerce app order management screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Order management</figcaption>
                             </figure>
                         </div>
                         <div class="swiper-slide">
-                            <figure>
-                                <img src="images/Android Marketplace/eco5.jpg" alt="Marketplace app screenshot"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Real-time order management</figcaption>
+                            <figure><img src="images/Android Marketplace/eco5.jpg"
+                                    alt="Android commerce app order status screen" loading="lazy" />
+                                <figcaption class="swiper-caption">Order status flow</figcaption>
                             </figure>
                         </div>
                     </div>
@@ -641,278 +737,113 @@
                 </div>
 
                 <p class="project-description">
-                    A production-grade Android marketplace built at Xolotl Creative Labs with full authentication,
-                    product catalog, cart management, and REST API integration. Shipped with real-time sync and
-                    Scrum-based delivery.
+                    A professional Android marketplace build developed at Xolotl Creative Labs. I contributed to core
+                    customer-facing flows including authentication, product catalog browsing, cart management, order
+                    processing, and REST API integration within a Scrum-based delivery process.
                 </p>
+
                 <div class="project-metrics">
-                    <div class="metric"><strong>Full authentication flow</strong> with secure token management</div>
-                    <div class="metric"><strong>100+ products</strong> in live catalog</div>
-                    <div class="metric"><strong>Real-time</strong> order processing and sync</div>
+                    <div class="metric"><strong>Authentication flow</strong> for customer access and session handling
+                    </div>
+                    <div class="metric"><strong>Commerce flows</strong> across catalog, cart, and order management</div>
+                    <div class="metric"><strong>Team delivery</strong> with REST API collaboration and Scrum ceremonies
+                    </div>
                 </div>
+
                 <div class="exp-tags" style="margin-bottom: 1rem;">
                     <span class="tag">Kotlin</span><span class="tag">Java</span><span class="tag">Android
                         Studio</span><span class="tag">REST APIs</span><span class="tag">Scrum</span>
                 </div>
-            </section>
 
-            <!-- ══════════════════════════════════════
-         AzulRK Shop
-    ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="shop" data-category="enterprise">
-                <div class="project-header">
-                    <div class="project-meta">
-                        <div class="project-badges">
-                            <span class="category-tag">Enterprise</span><span class="category-tag">E-commerce</span>
-                        </div>
-                        <h2 class="project-name">AzulRK Shop</h2>
-                        <p class="project-tagline">Production Shopify store with multi-market setup for Mexico and North
-                            America.</p>
-                    </div>
-                </div>
-
-                <p class="project-description">
-                    A production-ready Shopify store with multi-market setup for Mexico and North America. Integrated
-                    Zendrop for automated fulfillment and GA4 for real-time business insights and conversion tracking.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric"><strong>2 markets</strong> (Mexico + North America)</div>
-                    <div class="metric"><strong>Automated fulfillment</strong> via Zendrop integration</div>
-                    <div class="metric"><strong>GA4 tracking</strong> for conversion optimization</div>
-                </div>
-                <div class="exp-tags" style="margin-bottom: 1rem;">
-                    <span class="tag">Shopify</span><span class="tag">Shopify Markets</span><span
-                        class="tag">Zendrop</span><span class="tag">GA4</span>
-                </div>
                 <div class="links-row">
-                    <a class="link-btn" href="https://shop.azulrk.com/?utm_source=portfolio&utm_medium=projects"
-                        target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Visit Store
-                    </a>
+                    <span class="tag" style="opacity: 0.75;">
+                        <i class="fas fa-lock"></i> Client project — public code/demo not available
+                    </span>
                 </div>
             </section>
 
-            <!-- ══════════════════════════════════════
-         The Signature Experience
-    ══════════════════════════════════════ -->
-            <section class="project-section reveal" id="signature-experience" data-category="enterprise ai">
-                <div class="project-header">
-                    <div class="project-meta">
-                        <div class="project-badges">
-                            <span class="category-tag">Enterprise</span>
-                            <span class="category-tag">AI</span>
-                            <span class="category-tag">Product Design</span>
-                        </div>
-                        <h2 class="project-name">The Signature Experience</h2>
-                        <p class="project-tagline">Luxury fragrance confidence system for identity-first discovery,
-                            ritualized comparison, and long-term loyalty.</p>
-                    </div>
-                </div>
-
-                <div class="swiper-container project-swiper" id="swiper-signature-experience" role="region"
-                    aria-label="The Signature Experience screenshots">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal1.png"
-                                    alt="The Signature Experience landing page and fragrance discovery hero"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Landing and luxury discovery entry</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal2.png"
-                                    alt="The Signature Experience onboarding questionnaire for scent identity"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Identity-first onboarding flow</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal3.png"
-                                    alt="The Signature Experience profile decoding and recommendation transition"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Decode Me transition and profile interpretation
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal4.png"
-                                    alt="The Signature Experience scent mirror with visual aura scales"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Interactive Scent Mirror</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal5.png"
-                                    alt="The Signature Experience skin and scent fit questionnaire" loading="lazy" />
-                                <figcaption class="swiper-caption">Skin and Scent Fit refinement</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal6.png"
-                                    alt="The Signature Experience signature ritual fragrance selection screen"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Signature Ritual selection experience</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal7.png"
-                                    alt="The Signature Experience confidence scores and fragrance comparison"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Live confidence scores and comparison</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal8.png"
-                                    alt="The Signature Experience final signature fragrance confirmation"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Signature confirmation and result state</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal9.png"
-                                    alt="The Signature Experience aura card shareable profile screen" loading="lazy" />
-                                <figcaption class="swiper-caption">Aura Card shareable identity asset</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal10.png"
-                                    alt="The Signature Experience fragrance wardrobe and growth system"
-                                    loading="lazy" />
-                                <figcaption class="swiper-caption">Grow With Me wardrobe system</figcaption>
-                            </figure>
-                        </div>
-                        <div class="swiper-slide">
-                            <figure>
-                                <img src="images/loreal/loreal11.png"
-                                    alt="The Signature Experience refill and loyalty journey screen" loading="lazy" />
-                                <figcaption class="swiper-caption">Refill, loyalty, and continuity</figcaption>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next" aria-label="Next image"></div>
-                    <div class="swiper-button-prev" aria-label="Previous image"></div>
-                </div>
-
-                <p class="project-description">
-                    An immersive fragrance discovery experience designed for L'Oréal Luxe. The product turns trend-led
-                    guesswork into an identity-driven journey with interactive profiling, live confidence scores,
-                    side-by-side fragrance comparison, scent wardrobe logic, and post-selection feedback loops.
-                </p>
-                <div class="project-metrics">
-                    <div class="metric"><strong>10-stage product journey</strong> from onboarding to refill and loyalty
-                    </div>
-                    <div class="metric"><strong>Real-time recommendation logic</strong> with live confidence scoring and
-                        sensitivity mode</div>
-                    <div class="metric"><strong>Retention-ready foundation</strong> with analytics, email capture, local
-                        persistence, and feedback tracking</div>
-                </div>
-                <div class="exp-tags" style="margin-bottom: 1rem;">
-                    <span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Vite</span><span
-                        class="tag">Framer Motion</span><span class="tag">React Router</span><span class="tag">Vercel
-                        Analytics</span><span class="tag">UX Strategy</span>
-                </div>
-                <div class="links-row">
-                    <a class="link-btn" href="https://the-signature-ritual.vercel.app/" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fas fa-external-link-alt"></i> Live Demo
-                    </a>
-                    <a class="link-btn" href="https://github.com/AzulRK22/the-signature-ritual" target="_blank"
-                        rel="noopener noreferrer">
-                        <i class="fab fa-github"></i> View Code
-                    </a>
-                </div>
-            </section>
-
-            <!-- ══════════════════════════════════════
-         Upcoming
-    ══════════════════════════════════════ -->
             <section id="upcoming-projects">
                 <span class="section-label">What's next</span>
+
                 <div class="upcoming-header">
                     <div>
-                        <h2 class="section-title upcoming-title">Now programming</h2>
+                        <h2 class="section-title upcoming-title">Now programming: CloseCut</h2>
                         <p class="upcoming-intro">
-                            I am currently programming a native iOS product for tracking movies and series through
-                            memory, mood, context, and selective sharing with a close circle.
+                            CloseCut is a native iOS app I’m building for private movie and series journaling —
+                            combining watch history, mood, memory, context, and selective sharing with close circles.
                         </p>
                     </div>
                 </div>
 
-                <div class="upcoming-visual-panel reveal" aria-label="Apple animation preview">
-                    <div class="apple-glow"></div>
-                    <div id="apple-lottie" class="apple-lottie" aria-hidden="true"></div>
+                <div class="upcoming-visual-panel reveal" aria-label="CloseCut iOS product preview">
+                    <div class="closecut-icon-glow"></div>
+                    <img class="closecut-app-icon" src="images/CloseCut/final icon closecut.png" alt="CloseCut app icon"
+                        loading="lazy" />
                     <div class="upcoming-visual-copy">
-                        <p>Native Apple experience in progress</p>
-                        <span>SwiftUI · SwiftData · Firebase · Firestore</span>
+                        <p>CloseCut</p>
+                        <span>SwiftUI · SwiftData · Firebase Auth · Firestore</span>
                     </div>
                 </div>
 
                 <p class="upcoming-lead reveal">
-                    This build is where I am deepening my iOS skills: local-first persistence, Firebase authentication,
-                    Firestore sync, validation, private sharing models, and tested recommendation logic.
+                    The current build focuses on local-first persistence, clean SwiftUI architecture, Firebase
+                    authentication, Firestore sync, private sharing models, and a polished personal timeline experience.
                 </p>
 
-                <div class="upcoming-timeline" aria-label="Project timeline">
+                <div class="upcoming-timeline" aria-label="CloseCut development timeline">
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <span class="timeline-step-tag">Done</span>
-                        <h3>Definition</h3>
+                        <h3>Product definition</h3>
                         <p>
-                            The product direction is defined: a private, mood-aware way to remember movies and series
-                            before turning it into a public portfolio case.
+                            The product direction is clear: a private, mood-aware way to remember what I watch, when I
+                            watched it, and why it mattered.
                         </p>
                     </article>
+
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <span class="timeline-step-tag">Done</span>
                         <h3>UX foundation</h3>
                         <p>
-                            The core flows are mapped around onboarding, personal history, fast capture, settings, and
-                            selective sharing.
+                            Core flows are mapped around onboarding, quick past-watch capture, entry details, personal
+                            timeline, settings, and close-circle sharing.
                         </p>
                     </article>
+
                     <article class="timeline-step current reveal" aria-current="step">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <span class="timeline-step-tag">Current</span>
-                        <h3>Programming</h3>
+                        <h3>Core iOS build</h3>
                         <p>
-                            I am implementing the native app in SwiftUI with SwiftData, Firebase Auth, Firestore, sync
-                            queues, and unit-tested domain logic.
+                            I am implementing SwiftUI screens, SwiftData models, Firebase Auth, Firestore sync, form
+                            validation, and domain logic using a clean MVVM structure.
                         </p>
                     </article>
+
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <span class="timeline-step-tag">Next</span>
-                        <h3>Testing</h3>
+                        <h3>Testing & TestFlight prep</h3>
                         <p>
-                            The next step is deeper UI coverage, device testing, edge-case validation, and sync
-                            refinement.
+                            Next comes deeper device testing, sync edge-case validation, private circle refinement,
+                            privacy documentation, and TestFlight-ready polish.
                         </p>
                     </article>
+
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
                         <span class="timeline-step-tag">Final</span>
-                        <h3>Portfolio reveal</h3>
+                        <h3>Case study reveal</h3>
                         <p>
-                            Once the app is polished enough, I will add it as a full project with screenshots,
-                            architecture notes, and launch status.
+                            Once the app is polished enough, I will publish it as a full portfolio case with
+                            screenshots,
+                            architecture notes, launch status, and product learnings.
                         </p>
                     </article>
                 </div>
             </section>
-
-        </main><!-- /#main -->
+        </main>
 
         <footer id="footer">
             <section class="split contact">
@@ -947,16 +878,15 @@
                 </section>
             </section>
         </footer>
+
         <div id="copyright">
             <ul>
                 <li>&copy; Azul Grisel Ramirez Kuri</li>
             </ul>
         </div>
-
-    </div><!-- /#wrapper -->
+    </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/analytics.js"></script>
     <script src="assets/js/projects.js"></script>
