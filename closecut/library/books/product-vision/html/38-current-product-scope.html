@@ -1,0 +1,35 @@
+<h2 id="chapter-heading" tabindex="-1">Current Product Scope</h2>
+<p><strong>Purpose.</strong> The verified beta surface from repository evidence, separated from aspiration.</p>
+<h3 id="verified-current-surface">Verified Current Surface</h3>
+<ul>
+<li><strong>Authentication and Session - Implemented.</strong> Email/password authentication and session gating are present. Password reset and email verification are not surfaced.</li>
+<li><strong>Onboarding - Implemented.</strong> Start-fresh and Quick Add activation paths are implemented.</li>
+<li><strong>Quick Add Past Watches - Implemented.</strong> TMDB search, local fallback, manual entry, duplicate prevention, quick sentiment, approximate date, and upgrade path are present.</li>
+<li><strong>Personal Journal Entries - Implemented.</strong> Rich entry creation/editing, soft delete, metadata, mood, tags, notes, quotes, context, cinema fields, and sharing targets are present.</li>
+<li><strong>Timeline and Library - Implemented.</strong> Timeline, search, filters, sections, insights, and wrap-style summaries are present.</li>
+<li><strong>QuickPick - Implemented.</strong> Local rule-based engine, reasons, confidence labels, no-repeat, rewatch logic, local heuristics, and TMDB-backed candidate discovery are present.</li>
+<li><strong>Discover and Search - Implemented.</strong> Trending, popular, media search, detail previews, genre affinity, and TMDB metadata are present; availability providers are not.</li>
+<li><strong>Want to Watch - Implemented.</strong> Private saved list, status handling, mark watched, conversion to Quick Add, and push/pull sync are present.</li>
+<li><strong>Circles - Implemented.</strong> Multiple circles, create/join preview, hub, detail, members, leave/edit/delete, shared timeline, and membership model are present.</li>
+<li><strong>Private Entry Sharing - Implemented.</strong> Selected Circle sharing is explicit and private by default. Circle-side entry detail is read-only.</li>
+<li><strong>Reactions and Comments - Implemented.</strong> Circle reactions/comments and comment reporting are present; blocking and broader moderation remain limited.</li>
+<li><strong>Watch Together Plans - Implemented.</strong> Plans can originate from entries, Discover, saved titles, Battle winners, and Awards &amp; Culture nominees.</li>
+<li><strong>Battle - Implemented.</strong> Personal/local choice modes exist. Results are not remote multiplayer or posted to Circle spaces.</li>
+<li><strong>Awards and Culture - Implemented.</strong> Local predictions and comparison with known results are present.</li>
+<li><strong>Insights and Wrap - Implemented.</strong> Personal summaries and insight surfaces are implemented; they are not positioned as clinical or deterministic taste analysis.</li>
+<li><strong>Cinema Experience Intelligence - Partial.</strong> Cinema context and experience fields exist. Longitudinal cinema insights and aggregated anonymous intelligence are future.</li>
+<li><strong>Notifications - Partial.</strong> Local notification surfaces exist. Push notifications and remote social activity delivery are not implemented.</li>
+<li><strong>Offline and Sync - Partial.</strong> Local-first persistence, queue, conflict policy, push/pull, and manual/session sync exist. No real-time listeners, background sync, or automatic retry scheduler.</li>
+<li><strong>Profile and Account Controls - Partial.</strong> Profile, privacy links, sync, language, appearance, sign out, and deletion preparation exist. Profile photo upload, complete account deletion, reset, and verification UI remain gaps.</li>
+</ul>
+<h3 id="interpretation">Interpretation</h3>
+<p>“Current” means repository evidence exists. It does not override known limitations, missing configuration, incomplete lifecycle, or release-readiness blockers.</p>
+<h3 id="acceptance-criteria">Acceptance Criteria</h3>
+<ul>
+<li>The shipped behavior matches the current-product description and evidence paths in Appendix B.</li>
+<li>A new user can understand the purpose of Current Product Scope without external documentation.</li>
+<li>The feature does not require public identity, follower relationships, or engagement mechanics.</li>
+<li>Offline, empty, error, permission, and pending states preserve context and do not imply data loss.</li>
+<li>VoiceOver, Dynamic Type, contrast, touch targets, and non-color status cues are verified for the relevant surfaces.</li>
+<li>Instrumentation, when present, measures the intended outcome rather than raw taps alone.</li>
+</ul>

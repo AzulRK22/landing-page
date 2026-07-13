@@ -1,0 +1,58 @@
+<h2 id="chapter-heading" tabindex="-1">Risks and Mitigations</h2>
+<p><strong>Purpose.</strong> Scope diffusion, weak activation, sync trust, metadata dependency, social complexity, privacy mistakes, and product-message mismatch.</p>
+<h3 id="risk-register">Risk Register</h3>
+<div class="reader-table-wrap"><table><thead><tr>
+<th scope="col">Risk</th>
+<th scope="col">Consequence</th>
+<th scope="col">Mitigation</th>
+</tr></thead><tbody>
+<tr>
+<td>Product breadth obscures core value</td>
+<td>Weak activation and confusing marketing</td>
+<td>Progressive disclosure; prioritize Personal Memory and focused choice</td>
+</tr>
+<tr>
+<td>Sync ambiguity</td>
+<td>Loss of trust</td>
+<td>Explicit local/pending/failed states; non-destructive retry</td>
+</tr>
+<tr>
+<td>Social scale before safety</td>
+<td>App Store and user harm</td>
+<td>Reporting, blocking strategy, support, bounded audience</td>
+</tr>
+<tr>
+<td>Metadata dependency</td>
+<td>Broken capture/discovery</td>
+<td>Manual fallback, cached safe rendering, attribution compliance</td>
+</tr>
+<tr>
+<td>Overclaiming intelligence</td>
+<td>Misleading positioning</td>
+<td>Evidence-linked reasons and prohibited claim vocabulary</td>
+</tr>
+<tr>
+<td>Privacy mistake</td>
+<td>Irreversible trust damage</td>
+<td>Private defaults, explicit selected context, rule tests, audit trails</td>
+</tr>
+<tr>
+<td>Historic docs remain active</td>
+<td>Contradictory implementation</td>
+<td>Archive old files and link only to canonical suite</td>
+</tr>
+<tr>
+<td>Under-tested large views and sync paths</td>
+<td>Regression risk</td>
+<td>ViewModel extraction, unit/integration/UI expansion</td>
+</tr>
+</tbody></table></div>
+<h3 id="acceptance-criteria">Acceptance Criteria</h3>
+<ul>
+<li>The shipped behavior matches the current-product description and evidence paths in Appendix B.</li>
+<li>A new user can understand the purpose of Risks and Mitigations without external documentation.</li>
+<li>The feature does not require public identity, follower relationships, or engagement mechanics.</li>
+<li>Offline, empty, error, permission, and pending states preserve context and do not imply data loss.</li>
+<li>VoiceOver, Dynamic Type, contrast, touch targets, and non-color status cues are verified for the relevant surfaces.</li>
+<li>Instrumentation, when present, measures the intended outcome rather than raw taps alone.</li>
+</ul>

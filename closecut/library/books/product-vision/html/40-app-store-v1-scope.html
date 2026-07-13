@@ -1,0 +1,25 @@
+<h2 id="chapter-heading" tabindex="-1">App Store v1 Scope</h2>
+<p><strong>Purpose.</strong> A smaller, supportable promise with complete privacy, deletion, moderation, localization, metadata, and release readiness.</p>
+<h3 id="release-gate">Release Gate</h3>
+<p>App Store v1 should not be defined as “everything already in the repository.” It should be the smallest coherent promise that can be supported safely. Required release completeness includes:</p>
+<ul>
+<li>Stable auth and recovery path.</li>
+<li>Working account deletion and local purge.</li>
+<li>Accurate privacy policy and App Privacy labels.</li>
+<li>UGC reporting and an appropriate blocking/support strategy.</li>
+<li>Deployed and tested Firestore rules/indexes.</li>
+<li>TMDB attribution and configuration compliance.</li>
+<li>Localization quality for declared languages.</li>
+<li>Accessibility and device-size QA.</li>
+<li>Crash, analytics, and performance configuration verified.</li>
+<li>Store metadata, screenshots, age rating, support, and review instructions complete.</li>
+</ul>
+<h3 id="acceptance-criteria">Acceptance Criteria</h3>
+<ul>
+<li>The shipped behavior matches the current-product description and evidence paths in Appendix B.</li>
+<li>A new user can understand the purpose of App Store v1 Scope without external documentation.</li>
+<li>The feature does not require public identity, follower relationships, or engagement mechanics.</li>
+<li>Offline, empty, error, permission, and pending states preserve context and do not imply data loss.</li>
+<li>VoiceOver, Dynamic Type, contrast, touch targets, and non-color status cues are verified for the relevant surfaces.</li>
+<li>Instrumentation, when present, measures the intended outcome rather than raw taps alone.</li>
+</ul>
