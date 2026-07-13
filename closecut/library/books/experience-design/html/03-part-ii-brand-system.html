@@ -1,0 +1,265 @@
+<h2 id="chapter-heading" tabindex="-1">Part II — Brand System</h2>
+<h3 id="logo-system">Logo System</h3>
+<p>The CloseCut mark must remain legible at app-icon, navigation, marketing, and editorial sizes. The primary mark is used for ownership moments: launch, onboarding, About, App Store, and formal documentation. It should not be repeated on every screen.</p>
+<p>The logo must have clear space equal to at least one quarter of the mark’s width on all sides. It may appear in the core accent, monochrome light, or monochrome dark treatment. Do not add bevels, outlines, arbitrary gradients, drop shadows, perspective, or animation that changes the mark’s geometry.</p>
+<p>At small sizes, use the simplified mark rather than a wordmark. In motion, reveal through opacity, scale, or mask with the standard or slow token; avoid spinning, bouncing, or continuous looping.</p>
+<h3 id="color-philosophy">Color Philosophy</h3>
+<p>Purple is a signature, not a background default. It communicates selected state, primary action, personal insight, and intentional emphasis. Large purple fields are reserved for hero moments, branded share cards, and marketing compositions where text contrast is verified.</p>
+<p>Neutral surfaces carry most of the product. Semantic status colors retain their conventional meanings and must not be replaced by purple. Poster artwork should not determine control colors dynamically unless contrast and brand coherence are guaranteed.</p>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Token</th>
+<th scope="col">Light</th>
+<th scope="col">Dark</th>
+<th scope="col">Purpose</th>
+</tr></thead><tbody>
+<tr>
+<td>background.primary</td>
+<td>#F6F5F8</td>
+<td>#000000</td>
+<td>Primary canvas</td>
+</tr>
+<tr>
+<td>background.elevated</td>
+<td>#FFFFFF</td>
+<td>#111111</td>
+<td>Navigation and elevated surfaces</td>
+</tr>
+<tr>
+<td>surface.card</td>
+<td>#FFFFFF</td>
+<td>#1C1C1E</td>
+<td>Default content card</td>
+</tr>
+<tr>
+<td>surface.cardElevated</td>
+<td>#FAF9FC</td>
+<td>#242426</td>
+<td>Emphasized card</td>
+</tr>
+<tr>
+<td>surface.input</td>
+<td>#EEECEF</td>
+<td>#2C2C2E</td>
+<td>Default input</td>
+</tr>
+<tr>
+<td>surface.inputElevated</td>
+<td>#E6E3EA</td>
+<td>#343437</td>
+<td>Focused or layered input</td>
+</tr>
+<tr>
+<td>border.separator</td>
+<td>#D8D5DC</td>
+<td>#3A3A3C</td>
+<td>Structural separator</td>
+</tr>
+<tr>
+<td>border.subtle</td>
+<td>#CBC7D1</td>
+<td>#48484A</td>
+<td>Card and field edge</td>
+</tr>
+<tr>
+<td>border.strong</td>
+<td>#B8B3BF</td>
+<td>#5A5A5F</td>
+<td>High-emphasis boundary</td>
+</tr>
+<tr>
+<td>text.primary</td>
+<td>#17141C</td>
+<td>#FFFFFF</td>
+<td>Primary reading text</td>
+</tr>
+<tr>
+<td>text.secondary</td>
+<td>#5F5968</td>
+<td>#A9A7AE</td>
+<td>Supporting text</td>
+</tr>
+<tr>
+<td>text.tertiary</td>
+<td>#87818F</td>
+<td>#727078</td>
+<td>Metadata</td>
+</tr>
+<tr>
+<td>text.muted</td>
+<td>#AAA5B0</td>
+<td>#4A484F</td>
+<td>Disabled and decorative text</td>
+</tr>
+<tr>
+<td>brand.accent</td>
+<td>#6840C6</td>
+<td>#6B48CC</td>
+<td>Core brand accent</td>
+</tr>
+<tr>
+<td>brand.accentLight</td>
+<td>#744CD0</td>
+<td>#9D74FF</td>
+<td>Interactive accent and selected tab</td>
+</tr>
+<tr>
+<td>brand.accentSoft</td>
+<td>#E9E0FA</td>
+<td>#241A3D</td>
+<td>Selected backgrounds</td>
+</tr>
+<tr>
+<td>brand.accentFaint</td>
+<td>#F4EFFD</td>
+<td>#15101F</td>
+<td>Atmospheric brand tint</td>
+</tr>
+<tr>
+<td>status.pending</td>
+<td>#B86B00</td>
+<td>#F59E0B</td>
+<td>Queued or awaiting sync</td>
+</tr>
+<tr>
+<td>status.success</td>
+<td>#16835F</td>
+<td>#34D399</td>
+<td>Synced or completed</td>
+</tr>
+<tr>
+<td>status.failure</td>
+<td>#C73B45</td>
+<td>#F87171</td>
+<td>Failure or destructive warning</td>
+</tr>
+<tr>
+<td>status.warning</td>
+<td>#A86100</td>
+<td>#FBBF24</td>
+<td>Attention</td>
+</tr>
+</tbody></table></div>
+<h3 id="typography">Typography</h3>
+<p>CloseCut uses the platform system typeface to preserve legibility, localization, Dynamic Type, and native character. Semibold is used for hierarchy, not as a blanket style. Long-form reflections use body text with comfortable line length. Metadata is visually quieter but remains readable.</p>
+<p>Text styles are semantic. Designers and engineers must choose the role first, not a point size. Custom fixed sizes are prohibited in product UI unless a platform limitation is documented. Marketing may use a complementary editorial typeface only when the CloseCut system face remains available for functional information.</p>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Token</th>
+<th scope="col">SwiftUI style</th>
+<th scope="col">Use</th>
+</tr></thead><tbody>
+<tr>
+<td>heroTitle</td>
+<td>largeTitle/semibold</td>
+<td>Top-level editorial hero</td>
+</tr>
+<tr>
+<td>screenTitle</td>
+<td>title2/semibold</td>
+<td>Screen identity</td>
+</tr>
+<tr>
+<td>sheetTitle</td>
+<td>title3/semibold</td>
+<td>Modal task title</td>
+</tr>
+<tr>
+<td>sectionTitle</td>
+<td>headline/semibold</td>
+<td>Section heading</td>
+</tr>
+<tr>
+<td>sectionEyebrow</td>
+<td>caption2/semibold</td>
+<td>Small categorical label</td>
+</tr>
+<tr>
+<td>cardTitle</td>
+<td>subheadline/semibold</td>
+<td>Compact card heading</td>
+</tr>
+<tr>
+<td>cardTitleLarge</td>
+<td>headline/semibold</td>
+<td>Prominent card heading</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body/regular</td>
+<td>Primary reading</td>
+</tr>
+<tr>
+<td>bodyEmphasis</td>
+<td>body/semibold</td>
+<td>Inline emphasis</td>
+</tr>
+<tr>
+<td>secondary</td>
+<td>subheadline/regular</td>
+<td>Supporting copy</td>
+</tr>
+<tr>
+<td>secondaryEmphasis</td>
+<td>subheadline/semibold</td>
+<td>Semantic text role</td>
+</tr>
+<tr>
+<td>caption</td>
+<td>caption/regular</td>
+<td>Metadata</td>
+</tr>
+<tr>
+<td>captionEmphasis</td>
+<td>caption/semibold</td>
+<td>Semantic text role</td>
+</tr>
+<tr>
+<td>micro</td>
+<td>caption2/regular</td>
+<td>Tertiary metadata</td>
+</tr>
+<tr>
+<td>microEmphasis</td>
+<td>caption2/semibold</td>
+<td>Semantic text role</td>
+</tr>
+<tr>
+<td>button</td>
+<td>subheadline/semibold</td>
+<td>Standard action</td>
+</tr>
+<tr>
+<td>largeButton</td>
+<td>headline/semibold</td>
+<td>Primary CTA</td>
+</tr>
+<tr>
+<td>smallButton</td>
+<td>caption/semibold</td>
+<td>Semantic text role</td>
+</tr>
+<tr>
+<td>statValue</td>
+<td>title3/semibold</td>
+<td>Key metric</td>
+</tr>
+<tr>
+<td>statLabel</td>
+<td>caption2/semibold</td>
+<td>Metric label</td>
+</tr>
+</tbody></table></div>
+<h3 id="iconography">Iconography</h3>
+<p>Use SF Symbols as the default icon language on Apple platforms. Choose symbols by meaning, not visual novelty. Filled variants may indicate selected navigation state; outline variants generally indicate available actions. Avoid mixing unrelated optical weights within one control group.</p>
+<p>Every icon-only control requires an accessibility label and a minimum 44 by 44 point activation area. Decorative symbols must be hidden from assistive technology. Brand or content-specific icons may be custom, but they must align optically with system symbols and include scalable vector assets.</p>
+<h3 id="illustration-system">Illustration System</h3>
+<p>Illustration is used sparingly for onboarding, empty states, education, and marketing. It should express reflection, memory, privacy, and cinematic atmosphere without reproducing recognizable copyrighted characters or film frames.</p>
+<p>Product illustrations use simple geometry, restrained depth, neutral fields, and selective purple. They should not become mascots that dominate task screens. Illustrations must remain meaningful when reduced, cropped, or viewed in dark mode.</p>
+<h3 id="character-system">Character System</h3>
+<p>Characters are optional narrative devices, not persistent assistants. They may humanize onboarding, educational moments, seasonal editorial content, and marketing. They must not imply that CloseCut is watching, judging, or emotionally interpreting the user without consent.</p>
+<p>Characters never replace clear interface language, system status, or accessible labels. They do not appear in destructive confirmations, privacy explanations, account deletion, sync failures, or legal surfaces. Their emotional expression should be subtle and never shame inactivity or low engagement.</p>
+<h3 id="editorial-language">Editorial Language</h3>
+<p>Write in plain, specific language. Prefer verbs that describe the user’s action: Add to history, Save for later, Share with Circle, Try another pick. Avoid platform jargon, growth language, and exaggerated claims. Use “you” sparingly and naturally.</p>
+<p>Memory language should be evocative only when it remains clear. “Stayed with you” is appropriate because it names an understandable personal signal. Abstract labels that require interpretation should include supporting copy.</p>
+<h3 id="voice-tone">Voice &amp; Tone</h3>
+<p>The default voice is calm, concise, and observant. Onboarding is welcoming and confidence-building. Journal prompts are reflective without being therapeutic. Errors are direct and constructive. Privacy language is explicit. Social language is contextual and non-performative. Marketing is honest about the product’s stage and value.</p>
+<p>Avoid: “You crushed it,” “Keep your streak alive,” “Everyone is watching,” “Your ultimate movie obsession,” and any copy that turns private reflection into performance. Prefer: “Saved to your history,” “This change will sync when you’re online,” and “Shared only with the selected Circle.”</p>

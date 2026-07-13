@@ -1,0 +1,211 @@
+<h2 id="chapter-heading" tabindex="-1">Part III — Design Tokens</h2>
+<h3 id="color-tokens">Color Tokens</h3>
+<p>Color tokens are semantic contracts. Product code must reference semantic names rather than raw hexadecimal values. Component-specific aliases may map to foundation tokens, but they must not create new colors without review.</p>
+<p>Adaptive pairs are verified independently. Dark mode is not an inversion. Contrast must be tested for text, icons, borders, selected states, charts, poster overlays, and disabled controls.</p>
+<h3 id="typography-tokens">Typography Tokens</h3>
+<p>Typography tokens map to platform text styles and inherit Dynamic Type. Components may add weight but should not override scaling. Truncation is a last resort for user-authored content and titles; prefer wrapping, flexible layout, or disclosure.</p>
+<h3 id="spacing-tokens">Spacing Tokens</h3>
+<p>The spacing system is based on a compact set of values that supports dense metadata and generous editorial layouts. Use semantic aliases for screen, card, section, control, and inline spacing. Arbitrary values should be eliminated during refactoring unless they solve a documented optical issue.</p>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Token</th>
+<th scope="col">Points</th>
+<th scope="col">Role</th>
+</tr></thead><tbody>
+<tr>
+<td>zero</td>
+<td>0</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>xxs</td>
+<td>4</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>xs</td>
+<td>6</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>8</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>md</td>
+<td>12</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>lg</td>
+<td>16</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>20</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>xxl</td>
+<td>24</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>xxxl</td>
+<td>32</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>huge</td>
+<td>40</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>screen.horizontal</td>
+<td>20</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>screen.top</td>
+<td>16</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>screen.bottom</td>
+<td>24</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>card.content</td>
+<td>16</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>hero.content</td>
+<td>18</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>compactCard.content</td>
+<td>12</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>section</td>
+<td>18</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>form</td>
+<td>24</td>
+<td>Canonical spacing value</td>
+</tr>
+<tr>
+<td>field</td>
+<td>12</td>
+<td>Canonical spacing value</td>
+</tr>
+</tbody></table></div>
+<h3 id="grid-system">Grid System</h3>
+<p>Phone screens use 20-point horizontal content margins by default. Full-bleed imagery may extend to the safe-area edge when controls and readable text retain the content margin. Cards align to a shared vertical axis. Tablet and desktop layouts cap readable text at 560 points and card regions at approximately 620 points unless a multi-column composition is intentionally used.</p>
+<p>Poster rails follow content margins and preserve a consistent aspect ratio. Mixed card widths within one rail are discouraged. Grid changes across size classes should preserve information order and focus continuity.</p>
+<h3 id="radius-system">Radius System</h3>
+<p>Radius communicates containment and scale. Small controls use 8–14 points, standard surfaces 16–22 points, hero and sheet surfaces 24–28 points, and pills use a fully rounded radius. Nested surfaces should not use the same radius when doing so creates visually heavy corners; the inner radius is generally smaller.</p>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Token</th>
+<th scope="col">Points</th>
+<th scope="col">Use</th>
+</tr></thead><tbody>
+<tr>
+<td>xs</td>
+<td>8</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>sm</td>
+<td>10</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>banner</td>
+<td>12</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>md</td>
+<td>14</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>lg</td>
+<td>16</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>xl</td>
+<td>20</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>card</td>
+<td>22</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>xxl</td>
+<td>24</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>hero</td>
+<td>24</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>sheet</td>
+<td>28</td>
+<td>Semantic radius</td>
+</tr>
+<tr>
+<td>pill</td>
+<td>999</td>
+<td>Semantic radius</td>
+</tr>
+</tbody></table></div>
+<h3 id="elevation">Elevation</h3>
+<p>Elevation is expressed first through surface contrast and separation, then through shadow. A standard content card sits on the primary background without requiring a strong shadow. Sticky controls, floating actions, and modal layers may use stronger elevation. Multiple competing elevation levels on one screen are prohibited.</p>
+<h3 id="shadows">Shadows</h3>
+<p>Shadows must remain soft and low-contrast. The current implementation defines soft, medium, and strong radii with vertical offsets. Use them sparingly in light mode; in dark mode, prefer surface contrast and borders because black shadows often disappear or create muddy edges.</p>
+<p>Accent-colored shadows are restricted to branded hero or primary action moments and must not reduce text contrast.</p>
+<h3 id="motion-tokens">Motion Tokens</h3>
+<p>Motion tokens standardize duration and easing. Quick motion acknowledges direct control changes. Standard motion handles most state transitions. Slow motion is reserved for larger content changes or branded reveals. Spring motion supports direct manipulation, selection, and spatial continuity when overshoot remains restrained.</p>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Token</th>
+<th scope="col">Definition</th>
+<th scope="col">Use</th>
+</tr></thead><tbody>
+<tr>
+<td>quick</td>
+<td>{&quot;duration&quot;: 0.18, &quot;curve&quot;: &quot;easeInOut&quot;}</td>
+<td>Canonical motion timing</td>
+</tr>
+<tr>
+<td>standard</td>
+<td>{&quot;duration&quot;: 0.22, &quot;curve&quot;: &quot;easeInOut&quot;}</td>
+<td>Canonical motion timing</td>
+</tr>
+<tr>
+<td>slow</td>
+<td>{&quot;duration&quot;: 0.32, &quot;curve&quot;: &quot;easeInOut&quot;}</td>
+<td>Canonical motion timing</td>
+</tr>
+<tr>
+<td>spring</td>
+<td>{&quot;response&quot;: 0.32, &quot;dampingFraction&quot;: 0.86}</td>
+<td>Canonical motion timing</td>
+</tr>
+</tbody></table></div>
+<h3 id="haptic-tokens">Haptic Tokens</h3>
+<p>Haptics are semantic and optional. Selection feedback may accompany discrete picker or chip changes. Light impact may confirm adding, saving, or revealing a result. Notification success may confirm a completed local action. Warning and error haptics are reserved for consequential failures or invalid completion.</p>
+<p>Never use haptics for scrolling, passive loading, every tap, or decorative animation. Haptics must not be the only feedback channel and should respect system settings and platform conventions.</p>
