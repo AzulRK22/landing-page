@@ -5,12 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>CloseCut Library Reader</title>
+    <title>Product Vision &amp; Requirements — CloseCut Library</title>
 
-    <meta name="description" content="Read a canonical CloseCut book online." />
+    <meta name="description" content="Read Product Vision &amp; Requirements, the foundational product specification for CloseCut." />
 
-    <meta name="robots" content="noindex,follow" />
+    <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#000000" />
+
+    <link id="reader-canonical" rel="canonical" href="https://www.azulrk.com/closecut/library/book.html?id=product-vision" />
 
     <link rel="icon" href="../../images/CloseCut/final%20icon%20closecut.webp" type="image/webp" />
 
@@ -19,38 +21,68 @@
     <link rel="stylesheet" href="library.css" />
 </head>
 
-<body class="closecut-site library-site">
+<body class="closecut-site library-site reader-page">
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="marketing-header">
-        <div class="marketing-nav-shell">
+    <header class="marketing-header reader-header">
+        <div class="marketing-nav-shell reader-header-inner">
             <a class="brand" href="./" aria-label="Back to CloseCut Library">
                 <img src="../../images/CloseCut/final%20icon%20closecut.webp" alt="" width="36" height="36" />
                 <span>CloseCut Library</span>
             </a>
 
-            <nav class="marketing-nav" aria-label="Reader navigation">
+            <button id="reader-toc-toggle" class="reader-toc-toggle" type="button" aria-expanded="false"
+                aria-controls="reader-toc" hidden>
+                Chapters
+            </button>
+
+            <nav class="reader-top-nav" aria-label="Reader navigation">
                 <a href="./">All books</a>
                 <a href="../">CloseCut</a>
             </nav>
         </div>
     </header>
 
-    <main id="main" class="marketing-container">
-        <section class="library-collection">
-            <p class="eyebrow">Reader foundation</p>
-            <h1 id="reader-title">Book reader coming next.</h1>
+    <main id="main" class="reader-main">
+        <div class="reader-layout">
+            <aside id="reader-toc" class="reader-toc" aria-label="Book chapters" hidden>
+                <div class="reader-toc-heading">
+                    <p class="eyebrow">Contents</p>
+                    <p id="reader-toc-title">Product Vision</p>
+                </div>
+                <nav id="reader-chapter-list" aria-label="Chapter navigation"></nav>
+            </aside>
 
-            <p id="reader-message" class="library-message" role="status">
-                The selected book has not been loaded.
-            </p>
+            <div class="reader-column">
+                <header class="reader-book-header">
+                    <p class="eyebrow">CloseCut Library · Volume 01</p>
+                    <h1 id="reader-title">Product Vision &amp; Requirements</h1>
+                    <p id="reader-subtitle" class="reader-subtitle">The Foundational Product Specification</p>
+                    <div id="reader-meta" class="reader-meta" aria-label="Book metadata" hidden></div>
+                    <div id="reader-actions" class="reader-actions" hidden>
+                        <a id="reader-pdf" class="button button-primary" href="#" target="_blank" rel="noopener">
+                            Download PDF
+                        </a>
+                        <a class="button button-quiet" href="./">Return to Library</a>
+                    </div>
+                </header>
 
-            <p>
-                <a class="button button-quiet" href="./">
-                    Return to the Library
-                </a>
-            </p>
-        </section>
+                <p id="reader-message" class="library-message" role="status">Loading the selected volume…</p>
+
+                <article id="reader-content" class="reader-content" aria-label="Chapter content" hidden></article>
+
+                <nav id="reader-pagination" class="reader-pagination" aria-label="Chapter pagination" hidden>
+                    <a id="reader-previous" class="reader-page-link" href="#">
+                        <span>Previous</span>
+                        <strong></strong>
+                    </a>
+                    <a id="reader-next" class="reader-page-link reader-page-link-next" href="#">
+                        <span>Next</span>
+                        <strong></strong>
+                    </a>
+                </nav>
+            </div>
+        </div>
     </main>
 
     <script src="reader.js"></script>

@@ -17,8 +17,11 @@
       "visibility": "public",
       "description": "The product vision, principles, scope, requirements, and long-term direction of CloseCut.",
       "readerUrl": "book.html?id=product-vision",
-      "pdf": null,
-      "available": false
+      "manifest": "books/product-vision/manifest.json",
+      "chapterCount": 49,
+      "pageCount": 468,
+      "pdf": "books/product-vision/CloseCut_Product_Vision_Requirements_v1.pdf",
+      "available": true
     },
     {
       "id": "experience-design",

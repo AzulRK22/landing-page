@@ -20,30 +20,42 @@ Support deeper longitudinal and group use without splitting the product into dis
 
 ## Persona 1 - The Memory Keeper
 
-**Job:** Preserve a meaningful record without writing formal reviews.  
-**Trigger:** Finishing a title, revisiting an old favorite, or recalling a shared moment.  
-**Success:** The memory is captured quickly enough to remain honest and is easy to rediscover later.  
+**Job:** Preserve a meaningful record without writing formal reviews.
+
+**Trigger:** Finishing a title, revisiting an old favorite, or recalling a shared moment.
+
+**Success:** The memory is captured quickly enough to remain honest and is easy to rediscover later.
+
 **Failure:** The form feels like work or the archive becomes a flat list.
 
 ## Persona 2 - The Taste Builder
 
-**Job:** See patterns and change across a growing archive.  
-**Trigger:** Browsing personal history, summaries, or resurfaced memories.  
-**Success:** Insights feel recognizable but not deterministic.  
+**Job:** See patterns and change across a growing archive.
+
+**Trigger:** Browsing personal history, summaries, or resurfaced memories.
+
+**Success:** Insights feel recognizable but not deterministic.
+
 **Failure:** The product turns taste into a fixed label or vanity score.
 
 ## Persona 3 - The Decision Seeker
 
-**Job:** Reduce uncertainty in the current moment.  
-**Trigger:** “I do not know what to watch.”  
-**Success:** One option and a credible reason create confidence or useful rejection.  
+**Job:** Reduce uncertainty in the current moment.
+
+**Trigger:** “I do not know what to watch.”
+
+**Success:** One option and a credible reason create confidence or useful rejection.
+
 **Failure:** Another infinite feed, repeated titles, or unexplained suggestions.
 
 ## Persona 4 - The Trusted Coordinator
 
-**Job:** Share selected memories and turn conversation into a concrete plan.  
-**Trigger:** A partner, family, or friends want to watch something together.  
-**Success:** Context, ownership, and responses remain attached to a named Circle.  
+**Job:** Share selected memories and turn conversation into a concrete plan.
+
+**Trigger:** A partner, family, or friends want to watch something together.
+
+**Success:** Context, ownership, and responses remain attached to a named Circle.
+
 **Failure:** Accidental oversharing, public behavior, or chat replacement complexity.
 
 ## Related Decision Records

@@ -33,6 +33,7 @@
     const meta = appendElement(body, "div", "library-card-meta");
     appendElement(meta, "span", "", `Version ${book.version}`);
     appendElement(meta, "span", "", book.status);
+    if (book.chapterCount) appendElement(meta, "span", "", `${book.chapterCount} chapters`);
     appendElement(body, "h3", "", book.title);
     appendElement(body, "p", "", book.description);
     appendElement(body, "span", "library-badge", availabilityLabel);

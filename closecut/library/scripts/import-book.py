@@ -172,6 +172,17 @@ def chapter_title(path: Path) -> str:
     raise ValueError(f"Chapter has no level-one heading: {path}")
 
 
+def normalize_markdown(markdown: str) -> str:
+    """Remove Git-hostile trailing spaces while preserving Markdown hard breaks."""
+    normalized: list[str] = []
+    for line in markdown.splitlines():
+        hard_break = line.endswith("  ")
+        normalized.append(line.rstrip())
+        if hard_break:
+            normalized.append("")
+    return "\n".join(normalized) + "\n"
+
+
 def import_book(source: Path, target: Path) -> None:
     required = [source / "manuscript.md", source / "chapters", source / "decisions", source / "diagrams", source / "exports" / PDF_NAME]
     missing = [str(path) for path in required if not path.exists()]
@@ -184,6 +195,7 @@ def import_book(source: Path, target: Path) -> None:
     manuscript = source.joinpath("manuscript.md").read_text(encoding="utf-8")
     manuscript = manuscript.replace("**Owner:** Azul / Blue  \n", "")
     manuscript = manuscript.replace("**Classification:** Internal Product Documentation", "**Edition:** Public Reading Edition")
+    manuscript = normalize_markdown(manuscript)
     target.joinpath("manuscript.md").write_text(manuscript, encoding="utf-8")
 
     chapter_files = sorted(source.joinpath("chapters").glob("[0-9][0-9]-*.md"))
@@ -194,9 +206,10 @@ def import_book(source: Path, target: Path) -> None:
         if int(source_path.name[:2]) != order:
             raise ValueError(f"Non-sequential chapter filename: {source_path.name}")
         target_source = target / "chapters" / source_path.name
-        shutil.copy2(source_path, target_source)
+        chapter_markdown = normalize_markdown(source_path.read_text(encoding="utf-8"))
+        target_source.write_text(chapter_markdown, encoding="utf-8")
         fragment_path = target / "html" / source_path.with_suffix(".html").name
-        fragment_path.write_text(markdown_to_fragment(source_path.read_text(encoding="utf-8")), encoding="utf-8")
+        fragment_path.write_text(markdown_to_fragment(chapter_markdown), encoding="utf-8")
         chapters.append({
             "id": source_path.stem,
             "order": order,

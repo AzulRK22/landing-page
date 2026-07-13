@@ -4,9 +4,12 @@
 
 ### The Foundational Product Specification
 
-**Version 1.0**  
-**Status:** Canonical Working Baseline  
-**Date:** 13 July 2026  
+**Version 1.0**
+
+**Status:** Canonical Working Baseline
+
+**Date:** 13 July 2026
+
 **Edition:** Public Reading Edition
 
 ---
@@ -434,30 +437,42 @@ Support deeper longitudinal and group use without splitting the product into dis
 
 ## Persona 1 - The Memory Keeper
 
-**Job:** Preserve a meaningful record without writing formal reviews.  
-**Trigger:** Finishing a title, revisiting an old favorite, or recalling a shared moment.  
-**Success:** The memory is captured quickly enough to remain honest and is easy to rediscover later.  
+**Job:** Preserve a meaningful record without writing formal reviews.
+
+**Trigger:** Finishing a title, revisiting an old favorite, or recalling a shared moment.
+
+**Success:** The memory is captured quickly enough to remain honest and is easy to rediscover later.
+
 **Failure:** The form feels like work or the archive becomes a flat list.
 
 ## Persona 2 - The Taste Builder
 
-**Job:** See patterns and change across a growing archive.  
-**Trigger:** Browsing personal history, summaries, or resurfaced memories.  
-**Success:** Insights feel recognizable but not deterministic.  
+**Job:** See patterns and change across a growing archive.
+
+**Trigger:** Browsing personal history, summaries, or resurfaced memories.
+
+**Success:** Insights feel recognizable but not deterministic.
+
 **Failure:** The product turns taste into a fixed label or vanity score.
 
 ## Persona 3 - The Decision Seeker
 
-**Job:** Reduce uncertainty in the current moment.  
-**Trigger:** “I do not know what to watch.”  
-**Success:** One option and a credible reason create confidence or useful rejection.  
+**Job:** Reduce uncertainty in the current moment.
+
+**Trigger:** “I do not know what to watch.”
+
+**Success:** One option and a credible reason create confidence or useful rejection.
+
 **Failure:** Another infinite feed, repeated titles, or unexplained suggestions.
 
 ## Persona 4 - The Trusted Coordinator
 
-**Job:** Share selected memories and turn conversation into a concrete plan.  
-**Trigger:** A partner, family, or friends want to watch something together.  
-**Success:** Context, ownership, and responses remain attached to a named Circle.  
+**Job:** Share selected memories and turn conversation into a concrete plan.
+
+**Trigger:** A partner, family, or friends want to watch something together.
+
+**Success:** Context, ownership, and responses remain attached to a named Circle.
+
 **Failure:** Accidental oversharing, public behavior, or chat replacement complexity.
 
 ## Related Decision Records
@@ -2933,11 +2948,16 @@ The product owner approves vision, scope, and public claims. Design owns interac
 
 # Appendix D - Glossary
 
-**Approximate watched date:** A user-supplied time label that may be less precise than a calendar date.  
-**Candidate:** A title considered by a decision tool but not necessarily saved or watched.  
-**Local-first:** Local state supports immediate product continuity; remote services synchronize or enrich.  
-**Pending action:** A locally recorded operation that has not completed remotely.  
-**Rewatch candidate:** A watched title intentionally resurfaced for another viewing.  
+**Approximate watched date:** A user-supplied time label that may be less precise than a calendar date.
+
+**Candidate:** A title considered by a decision tool but not necessarily saved or watched.
+
+**Local-first:** Local state supports immediate product continuity; remote services synchronize or enrich.
+
+**Pending action:** A locally recorded operation that has not completed remotely.
+
+**Rewatch candidate:** A watched title intentionally resurfaced for another viewing.
+
 **Taste signal:** A contextual input such as genre, mood, tag, sentiment, rating, save, dismissal, or rewatch behavior.
 
 # Appendix E - User Journey Maps
