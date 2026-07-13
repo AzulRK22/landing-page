@@ -1,0 +1,3 @@
+# Source screenshots are retained locally after verified WebP conversion.
+closecut/assets/[1-8]-*.png
+closecut/assets/[1-8]-*:*.png
