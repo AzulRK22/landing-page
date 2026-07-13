@@ -241,7 +241,7 @@ def import_book(source: Path, target: Path) -> None:
         "language": "en",
         "description": "The product vision, principles, verified scope, requirements, and long-term direction of CloseCut.",
         "pdf": PDF_NAME,
-        "pageCount": 468,
+        "pageCount": 107,
         "manuscript": "manuscript.md",
         "chapterDirectory": "chapters",
         "htmlDirectory": "html",

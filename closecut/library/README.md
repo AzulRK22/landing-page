@@ -15,7 +15,7 @@ The public package preserves the canonical `manuscript.md`, 49 chapter sources, 
 
 ## Import policy and workflow
 
-ZIP files remain external source artifacts and are never committed directly. The source README, `book.yaml`, duplicate Markdown export, DOCX, raw metadata/evidence JSON, `INCONSISTENCIES.md`, `PENDING_DECISIONS.md`, audit material, and temporary/macOS files are excluded. The web manuscript removes the source owner alias and changes the source classification label to `Public Reading Edition`; the approved final PDF remains the supplied reading export.
+ZIP files remain external source artifacts and are never committed directly. The source README, `book.yaml`, duplicate Markdown export, DOCX, raw metadata/evidence JSON, `INCONSISTENCIES.md`, `PENDING_DECISIONS.md`, audit material, and temporary/macOS files are excluded. The web manuscript removes the source owner alias and uses the classification `Public Reading Edition`. The public PDF preserves the supplied searchable reading export with its inherited classification corrected to `Public Reading Edition`; re-imports must repeat that PDF classification check before publication.
 
 After reviewing a new extracted package outside the repository, regenerate this volume from the repository root:
 
