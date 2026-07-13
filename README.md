@@ -1,149 +1,214 @@
-# AzulRK Portfolio
+# AzulRK — Frontend Engineer & Product Builder
 
-Static personal portfolio for [azulrk.com](https://www.azulrk.com), built with modular HTML, CSS, and vanilla JavaScript.
+The source behind [www.azulrk.com](https://www.azulrk.com): the personal portfolio of Azul Grisel Ramirez Kuri, a frontend software engineer building enterprise systems, native mobile products, award-winning hackathon projects, and technical content from Mexico City.
 
-## Pages
+[Visit the portfolio](https://www.azulrk.com) · [View projects](https://www.azulrk.com/projects.html) · [Tech & media](https://www.azulrk.com/tech.html) · [Resume](https://www.azulrk.com/resume.html)
 
-- `index.html`: home page, experience, certifications, gallery, featured work, and live session performance metrics
-- `projects.html`: case-study style projects page with Swiper galleries and the "What's next" native iOS concept section
-- `tech.html`: YouTube, TikTok, and Duolingo stats
-- `resume.html`: PDF resume viewer and download page
+## About this repository
 
-## Current Site Flow
+This repository brings together the different sides of my work:
 
-The site now follows one shared structure across every page:
+- **Professional experience** across frontend engineering, enterprise delivery, Android, and product development.
+- **Selected products and case studies** spanning web, AI-assisted tools, mobility, environmental intelligence, commerce, and native iOS.
+- **Hackathon work and awards**, including placements at HDC México, HDC Brasil, and HackNation.
+- **Technical advocacy** through YouTube, TikTok, learning activity, and practical product storytelling.
+- **Credentials and resume**, with certifications across frontend, mobile, cloud, and software engineering.
+- **Independent products**, including CloseCut and its dedicated public microsite.
 
-1. `site-chrome`
-2. page-specific hero or intro
-3. main content sections
-4. shared footer
+The project is intentionally lightweight: semantic HTML, modular CSS, and vanilla JavaScript deployed through GitHub Pages. There is no framework, package manager, bundler, or build step required for the public site.
 
-Shared behavior:
+## Selected work
 
-- unified sticky header + nav
-- mobile drawer navigation via `assets/js/nav.js`
-- shared background image from `images/Background/bg.jpg`
-- reveal-on-scroll sections
-- GA4 page and engagement tracking via `assets/js/analytics.js`
+| Project | Focus | Highlight |
+| --- | --- | --- |
+| **CloseCut** | Native iOS product · SwiftUI · SwiftData · Firebase | Private, local-first Journal for movies and series; currently in TestFlight beta |
+| **EcoVentus** | UAV monitoring · React · Python · Huawei Cloud | 2nd Place at HDC México 2024 |
+| **HoneyRoute** | Offline-first PWA · AI-assisted diagnostics · Rural technology | 2nd Place at HDC Brasil 2025 |
+| **CongestionAI** | Mobility planning · Next.js · TypeScript · Google Routes | Top 12 at HackNation |
+| **The Signature Experience** | Editorial product experience · Fragrance discovery | Immersive identity, comparison, and confidence experience |
+| **Android Commerce Platform** | Kotlin · Java · REST APIs · Scrum | Production-focused marketplace flows built at Xolotl Creative Labs |
 
-## Tech Stack
+Detailed stories, screenshots, architecture notes, outcomes, and project links live on the [Projects page](https://www.azulrk.com/projects.html).
 
-- HTML5
-- CSS3 with page-level stylesheets
-- Vanilla JavaScript
-- Swiper CDN for project galleries
-- Lottie CDN for the Apple animation in `projects.html`
-- Google Analytics 4
+## Portfolio experience
 
-## File Structure
+The main site is designed as more than a project gallery. It includes:
+
+- professional experience and responsibilities;
+- skills across React, JavaScript, TypeScript, SwiftUI, SwiftData, Kotlin, Firebase, REST APIs, and cloud fundamentals;
+- measurable achievements and hackathon outcomes;
+- an editorial “What I bring” section;
+- technical advocacy and media;
+- photography and event highlights;
+- Meta, AWS, Google, and Infosys certifications;
+- an accessible HTML resume summary and downloadable PDF;
+- responsive project galleries and progressive enhancement.
+
+## Independent product: CloseCut
+
+CloseCut is one part of the wider portfolio: a private, local-first iOS Journal that helps people remember what they watched, why it mattered, and what to watch next. It is currently available as an internal TestFlight beta.
+
+Its independent `/closecut/` microsite includes:
+
+- a responsive product landing page built with real app screenshots;
+- Private Journal, Quick Add, Timeline, QuickPick, Want to Watch, Circles, Watch Plans, and Cinema Memories;
+- accessible mobile navigation and reduced-motion support;
+- Privacy Policy in English and Spanish;
+- Terms of Use and Support;
+- real TestFlight calls to action;
+- TMDB attribution;
+- Open Graph, Twitter, canonical, Apple, and JSON-LD metadata.
+
+The product site has its own dark, cinematic visual system in `closecut/closecut.css`, while remaining connected to the main portfolio through navigation and shared deployment infrastructure.
+
+## Site map
+
+| Route | Purpose |
+| --- | --- |
+| `/` | Portfolio home, experience, certifications, gallery, and featured projects |
+| `/projects.html` | Detailed project stories and current CloseCut product status |
+| `/tech.html` | Technical content and learning activity |
+| `/resume.html` | Embedded and downloadable resume |
+| `/closecut/` | Official CloseCut marketing site |
+| `/closecut/privacy/` | CloseCut Privacy Policy in English |
+| `/closecut/privacy/es/` | Política de Privacidad de CloseCut en español |
+| `/closecut/terms/` | CloseCut Terms of Use |
+| `/closecut/support/` | CloseCut support and beta feedback guidance |
+
+## Technology
+
+- HTML5 with semantic landmarks and accessible navigation
+- Modular CSS with shared foundations and page-specific styles
+- Vanilla JavaScript with progressive enhancement
+- Responsive WebP product imagery
+- Swiper and Lottie on the Projects page
+- Google Analytics 4 on the main portfolio
+- GitHub Pages with the custom domain `www.azulrk.com`
+
+CloseCut does not add analytics, advertising pixels, or third-party UI dependencies.
+
+## Repository structure
 
 ```text
-assets/
-  animations/
-    apple.json
-  css/
-    base.css
-    components.css
-    layout.css
-    home.css
-    projects.css
-    tech.css
-    resume.css
-    noscript.css
-  data/
-    duolingo.json
-  js/
-    analytics.js
-    home.js
-    nav.js
-    projects.js
-    tech.js
-  sass/
-    ...
-docs/
-  AGRK-CV-IN-2026.pdf
-images/
-  ...
-scripts/
-  update-duo.mjs
-index.html
-projects.html
-tech.html
-resume.html
+.
+├── assets/
+│   ├── animations/          # Lottie assets
+│   ├── css/                 # Shared and page-level portfolio styles
+│   ├── data/                # Local content data
+│   ├── js/                  # Portfolio behavior and analytics
+│   └── sass/                # Legacy HTML5 UP Sass sources
+├── closecut/
+│   ├── assets/
+│   │   ├── screenshots/     # Optimized desktop and mobile WebP pairs
+│   │   └── TMDBLogo.png
+│   ├── privacy/
+│   │   └── es/
+│   ├── support/
+│   ├── terms/
+│   ├── closecut.css         # CloseCut marketing design system
+│   ├── closecut.js          # Navigation, TestFlight URL, and reveals
+│   └── index.html
+├── docs/                     # Resume PDF
+├── images/                   # Portfolio and shared brand imagery
+├── scripts/
+│   ├── convert_images_to_webp.py
+│   └── update-duo.mjs
+├── index.html
+├── projects.html
+├── resume.html
+├── tech.html
+├── Robots.txt
+└── Sitemap.xml
 ```
 
-## Page Scripts
+## Local development
 
-- `assets/js/nav.js`: shared nav drawer behavior
-- `assets/js/home.js`: reveal effects and live Web Vitals-style metrics for the home page
-- `assets/js/projects.js`: filters, Swiper setup, and Apple Lottie setup
-- `assets/js/tech.js`: reveal effects and Duolingo widget rendering
-- `assets/js/analytics.js`: GA4 custom events for outbound links and engagement
-
-## Assets In Use
-
-- `assets/animations/apple.json`: animation used in the "What's next" section
-- `assets/data/duolingo.json`: local data source rendered in `tech.html`
-- `docs/AGRK-CV-IN-2026.pdf`: embedded and downloadable resume
-- `images/Background/bg.jpg`: global site background
-
-## Local Development
-
-This is a static site, so any simple local server works.
-
-Example:
+No installation is required. Start any static file server from the repository root:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Then open:
 
-## Duolingo Data Refresh
+- Portfolio: <http://localhost:8000/>
+- CloseCut: <http://localhost:8000/closecut/>
 
-The Duolingo widget reads from `assets/data/duolingo.json`.
+Using a server instead of opening files directly ensures folder routes, relative assets, and navigation behave like GitHub Pages.
 
-To regenerate it, use:
+## CloseCut asset workflow
+
+Real iOS screenshots are converted into optimized full-size and mobile WebP variants with the existing conversion script:
+
+```bash
+python3 scripts/convert_images_to_webp.py --closecut-screenshots
+```
+
+The optional conversion utility requires [Pillow](https://pillow.readthedocs.io/) in the active Python environment. The website itself does not depend on Python or Pillow at runtime.
+
+Generated assets use descriptive kebab-case names inside `closecut/assets/screenshots/`. Source PNG screenshots are retained locally as conversion masters and ignored by Git.
+
+The public TestFlight URL for the microsite is centralized in `closecut/closecut.js`. Update `TESTFLIGHT_URL` there if the beta destination changes; every element marked with `data-testflight-link` reads from that constant.
+
+## Content and maintenance
+
+### Portfolio scripts
+
+- `assets/js/nav.js` — shared mobile navigation.
+- `assets/js/home.js` — home reveals and performance metrics.
+- `assets/js/projects.js` — project filters, Swiper, and Lottie setup.
+- `assets/js/tech.js` — content reveals and Duolingo rendering.
+- `assets/js/analytics.js` — portfolio engagement and outbound-link events.
+
+### Duolingo data
+
+The widget reads from `assets/data/duolingo.json`. Refresh it with:
 
 ```bash
 node scripts/update-duo.mjs
 ```
 
-Notes:
+The script tries the public endpoint first and can fall back to a Playwright login flow. That fallback requires Playwright to be available locally. Environment variables such as `DUO_PROFILE`, `DUO_USER`, and `DUO_PASS` may be required and must never be committed.
 
-- the script first tries Duolingo's public API
-- if that fails, it falls back to Playwright login flow
-- environment variables such as `DUO_PROFILE`, `DUO_USER`, and `DUO_PASS` may be required
+### Styling
 
-## Analytics
+- Runtime styles live in `assets/css/` and `closecut/closecut.css`.
+- `assets/sass/` contains the original HTML5 UP sources and legacy adjustments.
+- The portfolio background is `images/Background/bg.webp`.
+- Rebuilding the legacy Sass is not required for normal content or CloseCut maintenance.
 
-GA4 is loaded inline in each page head and extended by `assets/js/analytics.js`.
+## Release checklist
 
-Tracked events include:
+Before publishing changes:
 
-- `projects_view`
-- `shop_link_click`
-- `engaged_10s`
+```bash
+git diff --check
+node --check closecut/closecut.js
+node --check assets/js/home.js
+node --check assets/js/projects.js
+node --check assets/js/tech.js
+xmllint --noout Sitemap.xml
+```
 
-## Maintenance Notes
+Also verify:
 
-- `assets/sass/` contains legacy HTML5 UP Sass sources plus project-specific adjustments
-- `assets/css/` is the runtime source actually loaded by the pages
-- if you rebuild Sass, keep `assets/sass/noscript.scss` aligned with the current Font Awesome import name
-- `projects.html` depends on Swiper and Lottie CDNs
-- `tech.html` depends on TikTok embeds and local Duolingo JSON data
-
-## Recommended Next Improvements
-
-- Add a short HTML resume summary before the embedded PDF for SEO and accessibility
-- Move repeated GA inline setup into a shared include/build step if the site ever gets templated
-- Add a small content fallback for TikTok if embeds are blocked
-- Decide whether the legacy unused theme images in `images/Background/` should be archived or removed
+- local routes and relative assets;
+- mobile navigation and keyboard focus;
+- 320 px through 1440 px layouts without horizontal overflow;
+- portfolio cards, galleries, embeds, and resume access;
+- `prefers-reduced-motion` behavior;
+- Privacy, Terms, and Support links;
+- the public TestFlight destination;
+- canonical URLs, sitemap entries, and robots configuration;
+- that no credentials, tester data, or source-only assets are staged.
 
 ## Contact
 
-- Email: `azularamk@gmail.com`
-- LinkedIn: <https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/>
-- GitHub: <https://github.com/AzulRK22>
+- Website: [www.azulrk.com](https://www.azulrk.com)
+- Email: [azularamk@gmail.com](mailto:azularamk@gmail.com)
+- LinkedIn: [Azul Grisel Ramirez Kuri](https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/)
+- GitHub: [@AzulRK22](https://github.com/AzulRK22)
 
-© Azul Grisel Ramirez Kuri. Base design originally derived from HTML5 UP Massively.
+---
+
+© Azul Grisel Ramirez Kuri. Portfolio foundation originally derived from [HTML5 UP Massively](https://html5up.net/massively).
