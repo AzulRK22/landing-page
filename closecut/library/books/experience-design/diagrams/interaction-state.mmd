@@ -1,0 +1,10 @@
+stateDiagram-v2
+  [*] --> Idle
+  Idle --> Active: user action
+  Active --> InProgress: submit / fetch / sync
+  InProgress --> Success
+  InProgress --> Failure
+  Failure --> InProgress: retry
+  Failure --> Recovered: edit / offline / alternate path
+  Success --> Idle
+  Recovered --> Idle

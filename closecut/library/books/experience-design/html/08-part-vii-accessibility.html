@@ -1,0 +1,28 @@
+<h2 id="chapter-heading" tabindex="-1">Part VII — Accessibility</h2>
+<h3 id="voiceover">VoiceOver</h3>
+<p>Every screen must expose a meaningful title, logical traversal order, grouped card semantics, and concise actions. Posters include the title and media type when they function as content; decorative artwork is hidden. Rating controls, mood selectors, intensity controls, chips, and custom gestures must expose selected state and adjustable or button semantics as appropriate.</p>
+<p>Announcements are reserved for meaningful asynchronous outcomes. Repeated sync progress should not flood the accessibility channel. Focus moves intentionally after modal presentation, error recovery, deletion, and navigation.</p>
+<h3 id="dynamic-type">Dynamic Type</h3>
+<p>All product text uses scalable semantic styles. Layouts must be verified through the largest accessibility sizes. Horizontal chip rows may wrap or become vertically scrollable. Multi-column metadata may collapse to one column. Fixed-height text containers are prohibited unless text is guaranteed decorative and hidden from accessibility.</p>
+<p>At large sizes, preserve the title, primary action, and user-authored reflection before secondary metadata or imagery.</p>
+<h3 id="reduce-motion">Reduce Motion</h3>
+<p>When Reduce Motion is enabled, replace spatial travel, parallax, scale emphasis, and skeleton shimmer with opacity changes or immediate updates. Preserve causality through state, focus, and content order. Do not remove feedback entirely.</p>
+<h3 id="contrast">Contrast</h3>
+<p>Text and meaningful icons must meet WCAG AA contrast against their rendered background. Large text exceptions should be used sparingly. Borders that define controls or selected state require sufficient contrast. Poster overlays must be tested against varied imagery and should use a stable scrim rather than assume the image is dark enough.</p>
+<h3 id="touch-targets">Touch Targets</h3>
+<p>Interactive targets are at least 44 by 44 points on Apple platforms. Visual controls may be smaller only when the activation area is expanded and does not overlap adjacent actions. Rows that navigate should make the whole expected row tappable. Destructive actions require adequate separation from routine actions.</p>
+<h3 id="inclusive-design">Inclusive Design</h3>
+<p>CloseCut does not assume a particular viewing frequency, access to cinemas, streaming subscriptions, social group, memory ability, emotional vocabulary, or cultural canon. Date precision is optional where history is approximate. Manual titles remain possible when metadata services fail or do not represent the content.</p>
+<p>Language avoids moralizing taste and avoids interpreting mood or personality as fact. Sharing remains optional. Public identity, follower counts, popularity pressure, and competitive archive metrics are outside the core experience.</p>
+<h4 id="accessibility-release-checklist">Accessibility Release Checklist</h4>
+<ul>
+<li>VoiceOver traversal and actions verified on every changed screen.</li>
+<li>Dynamic Type verified at default, XXXL, and largest accessibility size.</li>
+<li>Light and dark contrast checked for text, icons, controls, borders, and overlays.</li>
+<li>Reduce Motion path verified.</li>
+<li>Touch targets measured.</li>
+<li>Keyboard and focus behavior checked on supported devices.</li>
+<li>Errors identified by text and semantics, not color alone.</li>
+<li>Localization does not clip or reorder meaning.</li>
+<li>Screenshots and marketing assets include meaningful alt text where supported.</li>
+</ul>

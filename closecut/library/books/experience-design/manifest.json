@@ -1,0 +1,146 @@
+{
+  "id": "experience-design",
+  "order": 2,
+  "title": "Experience Design System",
+  "shortTitle": "Experience Design",
+  "subtitle": "The Canonical Experience Specification",
+  "version": "1.0",
+  "status": "canonical",
+  "visibility": "public",
+  "language": "en",
+  "description": "The visual, interaction, accessibility, motion, and experience system behind CloseCut.",
+  "pdf": "CloseCut_Experience_Design_System_v1.pdf",
+  "manuscript": "manuscript.md",
+  "chapterDirectory": "chapters",
+  "htmlDirectory": "html",
+  "diagramDirectory": "diagrams",
+  "decisionDirectory": "decisions",
+  "chapterCount": 12,
+  "decisionRecordCount": 8,
+  "pageCount": 132,
+  "readingEdition": true,
+  "downloadable": true,
+  "documentStatus": "Public Reading Edition",
+  "publishedAt": "2026-07-13",
+  "updatedAt": "2026-07-13",
+  "chapters": [
+    {
+      "id": "01-closecut",
+      "order": 1,
+      "title": "CloseCut",
+      "source": "chapters/01-closecut.md",
+      "html": "html/01-closecut.html"
+    },
+    {
+      "id": "02-part-i-experience-foundation",
+      "order": 2,
+      "title": "Part I — Experience Foundation",
+      "source": "chapters/02-part-i-experience-foundation.md",
+      "html": "html/02-part-i-experience-foundation.html"
+    },
+    {
+      "id": "03-part-ii-brand-system",
+      "order": 3,
+      "title": "Part II — Brand System",
+      "source": "chapters/03-part-ii-brand-system.md",
+      "html": "html/03-part-ii-brand-system.html"
+    },
+    {
+      "id": "04-part-iii-design-tokens",
+      "order": 4,
+      "title": "Part III — Design Tokens",
+      "source": "chapters/04-part-iii-design-tokens.md",
+      "html": "html/04-part-iii-design-tokens.html"
+    },
+    {
+      "id": "05-part-iv-component-system",
+      "order": 5,
+      "title": "Part IV — Component System",
+      "source": "chapters/05-part-iv-component-system.md",
+      "html": "html/05-part-iv-component-system.html"
+    },
+    {
+      "id": "06-part-v-interaction-design",
+      "order": 6,
+      "title": "Part V — Interaction Design",
+      "source": "chapters/06-part-v-interaction-design.md",
+      "html": "html/06-part-v-interaction-design.html"
+    },
+    {
+      "id": "07-part-vi-screen-specifications",
+      "order": 7,
+      "title": "Part VI — Screen Specifications",
+      "source": "chapters/07-part-vi-screen-specifications.md",
+      "html": "html/07-part-vi-screen-specifications.html"
+    },
+    {
+      "id": "08-part-vii-accessibility",
+      "order": 8,
+      "title": "Part VII — Accessibility",
+      "source": "chapters/08-part-vii-accessibility.md",
+      "html": "html/08-part-vii-accessibility.html"
+    },
+    {
+      "id": "09-part-viii-marketing-experience",
+      "order": 9,
+      "title": "Part VIII — Marketing Experience",
+      "source": "chapters/09-part-viii-marketing-experience.md",
+      "html": "html/09-part-viii-marketing-experience.html"
+    },
+    {
+      "id": "10-part-ix-future-experience",
+      "order": 10,
+      "title": "Part IX — Future Experience",
+      "source": "chapters/10-part-ix-future-experience.md",
+      "html": "html/10-part-ix-future-experience.html"
+    },
+    {
+      "id": "11-experience-decision-records",
+      "order": 11,
+      "title": "Experience Decision Records",
+      "source": "chapters/11-experience-decision-records.md",
+      "html": "html/11-experience-decision-records.html"
+    },
+    {
+      "id": "12-appendices",
+      "order": 12,
+      "title": "Appendices",
+      "source": "chapters/12-appendices.md",
+      "html": "html/12-appendices.html"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "EDR-001",
+      "source": "decisions/EDR-001-editorial-simplicity.md"
+    },
+    {
+      "id": "EDR-002",
+      "source": "decisions/EDR-002-calm-technology.md"
+    },
+    {
+      "id": "EDR-003",
+      "source": "decisions/EDR-003-memory-over-ratings.md"
+    },
+    {
+      "id": "EDR-004",
+      "source": "decisions/EDR-004-purple-accent-philosophy.md"
+    },
+    {
+      "id": "EDR-005",
+      "source": "decisions/EDR-005-local-first-experience.md"
+    },
+    {
+      "id": "EDR-006",
+      "source": "decisions/EDR-006-character-usage-rules.md"
+    },
+    {
+      "id": "EDR-007",
+      "source": "decisions/EDR-007-motion-principles.md"
+    },
+    {
+      "id": "EDR-008",
+      "source": "decisions/EDR-008-accessibility-first.md"
+    }
+  ]
+}

@@ -1,0 +1,586 @@
+<h2 id="chapter-heading" tabindex="-1">Part IV — Component System</h2>
+<h3 id="buttons">Buttons</h3>
+<p>Buttons express action hierarchy. Use one primary action per task region. Secondary actions remain visually available without competing. Destructive actions use semantic failure treatment and explicit labels. Buttons must meet a 44-point target even when the visual height is compact.</p>
+<h4 id="canonical-rules">Canonical Rules</h4>
+<ul>
+<li>Primary: filled accent, high-commitment action.</li>
+<li>Secondary: neutral or bordered treatment, alternate action.</li>
+<li>Tertiary: text or icon action for low-emphasis utility.</li>
+<li>Disabled: reduced opacity plus non-interactive semantics; never color alone.</li>
+<li>Loading: preserve width, announce progress, prevent duplicate submission.</li>
+</ul>
+<h4 id="experience-horizon">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="text-fields">Text Fields</h3>
+<p>Fields use persistent labels or unambiguous prompts, clear focus states, and accessible error association. User-authored reflection should favor multiline editors with comfortable height. Privacy-sensitive fields must explain storage or visibility where relevant.</p>
+<h4 id="canonical-rules-2">Canonical Rules</h4>
+<ul>
+<li>Do not rely on placeholder text as the only label.</li>
+<li>Validate at the point where correction is useful, not on every keystroke.</li>
+<li>Preserve entered text after recoverable errors.</li>
+<li>Use content types and keyboard types where appropriate.</li>
+</ul>
+<h4 id="experience-horizon-2">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="search">Search</h3>
+<p>Search is a mode for retrieval, not a replacement for information architecture. Search fields should reveal recent or useful context only when it helps the task. Results must distinguish local history, watchlist, and external TMDB data when sources coexist.</p>
+<h4 id="canonical-rules-3">Canonical Rules</h4>
+<ul>
+<li>Debounce network search.</li>
+<li>Show source and media type when ambiguity exists.</li>
+<li>Provide a clear empty-result recovery path.</li>
+<li>Never imply external results are already part of the personal archive.</li>
+</ul>
+<h4 id="experience-horizon-3">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="chips">Chips</h3>
+<p>Chips represent compact choices, filters, or signals. Selected state must combine color with shape, border, icon, or text weight. Horizontal scrolling is acceptable for non-critical filters, but the primary options should remain discoverable.</p>
+<h4 id="canonical-rules-4">Canonical Rules</h4>
+<ul>
+<li>Use sentence case.</li>
+<li>Keep labels concise.</li>
+<li>Allow wrapping for accessibility sizes.</li>
+<li>Do not use chips for long explanations or destructive actions.</li>
+</ul>
+<h4 id="experience-horizon-4">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="tags">Tags</h3>
+<p>Tags are user-authored or system-derived descriptors. User tags are editable and preserve wording. System tags must be explainable and visually distinguishable when confusion is possible. Tags should not become a competitive taxonomy.</p>
+<h4 id="canonical-rules-5">Canonical Rules</h4>
+<ul>
+<li>Support removal with an accessible action.</li>
+<li>Avoid color-only categories.</li>
+<li>Truncate only in compact previews; show full text in detail.</li>
+</ul>
+<h4 id="experience-horizon-5">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="cards">Cards</h3>
+<p>Cards group related content and action. A card requires a semantic reason: containment, comparison, preview, or independent action. Avoid card-on-card nesting and avoid using cards merely to decorate every section.</p>
+<h4 id="canonical-rules-6">Canonical Rules</h4>
+<ul>
+<li>One visual lead per card.</li>
+<li>Keep primary action predictable.</li>
+<li>Use borders or surface contrast before strong shadows.</li>
+<li>Card tap and internal controls must not conflict.</li>
+</ul>
+<h4 id="experience-horizon-6">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="timeline-cards">Timeline Cards</h3>
+<p>Timeline cards preserve memory hierarchy: title and poster establish identity; watched date and context establish time; reflection and emotional signals establish meaning. Numeric ratings are supporting metadata.</p>
+<h4 id="canonical-rules-7">Canonical Rules</h4>
+<ul>
+<li>Keep chronology perceptible.</li>
+<li>Make edit/share status secondary.</li>
+<li>Support missing artwork gracefully.</li>
+<li>Avoid feed-like engagement counters.</li>
+</ul>
+<h4 id="experience-horizon-7">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="quickpick-cards">QuickPick Cards</h3>
+<p>QuickPick cards present one recommendation, one concise reason, and a small number of next actions. They should feel decisive, not like a carousel of content inventory.</p>
+<h4 id="canonical-rules-8">Canonical Rules</h4>
+<ul>
+<li>Explain the recommendation.</li>
+<li>Offer Try another without infinite-scroll behavior.</li>
+<li>Separate rewatch suggestions from unseen discovery.</li>
+<li>Communicate insufficient history honestly.</li>
+</ul>
+<h4 id="experience-horizon-8">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="journal-components">Journal Components</h3>
+<p>Journal components help the user move from factual capture to reflection. Required fields are minimal; emotional and contextual depth is progressive. The flow should support both quick capture and thoughtful entry without forcing one pace.</p>
+<h4 id="canonical-rules-9">Canonical Rules</h4>
+<ul>
+<li>Group by mental model: identity, verdict, feelings, reflection, context, privacy.</li>
+<li>Preserve drafts through interruption where feasible.</li>
+<li>Make optionality explicit without visual clutter.</li>
+<li>Do not use therapy-like prompts or infer mental state.</li>
+</ul>
+<h4 id="experience-horizon-9">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="bottom-sheets">Bottom Sheets</h3>
+<p>Bottom sheets are for focused, contextual tasks that do not require full navigation depth. They must have a clear title, dismissal behavior, and completion path. Content should fit the sheet’s role and not become a hidden multi-screen application.</p>
+<h4 id="canonical-rules-10">Canonical Rules</h4>
+<ul>
+<li>Use detents intentionally.</li>
+<li>Keep primary action reachable above keyboard where possible.</li>
+<li>Confirm dismissal only when meaningful work would be lost.</li>
+<li>Restore focus to the invoking control.</li>
+</ul>
+<h4 id="experience-horizon-10">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="modals">Modals</h3>
+<p>Modal presentation interrupts the current hierarchy and is therefore reserved for self-contained tasks, required decisions, and previews. Prefer navigation for content that users may need to explore deeply or revisit.</p>
+<h4 id="canonical-rules-11">Canonical Rules</h4>
+<ul>
+<li>Do not stack modals.</li>
+<li>Provide explicit Done, Save, or Cancel when gesture dismissal is ambiguous.</li>
+<li>Preserve state when authentication or permission interrupts the flow.</li>
+</ul>
+<h4 id="experience-horizon-11">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="alerts">Alerts</h3>
+<p>Alerts are for urgent, short decisions. They are not educational surfaces. Titles state the consequence; actions use verbs. Destructive confirmation is proportional to reversibility and data impact.</p>
+<h4 id="canonical-rules-12">Canonical Rules</h4>
+<ul>
+<li>Avoid generic “Are you sure?” copy.</li>
+<li>Place destructive action consistently.</li>
+<li>Do not use alerts for routine success.</li>
+</ul>
+<h4 id="experience-horizon-12">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="navigation">Navigation</h3>
+<p>Navigation follows platform conventions and preserves the user’s location. Each tab owns a NavigationStack. Deep links select the correct tab and then resolve the destination. Cross-tab jumps should be rare and motivated by explicit user action.</p>
+<h4 id="canonical-rules-13">Canonical Rules</h4>
+<ul>
+<li>Back returns to the prior context.</li>
+<li>Do not overload toolbar actions.</li>
+<li>Use titles that match tab and screen language.</li>
+<li>Persist selected tab only when it does not create stale or unsafe context.</li>
+</ul>
+<h4 id="experience-horizon-13">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="tab-bar">Tab Bar</h3>
+<p>The current authenticated shell contains five tabs in canonical order: Journal, Discover, Battle, Circles, Settings. The Journal tab is the default and product anchor. Selected state uses the accent; unselected state uses tertiary text color on an elevated adaptive background.</p>
+<h4 id="canonical-rules-14">Canonical Rules</h4>
+<ul>
+<li>Do not add tabs without changing information architecture.</li>
+<li>Do not use badges for engagement pressure.</li>
+<li>Keep labels localized and stable.</li>
+<li>Journal remains the first and default destination.</li>
+</ul>
+<h4 id="experience-horizon-14">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="toolbars">Toolbars</h3>
+<p>Toolbars contain high-frequency screen actions. Limit visible actions and move secondary utilities into menus. Use standard placements and labels. Avoid decorative custom bars that reduce platform familiarity.</p>
+<h4 id="canonical-rules-15">Canonical Rules</h4>
+<ul>
+<li>Leading: navigation or cancellation.</li>
+<li>Trailing: completion or contextual action.</li>
+<li>Bottom toolbar only when actions benefit from thumb reach and remain persistent.</li>
+</ul>
+<h4 id="experience-horizon-15">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="menus">Menus</h3>
+<p>Menus hold secondary, non-destructive utilities and infrequent choices. Group related actions and separate destructive actions. Menu labels must remain understandable without surrounding context.</p>
+<h4 id="canonical-rules-16">Canonical Rules</h4>
+<ul>
+<li>Use icons consistently or omit them consistently within a group.</li>
+<li>Do not hide the primary task in a menu.</li>
+<li>Expose keyboard shortcuts on platforms that support them.</li>
+</ul>
+<h4 id="experience-horizon-16">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="lists">Lists</h3>
+<p>Lists support scanning, comparison, and navigation. Rows require consistent alignment, touch targets, separators, and disclosure behavior. Use cards instead when each item needs richer independent hierarchy.</p>
+<h4 id="canonical-rules-17">Canonical Rules</h4>
+<ul>
+<li>Preserve user-authored title visibility.</li>
+<li>Support empty and loading states in place.</li>
+<li>Avoid mixed row heights without a content reason.</li>
+</ul>
+<h4 id="experience-horizon-17">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="loading-states">Loading States</h3>
+<p>Loading communicates that work is active and what remains usable. Prefer local, scoped progress indicators. Preserve existing content during refresh when safe. Use indeterminate progress only when duration cannot be estimated.</p>
+<h4 id="canonical-rules-18">Canonical Rules</h4>
+<ul>
+<li>Announce meaningful loading to VoiceOver.</li>
+<li>Avoid blocking the entire screen for one remote section.</li>
+<li>Prevent duplicate actions while preserving cancellation when possible.</li>
+</ul>
+<h4 id="experience-horizon-18">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="empty-states">Empty States</h3>
+<p>Empty states explain the value of the space and provide one relevant next action. They must distinguish a true empty archive, an empty filter result, unavailable remote data, and insufficient recommendation history.</p>
+<h4 id="canonical-rules-19">Canonical Rules</h4>
+<ul>
+<li>Use concise, non-judgmental language.</li>
+<li>Do not over-illustrate utility screens.</li>
+<li>Make recovery specific.</li>
+</ul>
+<h4 id="experience-horizon-19">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="error-states">Error States</h3>
+<p>Errors state what failed, what remains safe, and what the user can do. Technical detail is logged, not presented as primary copy. Offline and sync errors must distinguish local safety from cloud availability.</p>
+<h4 id="canonical-rules-20">Canonical Rules</h4>
+<ul>
+<li>Keep user input.</li>
+<li>Offer Retry when retry can succeed.</li>
+<li>Offer alternative action when retry cannot help.</li>
+<li>Do not expose raw Firebase or network errors.</li>
+</ul>
+<h4 id="experience-horizon-20">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="success-states">Success States</h3>
+<p>Success is usually communicated inline through state change, haptic, or concise banner. Full-screen success is reserved for meaningful completion such as onboarding or account-level changes.</p>
+<h4 id="canonical-rules-21">Canonical Rules</h4>
+<ul>
+<li>Do not interrupt flow for routine saves.</li>
+<li>Use confirmation language that names the result.</li>
+<li>Ensure success remains perceivable without color.</li>
+</ul>
+<h4 id="experience-horizon-21">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>
+<h3 id="skeleton-states">Skeleton States</h3>
+<p>Skeletons may preserve layout for content-heavy remote sections, but they must not simulate content indefinitely. Use reduced motion or static placeholders when Reduce Motion is enabled.</p>
+<h4 id="canonical-rules-22">Canonical Rules</h4>
+<ul>
+<li>Match final geometry.</li>
+<li>Avoid shimmering large areas.</li>
+<li>Do not use skeletons for local data that should render immediately.</li>
+</ul>
+<h4 id="experience-horizon-22">Experience Horizon</h4>
+<div class="reader-table-wrap" tabindex="0" role="region" aria-label="Scrollable table"><table><thead><tr>
+<th scope="col">Horizon</th>
+<th scope="col">Definition</th>
+</tr></thead><tbody>
+<tr>
+<td>Current Experience</td>
+<td>Use the verified SwiftUI patterns and semantic tokens in the repository. Feature-local variants remain current where no shared replacement exists.</td>
+</tr>
+<tr>
+<td>Near-Term Experience</td>
+<td>Consolidate repeated card, state, sheet, field, and action patterns into governed primitives with migration guidance.</td>
+</tr>
+<tr>
+<td>Long-Term Experience</td>
+<td>Maintain semantic parity across Apple, Android, web, wearable, and spatial platforms while using native controls and conventions.</td>
+</tr>
+</tbody></table></div>

@@ -1,38 +1,51 @@
 # CloseCut Library
 
-The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements** is the first and currently only published volume; the other five catalog entries remain unavailable.
+The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements** and **Experience Design System** are the first two published volumes; the remaining four catalog entries are unavailable.
 
-## Published route and package
+## Published volumes
 
-- Catalog: `/closecut/library/`
-- Reader: `/closecut/library/book.html?id=product-vision`
-- Chapter URL: `/closecut/library/book.html?id=product-vision&chapter=01-vision`
-- PDF: `/closecut/library/books/product-vision/CloseCut_Product_Vision_Requirements_v1.pdf`
-- Catalog metadata: `data/books.json`
-- Book metadata and ordered chapter index: `books/product-vision/manifest.json`
+| Volume | Public package | Manifest | PDF | Chapters | Pages | Decisions |
+| --- | --- | --- | --- | ---: | ---: | ---: |
+| Product Vision & Requirements | `books/product-vision/` | `books/product-vision/manifest.json` | `CloseCut_Product_Vision_Requirements_v1.pdf` | 49 | 107 | 10 PDRs |
+| Experience Design System | `books/experience-design/` | `books/experience-design/manifest.json` | `CloseCut_Experience_Design_System_v1.pdf` | 12 | 132 | 8 EDRs |
 
-The public package preserves the canonical `manuscript.md`, 49 chapter sources, two Mermaid diagrams, 10 Product Decision Records, the final reading PDF, and generated semantic HTML fragments. The browser loads the pre-generated fragments, so no Markdown parser, CDN, framework, package manager, or runtime build step is required.
+Both volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Experience Design also publishes its public-safe glossary and canonical design tokens. The tokens contain semantic visual, layout, and motion values with no credentials, private paths, or unresolved conflicts.
 
-## Import policy and workflow
+## Publication and import policy
 
-ZIP files remain external source artifacts and are never committed directly. The source README, `book.yaml`, duplicate Markdown export, DOCX, raw metadata/evidence JSON, `INCONSISTENCIES.md`, `PENDING_DECISIONS.md`, audit material, and temporary/macOS files are excluded. The web manuscript removes the source owner alias and uses the classification `Public Reading Edition`. The public PDF preserves the supplied searchable reading export with its inherited classification corrected to `Public Reading Edition`; re-imports must repeat that PDF classification check before publication.
+Public books use the classification **Public Reading Edition**. Source ZIPs, DOCX files, source README/transformation guides, audit and evidence material, inconsistency reports, open-decision reports, internal accessibility audit JSON, raw metadata/integrity manifests, duplicate exports, temporary scripts, and macOS metadata remain outside the public package.
 
-After reviewing a new extracted package outside the repository, regenerate this volume from the repository root:
+Audit and classify an extracted package before import. Then run the generic importer from the repository root with explicit book metadata. Example:
 
 ```bash
-python3 closecut/library/scripts/import-book.py /path/to/CloseCut_Product_Book_v1
+python3 closecut/library/scripts/import-book.py /path/to/source \
+  --target closecut/library/books/experience-design \
+  --book-id experience-design --order 2 \
+  --title "Experience Design System" --short-title "Experience Design" \
+  --subtitle "The Canonical Experience Specification" \
+  --description "The visual, interaction, accessibility, motion, and experience system behind CloseCut." \
+  --page-count 132 \
+  --pdf-filename CloseCut_Experience_Design_System_v1.pdf \
+  --pdf-source CloseCut_Experience_Design_System_v1.pdf \
+  --manuscript-source CloseCut_Experience_Design_System_v1.md \
+  --decision-directory decision-records --decision-prefix EDR \
+  --tokens-source tokens/design-tokens.json \
+  --glossary-source glossary/glossary.json
 ```
 
-The importer uses only the Python standard library, escapes all source text, supports the Markdown structures used by this book, generates stable heading IDs, and rebuilds `manifest.json` from actual chapter files.
+The importer uses only the Python standard library. It escapes source content, removes print-only page-break markup from HTML, creates stable heading IDs, wraps wide tables for keyboard scrolling, and builds the manifest from actual files. Verify PDF page count, classification, text selection, bookmarks, and visual rendering independently before import.
 
 ## Validation
 
 ```bash
+node --check closecut/closecut.js
 node --check closecut/library/library.js
 node --check closecut/library/reader.js
 python3 -m json.tool closecut/library/data/books.json > /dev/null
 python3 -m json.tool closecut/library/books/product-vision/manifest.json > /dev/null
+python3 -m json.tool closecut/library/books/experience-design/manifest.json > /dev/null
 xmllint --noout Sitemap.xml
+git diff --check
 ```
 
-Every later volume requires its own content, privacy, security, claims, accessibility, and publishing review before `available` can become `true`. **Backend, Infrastructure & Security must never be published automatically** and requires explicit security review and a reduced public edition where appropriate. Page-turn effects remain deferred until the plain reader is fully validated.
+Every later volume requires a separate content, privacy, security, claims, accessibility, and publication review before `available` becomes `true`. **Engineering Architecture requires its own public review**; Backend, Infrastructure & Security additionally requires explicit security review and a reduced public edition where appropriate.

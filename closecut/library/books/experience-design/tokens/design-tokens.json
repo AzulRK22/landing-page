@@ -1,0 +1,209 @@
+{
+  "colors": {
+    "background.primary": {
+      "light": "#F6F5F8",
+      "dark": "#000000",
+      "role": "Primary canvas"
+    },
+    "background.elevated": {
+      "light": "#FFFFFF",
+      "dark": "#111111",
+      "role": "Navigation and elevated surfaces"
+    },
+    "surface.card": {
+      "light": "#FFFFFF",
+      "dark": "#1C1C1E",
+      "role": "Default content card"
+    },
+    "surface.cardElevated": {
+      "light": "#FAF9FC",
+      "dark": "#242426",
+      "role": "Emphasized card"
+    },
+    "surface.input": {
+      "light": "#EEECEF",
+      "dark": "#2C2C2E",
+      "role": "Default input"
+    },
+    "surface.inputElevated": {
+      "light": "#E6E3EA",
+      "dark": "#343437",
+      "role": "Focused or layered input"
+    },
+    "border.separator": {
+      "light": "#D8D5DC",
+      "dark": "#3A3A3C",
+      "role": "Structural separator"
+    },
+    "border.subtle": {
+      "light": "#CBC7D1",
+      "dark": "#48484A",
+      "role": "Card and field edge"
+    },
+    "border.strong": {
+      "light": "#B8B3BF",
+      "dark": "#5A5A5F",
+      "role": "High-emphasis boundary"
+    },
+    "text.primary": {
+      "light": "#17141C",
+      "dark": "#FFFFFF",
+      "role": "Primary reading text"
+    },
+    "text.secondary": {
+      "light": "#5F5968",
+      "dark": "#A9A7AE",
+      "role": "Supporting text"
+    },
+    "text.tertiary": {
+      "light": "#87818F",
+      "dark": "#727078",
+      "role": "Metadata"
+    },
+    "text.muted": {
+      "light": "#AAA5B0",
+      "dark": "#4A484F",
+      "role": "Disabled and decorative text"
+    },
+    "brand.accent": {
+      "light": "#6840C6",
+      "dark": "#6B48CC",
+      "role": "Core brand accent"
+    },
+    "brand.accentLight": {
+      "light": "#744CD0",
+      "dark": "#9D74FF",
+      "role": "Interactive accent and selected tab"
+    },
+    "brand.accentSoft": {
+      "light": "#E9E0FA",
+      "dark": "#241A3D",
+      "role": "Selected backgrounds"
+    },
+    "brand.accentFaint": {
+      "light": "#F4EFFD",
+      "dark": "#15101F",
+      "role": "Atmospheric brand tint"
+    },
+    "status.pending": {
+      "light": "#B86B00",
+      "dark": "#F59E0B",
+      "role": "Queued or awaiting sync"
+    },
+    "status.success": {
+      "light": "#16835F",
+      "dark": "#34D399",
+      "role": "Synced or completed"
+    },
+    "status.failure": {
+      "light": "#C73B45",
+      "dark": "#F87171",
+      "role": "Failure or destructive warning"
+    },
+    "status.warning": {
+      "light": "#A86100",
+      "dark": "#FBBF24",
+      "role": "Attention"
+    }
+  },
+  "typography": {
+    "heroTitle": "largeTitle/semibold",
+    "screenTitle": "title2/semibold",
+    "sheetTitle": "title3/semibold",
+    "sectionTitle": "headline/semibold",
+    "sectionEyebrow": "caption2/semibold",
+    "cardTitle": "subheadline/semibold",
+    "cardTitleLarge": "headline/semibold",
+    "body": "body/regular",
+    "bodyEmphasis": "body/semibold",
+    "secondary": "subheadline/regular",
+    "secondaryEmphasis": "subheadline/semibold",
+    "caption": "caption/regular",
+    "captionEmphasis": "caption/semibold",
+    "micro": "caption2/regular",
+    "microEmphasis": "caption2/semibold",
+    "button": "subheadline/semibold",
+    "largeButton": "headline/semibold",
+    "smallButton": "caption/semibold",
+    "statValue": "title3/semibold",
+    "statLabel": "caption2/semibold"
+  },
+  "spacing": {
+    "zero": 0,
+    "xxs": 4,
+    "xs": 6,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 20,
+    "xxl": 24,
+    "xxxl": 32,
+    "huge": 40,
+    "screen.horizontal": 20,
+    "screen.top": 16,
+    "screen.bottom": 24,
+    "card.content": 16,
+    "hero.content": 18,
+    "compactCard.content": 12,
+    "section": 18,
+    "form": 24,
+    "field": 12
+  },
+  "radii": {
+    "xs": 8,
+    "sm": 10,
+    "banner": 12,
+    "md": 14,
+    "lg": 16,
+    "xl": 20,
+    "card": 22,
+    "xxl": 24,
+    "hero": 24,
+    "sheet": 28,
+    "pill": 999
+  },
+  "motion": {
+    "quick": {
+      "duration": 0.18,
+      "curve": "easeInOut"
+    },
+    "standard": {
+      "duration": 0.22,
+      "curve": "easeInOut"
+    },
+    "slow": {
+      "duration": 0.32,
+      "curve": "easeInOut"
+    },
+    "spring": {
+      "response": 0.32,
+      "dampingFraction": 0.86
+    }
+  },
+  "sizes": {
+    "button": 46,
+    "buttonLarge": 52,
+    "buttonCompact": 38,
+    "posterTiny": [
+      42,
+      62
+    ],
+    "posterSmall": [
+      54,
+      80
+    ],
+    "posterMedium": [
+      72,
+      108
+    ],
+    "posterLarge": [
+      94,
+      138
+    ]
+  },
+  "layout": {
+    "screenHorizontal": 20,
+    "maxReadableWidth": 560,
+    "maxCardWidth": 620
+  }
+}
