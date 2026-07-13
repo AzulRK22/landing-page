@@ -1,0 +1,73 @@
+<h2 id="chapter-heading" tabindex="-1">Privacy Model</h2>
+<p><strong>Purpose.</strong> Personal ownership, explicit selected-Circle sharing, bounded third-party processing, clear retention and deletion semantics.</p>
+<h3 id="privacy-boundaries">Privacy Boundaries</h3>
+<ol>
+<li>A personal record is private unless the owner selects a Circle.</li>
+<li>Circle membership grants access only to data shared into that Circle.</li>
+<li>Want to Watch, private recommendations, and personal insights are not Circle data.</li>
+<li>Group recommendation logic may use only shared group signals.</li>
+<li>Third-party metadata requests must not include unnecessary personal journal content.</li>
+<li>Analytics and diagnostics must be documented, minimized, and reflected in App Store privacy declarations.</li>
+<li>Deletion and unsharing must have predictable, testable outcomes across local and remote state.</li>
+</ol>
+<h3 id="privacy-decision-matrix">Privacy Decision Matrix</h3>
+<div class="reader-table-wrap"><table><thead><tr>
+<th scope="col">Data</th>
+<th scope="col">Default owner</th>
+<th scope="col">Shared by default</th>
+<th scope="col">Eligible for selected Circle sharing</th>
+</tr></thead><tbody>
+<tr>
+<td>Personal entry</td>
+<td>User</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Want to Watch item</td>
+<td>User</td>
+<td>No</td>
+<td>No in current product</td>
+</tr>
+<tr>
+<td>QuickPick history/reasons</td>
+<td>User</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Circle comment/reaction</td>
+<td>Circle context + author</td>
+<td>Contextual</td>
+<td>Already Circle-scoped</td>
+</tr>
+<tr>
+<td>Watch Plan</td>
+<td>Circle context</td>
+<td>Circle members</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Analytics/diagnostics</td>
+<td>Service operator</td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+</tbody></table></div>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>The Privacy Model experience must state its primary user job clearly through hierarchy and behavior rather than explanatory feature lists.</li>
+<li>Current behavior must remain distinguishable from future capability in product copy, release notes, marketing, and internal specifications.</li>
+<li>Private data must not become visible outside its intended context through default state, fallback behavior, logging, analytics, or sync reconciliation.</li>
+<li>All meaningful states must define a recovery path or an honest terminal explanation.</li>
+<li>Accessibility behavior must be specified with the same priority as visual behavior.</li>
+<li>The feature must add durable value to personal memory, decision confidence, trusted coordination, or product trust.</li>
+</ul>
+<h3 id="review-triggers">Review Triggers</h3>
+<ul>
+<li>A new platform changes the relevant interaction or privacy model.</li>
+<li>A public claim conflicts with current implementation.</li>
+<li>User research contradicts the intended mental model.</li>
+<li>A security, moderation, or data-retention incident exposes an incomplete rule.</li>
+<li>A feature creates a new data type, audience, or recommendation signal.</li>
+</ul>

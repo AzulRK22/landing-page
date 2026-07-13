@@ -1,48 +1,38 @@
 # CloseCut Library
 
-The CloseCut Library is the future home for the reviewed, long-form product documentation behind CloseCut. The current implementation is a static foundation only: it provides a landing page, a six-volume catalog, and a temporary reader route without publishing any book content.
+The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements** is the first and currently only published volume; the other five catalog entries remain unavailable.
 
-## Routes and files
+## Published route and package
 
-- `/closecut/library/` renders the catalog from `data/books.json`.
-- `/closecut/library/book.html?id=<book-id>` is a temporary, `noindex` reader status page.
-- `index.html`, `library.css`, and `library.js` provide the catalog experience.
-- `book.html` and `reader.js` provide the temporary reader foundation.
-- `data/books.json` is the single source for catalog order, metadata, visibility, and availability.
+- Catalog: `/closecut/library/`
+- Reader: `/closecut/library/book.html?id=product-vision`
+- Chapter URL: `/closecut/library/book.html?id=product-vision&chapter=01-vision`
+- PDF: `/closecut/library/books/product-vision/CloseCut_Product_Vision_Requirements_v1.pdf`
+- Catalog metadata: `data/books.json`
+- Book metadata and ordered chapter index: `books/product-vision/manifest.json`
 
-All six volumes are currently unavailable. Catalog visibility values distinguish material intended for eventual public release (`public`) from material requiring editorial or security review (`review-required` and `private-review`). A visibility value is not permission to publish source material.
+The public package preserves the canonical `manuscript.md`, 49 chapter sources, two Mermaid diagrams, 10 Product Decision Records, the final reading PDF, and generated semantic HTML fragments. The browser loads the pre-generated fragments, so no Markdown parser, CDN, framework, package manager, or runtime build step is required.
 
-## Intentionally not implemented
+## Import policy and workflow
 
-This foundation contains no manuscripts, chapters, Markdown parser, reader navigation, covers, PDFs, downloads, diagrams, or page-turn effects. No book may be marked available until its public-safe content and linked files exist and pass review.
+ZIP files remain external source artifacts and are never committed directly. The source README, `book.yaml`, duplicate Markdown export, DOCX, raw metadata/evidence JSON, `INCONSISTENCIES.md`, `PENDING_DECISIONS.md`, audit material, and temporary/macOS files are excluded. The web manuscript removes the source owner alias and uses the classification `Public Reading Edition`. The public PDF preserves the supplied searchable reading export with its inherited classification corrected to `Public Reading Edition`; re-imports must repeat that PDF classification check before publication.
 
-## Local validation
-
-From the repository root, run:
+After reviewing a new extracted package outside the repository, regenerate this volume from the repository root:
 
 ```bash
-python3 -m http.server 8000
+python3 closecut/library/scripts/import-book.py /path/to/CloseCut_Product_Book_v1
 ```
 
-Then visit `http://localhost:8000/closecut/library/`. Validate the foundation with:
+The importer uses only the Python standard library, escapes all source text, supports the Markdown structures used by this book, generates stable heading IDs, and rebuilds `manifest.json` from actual chapter files.
+
+## Validation
 
 ```bash
 node --check closecut/library/library.js
 node --check closecut/library/reader.js
 python3 -m json.tool closecut/library/data/books.json > /dev/null
+python3 -m json.tool closecut/library/books/product-vision/manifest.json > /dev/null
 xmllint --noout Sitemap.xml
 ```
 
-## Next phase checklist
-
-- Audit the Product Book ZIP outside the repository.
-- Create a public-safe content package.
-- Import one reviewed book.
-- Create its manifest.
-- Add Markdown parsing.
-- Build accessible chapter navigation.
-- Add the reviewed PDF download.
-- Validate accessibility and responsive behavior.
-- Only then consider a page-turn enhancement.
-
-ZIP files are external source artifacts and must not be committed directly. Never publish private infrastructure, security, operational, personal, credential, or unreleased strategic content. Review and reduce source material before it enters this public repository.
+Every later volume requires its own content, privacy, security, claims, accessibility, and publishing review before `available` can become `true`. **Backend, Infrastructure & Security must never be published automatically** and requires explicit security review and a reduced public edition where appropriate. Page-turn effects remain deferred until the plain reader is fully validated.

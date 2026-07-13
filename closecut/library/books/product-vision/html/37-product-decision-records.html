@@ -1,0 +1,70 @@
+<h2 id="chapter-heading" tabindex="-1">Product Decision Records</h2>
+<p><strong>Purpose.</strong> A governed record of durable product decisions, alternatives, consequences, and review triggers.</p>
+<h3 id="canonical-decisions">Canonical Decisions</h3>
+<h4 id="pdr-001-private-by-default">PDR-001 - Private by Default</h4>
+<p><strong>Decision:</strong> All personal records remain private unless the owner deliberately selects a Circle.</p>
+<p><strong>Rationale:</strong> Trust is a prerequisite for honest reflection.</p>
+<p><strong>Rejected alternative:</strong> Public-by-default, account-wide sharing defaults.</p>
+<p><strong>Status:</strong> Current and permanent</p>
+<h4 id="pdr-002-memory-over-ratings">PDR-002 - Memory over Ratings</h4>
+<p><strong>Decision:</strong> The product prioritizes context, mood, notes, and personal meaning over public numerical scoring.</p>
+<p><strong>Rationale:</strong> A number is useful metadata but an incomplete memory.</p>
+<p><strong>Rejected alternative:</strong> Star-first interaction model.</p>
+<p><strong>Status:</strong> Current and permanent</p>
+<h4 id="pdr-003-personal-first-social-second">PDR-003 - Personal First, Social Second</h4>
+<p><strong>Decision:</strong> Personal history must deliver value without Circle participation.</p>
+<p><strong>Rationale:</strong> The private archive is the product foundation; social value is additive.</p>
+<p><strong>Rejected alternative:</strong> Social onboarding gate, public feed.</p>
+<p><strong>Status:</strong> Current and permanent</p>
+<h4 id="pdr-004-one-thoughtful-pick">PDR-004 - One Thoughtful Pick</h4>
+<p><strong>Decision:</strong> QuickPick presents a focused recommendation with a reason rather than an endless recommendation feed.</p>
+<p><strong>Rationale:</strong> Focus reduces decision fatigue and preserves agency.</p>
+<p><strong>Rejected alternative:</strong> Infinite algorithmic feed.</p>
+<p><strong>Status:</strong> Current</p>
+<h4 id="pdr-005-local-first-trust">PDR-005 - Local-First Trust</h4>
+<p><strong>Decision:</strong> Core creation and reading experiences render from local state; remote services add synchronization and enrichment.</p>
+<p><strong>Rationale:</strong> Journal moments must not depend on perfect connectivity.</p>
+<p><strong>Rejected alternative:</strong> Firestore-driven UI.</p>
+<p><strong>Status:</strong> Current and permanent</p>
+<h4 id="pdr-006-membership-based-circles">PDR-006 - Membership-Based Circles</h4>
+<p><strong>Decision:</strong> Circle access is based on membership records, not a single profile circle ID.</p>
+<p><strong>Rationale:</strong> People belong to several trusted contexts.</p>
+<p><strong>Rejected alternative:</strong> Single active Circle model.</p>
+<p><strong>Status:</strong> Current</p>
+<h4 id="pdr-007-one-entry-model">PDR-007 - One Entry Model</h4>
+<p><strong>Decision:</strong> Quick Add and rich journal records are states of one history object.</p>
+<p><strong>Rationale:</strong> A fast start must be able to deepen without migration friction.</p>
+<p><strong>Rejected alternative:</strong> Separate quick-add database.</p>
+<p><strong>Status:</strong> Current</p>
+<h4 id="pdr-008-explain-recommendations">PDR-008 - Explain Recommendations</h4>
+<p><strong>Decision:</strong> Every product recommendation needs a human-readable reason and bounded confidence.</p>
+<p><strong>Rationale:</strong> Explainability supports trust and correction.</p>
+<p><strong>Rejected alternative:</strong> Opaque certainty claims.</p>
+<p><strong>Status:</strong> Current</p>
+<h4 id="pdr-009-explicit-circle-context">PDR-009 - Explicit Circle Context</h4>
+<p><strong>Decision:</strong> Shared content, plans, comments, and reactions are always attached to a named Circle.</p>
+<p><strong>Rationale:</strong> Context prevents accidental social leakage.</p>
+<p><strong>Rejected alternative:</strong> Global friend feed.</p>
+<p><strong>Status:</strong> Current</p>
+<h4 id="pdr-010-calm-native-interaction">PDR-010 - Calm, Native Interaction</h4>
+<p><strong>Decision:</strong> CloseCut uses restrained, native-feeling interaction patterns and avoids engagement mechanics.</p>
+<p><strong>Rationale:</strong> The product is a reflective tool, not an attention market.</p>
+<p><strong>Rejected alternative:</strong> Streaks, viral prompts, aggressive badges.</p>
+<p><strong>Status:</strong> Current and permanent</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>The Product Decision Records experience must state its primary user job clearly through hierarchy and behavior rather than explanatory feature lists.</li>
+<li>Current behavior must remain distinguishable from future capability in product copy, release notes, marketing, and internal specifications.</li>
+<li>Private data must not become visible outside its intended context through default state, fallback behavior, logging, analytics, or sync reconciliation.</li>
+<li>All meaningful states must define a recovery path or an honest terminal explanation.</li>
+<li>Accessibility behavior must be specified with the same priority as visual behavior.</li>
+<li>The feature must add durable value to personal memory, decision confidence, trusted coordination, or product trust.</li>
+</ul>
+<h3 id="review-triggers">Review Triggers</h3>
+<ul>
+<li>A new platform changes the relevant interaction or privacy model.</li>
+<li>A public claim conflicts with current implementation.</li>
+<li>User research contradicts the intended mental model.</li>
+<li>A security, moderation, or data-retention incident exposes an incomplete rule.</li>
+<li>A feature creates a new data type, audience, or recommendation signal.</li>
+</ul>

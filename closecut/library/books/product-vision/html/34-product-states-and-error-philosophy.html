@@ -1,0 +1,61 @@
+<h2 id="chapter-heading" tabindex="-1">Product States and Error Philosophy</h2>
+<p><strong>Purpose.</strong> Every feature defines loading, empty, success, offline, pending, failed, permission, and recovery behavior.</p>
+<h3 id="required-state-model">Required State Model</h3>
+<div class="reader-table-wrap"><table><thead><tr>
+<th scope="col">State</th>
+<th scope="col">Product obligation</th>
+</tr></thead><tbody>
+<tr>
+<td>Loading</td>
+<td>Preserve layout and explain delay only when meaningful</td>
+</tr>
+<tr>
+<td>Empty</td>
+<td>Explain why it is empty and offer the best next action</td>
+</tr>
+<tr>
+<td>Success</td>
+<td>Confirm the result without interrupting momentum</td>
+</tr>
+<tr>
+<td>Offline</td>
+<td>Preserve available work and state what will happen later</td>
+</tr>
+<tr>
+<td>Pending</td>
+<td>Identify the specific local action awaiting synchronization</td>
+</tr>
+<tr>
+<td>Failed</td>
+<td>Keep data, explain impact, and provide retry or support</td>
+</tr>
+<tr>
+<td>Permission denied</td>
+<td>Explain the boundary and available alternative</td>
+</tr>
+<tr>
+<td>Partial data</td>
+<td>Render safely and avoid fabricated placeholders</td>
+</tr>
+<tr>
+<td>Deleted/unshared</td>
+<td>Remove from active context while respecting retention and reconciliation rules</td>
+</tr>
+</tbody></table></div>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>The Product States and Error Philosophy experience must state its primary user job clearly through hierarchy and behavior rather than explanatory feature lists.</li>
+<li>Current behavior must remain distinguishable from future capability in product copy, release notes, marketing, and internal specifications.</li>
+<li>Private data must not become visible outside its intended context through default state, fallback behavior, logging, analytics, or sync reconciliation.</li>
+<li>All meaningful states must define a recovery path or an honest terminal explanation.</li>
+<li>Accessibility behavior must be specified with the same priority as visual behavior.</li>
+<li>The feature must add durable value to personal memory, decision confidence, trusted coordination, or product trust.</li>
+</ul>
+<h3 id="review-triggers">Review Triggers</h3>
+<ul>
+<li>A new platform changes the relevant interaction or privacy model.</li>
+<li>A public claim conflicts with current implementation.</li>
+<li>User research contradicts the intended mental model.</li>
+<li>A security, moderation, or data-retention incident exposes an incomplete rule.</li>
+<li>A feature creates a new data type, audience, or recommendation signal.</li>
+</ul>

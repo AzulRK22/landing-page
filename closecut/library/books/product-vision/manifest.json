@@ -1,0 +1,412 @@
+{
+  "id": "product-vision",
+  "order": 1,
+  "title": "Product Vision & Requirements",
+  "shortTitle": "Product Vision",
+  "subtitle": "The Foundational Product Specification",
+  "version": "1.0",
+  "status": "canonical",
+  "visibility": "public",
+  "language": "en",
+  "description": "The product vision, principles, verified scope, requirements, and long-term direction of CloseCut.",
+  "pdf": "CloseCut_Product_Vision_Requirements_v1.pdf",
+  "pageCount": 107,
+  "manuscript": "manuscript.md",
+  "chapterDirectory": "chapters",
+  "htmlDirectory": "html",
+  "diagramDirectory": "diagrams",
+  "decisionDirectory": "decisions",
+  "chapterCount": 49,
+  "decisionRecordCount": 10,
+  "readingEdition": true,
+  "downloadable": true,
+  "publishedAt": "2026-07-13",
+  "updatedAt": "2026-07-13",
+  "chapters": [
+    {
+      "id": "01-vision",
+      "order": 1,
+      "title": "Vision",
+      "source": "chapters/01-vision.md",
+      "html": "html/01-vision.html"
+    },
+    {
+      "id": "02-product-philosophy",
+      "order": 2,
+      "title": "Product Philosophy",
+      "source": "chapters/02-product-philosophy.md",
+      "html": "html/02-product-philosophy.html"
+    },
+    {
+      "id": "03-the-problem",
+      "order": 3,
+      "title": "The Problem",
+      "source": "chapters/03-the-problem.md",
+      "html": "html/03-the-problem.html"
+    },
+    {
+      "id": "04-why-existing-solutions-fall-short",
+      "order": 4,
+      "title": "Why Existing Solutions Fall Short",
+      "source": "chapters/04-why-existing-solutions-fall-short.md",
+      "html": "html/04-why-existing-solutions-fall-short.html"
+    },
+    {
+      "id": "05-product-positioning",
+      "order": 5,
+      "title": "Product Positioning",
+      "source": "chapters/05-product-positioning.md",
+      "html": "html/05-product-positioning.html"
+    },
+    {
+      "id": "06-product-identity",
+      "order": 6,
+      "title": "Product Identity",
+      "source": "chapters/06-product-identity.md",
+      "html": "html/06-product-identity.html"
+    },
+    {
+      "id": "07-personas",
+      "order": 7,
+      "title": "Personas",
+      "source": "chapters/07-personas.md",
+      "html": "html/07-personas.html"
+    },
+    {
+      "id": "08-core-product-loop",
+      "order": 8,
+      "title": "Core Product Loop",
+      "source": "chapters/08-core-product-loop.md",
+      "html": "html/08-core-product-loop.html"
+    },
+    {
+      "id": "09-information-architecture",
+      "order": 9,
+      "title": "Information Architecture",
+      "source": "chapters/09-information-architecture.md",
+      "html": "html/09-information-architecture.html"
+    },
+    {
+      "id": "10-product-pillars",
+      "order": 10,
+      "title": "Product Pillars",
+      "source": "chapters/10-product-pillars.md",
+      "html": "html/10-product-pillars.html"
+    },
+    {
+      "id": "11-personal-history",
+      "order": 11,
+      "title": "Personal History",
+      "source": "chapters/11-personal-history.md",
+      "html": "html/11-personal-history.html"
+    },
+    {
+      "id": "12-quick-add-past-watches",
+      "order": 12,
+      "title": "Quick Add Past Watches",
+      "source": "chapters/12-quick-add-past-watches.md",
+      "html": "html/12-quick-add-past-watches.html"
+    },
+    {
+      "id": "13-timeline",
+      "order": 13,
+      "title": "Timeline",
+      "source": "chapters/13-timeline.md",
+      "html": "html/13-timeline.html"
+    },
+    {
+      "id": "14-full-journal-entries",
+      "order": 14,
+      "title": "Full Journal Entries",
+      "source": "chapters/14-full-journal-entries.md",
+      "html": "html/14-full-journal-entries.html"
+    },
+    {
+      "id": "15-entry-detail-and-memory-preservation",
+      "order": 15,
+      "title": "Entry Detail and Memory Preservation",
+      "source": "chapters/15-entry-detail-and-memory-preservation.md",
+      "html": "html/15-entry-detail-and-memory-preservation.html"
+    },
+    {
+      "id": "16-quickpick",
+      "order": 16,
+      "title": "QuickPick",
+      "source": "chapters/16-quickpick.md",
+      "html": "html/16-quickpick.html"
+    },
+    {
+      "id": "17-watchlist-and-decision-support",
+      "order": 17,
+      "title": "Watchlist and Decision Support",
+      "source": "chapters/17-watchlist-and-decision-support.md",
+      "html": "html/17-watchlist-and-decision-support.html"
+    },
+    {
+      "id": "18-search-and-metadata",
+      "order": 18,
+      "title": "Search and Metadata",
+      "source": "chapters/18-search-and-metadata.md",
+      "html": "html/18-search-and-metadata.html"
+    },
+    {
+      "id": "19-cinema-experience-intelligence",
+      "order": 19,
+      "title": "Cinema Experience Intelligence",
+      "source": "chapters/19-cinema-experience-intelligence.md",
+      "html": "html/19-cinema-experience-intelligence.html"
+    },
+    {
+      "id": "20-circles",
+      "order": 20,
+      "title": "Circles",
+      "source": "chapters/20-circles.md",
+      "html": "html/20-circles.html"
+    },
+    {
+      "id": "21-private-sharing",
+      "order": 21,
+      "title": "Private Sharing",
+      "source": "chapters/21-private-sharing.md",
+      "html": "html/21-private-sharing.html"
+    },
+    {
+      "id": "22-watch-together",
+      "order": 22,
+      "title": "Watch Together",
+      "source": "chapters/22-watch-together.md",
+      "html": "html/22-watch-together.html"
+    },
+    {
+      "id": "23-reactions-and-comments",
+      "order": 23,
+      "title": "Reactions and Comments",
+      "source": "chapters/23-reactions-and-comments.md",
+      "html": "html/23-reactions-and-comments.html"
+    },
+    {
+      "id": "24-settings-profile-and-account",
+      "order": 24,
+      "title": "Settings, Profile and Account",
+      "source": "chapters/24-settings-profile-and-account.md",
+      "html": "html/24-settings-profile-and-account.html"
+    },
+    {
+      "id": "25-authentication-and-onboarding",
+      "order": 25,
+      "title": "Authentication and Onboarding",
+      "source": "chapters/25-authentication-and-onboarding.md",
+      "html": "html/25-authentication-and-onboarding.html"
+    },
+    {
+      "id": "26-notifications-and-return-moments",
+      "order": 26,
+      "title": "Notifications and Return Moments",
+      "source": "chapters/26-notifications-and-return-moments.md",
+      "html": "html/26-notifications-and-return-moments.html"
+    },
+    {
+      "id": "27-accessibility-and-inclusive-product-behavior",
+      "order": 27,
+      "title": "Accessibility and Inclusive Product Behavior",
+      "source": "chapters/27-accessibility-and-inclusive-product-behavior.md",
+      "html": "html/27-accessibility-and-inclusive-product-behavior.html"
+    },
+    {
+      "id": "28-offline-and-trust-experience",
+      "order": 28,
+      "title": "Offline and Trust Experience",
+      "source": "chapters/28-offline-and-trust-experience.md",
+      "html": "html/28-offline-and-trust-experience.html"
+    },
+    {
+      "id": "29-privacy-model",
+      "order": 29,
+      "title": "Privacy Model",
+      "source": "chapters/29-privacy-model.md",
+      "html": "html/29-privacy-model.html"
+    },
+    {
+      "id": "30-recommendation-philosophy",
+      "order": 30,
+      "title": "Recommendation Philosophy",
+      "source": "chapters/30-recommendation-philosophy.md",
+      "html": "html/30-recommendation-philosophy.html"
+    },
+    {
+      "id": "31-taste-model",
+      "order": 31,
+      "title": "Taste Model",
+      "source": "chapters/31-taste-model.md",
+      "html": "html/31-taste-model.html"
+    },
+    {
+      "id": "32-social-philosophy",
+      "order": 32,
+      "title": "Social Philosophy",
+      "source": "chapters/32-social-philosophy.md",
+      "html": "html/32-social-philosophy.html"
+    },
+    {
+      "id": "33-content-and-editorial-language",
+      "order": 33,
+      "title": "Content and Editorial Language",
+      "source": "chapters/33-content-and-editorial-language.md",
+      "html": "html/33-content-and-editorial-language.html"
+    },
+    {
+      "id": "34-product-states-and-error-philosophy",
+      "order": 34,
+      "title": "Product States and Error Philosophy",
+      "source": "chapters/34-product-states-and-error-philosophy.md",
+      "html": "html/34-product-states-and-error-philosophy.html"
+    },
+    {
+      "id": "35-product-quality-bar",
+      "order": 35,
+      "title": "Product Quality Bar",
+      "source": "chapters/35-product-quality-bar.md",
+      "html": "html/35-product-quality-bar.html"
+    },
+    {
+      "id": "36-anti-patterns-and-non-goals",
+      "order": 36,
+      "title": "Anti-Patterns and Non-Goals",
+      "source": "chapters/36-anti-patterns-and-non-goals.md",
+      "html": "html/36-anti-patterns-and-non-goals.html"
+    },
+    {
+      "id": "37-product-decision-records",
+      "order": 37,
+      "title": "Product Decision Records",
+      "source": "chapters/37-product-decision-records.md",
+      "html": "html/37-product-decision-records.html"
+    },
+    {
+      "id": "38-current-product-scope",
+      "order": 38,
+      "title": "Current Product Scope",
+      "source": "chapters/38-current-product-scope.md",
+      "html": "html/38-current-product-scope.html"
+    },
+    {
+      "id": "39-testflight-scope",
+      "order": 39,
+      "title": "TestFlight Scope",
+      "source": "chapters/39-testflight-scope.md",
+      "html": "html/39-testflight-scope.html"
+    },
+    {
+      "id": "40-app-store-v1-scope",
+      "order": 40,
+      "title": "App Store v1 Scope",
+      "source": "chapters/40-app-store-v1-scope.md",
+      "html": "html/40-app-store-v1-scope.html"
+    },
+    {
+      "id": "41-near-term-product-direction",
+      "order": 41,
+      "title": "Near-Term Product Direction",
+      "source": "chapters/41-near-term-product-direction.md",
+      "html": "html/41-near-term-product-direction.html"
+    },
+    {
+      "id": "42-long-term-ecosystem",
+      "order": 42,
+      "title": "Long-Term Ecosystem",
+      "source": "chapters/42-long-term-ecosystem.md",
+      "html": "html/42-long-term-ecosystem.html"
+    },
+    {
+      "id": "43-roadmap-framework",
+      "order": 43,
+      "title": "Roadmap Framework",
+      "source": "chapters/43-roadmap-framework.md",
+      "html": "html/43-roadmap-framework.html"
+    },
+    {
+      "id": "44-success-metrics",
+      "order": 44,
+      "title": "Success Metrics",
+      "source": "chapters/44-success-metrics.md",
+      "html": "html/44-success-metrics.html"
+    },
+    {
+      "id": "45-analytics-philosophy",
+      "order": 45,
+      "title": "Analytics Philosophy",
+      "source": "chapters/45-analytics-philosophy.md",
+      "html": "html/45-analytics-philosophy.html"
+    },
+    {
+      "id": "46-experimentation-principles",
+      "order": 46,
+      "title": "Experimentation Principles",
+      "source": "chapters/46-experimentation-principles.md",
+      "html": "html/46-experimentation-principles.html"
+    },
+    {
+      "id": "47-risks-and-mitigations",
+      "order": 47,
+      "title": "Risks and Mitigations",
+      "source": "chapters/47-risks-and-mitigations.md",
+      "html": "html/47-risks-and-mitigations.html"
+    },
+    {
+      "id": "48-open-questions",
+      "order": 48,
+      "title": "Open Questions",
+      "source": "chapters/48-open-questions.md",
+      "html": "html/48-open-questions.html"
+    },
+    {
+      "id": "49-governance-and-product-change-process",
+      "order": 49,
+      "title": "Governance and Product Change Process",
+      "source": "chapters/49-governance-and-product-change-process.md",
+      "html": "html/49-governance-and-product-change-process.html"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "PDR-001",
+      "source": "decisions/PDR-001-private-by-default.md"
+    },
+    {
+      "id": "PDR-002",
+      "source": "decisions/PDR-002-memory-over-ratings.md"
+    },
+    {
+      "id": "PDR-003",
+      "source": "decisions/PDR-003-personal-first-social-second.md"
+    },
+    {
+      "id": "PDR-004",
+      "source": "decisions/PDR-004-one-thoughtful-pick.md"
+    },
+    {
+      "id": "PDR-005",
+      "source": "decisions/PDR-005-local-first-trust.md"
+    },
+    {
+      "id": "PDR-006",
+      "source": "decisions/PDR-006-membership-based-circles.md"
+    },
+    {
+      "id": "PDR-007",
+      "source": "decisions/PDR-007-one-entry-model.md"
+    },
+    {
+      "id": "PDR-008",
+      "source": "decisions/PDR-008-explain-recommendations.md"
+    },
+    {
+      "id": "PDR-009",
+      "source": "decisions/PDR-009-explicit-circle-context.md"
+    },
+    {
+      "id": "PDR-010",
+      "source": "decisions/PDR-010-calm-native-interaction.md"
+    }
+  ]
+}

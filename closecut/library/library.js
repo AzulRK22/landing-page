@@ -14,7 +14,7 @@
 
   function createBookCard(book) {
     const article = document.createElement("article");
-    article.className = "library-card reveal";
+    article.className = "library-card";
 
     const availabilityLabel = book.available
       ? "Available"
@@ -33,6 +33,7 @@
     const meta = appendElement(body, "div", "library-card-meta");
     appendElement(meta, "span", "", `Version ${book.version}`);
     appendElement(meta, "span", "", book.status);
+    if (book.chapterCount) appendElement(meta, "span", "", `${book.chapterCount} chapters`);
     appendElement(body, "h3", "", book.title);
     appendElement(body, "p", "", book.description);
     appendElement(body, "span", "library-badge", availabilityLabel);
