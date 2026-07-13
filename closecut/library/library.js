@@ -14,7 +14,7 @@
 
   function createBookCard(book) {
     const article = document.createElement("article");
-    article.className = "library-card reveal";
+    article.className = "library-card";
 
     const availabilityLabel = book.available
       ? "Available"
