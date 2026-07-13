@@ -33,9 +33,12 @@
       "status": "canonical",
       "visibility": "public",
       "description": "The visual, interaction, accessibility, motion, and experience system behind CloseCut.",
-      "readerUrl": "book.html?id=experience-design",
-      "pdf": null,
-      "available": false
+            "readerUrl": "book.html?id=experience-design",
+            "manifest": "books/experience-design/manifest.json",
+            "chapterCount": 12,
+            "pageCount": 132,
+            "pdf": "books/experience-design/CloseCut_Experience_Design_System_v1.pdf",
+            "available": true
     },
     {
       "id": "engineering-architecture",

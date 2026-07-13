@@ -660,6 +660,11 @@
   border-radius: 14px;
 }
 
+.reader-table-wrap:focus-visible {
+  outline: 3px solid var(--cc-accent);
+  outline-offset: 3px;
+}
+
 .reader-content table {
   width: 100%;
   min-width: 520px;

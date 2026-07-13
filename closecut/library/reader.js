@@ -12,6 +12,9 @@
   const next = document.getElementById("reader-next");
   const toc = document.getElementById("reader-toc");
   const tocToggle = document.getElementById("reader-toc-toggle");
+  const tocTitle = document.getElementById("reader-toc-title");
+  const volume = document.getElementById("reader-volume");
+  const canonical = document.getElementById("reader-canonical");
   let manifest;
   let activeChapterId;
 
@@ -74,7 +77,7 @@
     template.content.querySelectorAll("script, iframe, object, embed, style, link, meta, form, input, button").forEach((node) => node.remove());
     template.content.querySelectorAll("*").forEach((node) => {
       [...node.attributes].forEach((attribute) => {
-        if (!['id', 'class', 'scope', 'tabindex'].includes(attribute.name)) node.removeAttribute(attribute.name);
+        if (!["id", "class", "scope", "tabindex", "role", "aria-label"].includes(attribute.name)) node.removeAttribute(attribute.name);
       });
     });
     return template.content;
@@ -157,8 +160,11 @@
 
       title.textContent = manifest.title;
       subtitle.textContent = manifest.subtitle;
+      tocTitle.textContent = manifest.shortTitle;
+      volume.textContent = `CloseCut Library · Volume ${String(manifest.order).padStart(2, "0")}`;
       document.title = `${manifest.title} — CloseCut Library`;
       document.querySelector('meta[name="description"]').content = manifest.description;
+      canonical.href = new URL(readerUrl(bookId), window.location.href).href;
       meta.textContent = `Version ${manifest.version} · ${manifest.chapterCount} chapters · ${manifest.pageCount} pages`;
       const pdfPath = safeBookPath(bookId, `books/${bookId}/${manifest.pdf}`);
       if (!pdfPath) throw new Error("Invalid PDF path");
