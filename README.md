@@ -56,6 +56,7 @@ Its independent `/closecut/` microsite includes:
 - Privacy Policy in English and Spanish;
 - Terms of Use and Support;
 - real TestFlight calls to action;
+- a six-volume CloseCut Library foundation with all book content intentionally unpublished;
 - TMDB attribution;
 - Open Graph, Twitter, canonical, Apple, and JSON-LD metadata.
 
@@ -70,6 +71,7 @@ The product site has its own dark, cinematic visual system in `closecut/closecut
 | `/tech.html` | Technical content and learning activity |
 | `/resume.html` | Embedded and downloadable resume |
 | `/closecut/` | Official CloseCut marketing site |
+| `/closecut/library/` | CloseCut Library catalog foundation |
 | `/closecut/privacy/` | CloseCut Privacy Policy in English |
 | `/closecut/privacy/es/` | Política de Privacidad de CloseCut en español |
 | `/closecut/terms/` | CloseCut Terms of Use |
@@ -103,6 +105,7 @@ CloseCut does not add analytics, advertising pixels, or third-party UI dependenc
 │   │   └── TMDBLogo.png
 │   ├── privacy/
 │   │   └── es/
+│   ├── library/             # Catalog and temporary reader foundation
 │   ├── support/
 │   ├── terms/
 │   ├── closecut.css         # CloseCut marketing design system

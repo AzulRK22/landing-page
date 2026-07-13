@@ -1,0 +1,94 @@
+{
+  "library": {
+    "title": "CloseCut Library",
+    "subtitle": "Six books. One product truth.",
+    "version": "1.0",
+    "updatedAt": "2026-07-13"
+  },
+  "books": [
+    {
+      "id": "product-vision",
+      "order": 1,
+      "title": "Product Vision & Requirements",
+      "shortTitle": "Product Vision",
+      "subtitle": "The Foundational Product Specification",
+      "version": "1.0",
+      "status": "canonical",
+      "visibility": "public",
+      "description": "The product vision, principles, scope, requirements, and long-term direction of CloseCut.",
+      "readerUrl": "book.html?id=product-vision",
+      "pdf": null,
+      "available": false
+    },
+    {
+      "id": "experience-design",
+      "order": 2,
+      "title": "Experience Design System",
+      "shortTitle": "Experience Design",
+      "subtitle": "The Canonical Experience Specification",
+      "version": "1.0",
+      "status": "canonical",
+      "visibility": "public",
+      "description": "The visual, interaction, accessibility, motion, and experience system behind CloseCut.",
+      "readerUrl": "book.html?id=experience-design",
+      "pdf": null,
+      "available": false
+    },
+    {
+      "id": "engineering-architecture",
+      "order": 3,
+      "title": "Engineering Architecture",
+      "shortTitle": "Engineering",
+      "subtitle": "The Canonical Technical Specification",
+      "version": "1.0",
+      "status": "canonical",
+      "visibility": "review-required",
+      "description": "The architecture, engineering principles, data flow, and implementation model of CloseCut.",
+      "readerUrl": "book.html?id=engineering-architecture",
+      "pdf": null,
+      "available": false
+    },
+    {
+      "id": "backend-infrastructure-security",
+      "order": 4,
+      "title": "Backend, Infrastructure & Security",
+      "shortTitle": "Backend & Security",
+      "subtitle": "The Canonical Data and Platform Specification",
+      "version": "1.0",
+      "status": "canonical",
+      "visibility": "private-review",
+      "description": "The data, synchronization, infrastructure, privacy, and security model of CloseCut.",
+      "readerUrl": "book.html?id=backend-infrastructure-security",
+      "pdf": null,
+      "available": false
+    },
+    {
+      "id": "quality-release-operations",
+      "order": 5,
+      "title": "Quality, Release & Operations",
+      "shortTitle": "Quality & Operations",
+      "subtitle": "The Canonical Validation and Delivery Specification",
+      "version": "1.0",
+      "status": "canonical",
+      "visibility": "review-required",
+      "description": "The quality, release, TestFlight, App Store, support, and operational system of CloseCut.",
+      "readerUrl": "book.html?id=quality-release-operations",
+      "pdf": null,
+      "available": false
+    },
+    {
+      "id": "brand-marketing-growth",
+      "order": 6,
+      "title": "Brand, Marketing & Growth System",
+      "shortTitle": "Brand & Growth",
+      "subtitle": "The Canonical Market Expression Specification",
+      "version": "1.0",
+      "status": "canonical",
+      "visibility": "review-required",
+      "description": "The brand, positioning, messaging, launch, content, community, and growth system of CloseCut.",
+      "readerUrl": "book.html?id=brand-marketing-growth",
+      "pdf": null,
+      "available": false
+    }
+  ]
+}
