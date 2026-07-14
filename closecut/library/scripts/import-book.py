@@ -19,6 +19,30 @@ from pathlib import Path
 PUBLISHED_AT = "2026-07-14"
 
 
+def roman_value(value: str) -> int:
+    values = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100}
+    total = previous = 0
+    for character in reversed(value.upper()):
+        current = values.get(character, 0)
+        total += -current if current < previous else current
+        previous = max(previous, current)
+    return total
+
+
+def chapter_sort_key(path: Path) -> tuple[int, int | str]:
+    name = path.stem.lower()
+    numeric = re.match(r"^(\d+)-", name)
+    if numeric:
+        return (0, int(numeric.group(1)))
+    part = re.match(r"^part-([ivxlc]+)(?:-|$)", name)
+    if part:
+        return (1, roman_value(part.group(1)))
+    appendix = re.match(r"^appendix-([a-z]+)(?:-|$)", name)
+    if appendix:
+        return (2, appendix.group(1))
+    return (3, name)
+
+
 def slugify(value: str) -> str:
     slug = re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
     return slug or "section"
@@ -177,6 +201,8 @@ def chapter_title(path: Path) -> str:
 
 def normalize_markdown(markdown: str) -> str:
     normalized = [line.rstrip() for line in markdown.splitlines()]
+    while normalized and not normalized[-1]:
+        normalized.pop()
     return "\n".join(normalized) + "\n"
 
 
@@ -202,22 +228,23 @@ def import_book(args: argparse.Namespace) -> None:
     diagram_dir = source / args.diagram_directory
     checklist_dir = source / args.checklist_directory if args.checklist_directory else None
     matrix_dir = source / args.matrix_directory if args.matrix_directory else None
+    resource_dir = source / args.resource_directory if args.resource_directory else None
     manuscript_path = source / args.manuscript_source
     pdf_path = source / args.pdf_source
     required = [manuscript_path, chapter_dir, decision_dir, diagram_dir, pdf_path]
-    required.extend(path for path in (checklist_dir, matrix_dir) if path is not None)
+    required.extend(path for path in (checklist_dir, matrix_dir, resource_dir) if path is not None)
     missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing source material: " + ", ".join(missing))
 
     for directory in ("chapters", "diagrams", args.decision_output_directory, "html"):
         (target / directory).mkdir(parents=True, exist_ok=True)
-    for directory in (args.checklist_directory, args.matrix_directory):
+    for directory in (args.checklist_directory, args.matrix_directory, args.resource_directory):
         if directory:
             (target / directory).mkdir(parents=True, exist_ok=True)
 
     target.joinpath("manuscript.md").write_text(public_markdown(manuscript_path.read_text(encoding="utf-8"), True), encoding="utf-8")
-    chapter_files = sorted(chapter_dir.glob("[0-9][0-9]-*.md"))
+    chapter_files = sorted(chapter_dir.glob("*.md"), key=chapter_sort_key)
     decision_pattern = re.compile(rf"^{re.escape(args.decision_prefix)}-[0-9]{{3}}(?:-.+)?\.md$", re.I)
     decision_files = sorted(path for path in decision_dir.glob("*.md") if decision_pattern.match(path.name))
 
@@ -253,6 +280,15 @@ def import_book(args: argparse.Namespace) -> None:
             target_path = target / args.matrix_directory / target_name
             shutil.copy2(source_path, target_path)
             matrices.append({"id": target_path.stem, "source": f"{args.matrix_directory}/{target_name}"})
+    resources = []
+    if resource_dir:
+        for source_path in sorted(resource_dir.rglob("*.md")):
+            relative_path = source_path.relative_to(resource_dir)
+            target_relative = Path(*[part.lower() for part in relative_path.parts])
+            target_path = target / args.resource_directory / target_relative
+            target_path.parent.mkdir(parents=True, exist_ok=True)
+            target_path.write_text(public_markdown(source_path.read_text(encoding="utf-8")), encoding="utf-8")
+            resources.append({"id": "-".join(target_relative.with_suffix("").parts), "source": f"{args.resource_directory}/{target_relative.as_posix()}"})
     shutil.copy2(pdf_path, target / args.pdf_filename)
 
     for source_name, target_name in ((args.tokens_source, "tokens/design-tokens.json"), (args.glossary_source, "glossary/glossary.json")):
@@ -264,6 +300,13 @@ def import_book(args: argparse.Namespace) -> None:
             output_path.parent.mkdir(parents=True, exist_ok=True)
             parsed = json.loads(source_path.read_text(encoding="utf-8"))
             output_path.write_text(json.dumps(parsed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    if args.glossary_markdown_source:
+        source_path = source / args.glossary_markdown_source
+        if not source_path.is_file():
+            raise FileNotFoundError(source_path)
+        output_path = target / "glossary/glossary.md"
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        output_path.write_text(public_markdown(source_path.read_text(encoding="utf-8")), encoding="utf-8")
 
     manifest = {
         "id": args.book_id, "order": args.order, "title": args.title,
@@ -282,6 +325,10 @@ def import_book(args: argparse.Namespace) -> None:
         manifest.update({"checklistDirectory": args.checklist_directory, "checklistCount": len(checklists), "checklists": checklists})
     if matrix_dir:
         manifest.update({"matrixDirectory": args.matrix_directory, "matrixCount": len(matrices), "matrices": matrices})
+    if resource_dir:
+        manifest.update({"resourceDirectory": args.resource_directory, "resourceCount": len(resources), "resources": resources})
+    if args.glossary_markdown_source:
+        manifest["glossary"] = "glossary/glossary.md"
     manifest["diagramCount"] = len(list(diagram_dir.glob("*.mmd")))
     target.joinpath("manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
@@ -307,9 +354,11 @@ def main() -> None:
     parser.add_argument("--diagram-directory", default="diagrams")
     parser.add_argument("--checklist-directory")
     parser.add_argument("--matrix-directory")
+    parser.add_argument("--resource-directory")
     parser.add_argument("--decision-prefix", required=True)
     parser.add_argument("--tokens-source")
     parser.add_argument("--glossary-source")
+    parser.add_argument("--glossary-markdown-source")
     import_book(parser.parse_args())
 
 

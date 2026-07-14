@@ -1,0 +1,407 @@
+{
+  "id": "brand-marketing-growth",
+  "order": 6,
+  "title": "Brand, Marketing & Growth System",
+  "shortTitle": "Brand & Growth",
+  "subtitle": "The Public Market Expression Specification",
+  "version": "1.0",
+  "status": "canonical",
+  "visibility": "public",
+  "language": "en",
+  "description": "The public brand, positioning, messaging, channel, launch, content, community, and growth system for CloseCut.",
+  "pdf": "CloseCut_Brand_Marketing_Growth_System_Public_Edition_v1.pdf",
+  "manuscript": "manuscript.md",
+  "chapterDirectory": "chapters",
+  "htmlDirectory": "html",
+  "diagramDirectory": "diagrams",
+  "decisionDirectory": "decision-records",
+  "chapterCount": 37,
+  "decisionRecordCount": 20,
+  "pageCount": 265,
+  "readingEdition": true,
+  "downloadable": true,
+  "documentStatus": "Public Reading Edition",
+  "publishedAt": "2026-07-14",
+  "updatedAt": "2026-07-14",
+  "chapters": [
+    {
+      "id": "part-i-brand-foundation",
+      "order": 1,
+      "title": "PART I - BRAND FOUNDATION",
+      "source": "chapters/part-i-brand-foundation.md",
+      "html": "html/part-i-brand-foundation.html"
+    },
+    {
+      "id": "part-ii-positioning",
+      "order": 2,
+      "title": "PART II - POSITIONING",
+      "source": "chapters/part-ii-positioning.md",
+      "html": "html/part-ii-positioning.html"
+    },
+    {
+      "id": "part-iii-audience-strategy",
+      "order": 3,
+      "title": "PART III - AUDIENCE STRATEGY",
+      "source": "chapters/part-iii-audience-strategy.md",
+      "html": "html/part-iii-audience-strategy.html"
+    },
+    {
+      "id": "part-iv-messaging-system",
+      "order": 4,
+      "title": "PART IV - MESSAGING SYSTEM",
+      "source": "chapters/part-iv-messaging-system.md",
+      "html": "html/part-iv-messaging-system.html"
+    },
+    {
+      "id": "part-v-voice-tone-and-editorial-style",
+      "order": 5,
+      "title": "PART V - VOICE, TONE AND EDITORIAL STYLE",
+      "source": "chapters/part-v-voice-tone-and-editorial-style.md",
+      "html": "html/part-v-voice-tone-and-editorial-style.html"
+    },
+    {
+      "id": "part-vi-visual-brand-expression",
+      "order": 6,
+      "title": "PART VI - VISUAL BRAND EXPRESSION",
+      "source": "chapters/part-vi-visual-brand-expression.md",
+      "html": "html/part-vi-visual-brand-expression.html"
+    },
+    {
+      "id": "part-vii-character-and-mascot-system",
+      "order": 7,
+      "title": "PART VII - CHARACTER AND MASCOT SYSTEM",
+      "source": "chapters/part-vii-character-and-mascot-system.md",
+      "html": "html/part-vii-character-and-mascot-system.html"
+    },
+    {
+      "id": "part-viii-website-and-landing-page",
+      "order": 8,
+      "title": "PART VIII - WEBSITE AND LANDING PAGE",
+      "source": "chapters/part-viii-website-and-landing-page.md",
+      "html": "html/part-viii-website-and-landing-page.html"
+    },
+    {
+      "id": "part-ix-app-store-system",
+      "order": 9,
+      "title": "PART IX - APP STORE SYSTEM",
+      "source": "chapters/part-ix-app-store-system.md",
+      "html": "html/part-ix-app-store-system.html"
+    },
+    {
+      "id": "part-x-testflight-marketing",
+      "order": 10,
+      "title": "PART X - TESTFLIGHT MARKETING",
+      "source": "chapters/part-x-testflight-marketing.md",
+      "html": "html/part-x-testflight-marketing.html"
+    },
+    {
+      "id": "part-xi-social-media-system",
+      "order": 11,
+      "title": "PART XI - SOCIAL MEDIA SYSTEM",
+      "source": "chapters/part-xi-social-media-system.md",
+      "html": "html/part-xi-social-media-system.html"
+    },
+    {
+      "id": "part-xii-content-system",
+      "order": 12,
+      "title": "PART XII - CONTENT SYSTEM",
+      "source": "chapters/part-xii-content-system.md",
+      "html": "html/part-xii-content-system.html"
+    },
+    {
+      "id": "part-xiii-instagram-system",
+      "order": 13,
+      "title": "PART XIII - INSTAGRAM SYSTEM",
+      "source": "chapters/part-xiii-instagram-system.md",
+      "html": "html/part-xiii-instagram-system.html"
+    },
+    {
+      "id": "part-xiv-x-system",
+      "order": 14,
+      "title": "PART XIV - X SYSTEM",
+      "source": "chapters/part-xiv-x-system.md",
+      "html": "html/part-xiv-x-system.html"
+    },
+    {
+      "id": "part-xv-linkedin-and-professional-presence",
+      "order": 15,
+      "title": "PART XV - LINKEDIN AND PROFESSIONAL PRESENCE",
+      "source": "chapters/part-xv-linkedin-and-professional-presence.md",
+      "html": "html/part-xv-linkedin-and-professional-presence.html"
+    },
+    {
+      "id": "part-xvi-launch-system",
+      "order": 16,
+      "title": "PART XVI - LAUNCH SYSTEM",
+      "source": "chapters/part-xvi-launch-system.md",
+      "html": "html/part-xvi-launch-system.html"
+    },
+    {
+      "id": "part-xvii-campaign-system",
+      "order": 17,
+      "title": "PART XVII - CAMPAIGN SYSTEM",
+      "source": "chapters/part-xvii-campaign-system.md",
+      "html": "html/part-xvii-campaign-system.html"
+    },
+    {
+      "id": "part-xviii-community-and-partnerships",
+      "order": 18,
+      "title": "PART XVIII - COMMUNITY AND PARTNERSHIPS",
+      "source": "chapters/part-xviii-community-and-partnerships.md",
+      "html": "html/part-xviii-community-and-partnerships.html"
+    },
+    {
+      "id": "part-xix-acquisition-and-conversion",
+      "order": 19,
+      "title": "PART XIX - ACQUISITION AND CONVERSION",
+      "source": "chapters/part-xix-acquisition-and-conversion.md",
+      "html": "html/part-xix-acquisition-and-conversion.html"
+    },
+    {
+      "id": "part-xx-retention-communication",
+      "order": 20,
+      "title": "PART XX - RETENTION COMMUNICATION",
+      "source": "chapters/part-xx-retention-communication.md",
+      "html": "html/part-xx-retention-communication.html"
+    },
+    {
+      "id": "part-xxi-seo-and-aso",
+      "order": 21,
+      "title": "PART XXI - SEO AND ASO",
+      "source": "chapters/part-xxi-seo-and-aso.md",
+      "html": "html/part-xxi-seo-and-aso.html"
+    },
+    {
+      "id": "part-xxii-marketing-analytics",
+      "order": 22,
+      "title": "PART XXII - MARKETING ANALYTICS",
+      "source": "chapters/part-xxii-marketing-analytics.md",
+      "html": "html/part-xxii-marketing-analytics.html"
+    },
+    {
+      "id": "part-xxiii-experimentation",
+      "order": 23,
+      "title": "PART XXIII - EXPERIMENTATION",
+      "source": "chapters/part-xxiii-experimentation.md",
+      "html": "html/part-xxiii-experimentation.html"
+    },
+    {
+      "id": "part-xxiv-press-and-public-relations",
+      "order": 24,
+      "title": "PART XXIV - PRESS AND PUBLIC RELATIONS",
+      "source": "chapters/part-xxiv-press-and-public-relations.md",
+      "html": "html/part-xxiv-press-and-public-relations.html"
+    },
+    {
+      "id": "part-xxv-closecut-library",
+      "order": 25,
+      "title": "PART XXV - CLOSECUT LIBRARY",
+      "source": "chapters/part-xxv-closecut-library.md",
+      "html": "html/part-xxv-closecut-library.html"
+    },
+    {
+      "id": "part-xxvi-future-brand-expansion",
+      "order": 26,
+      "title": "PART XXVI - FUTURE BRAND EXPANSION",
+      "source": "chapters/part-xxvi-future-brand-expansion.md",
+      "html": "html/part-xxvi-future-brand-expansion.html"
+    },
+    {
+      "id": "part-xxvii-brand-governance",
+      "order": 27,
+      "title": "PART XXVII - BRAND GOVERNANCE",
+      "source": "chapters/part-xxvii-brand-governance.md",
+      "html": "html/part-xxvii-brand-governance.html"
+    },
+    {
+      "id": "appendix-a",
+      "order": 28,
+      "title": "APPENDIX A - Brand Asset Inventory",
+      "source": "chapters/appendix-a.md",
+      "html": "html/appendix-a.html"
+    },
+    {
+      "id": "appendix-b",
+      "order": 29,
+      "title": "APPENDIX C - Audience Matrix",
+      "source": "chapters/appendix-b.md",
+      "html": "html/appendix-b.html"
+    },
+    {
+      "id": "appendix-c",
+      "order": 30,
+      "title": "APPENDIX D - Messaging Matrix",
+      "source": "chapters/appendix-c.md",
+      "html": "html/appendix-c.html"
+    },
+    {
+      "id": "appendix-d",
+      "order": 31,
+      "title": "APPENDIX E - Claim Validation Matrix",
+      "source": "chapters/appendix-d.md",
+      "html": "html/appendix-d.html"
+    },
+    {
+      "id": "appendix-e",
+      "order": 32,
+      "title": "APPENDIX O - TestFlight Copy Library",
+      "source": "chapters/appendix-e.md",
+      "html": "html/appendix-e.html"
+    },
+    {
+      "id": "appendix-f",
+      "order": 33,
+      "title": "APPENDIX P - Landing Page Copy System",
+      "source": "chapters/appendix-f.md",
+      "html": "html/appendix-f.html"
+    },
+    {
+      "id": "appendix-g",
+      "order": 34,
+      "title": "APPENDIX R - Launch Checklist",
+      "source": "chapters/appendix-g.md",
+      "html": "html/appendix-g.html"
+    },
+    {
+      "id": "appendix-h",
+      "order": 35,
+      "title": "APPENDIX U - Marketing Analytics Matrix",
+      "source": "chapters/appendix-h.md",
+      "html": "html/appendix-h.html"
+    },
+    {
+      "id": "appendix-i",
+      "order": 36,
+      "title": "APPENDIX Y - Glossary",
+      "source": "chapters/appendix-i.md",
+      "html": "html/appendix-i.html"
+    },
+    {
+      "id": "appendix-j",
+      "order": 37,
+      "title": "APPENDIX Z - Changelog",
+      "source": "chapters/appendix-j.md",
+      "html": "html/appendix-j.html"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "MDR-001",
+      "source": "decision-records/MDR-001.md"
+    },
+    {
+      "id": "MDR-002",
+      "source": "decision-records/MDR-002.md"
+    },
+    {
+      "id": "MDR-003",
+      "source": "decision-records/MDR-003.md"
+    },
+    {
+      "id": "MDR-004",
+      "source": "decision-records/MDR-004.md"
+    },
+    {
+      "id": "MDR-005",
+      "source": "decision-records/MDR-005.md"
+    },
+    {
+      "id": "MDR-006",
+      "source": "decision-records/MDR-006.md"
+    },
+    {
+      "id": "MDR-007",
+      "source": "decision-records/MDR-007.md"
+    },
+    {
+      "id": "MDR-008",
+      "source": "decision-records/MDR-008.md"
+    },
+    {
+      "id": "MDR-009",
+      "source": "decision-records/MDR-009.md"
+    },
+    {
+      "id": "MDR-010",
+      "source": "decision-records/MDR-010.md"
+    },
+    {
+      "id": "MDR-011",
+      "source": "decision-records/MDR-011.md"
+    },
+    {
+      "id": "MDR-012",
+      "source": "decision-records/MDR-012.md"
+    },
+    {
+      "id": "MDR-013",
+      "source": "decision-records/MDR-013.md"
+    },
+    {
+      "id": "MDR-014",
+      "source": "decision-records/MDR-014.md"
+    },
+    {
+      "id": "MDR-015",
+      "source": "decision-records/MDR-015.md"
+    },
+    {
+      "id": "MDR-016",
+      "source": "decision-records/MDR-016.md"
+    },
+    {
+      "id": "MDR-017",
+      "source": "decision-records/MDR-017.md"
+    },
+    {
+      "id": "MDR-018",
+      "source": "decision-records/MDR-018.md"
+    },
+    {
+      "id": "MDR-019",
+      "source": "decision-records/MDR-019.md"
+    },
+    {
+      "id": "MDR-020",
+      "source": "decision-records/MDR-020.md"
+    }
+  ],
+  "resourceDirectory": "resources",
+  "resourceCount": 8,
+  "resources": [
+    {
+      "id": "app-store-metadata-baseline",
+      "source": "resources/app-store/metadata-baseline.md"
+    },
+    {
+      "id": "campaigns-campaign-lifecycle",
+      "source": "resources/campaigns/campaign-lifecycle.md"
+    },
+    {
+      "id": "channels-channel-matrix",
+      "source": "resources/channels/channel-matrix.md"
+    },
+    {
+      "id": "library-architecture",
+      "source": "resources/library/architecture.md"
+    },
+    {
+      "id": "messaging-messaging-matrix",
+      "source": "resources/messaging/messaging-matrix.md"
+    },
+    {
+      "id": "social-channel-roles",
+      "source": "resources/social/channel-roles.md"
+    },
+    {
+      "id": "templates-campaign-brief",
+      "source": "resources/templates/campaign-brief.md"
+    },
+    {
+      "id": "testflight-copy-library",
+      "source": "resources/testflight/copy-library.md"
+    }
+  ],
+  "glossary": "glossary/glossary.md",
+  "diagramCount": 7
+}
