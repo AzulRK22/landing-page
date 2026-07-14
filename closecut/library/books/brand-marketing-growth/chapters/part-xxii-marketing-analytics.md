@@ -389,4 +389,3 @@
 **Anti-patterns.** Avoid metrics without owners; retrospective hypotheses; identity-level surveillance; optimizing engagement detached from user value.
 
 **Example.** **Approved expression:** describe metric anti-patterns through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

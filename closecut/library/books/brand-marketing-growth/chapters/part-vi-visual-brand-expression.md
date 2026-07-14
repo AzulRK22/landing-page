@@ -458,4 +458,3 @@
 **Anti-patterns.** Avoid decorative density; unverifiable mockups; tiny text inside screenshots; mascot overuse.
 
 **Example.** **Approved expression:** describe visual anti-patterns through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

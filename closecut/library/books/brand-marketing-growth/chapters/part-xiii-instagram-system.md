@@ -481,4 +481,3 @@
 **Anti-patterns.** Avoid cross-posting identical copy everywhere; trend chasing detached from the product; engagement bait; performative vulnerability.
 
 **Example.** **Approved expression:** describe instagram growth through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

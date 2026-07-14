@@ -481,4 +481,3 @@
 **Anti-patterns.** Avoid keyword stuffing; future features in screenshots; asking for ratings before value is experienced; generic feature mosaics.
 
 **Example.** **Approved expression:** describe app store release campaigns through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

@@ -366,4 +366,3 @@
 **Anti-patterns.** Avoid mass pitching; embellished traction; pay-for-praise arrangements; using private tester quotes without consent.
 
 **Example.** **Approved expression:** describe future media formats through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

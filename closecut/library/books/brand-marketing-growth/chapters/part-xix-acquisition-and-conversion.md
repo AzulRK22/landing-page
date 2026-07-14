@@ -435,4 +435,3 @@
 **Anti-patterns.** Avoid paid growth before product retention; dark patterns; forced contacts access; misleading scarcity.
 
 **Example.** **Approved expression:** describe growth risks through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

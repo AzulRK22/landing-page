@@ -99,11 +99,14 @@
       "subtitle": "The Canonical Market Expression Specification",
       "version": "1.0",
       "status": "canonical",
-      "visibility": "review-required",
+      "visibility": "public",
       "description": "The brand, positioning, messaging, launch, content, community, and growth system of CloseCut.",
       "readerUrl": "book.html?id=brand-marketing-growth",
-      "pdf": null,
-      "available": false
+      "manifest": "books/brand-marketing-growth/manifest.json",
+      "chapterCount": 37,
+      "pageCount": 265,
+      "pdf": "books/brand-marketing-growth/CloseCut_Brand_Marketing_Growth_System_Public_Edition_v1.pdf",
+      "available": true
     }
   ]
 }

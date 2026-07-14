@@ -435,4 +435,3 @@
 **Anti-patterns.** Avoid startup clichés; sentences that could describe any entertainment app; roadmap language presented as availability.
 
 **Example.** **Approved expression:** describe voice anti-patterns through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-

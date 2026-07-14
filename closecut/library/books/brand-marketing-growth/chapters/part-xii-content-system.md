@@ -458,4 +458,3 @@
 **Anti-patterns.** Avoid feature dumping; hype replacing explanation; confusing strategic intent with implementation; optimizing reach at the expense of trust.
 
 **Example.** **Approved expression:** describe content anti-patterns through a concrete user outcome and show the supporting product evidence. **Rejected expression:** imply that CloseCut delivers a broader, automatic, social, or intelligent capability than the current build proves.
-
