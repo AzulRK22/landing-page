@@ -16,7 +16,7 @@ import shutil
 from pathlib import Path
 
 
-PUBLISHED_AT = "2026-07-13"
+PUBLISHED_AT = "2026-07-14"
 
 
 def slugify(value: str) -> str:
@@ -200,15 +200,21 @@ def import_book(args: argparse.Namespace) -> None:
     chapter_dir = source / args.chapter_directory
     decision_dir = source / args.decision_directory
     diagram_dir = source / args.diagram_directory
+    checklist_dir = source / args.checklist_directory if args.checklist_directory else None
+    matrix_dir = source / args.matrix_directory if args.matrix_directory else None
     manuscript_path = source / args.manuscript_source
     pdf_path = source / args.pdf_source
     required = [manuscript_path, chapter_dir, decision_dir, diagram_dir, pdf_path]
+    required.extend(path for path in (checklist_dir, matrix_dir) if path is not None)
     missing = [str(path) for path in required if not path.exists()]
     if missing:
         raise FileNotFoundError("Missing source material: " + ", ".join(missing))
 
-    for directory in ("chapters", "diagrams", "decisions", "html"):
+    for directory in ("chapters", "diagrams", args.decision_output_directory, "html"):
         (target / directory).mkdir(parents=True, exist_ok=True)
+    for directory in (args.checklist_directory, args.matrix_directory):
+        if directory:
+            (target / directory).mkdir(parents=True, exist_ok=True)
 
     target.joinpath("manuscript.md").write_text(public_markdown(manuscript_path.read_text(encoding="utf-8"), True), encoding="utf-8")
     chapter_files = sorted(chapter_dir.glob("[0-9][0-9]-*.md"))
@@ -227,12 +233,26 @@ def import_book(args: argparse.Namespace) -> None:
     decisions = []
     for source_path in decision_files:
         target_name = f"{source_path.name[:7].upper()}{source_path.name[7:].lower()}"
-        target_path = target / "decisions" / target_name
+        target_path = target / args.decision_output_directory / target_name
         target_path.write_text(public_markdown(source_path.read_text(encoding="utf-8")), encoding="utf-8")
-        decisions.append({"id": target_name[:7], "source": f"decisions/{target_name}"})
+        decisions.append({"id": target_name[:7], "source": f"{args.decision_output_directory}/{target_name}"})
 
     for source_path in sorted(diagram_dir.glob("*.mmd")):
         shutil.copy2(source_path, target / "diagrams" / source_path.name.lower())
+    checklists = []
+    if checklist_dir:
+        for source_path in sorted(checklist_dir.glob("*.md")):
+            target_name = source_path.name.lower()
+            target_path = target / args.checklist_directory / target_name
+            target_path.write_text(public_markdown(source_path.read_text(encoding="utf-8")), encoding="utf-8")
+            checklists.append({"id": target_path.stem, "source": f"{args.checklist_directory}/{target_name}"})
+    matrices = []
+    if matrix_dir:
+        for source_path in sorted(matrix_dir.glob("*.csv")):
+            target_name = source_path.name.lower()
+            target_path = target / args.matrix_directory / target_name
+            shutil.copy2(source_path, target_path)
+            matrices.append({"id": target_path.stem, "source": f"{args.matrix_directory}/{target_name}"})
     shutil.copy2(pdf_path, target / args.pdf_filename)
 
     for source_name, target_name in ((args.tokens_source, "tokens/design-tokens.json"), (args.glossary_source, "glossary/glossary.json")):
@@ -252,12 +272,17 @@ def import_book(args: argparse.Namespace) -> None:
         "language": "en", "description": args.description,
         "pdf": args.pdf_filename, "manuscript": "manuscript.md",
         "chapterDirectory": "chapters", "htmlDirectory": "html",
-        "diagramDirectory": "diagrams", "decisionDirectory": "decisions",
+        "diagramDirectory": "diagrams", "decisionDirectory": args.decision_output_directory,
         "chapterCount": len(chapters), "decisionRecordCount": len(decisions),
         "pageCount": args.page_count, "readingEdition": True, "downloadable": True,
         "documentStatus": "Public Reading Edition", "publishedAt": PUBLISHED_AT,
         "updatedAt": PUBLISHED_AT, "chapters": chapters, "decisions": decisions,
     }
+    if checklist_dir:
+        manifest.update({"checklistDirectory": args.checklist_directory, "checklistCount": len(checklists), "checklists": checklists})
+    if matrix_dir:
+        manifest.update({"matrixDirectory": args.matrix_directory, "matrixCount": len(matrices), "matrices": matrices})
+    manifest["diagramCount"] = len(list(diagram_dir.glob("*.mmd")))
     target.joinpath("manifest.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
@@ -278,7 +303,10 @@ def main() -> None:
     parser.add_argument("--manuscript-source", default="manuscript.md")
     parser.add_argument("--chapter-directory", default="chapters")
     parser.add_argument("--decision-directory", default="decisions")
+    parser.add_argument("--decision-output-directory", default="decisions")
     parser.add_argument("--diagram-directory", default="diagrams")
+    parser.add_argument("--checklist-directory")
+    parser.add_argument("--matrix-directory")
     parser.add_argument("--decision-prefix", required=True)
     parser.add_argument("--tokens-source")
     parser.add_argument("--glossary-source")

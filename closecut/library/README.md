@@ -1,6 +1,6 @@
 # CloseCut Library
 
-The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements**, **Experience Design System**, **Engineering Architecture**, and **Backend, Infrastructure & Security** are the first four published volumes; the remaining two catalog entries are unavailable.
+The CloseCut Library publishes reviewed, public-safe product documentation. The first five canonical volumes are published; **Brand, Marketing & Growth System** remains unavailable.
 
 ## Published volumes
 
@@ -10,12 +10,13 @@ The CloseCut Library publishes reviewed, public-safe product documentation. **Pr
 | Experience Design System | `books/experience-design/` | `books/experience-design/manifest.json` | `CloseCut_Experience_Design_System_v1.pdf` | 12 | 132 | 8 EDRs |
 | Engineering Architecture | `books/engineering-architecture/` | `books/engineering-architecture/manifest.json` | `CloseCut_Engineering_Architecture_Public_Edition_v1.pdf` | 47 | 49 | 8 ADRs |
 | Backend, Infrastructure & Security | `books/backend-security/` | `books/backend-security/manifest.json` | `CloseCut_Backend_Infrastructure_Security_Public_Edition_v1.pdf` | 14 | 21 | 11 BDRs |
+| Quality, Release & Operations | `books/quality-release-operations/` | `books/quality-release-operations/manifest.json` | `CloseCut_Quality_Release_Operations_Public_Edition_v1.pdf` | 34 | 52 | 15 QDRs |
 
-All published volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Experience Design also publishes its public-safe glossary and canonical design tokens. Engineering Architecture and Backend, Infrastructure & Security publish their public glossaries and regenerated, bookmarked PDFs produced from curated public manuscripts because their original internal PDFs were intentionally excluded.
+All published volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Quality, Release & Operations additionally includes 7 diagrams, 4 public checklists, and 5 CSV validation matrices.
 
 ## Publication and import policy
 
-Public books use the classification **Public Reading Edition**. Source ZIPs, DOCX files, source README/transformation guides, audit and evidence material, inconsistency reports, open-decision reports, internal accessibility audit JSON, raw metadata/integrity manifests, duplicate exports, temporary scripts, and macOS metadata remain outside the public package.
+Public books use the classification **Public Reading Edition**. Source ZIPs, DOCX files, source README/transformation guides, raw audit and gap reports, open-decision reports, tester data, signing material, internal CI/CD and runbook content, raw metadata/integrity manifests, temporary scripts, and macOS metadata remain outside public packages.
 
 Audit and classify an extracted package before import. Then run the generic importer from the repository root with explicit book metadata. Example:
 
@@ -35,6 +36,8 @@ python3 closecut/library/scripts/import-book.py /path/to/source \
   --glossary-source glossary/glossary.json
 ```
 
+Quality packages may add `--decision-output-directory decision-records`, `--checklist-directory checklists`, and `--matrix-directory matrices`. The public PDF is generated from the reviewed manuscript and public appendices, then independently checked for text selection, bookmarks, blank pages, table readability, and visual defects before import.
+
 The importer uses only the Python standard library. It escapes source content, removes print-only page-break markup from HTML, creates stable heading IDs, wraps wide tables for keyboard scrolling, and builds the manifest from actual files. Verify PDF page count, classification, text selection, bookmarks, and visual rendering independently before import.
 
 ## Validation
@@ -48,8 +51,9 @@ python3 -m json.tool closecut/library/books/product-vision/manifest.json > /dev/
 python3 -m json.tool closecut/library/books/experience-design/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/engineering-architecture/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/backend-security/manifest.json > /dev/null
+python3 -m json.tool closecut/library/books/quality-release-operations/manifest.json > /dev/null
 xmllint --noout Sitemap.xml
 git diff --check
 ```
 
-Every later volume requires a separate content, privacy, security, claims, accessibility, and publication review before `available` becomes `true`. Backend, Infrastructure & Security uses a security-reviewed, reduced public edition; unpublished volumes remain blocked until their own reviews are complete.
+Every volume requires its own content, privacy, security, claims, accessibility, and publication review before `available` becomes `true`. Brand, Marketing & Growth remains blocked until that review is complete.

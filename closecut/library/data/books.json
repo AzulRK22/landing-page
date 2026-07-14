@@ -82,11 +82,14 @@
       "subtitle": "The Canonical Validation and Delivery Specification",
       "version": "1.0",
       "status": "canonical",
-      "visibility": "review-required",
+      "visibility": "public",
       "description": "The quality, release, TestFlight, App Store, support, and operational system of CloseCut.",
       "readerUrl": "book.html?id=quality-release-operations",
-      "pdf": null,
-      "available": false
+      "manifest": "books/quality-release-operations/manifest.json",
+      "chapterCount": 34,
+      "pageCount": 52,
+      "pdf": "books/quality-release-operations/CloseCut_Quality_Release_Operations_Public_Edition_v1.pdf",
+      "available": true
     },
     {
       "id": "brand-marketing-growth",

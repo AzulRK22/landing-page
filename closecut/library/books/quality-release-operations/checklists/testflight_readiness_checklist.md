@@ -9,5 +9,5 @@
 - [ ] Privacy and Firestore authorization matrix passes.
 - [ ] VoiceOver and Dynamic Type core journeys pass.
 - [ ] Crash symbols upload and a controlled crash is symbolicated.
-- [ ] Beta review information, test account and contact data are current.
+- [ ] Beta review information and reviewer contact details are current.
 - [ ] Tester cohorts, instructions, feedback path and exit criteria are defined.
