@@ -48,11 +48,14 @@
       "subtitle": "The Canonical Technical Specification",
       "version": "1.0",
       "status": "canonical",
-      "visibility": "review-required",
+      "visibility": "public",
       "description": "The architecture, engineering principles, data flow, and implementation model of CloseCut.",
       "readerUrl": "book.html?id=engineering-architecture",
-      "pdf": null,
-      "available": false
+      "manifest": "books/engineering-architecture/manifest.json",
+      "chapterCount": 47,
+      "pageCount": 49,
+      "pdf": "books/engineering-architecture/CloseCut_Engineering_Architecture_Public_Edition_v1.pdf",
+      "available": true
     },
     {
       "id": "backend-infrastructure-security",

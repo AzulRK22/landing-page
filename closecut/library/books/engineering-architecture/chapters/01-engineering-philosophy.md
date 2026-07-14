@@ -1,0 +1,7 @@
+# 1. Engineering Philosophy
+
+CloseCut treats privacy, continuity, and emotional safety as system qualities. The architecture therefore optimizes for durable personal ownership before network convenience. A journal entry must remain usable without a network, a recommendation must be explainable without opaque profiling, and social behavior must remain explicitly scoped to trusted Circles.
+
+The governing sequence is **why before how**. Product intent determines invariants; experience intent determines interaction constraints; engineering selects mechanisms that satisfy both. The system rejects architecture theater: a layer exists only when it creates a stable ownership boundary, test seam, or platform contract.
+
+Current evidence supports a pragmatic clean architecture rather than a pure textbook implementation. Domain models, local models, Firestore DTOs, repositories, remote data sources, sync services, and feature views are distinct. Some views still instantiate collaborators and orchestrate effects. This is accepted as current state, not elevated into the target architecture.

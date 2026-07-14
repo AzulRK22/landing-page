@@ -1,0 +1,10 @@
+flowchart TD
+ App[App / Composition Root] --> Features
+ Features --> UI[Shared UI / Design System]
+ Features --> Domain[Core Domain]
+ Features --> Repos[Repositories]
+ Repos --> Local[SwiftData / Local Stores]
+ Repos --> Sync[Sync Services / Pending Queue]
+ Sync --> Remote[Remote Data Sources / DTOs]
+ Remote --> Firebase[Firebase SDK]
+ Features --> Infra[Platform Infrastructure]

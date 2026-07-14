@@ -1,0 +1,5 @@
+# 54. Android Parity
+
+Android shares product semantics, backend contracts, privacy rules, IDs, timestamps, and synchronization behavior; it does not share UI code. Kotlin, Jetpack Compose, Room, WorkManager, Hilt, and Firebase Android SDK are the expected platform choices.
+
+Room corresponds to SwiftData as local authority. Compose corresponds to SwiftUI as declarative presentation. WorkManager handles durable background sync where iOS uses platform-appropriate scheduling and foreground/session triggers. DTO field names and enum wire values must be contract-tested across platforms. Parity means equivalent user outcome and data semantics, not pixel identity.

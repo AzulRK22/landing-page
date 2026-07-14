@@ -1,0 +1,5 @@
+# 14. Dependency Injection
+
+The current application constructs several session-level dependencies in the app shell but also instantiates repositories and services inside feature views. The canonical target is a small composition root with scoped dependency containers: application scope, authenticated-session scope, and short-lived feature scope.
+
+Use initializer injection for required collaborators and environment injection for genuinely shared UI/session dependencies. Avoid global mutable singletons. Firebase SDK singleton access may remain inside infrastructure adapters, but callers should receive CloseCut-owned interfaces. Test composition must support in-memory SwiftData, emulator-backed Firebase, deterministic clocks, and stub external metadata.

@@ -1,0 +1,13 @@
+<h2 id="chapter-heading" tabindex="-1">Architecture Principles</h2>
+<ol>
+<li><strong>Local usefulness is non-negotiable.</strong> Personal history and drafting must survive temporary network loss.</li>
+<li><strong>Privacy is enforced at every boundary.</strong> UI affordances, local ownership, Firestore rules, DTOs, and deletion flows must agree.</li>
+<li><strong>One semantic model, multiple storage representations.</strong> Domain concepts remain stable while SwiftData, Firestore, and Android Room use platform-appropriate persistence models.</li>
+<li><strong>Repositories own data policy.</strong> Views request outcomes; repositories decide local mutation, queueing, deduplication, and remote coordination.</li>
+<li><strong>Remote infrastructure is replaceable; product semantics are not.</strong> Firebase is an implementation choice behind explicit boundaries.</li>
+<li><strong>Synchronization is a state machine, not a side effect.</strong> Pending work, retries, conflicts, tombstones, and user-visible status are modeled.</li>
+<li><strong>Social is subordinate to personal memory.</strong> A Circle may receive a projection of an entry; it does not become the owner of that memory.</li>
+<li><strong>Accessibility and localization are release criteria.</strong> They are not post-launch polish.</li>
+<li><strong>Incremental modularization beats speculative frameworks.</strong> Introduce protocols where they protect high-value seams.</li>
+<li><strong>Documentation is part of the change.</strong> Architectural behavior is incomplete until its canonical description and decision record are updated.</li>
+</ol>

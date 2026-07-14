@@ -1,0 +1,13 @@
+{
+  "Aggregate": "A consistency and ownership boundary manipulated through a repository.",
+  "Circle": "A private membership-scoped sharing context.",
+  "DTO": "A transport representation used at the Firestore boundary.",
+  "Entry": "The canonical record of one viewing memory.",
+  "Local-first": "An architecture in which useful personal state is committed locally before remote synchronization.",
+  "Offline-first": "A behavior contract that explicitly defines operations available without network connectivity.",
+  "Pending Action": "A durable record of remote intent awaiting synchronization.",
+  "QuickPick": "An explainable recommendation that returns one thoughtful choice.",
+  "Repository": "The application-facing owner of aggregate data policy.",
+  "Tombstone": "A durable deletion marker preventing remote resurrection.",
+  "Wire Contract": "The stable field, enum, ID, and timestamp semantics shared by platform clients and Firebase."
+}

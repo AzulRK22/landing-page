@@ -1,0 +1,16 @@
+<h2 id="chapter-heading" tabindex="-1">Module Boundaries</h2>
+<p>The current physical structure is primarily folder-based rather than separate Swift packages. That is acceptable while the codebase remains a single application target, provided dependency direction is enforced in review and tests.</p>
+<p>Observed source distribution: Feature: 251, Shared UI: 30, Domain: 30, Other: 18, Remote Data Source / DTO: 18, Local Persistence: 12, Recommendation Engine: 11, Repository: 11, Service: 11, Application Shell: 10, Sync: 9, Test: 8, Infrastructure: 1.</p>
+<p>Target boundaries:</p>
+<ul>
+<li><strong>App</strong> owns composition, lifecycle, root routing, and process-wide integrations.</li>
+<li><strong>Features</strong> own user flows, presentation state, and feature-specific components.</li>
+<li><strong>Core Domain</strong> owns product semantics and pure policies.</li>
+<li><strong>Core Repositories</strong> own aggregate access and write policy.</li>
+<li><strong>Core Local</strong> owns SwiftData representations and local stores.</li>
+<li><strong>Core Remote</strong> owns Firebase paths, DTOs, and transport behavior.</li>
+<li><strong>Core Sync</strong> owns queues, reconciliation, retries, and conflict policy.</li>
+<li><strong>Infrastructure</strong> owns platform and third-party adapters.</li>
+<li><strong>Shared UI / Design System</strong> owns reusable visual primitives without feature data dependencies.</li>
+</ul>
+<p>A future extraction into packages is justified only when build isolation, ownership, or reuse benefits exceed the cost of additional public APIs.</p>

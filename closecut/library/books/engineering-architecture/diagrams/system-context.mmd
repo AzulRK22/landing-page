@@ -1,0 +1,13 @@
+flowchart LR
+ User[CloseCut User] --> IOS[iOS App]
+ User --> Android[Android App]
+ IOS --> Local[(SwiftData)]
+ Android --> Room[(Room)]
+ IOS --> FB[Firebase Backend]
+ Android --> FB
+ FB --> Auth[Authentication]
+ FB --> FS[(Firestore)]
+ FB --> Storage[(Storage)]
+ FB --> Fn[Cloud Functions]
+ IOS --> TMDB[TMDB Metadata]
+ Android --> TMDB
