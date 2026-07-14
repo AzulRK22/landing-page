@@ -217,8 +217,6 @@ def import_book(args: argparse.Namespace) -> None:
 
     chapters = []
     for order, source_path in enumerate(chapter_files, 1):
-        if int(source_path.name[:2]) != order:
-            raise ValueError(f"Non-sequential chapter filename: {source_path.name}")
         chapter_markdown = public_markdown(source_path.read_text(encoding="utf-8"), order == 1)
         target_source = target / "chapters" / source_path.name.lower()
         target_source.write_text(chapter_markdown, encoding="utf-8")

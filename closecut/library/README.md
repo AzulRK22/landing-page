@@ -1,6 +1,6 @@
 # CloseCut Library
 
-The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements** and **Experience Design System** are the first two published volumes; the remaining four catalog entries are unavailable.
+The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements**, **Experience Design System**, and **Engineering Architecture** are the first three published volumes; the remaining three catalog entries are unavailable.
 
 ## Published volumes
 
@@ -8,8 +8,9 @@ The CloseCut Library publishes reviewed, public-safe product documentation. **Pr
 | --- | --- | --- | --- | ---: | ---: | ---: |
 | Product Vision & Requirements | `books/product-vision/` | `books/product-vision/manifest.json` | `CloseCut_Product_Vision_Requirements_v1.pdf` | 49 | 107 | 10 PDRs |
 | Experience Design System | `books/experience-design/` | `books/experience-design/manifest.json` | `CloseCut_Experience_Design_System_v1.pdf` | 12 | 132 | 8 EDRs |
+| Engineering Architecture | `books/engineering-architecture/` | `books/engineering-architecture/manifest.json` | `CloseCut_Engineering_Architecture_Public_Edition_v1.pdf` | 47 | 49 | 8 ADRs |
 
-Both volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Experience Design also publishes its public-safe glossary and canonical design tokens. The tokens contain semantic visual, layout, and motion values with no credentials, private paths, or unresolved conflicts.
+All published volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Experience Design also publishes its public-safe glossary and canonical design tokens. Engineering Architecture publishes its public glossary and a regenerated, bookmarked PDF produced from the curated public manuscript because the original internal PDF was intentionally excluded.
 
 ## Publication and import policy
 
@@ -44,6 +45,7 @@ node --check closecut/library/reader.js
 python3 -m json.tool closecut/library/data/books.json > /dev/null
 python3 -m json.tool closecut/library/books/product-vision/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/experience-design/manifest.json > /dev/null
+python3 -m json.tool closecut/library/books/engineering-architecture/manifest.json > /dev/null
 xmllint --noout Sitemap.xml
 git diff --check
 ```
