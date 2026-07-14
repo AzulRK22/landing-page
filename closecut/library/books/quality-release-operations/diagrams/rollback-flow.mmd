@@ -1,0 +1,8 @@
+flowchart TD
+  Signal --> Assess{User harm active?}
+  Assess -- Yes --> PauseRelease --> Mitigate{Remote mitigation available?}
+  Mitigate -- Yes --> KillSwitch[Disable affected capability]
+  Mitigate -- No --> Hotfix
+  Assess -- No --> Observe
+  KillSwitch --> Validate --> Communicate
+  Hotfix --> Validate

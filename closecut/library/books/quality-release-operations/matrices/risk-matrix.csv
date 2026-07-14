@@ -1,0 +1,11 @@
+ID,Risk,Severity,Likelihood,Disposition,Required evidence
+R-001,Silent data loss during offline create/update/delete,Critical,Possible,Block release,"Queue, persistence, forced termination, retry, reconciliation, multi-device"
+R-002,Unauthorized Circle or shared-entry access,Critical,Possible,Block release,Firestore emulator rules tests plus negative authorization matrix
+R-003,Account deletion leaves remote or local personal data,Critical,Possible,Block release,End-to-end deletion verification and retained-data inventory
+R-004,Authentication routing traps user or exposes another session,Critical,Possible,Block release,"State-machine tests across launch, revoke, sign-out, profile failure"
+R-005,Duplicate or conflicting entries after reconnection,High,Likely,Block for critical flows,"Conflict, dedupe and idempotency integration suite"
+R-006,Accessibility prevents task completion,High,Possible,Block release,"VoiceOver, Dynamic Type, focus, labels, contrast and Reduce Motion regression"
+R-007,TMDB attribution/privacy metadata is incorrect,High,Possible,Block submission,Manual and automated compliance verification
+R-008,Crash spike after release,High,Possible,Pause/rollback,"Crashlytics symbol validation, phased release and thresholds"
+R-009,Firebase billing or function usage spike,High,Possible,Operational gate,"Budgets, alerts, dashboards, rate limits and runbook"
+R-010,Large library causes unusable performance,Medium,Possible,Conditional,Synthetic large-dataset benchmarks and launch/timeline budgets

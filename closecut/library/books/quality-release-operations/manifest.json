@@ -1,0 +1,373 @@
+{
+  "id": "quality-release-operations",
+  "order": 5,
+  "title": "Quality, Release & Operations",
+  "shortTitle": "Quality & Operations",
+  "subtitle": "The Public Validation and Delivery Specification",
+  "version": "1.0",
+  "status": "canonical",
+  "visibility": "public",
+  "language": "en",
+  "description": "The public quality, testing, accessibility, release, TestFlight, App Store, support, and operational model for CloseCut.",
+  "pdf": "CloseCut_Quality_Release_Operations_Public_Edition_v1.pdf",
+  "manuscript": "manuscript.md",
+  "chapterDirectory": "chapters",
+  "htmlDirectory": "html",
+  "diagramDirectory": "diagrams",
+  "decisionDirectory": "decision-records",
+  "chapterCount": 34,
+  "decisionRecordCount": 15,
+  "pageCount": 52,
+  "readingEdition": true,
+  "downloadable": true,
+  "documentStatus": "Public Reading Edition",
+  "publishedAt": "2026-07-14",
+  "updatedAt": "2026-07-14",
+  "chapters": [
+    {
+      "id": "01-quality-philosophy",
+      "order": 1,
+      "title": "Quality Philosophy",
+      "source": "chapters/01-quality-philosophy.md",
+      "html": "html/01-quality-philosophy.html"
+    },
+    {
+      "id": "02-quality-principles",
+      "order": 2,
+      "title": "Quality Principles",
+      "source": "chapters/02-quality-principles.md",
+      "html": "html/02-quality-principles.html"
+    },
+    {
+      "id": "03-product-quality-bar",
+      "order": 3,
+      "title": "Product Quality Bar",
+      "source": "chapters/03-product-quality-bar.md",
+      "html": "html/03-product-quality-bar.html"
+    },
+    {
+      "id": "04-risk-based-testing",
+      "order": 4,
+      "title": "Risk-Based Testing",
+      "source": "chapters/04-risk-based-testing.md",
+      "html": "html/04-risk-based-testing.html"
+    },
+    {
+      "id": "05-evidence-and-traceability",
+      "order": 5,
+      "title": "Evidence and Traceability",
+      "source": "chapters/05-evidence-and-traceability.md",
+      "html": "html/05-evidence-and-traceability.html"
+    },
+    {
+      "id": "06-definition-of-ready",
+      "order": 6,
+      "title": "Definition of Ready",
+      "source": "chapters/06-definition-of-ready.md",
+      "html": "html/06-definition-of-ready.html"
+    },
+    {
+      "id": "07-definition-of-done",
+      "order": 7,
+      "title": "Definition of Done",
+      "source": "chapters/07-definition-of-done.md",
+      "html": "html/07-definition-of-done.html"
+    },
+    {
+      "id": "08-release-confidence-model",
+      "order": 8,
+      "title": "Release Confidence Model",
+      "source": "chapters/08-release-confidence-model.md",
+      "html": "html/08-release-confidence-model.html"
+    },
+    {
+      "id": "09-test-strategy-overview",
+      "order": 9,
+      "title": "Test Strategy Overview",
+      "source": "chapters/09-test-strategy-overview.md",
+      "html": "html/09-test-strategy-overview.html"
+    },
+    {
+      "id": "10-test-pyramid",
+      "order": 10,
+      "title": "Test Pyramid",
+      "source": "chapters/10-test-pyramid.md",
+      "html": "html/10-test-pyramid.html"
+    },
+    {
+      "id": "11-unit-testing",
+      "order": 11,
+      "title": "Unit Testing",
+      "source": "chapters/11-unit-testing.md",
+      "html": "html/11-unit-testing.html"
+    },
+    {
+      "id": "12-integration-testing",
+      "order": 12,
+      "title": "Integration Testing",
+      "source": "chapters/12-integration-testing.md",
+      "html": "html/12-integration-testing.html"
+    },
+    {
+      "id": "13-ui-testing",
+      "order": 13,
+      "title": "UI Testing",
+      "source": "chapters/13-ui-testing.md",
+      "html": "html/13-ui-testing.html"
+    },
+    {
+      "id": "14-manual-and-exploratory-testing",
+      "order": 14,
+      "title": "Manual and Exploratory Testing",
+      "source": "chapters/14-manual-and-exploratory-testing.md",
+      "html": "html/14-manual-and-exploratory-testing.html"
+    },
+    {
+      "id": "15-regression-and-smoke-testing",
+      "order": 15,
+      "title": "Regression and Smoke Testing",
+      "source": "chapters/15-regression-and-smoke-testing.md",
+      "html": "html/15-regression-and-smoke-testing.html"
+    },
+    {
+      "id": "16-performance-and-reliability-testing",
+      "order": 16,
+      "title": "Performance and Reliability Testing",
+      "source": "chapters/16-performance-and-reliability-testing.md",
+      "html": "html/16-performance-and-reliability-testing.html"
+    },
+    {
+      "id": "17-privacy-verification",
+      "order": 17,
+      "title": "Privacy Verification",
+      "source": "chapters/17-privacy-verification.md",
+      "html": "html/17-privacy-verification.html"
+    },
+    {
+      "id": "18-accessibility-testing",
+      "order": 18,
+      "title": "Accessibility Testing",
+      "source": "chapters/18-accessibility-testing.md",
+      "html": "html/18-accessibility-testing.html"
+    },
+    {
+      "id": "19-device-and-os-coverage",
+      "order": 19,
+      "title": "Device and OS Coverage",
+      "source": "chapters/19-device-and-os-coverage.md",
+      "html": "html/19-device-and-os-coverage.html"
+    },
+    {
+      "id": "20-offline-quality-philosophy",
+      "order": 20,
+      "title": "Offline Quality Philosophy",
+      "source": "chapters/20-offline-quality-philosophy.md",
+      "html": "html/20-offline-quality-philosophy.html"
+    },
+    {
+      "id": "21-pending-actions-retry-and-conflict-testing",
+      "order": 21,
+      "title": "Pending Actions, Retry, and Conflict Testing",
+      "source": "chapters/21-pending-actions-retry-and-conflict-testing.md",
+      "html": "html/21-pending-actions-retry-and-conflict-testing.html"
+    },
+    {
+      "id": "22-data-loss-and-duplicate-prevention",
+      "order": 22,
+      "title": "Data Loss and Duplicate Prevention",
+      "source": "chapters/22-data-loss-and-duplicate-prevention.md",
+      "html": "html/22-data-loss-and-duplicate-prevention.html"
+    },
+    {
+      "id": "23-recovery-from-partial-failure",
+      "order": 23,
+      "title": "Recovery from Partial Failure",
+      "source": "chapters/23-recovery-from-partial-failure.md",
+      "html": "html/23-recovery-from-partial-failure.html"
+    },
+    {
+      "id": "24-testflight-strategy",
+      "order": 24,
+      "title": "TestFlight Strategy",
+      "source": "chapters/24-testflight-strategy.md",
+      "html": "html/24-testflight-strategy.html"
+    },
+    {
+      "id": "25-beta-exit-criteria",
+      "order": 25,
+      "title": "Beta Exit Criteria",
+      "source": "chapters/25-beta-exit-criteria.md",
+      "html": "html/25-beta-exit-criteria.html"
+    },
+    {
+      "id": "26-app-store-release-philosophy",
+      "order": 26,
+      "title": "App Store Release Philosophy",
+      "source": "chapters/26-app-store-release-philosophy.md",
+      "html": "html/26-app-store-release-philosophy.html"
+    },
+    {
+      "id": "27-release-candidate-and-gates",
+      "order": 27,
+      "title": "Release Candidate and Gates",
+      "source": "chapters/27-release-candidate-and-gates.md",
+      "html": "html/27-release-candidate-and-gates.html"
+    },
+    {
+      "id": "28-post-release-validation-and-rollback",
+      "order": 28,
+      "title": "Post-Release Validation and Rollback",
+      "source": "chapters/28-post-release-validation-and-rollback.md",
+      "html": "html/28-post-release-validation-and-rollback.html"
+    },
+    {
+      "id": "29-operational-philosophy",
+      "order": 29,
+      "title": "Operational Philosophy",
+      "source": "chapters/29-operational-philosophy.md",
+      "html": "html/29-operational-philosophy.html"
+    },
+    {
+      "id": "30-observability-and-monitoring",
+      "order": 30,
+      "title": "Observability and Monitoring",
+      "source": "chapters/30-observability-and-monitoring.md",
+      "html": "html/30-observability-and-monitoring.html"
+    },
+    {
+      "id": "31-support-and-feedback",
+      "order": 31,
+      "title": "Support and Feedback",
+      "source": "chapters/31-support-and-feedback.md",
+      "html": "html/31-support-and-feedback.html"
+    },
+    {
+      "id": "32-cross-platform-quality",
+      "order": 32,
+      "title": "Cross-Platform Quality",
+      "source": "chapters/32-cross-platform-quality.md",
+      "html": "html/32-cross-platform-quality.html"
+    },
+    {
+      "id": "33-quality-governance",
+      "order": 33,
+      "title": "Quality Governance",
+      "source": "chapters/33-quality-governance.md",
+      "html": "html/33-quality-governance.html"
+    },
+    {
+      "id": "34-quality-decision-records",
+      "order": 34,
+      "title": "Quality Decision Records",
+      "source": "chapters/34-quality-decision-records.md",
+      "html": "html/34-quality-decision-records.html"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "QDR-001",
+      "source": "decision-records/QDR-001-risk-based-testing.md"
+    },
+    {
+      "id": "QDR-002",
+      "source": "decision-records/QDR-002-critical-paths-require-automated-coverage.md"
+    },
+    {
+      "id": "QDR-003",
+      "source": "decision-records/QDR-003-offline-trust-is-release-critical.md"
+    },
+    {
+      "id": "QDR-004",
+      "source": "decision-records/QDR-004-privacy-failures-block-release.md"
+    },
+    {
+      "id": "QDR-005",
+      "source": "decision-records/QDR-005-accessibility-is-a-release-gate.md"
+    },
+    {
+      "id": "QDR-006",
+      "source": "decision-records/QDR-006-no-silent-data-loss.md"
+    },
+    {
+      "id": "QDR-007",
+      "source": "decision-records/QDR-007-testflight-before-app-store.md"
+    },
+    {
+      "id": "QDR-008",
+      "source": "decision-records/QDR-008-evidence-based-release-approval.md"
+    },
+    {
+      "id": "QDR-009",
+      "source": "decision-records/QDR-009-regression-tests-follow-escaped-defects.md"
+    },
+    {
+      "id": "QDR-010",
+      "source": "decision-records/QDR-010-current-code-is-not-proof-of-correctness.md"
+    },
+    {
+      "id": "QDR-011",
+      "source": "decision-records/QDR-011-one-release-candidate-at-a-time.md"
+    },
+    {
+      "id": "QDR-012",
+      "source": "decision-records/QDR-012-production-monitoring-is-part-of-quality.md"
+    },
+    {
+      "id": "QDR-013",
+      "source": "decision-records/QDR-013-manual-qa-complements-automation.md"
+    },
+    {
+      "id": "QDR-014",
+      "source": "decision-records/QDR-014-known-limitations-must-be-explicit.md"
+    },
+    {
+      "id": "QDR-015",
+      "source": "decision-records/QDR-015-rollback-readiness-before-release.md"
+    }
+  ],
+  "checklistDirectory": "checklists",
+  "checklistCount": 4,
+  "checklists": [
+    {
+      "id": "app_store_readiness_checklist",
+      "source": "checklists/app_store_readiness_checklist.md"
+    },
+    {
+      "id": "release_candidate_checklist",
+      "source": "checklists/release_candidate_checklist.md"
+    },
+    {
+      "id": "smoke_test_suite",
+      "source": "checklists/smoke_test_suite.md"
+    },
+    {
+      "id": "testflight_readiness_checklist",
+      "source": "checklists/testflight_readiness_checklist.md"
+    }
+  ],
+  "matrixDirectory": "matrices",
+  "matrixCount": 5,
+  "matrices": [
+    {
+      "id": "accessibility-matrix",
+      "source": "matrices/accessibility-matrix.csv"
+    },
+    {
+      "id": "device-matrix",
+      "source": "matrices/device-matrix.csv"
+    },
+    {
+      "id": "offline-sync-matrix",
+      "source": "matrices/offline-sync-matrix.csv"
+    },
+    {
+      "id": "privacy-security-matrix",
+      "source": "matrices/privacy-security-matrix.csv"
+    },
+    {
+      "id": "risk-matrix",
+      "source": "matrices/risk-matrix.csv"
+    }
+  ],
+  "diagramCount": 7
+}

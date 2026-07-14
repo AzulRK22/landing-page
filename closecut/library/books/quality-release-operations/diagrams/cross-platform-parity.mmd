@@ -1,0 +1,8 @@
+flowchart LR
+  SharedCriteria[Shared acceptance criteria] --> iOS
+  SharedCriteria --> Android
+  SharedCriteria --> Backend
+  iOS --> EvidenceReview
+  Android --> EvidenceReview
+  Backend --> EvidenceReview
+  EvidenceReview --> Exceptions[Explicit platform exceptions]

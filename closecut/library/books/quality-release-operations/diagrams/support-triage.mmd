@@ -1,0 +1,6 @@
+flowchart TD
+  Intake --> PrivacyCheck --> Reproduce --> Classify{Severity}
+  Classify -->|Critical| Incident
+  Classify -->|High| ReleaseBacklog
+  Classify -->|Normal| ProductBacklog
+  Incident --> Communicate --> Resolve --> RegressionTest
