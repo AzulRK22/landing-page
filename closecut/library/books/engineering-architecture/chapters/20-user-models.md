@@ -1,0 +1,5 @@
+# 20. User Models
+
+The user aggregate separates authentication identity from profile and application state. Authentication owns UID and provider facts. User profile owns display-facing attributes and profile photo references. User state owns onboarding and application progress. Local and Firestore representations may differ, but stable IDs and timestamps must preserve merge behavior.
+
+Email is not a durable foreign key. UID is the authority. Profile fields used inside Circle snapshots are denormalized for continuity and must be treated as display snapshots, not live identity truth.

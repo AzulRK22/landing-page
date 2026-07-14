@@ -1,0 +1,17 @@
+sequenceDiagram
+ participant U as User
+ participant V as View/ViewModel
+ participant R as EntryRepository
+ participant L as SwiftData
+ participant Q as PendingActionQueue
+ participant S as EntrySyncService
+ participant F as Firestore
+ U->>V: Save entry
+ V->>R: save(command)
+ R->>L: upsert LocalEntry
+ R->>Q: enqueue upsert action
+ R-->>V: local success + pending
+ S->>Q: next eligible action
+ S->>F: write FirestoreEntryDTO
+ F-->>S: acknowledgement
+ S->>Q: mark complete

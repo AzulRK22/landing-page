@@ -1,0 +1,3 @@
+<h2 id="chapter-heading" tabindex="-1">Authentication</h2>
+<p>Firebase Authentication establishes remote identity. <code>AuthService</code>, <code>SessionViewModel</code>, and launch gates translate SDK state into CloseCut session state. Authentication does not by itself authorize data; Firestore and Storage rules validate ownership and Circle membership.</p>
+<p>Identity changes require cancellation of listeners, reset of session-scoped services, local ownership isolation, and prevention of data bleed between accounts. Anonymous or alternative authentication modes may be added only with a documented merge and deletion policy.</p>

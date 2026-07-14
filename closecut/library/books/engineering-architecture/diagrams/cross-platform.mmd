@@ -1,0 +1,9 @@
+flowchart LR
+ Product[Canonical Product Semantics] --> iDomain[iOS Domain]
+ Product --> aDomain[Android Domain]
+ Contract[Firebase Wire Contract] --> iDTO[iOS DTOs]
+ Contract --> aDTO[Android DTOs]
+ iDomain --> SwiftData
+ aDomain --> Room
+ iDomain --> SwiftUI
+ aDomain --> Compose

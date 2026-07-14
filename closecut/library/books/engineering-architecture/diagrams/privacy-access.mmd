@@ -1,0 +1,10 @@
+flowchart TD
+ Request --> Signed{Signed in?}
+ Signed -- No --> Deny
+ Signed -- Yes --> Owner{Owner UID?}
+ Owner -- Yes --> Allow
+ Owner -- No --> Circle{visibility=circle?}
+ Circle -- No --> Deny
+ Circle -- Yes --> Member{Active member of explicit shared Circle?}
+ Member -- Yes --> Allow
+ Member -- No --> Deny

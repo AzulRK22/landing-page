@@ -1,0 +1,10 @@
+stateDiagram-v2
+ [*] --> LocalCommitted
+ LocalCommitted --> Pending
+ Pending --> Uploading
+ Uploading --> Synchronized: success
+ Uploading --> RetryableFailure: transient
+ RetryableFailure --> Pending: backoff elapsed
+ Uploading --> Blocked: auth/validation
+ Blocked --> Pending: remediation
+ Synchronized --> [*]
