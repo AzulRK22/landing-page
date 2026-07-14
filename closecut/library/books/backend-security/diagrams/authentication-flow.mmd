@@ -11,5 +11,5 @@ sequenceDiagram
   A->>Auth: OAuth credential
   Auth-->>A: Firebase UID/session
   A->>Local: Resolve user-scoped local state
-  A->>FS: Create/merge /users/{uid}
+  A->>FS: Create/merge user profile
   FS-->>A: Profile state or rule error
