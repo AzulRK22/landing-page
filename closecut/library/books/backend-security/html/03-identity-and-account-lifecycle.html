@@ -1,0 +1,12 @@
+<h2 id="chapter-heading" tabindex="-1">Identity and Account Lifecycle</h2>
+<p>Authentication establishes a principal for remote operations, but identity alone does not grant access to all data.</p>
+<p>The public account model covers sign-in, profile creation, session transitions, recovery, sign-out, and account deletion. Each transition must preserve privacy and avoid leaking state between users on the same device.</p>
+<h3 id="requirements">Requirements</h3>
+<ul>
+<li>Authentication state changes must be explicit and observable.</li>
+<li>User-owned data remains scoped to the authenticated principal.</li>
+<li>Session loss must not silently discard unsynchronized local work.</li>
+<li>Account deletion requires coordinated local and remote cleanup.</li>
+<li>Recovery and deletion flows must avoid exposing whether another person&#x27;s account exists.</li>
+</ul>
+<p>Exact provider configuration, production credentials, and deletion runbooks are excluded from this edition.</p>

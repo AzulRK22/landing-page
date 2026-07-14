@@ -1,0 +1,12 @@
+<h2 id="chapter-heading" tabindex="-1">Cross-Platform Backend Contract</h2>
+<p>iOS and Android may use different local technologies, but they must preserve the same remote contract and product semantics.</p>
+<h3 id="shared-requirements">Shared requirements</h3>
+<ul>
+<li>Equivalent ownership and visibility rules.</li>
+<li>Equivalent authentication and account lifecycle behavior.</li>
+<li>Equivalent synchronization semantics.</li>
+<li>Compatible identifiers, timestamps, and deletion markers.</li>
+<li>Versioned evolution that supports older clients during migration.</li>
+<li>Platform-specific UI differences must not weaken privacy or authorization.</li>
+</ul>
+<p>The backend contract should remain portable enough to support future platform or infrastructure changes without rewriting the product model.</p>

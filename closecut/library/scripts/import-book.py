@@ -212,8 +212,8 @@ def import_book(args: argparse.Namespace) -> None:
 
     target.joinpath("manuscript.md").write_text(public_markdown(manuscript_path.read_text(encoding="utf-8"), True), encoding="utf-8")
     chapter_files = sorted(chapter_dir.glob("[0-9][0-9]-*.md"))
-    decision_pattern = f"{args.decision_prefix.lower()}-[0-9][0-9][0-9]-*.md"
-    decision_files = sorted(decision_dir.glob(decision_pattern))
+    decision_pattern = re.compile(rf"^{re.escape(args.decision_prefix)}-[0-9]{{3}}(?:-.+)?\.md$", re.I)
+    decision_files = sorted(path for path in decision_dir.glob("*.md") if decision_pattern.match(path.name))
 
     chapters = []
     for order, source_path in enumerate(chapter_files, 1):

@@ -1,0 +1,11 @@
+sequenceDiagram
+  participant U as Owner
+  participant A as App
+  participant L as SwiftData
+  participant Q as Pending Queue
+  participant FS as Firestore
+  U->>A: Share entry to selected Circle(s)
+  A->>L: Set visibility=circle and sharedCircleIds
+  A->>Q: Enqueue updateVisibility/updateEntry
+  Q->>FS: Idempotent owner-authorized update
+  FS-->>Q: Rule-validated result

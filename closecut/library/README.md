@@ -1,6 +1,6 @@
 # CloseCut Library
 
-The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements**, **Experience Design System**, and **Engineering Architecture** are the first three published volumes; the remaining three catalog entries are unavailable.
+The CloseCut Library publishes reviewed, public-safe product documentation. **Product Vision & Requirements**, **Experience Design System**, **Engineering Architecture**, and **Backend, Infrastructure & Security** are the first four published volumes; the remaining two catalog entries are unavailable.
 
 ## Published volumes
 
@@ -9,8 +9,9 @@ The CloseCut Library publishes reviewed, public-safe product documentation. **Pr
 | Product Vision & Requirements | `books/product-vision/` | `books/product-vision/manifest.json` | `CloseCut_Product_Vision_Requirements_v1.pdf` | 49 | 107 | 10 PDRs |
 | Experience Design System | `books/experience-design/` | `books/experience-design/manifest.json` | `CloseCut_Experience_Design_System_v1.pdf` | 12 | 132 | 8 EDRs |
 | Engineering Architecture | `books/engineering-architecture/` | `books/engineering-architecture/manifest.json` | `CloseCut_Engineering_Architecture_Public_Edition_v1.pdf` | 47 | 49 | 8 ADRs |
+| Backend, Infrastructure & Security | `books/backend-security/` | `books/backend-security/manifest.json` | `CloseCut_Backend_Infrastructure_Security_Public_Edition_v1.pdf` | 14 | 21 | 11 BDRs |
 
-All published volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Experience Design also publishes its public-safe glossary and canonical design tokens. Engineering Architecture publishes its public glossary and a regenerated, bookmarked PDF produced from the curated public manuscript because the original internal PDF was intentionally excluded.
+All published volumes use `/closecut/library/book.html?id=<book-id>` and the same dependency-free reader. Each package preserves the canonical manuscript, ordered chapter Markdown, generated semantic HTML, public Mermaid diagrams, accepted decision records, and searchable PDF. Experience Design also publishes its public-safe glossary and canonical design tokens. Engineering Architecture and Backend, Infrastructure & Security publish their public glossaries and regenerated, bookmarked PDFs produced from curated public manuscripts because their original internal PDFs were intentionally excluded.
 
 ## Publication and import policy
 
@@ -46,8 +47,9 @@ python3 -m json.tool closecut/library/data/books.json > /dev/null
 python3 -m json.tool closecut/library/books/product-vision/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/experience-design/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/engineering-architecture/manifest.json > /dev/null
+python3 -m json.tool closecut/library/books/backend-security/manifest.json > /dev/null
 xmllint --noout Sitemap.xml
 git diff --check
 ```
 
-Every later volume requires a separate content, privacy, security, claims, accessibility, and publication review before `available` becomes `true`. **Engineering Architecture requires its own public review**; Backend, Infrastructure & Security additionally requires explicit security review and a reduced public edition where appropriate.
+Every later volume requires a separate content, privacy, security, claims, accessibility, and publication review before `available` becomes `true`. Backend, Infrastructure & Security uses a security-reviewed, reduced public edition; unpublished volumes remain blocked until their own reviews are complete.

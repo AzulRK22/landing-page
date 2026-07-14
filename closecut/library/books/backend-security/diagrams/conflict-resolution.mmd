@@ -1,0 +1,8 @@
+flowchart TD
+  A[Local record] --> C{Pending/failed local mutation?}
+  B[Remote record] --> C
+  C -->|yes| L[Protect local intent; defer overwrite]
+  C -->|no| T{Compare updatedAt and deletion state}
+  T -->|remote newer| R[Apply remote snapshot]
+  T -->|local newer| Q[Keep local and ensure pending action]
+  T -->|same logical state| N[No-op / deduplicate]

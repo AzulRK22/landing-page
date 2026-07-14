@@ -3,7 +3,7 @@
     "title": "CloseCut Library",
     "subtitle": "Six books. One product truth.",
     "version": "1.0",
-    "updatedAt": "2026-07-13"
+    "updatedAt": "2026-07-14"
   },
   "books": [
     {
@@ -58,18 +58,21 @@
       "available": true
     },
     {
-      "id": "backend-infrastructure-security",
+      "id": "backend-security",
       "order": 4,
       "title": "Backend, Infrastructure & Security",
       "shortTitle": "Backend & Security",
       "subtitle": "The Canonical Data and Platform Specification",
       "version": "1.0",
       "status": "canonical",
-      "visibility": "private-review",
+      "visibility": "public",
       "description": "The data, synchronization, infrastructure, privacy, and security model of CloseCut.",
-      "readerUrl": "book.html?id=backend-infrastructure-security",
-      "pdf": null,
-      "available": false
+      "readerUrl": "book.html?id=backend-security",
+      "manifest": "books/backend-security/manifest.json",
+      "chapterCount": 14,
+      "pageCount": 21,
+      "pdf": "books/backend-security/CloseCut_Backend_Infrastructure_Security_Public_Edition_v1.pdf",
+      "available": true
     },
     {
       "id": "quality-release-operations",

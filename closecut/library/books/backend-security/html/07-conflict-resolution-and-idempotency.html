@@ -1,0 +1,12 @@
+<h2 id="chapter-heading" tabindex="-1">Conflict Resolution and Idempotency</h2>
+<p>Distributed state can diverge when devices operate offline, retries overlap, or membership changes during an active session. CloseCut therefore requires deterministic reconciliation.</p>
+<h3 id="rules">Rules</h3>
+<ul>
+<li>Repeating an operation must not create duplicate logical effects.</li>
+<li>Stable operation and entity identifiers support retry safety.</li>
+<li>Deletion tombstones prevent removed data from being resurrected.</li>
+<li>Explicit sharing changes are treated as deliberate state transitions.</li>
+<li>Membership changes invalidate access even when old content remains visible locally.</li>
+<li>Old clients must not silently overwrite newer schema semantics.</li>
+</ul>
+<p>Conflict policy should favor preserving user-authored local work while maintaining remote privacy constraints.</p>

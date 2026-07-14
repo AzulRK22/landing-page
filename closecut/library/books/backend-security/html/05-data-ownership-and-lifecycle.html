@@ -1,0 +1,12 @@
+<h2 id="chapter-heading" tabindex="-1">Data Ownership and Lifecycle</h2>
+<p>The data model separates personal history, shared context, and operational metadata. Ownership is explicit and stable across synchronization.</p>
+<h3 id="lifecycle-principles">Lifecycle principles</h3>
+<ul>
+<li>Store only what the product needs.</li>
+<li>Use stable identifiers for logical entities and retry-safe operations.</li>
+<li>Represent deletion with tombstones long enough to synchronize safely.</li>
+<li>Define retention and permanent deletion separately.</li>
+<li>Evolve schemas compatibly or through staged migration.</li>
+<li>Keep analytics and diagnostics free of private journal content.</li>
+</ul>
+<p>This edition describes the policy but omits exact collection names, field dictionaries, document paths, and migration scripts.</p>
