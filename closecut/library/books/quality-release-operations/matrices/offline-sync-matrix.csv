@@ -1,0 +1,7 @@
+Scenario,Method,Expected,Risk
+Offline create,"Create entry, terminate, relaunch, reconnect",No loss; one remote record; synced state,Critical
+Offline update,Edit synced entry offline and reconnect,Latest valid intent preserved under conflict policy,Critical
+Offline delete,"Delete offline, terminate, reconnect",No resurrection; remote soft delete consistent,Critical
+Queue retry,Transient and permanent errors,Backoff; bounded retries; actionable failed state,Critical
+Deduplication,Repeated enqueue/retry,Single logical action/result,Critical
+Multi-device,Concurrent edits/share/membership,Policy applied; no unauthorized stale access,Critical

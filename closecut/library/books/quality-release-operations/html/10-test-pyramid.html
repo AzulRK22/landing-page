@@ -1,0 +1,25 @@
+<h2 id="chapter-heading" tabindex="-1">Test Pyramid</h2>
+<h3 id="purpose">Purpose</h3>
+<p>Establish the quality contract for test pyramid so release decisions are based on observable evidence and user risk.</p>
+<h3 id="current-state">Current state</h3>
+<p>No direct automated evidence was identified for this subject.</p>
+<h3 id="quality-risk">Quality risk</h3>
+<p>This area must be assessed by user harm, reversibility, privacy boundary, data durability, platform dependency and frequency of change. Unknown behavior is treated as risk, not as a pass.</p>
+<h3 id="required-coverage">Required coverage</h3>
+<p>Use the lowest-cost test level that can prove the behavior, then add integration or UI coverage where framework boundaries, persistence, permissions, accessibility, remote authorization or user-visible recovery are involved. Use deterministic fixtures; capture build, device, OS, environment and result.</p>
+<h3 id="missing-coverage">Missing coverage</h3>
+<p>Define measurable coverage and retain execution evidence.</p>
+<h3 id="acceptance-criteria">Acceptance criteria</h3>
+<p>The defined happy path and negative paths pass; failures are visible and recoverable; no unauthorized data is exposed; core controls are accessible; offline behavior preserves intent; and evidence is linked to the release candidate.</p>
+<h3 id="release-gate">Release gate</h3>
+<p>A failure blocks release when it can cause data loss, privacy breach, inaccessible core flow, account lockout or unrecoverable user state.</p>
+<h3 id="evidence-required">Evidence required</h3>
+<p>Retain the test run, build/version, commit, environment, device/OS, fixture or account, result, defects and approver. Manual evidence expires when affected code, configuration or policy changes.</p>
+<h3 id="ownership">Ownership</h3>
+<p>Engineering owns automated correctness; the Release Owner owns execution evidence; Product owns acceptance; the Accessibility and Privacy reviewers own their respective gates.</p>
+<h3 id="near-term-improvement">Near-term improvement</h3>
+<p>Close the highest-risk evidence gap before increasing breadth. Prefer a small deterministic suite over broad flaky automation.</p>
+<h3 id="long-term-maturity">Long-term maturity</h3>
+<p>Automate repeatable checks, trend outcomes, and keep platform-specific exceptions explicit while preserving shared acceptance criteria.</p>
+<h3 id="related-decisions">Related decisions</h3>
+<p>QDR-001, QDR-008, QDR-010, QDR-014.</p>

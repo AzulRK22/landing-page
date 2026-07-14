@@ -1,0 +1,7 @@
+Device class,OS,Gate,Scope
+Primary current iPhone,Latest supported iOS,Required,"Full smoke, core journeys, accessibility"
+Oldest supported iPhone,Minimum supported iOS,Required,"Install, launch, core journeys, performance"
+Small-screen iPhone,Minimum and latest,Required,"Layout, keyboard, Dynamic Type"
+Large-screen iPhone,Latest,Required,Layout and large dataset
+"iPad, if supported",Minimum and latest,Conditional,"Orientation, navigation, layout"
+Physical device,Release OS,Required,"Sign in with Apple, notifications, performance, battery"

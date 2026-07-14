@@ -1,0 +1,4 @@
+flowchart TD
+  ScopeLock --> CleanBuild --> AutomatedChecks --> ManualMatrix --> A11yPrivacy[Accessibility and privacy gates] --> TestFlight --> ExitReview{Exit criteria met?}
+  ExitReview -- No --> Fix --> CleanBuild
+  ExitReview -- Yes --> Submit --> PhasedRelease --> Monitor

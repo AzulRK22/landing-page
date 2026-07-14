@@ -1,0 +1,7 @@
+Control,Verification,Method,Gate
+Entry ownership,Cross-user reads/writes denied,Firestore emulator + integration,Block
+Circle membership,Non-member and removed-member access denied,Rules + multi-device,Block
+Private sharing,Only intended recipients can access,Rules + UI/integration,Block
+Account deletion,Local and server data removed per policy,End-to-end audit,Block
+Logs,"No tokens, invite codes, content or PII",Static/manual log review,Block
+Analytics,Events minimized and labels accurate,Schema and App Store label review,Block

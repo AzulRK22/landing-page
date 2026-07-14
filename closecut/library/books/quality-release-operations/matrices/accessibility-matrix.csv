@@ -1,0 +1,7 @@
+Dimension,Scope,Method,Gate
+VoiceOver,"Launch, onboarding, add/edit, timeline, QuickPick, settings, deletion",Manual + targeted UI assertions,Release blocking
+Dynamic Type,All core screens through accessibility sizes,Manual matrix / snapshots where stable,Release blocking
+Reduce Motion,Transitions and animated feedback,Manual,Release blocking for task completion
+Contrast,"Text, icons, controls, states",Audit + manual,Release blocking
+Touch targets,Interactive controls,Audit + manual,Release blocking
+Focus and announcements,"Forms, errors, modals",Manual VoiceOver,Release blocking
