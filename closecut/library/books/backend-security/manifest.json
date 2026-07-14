@@ -1,0 +1,174 @@
+{
+  "id": "backend-security",
+  "order": 4,
+  "title": "Backend, Infrastructure & Security",
+  "shortTitle": "Backend & Security",
+  "subtitle": "The Canonical Data and Platform Specification",
+  "version": "1.0",
+  "status": "canonical",
+  "visibility": "public",
+  "language": "en",
+  "description": "The data, synchronization, infrastructure, privacy, and security model of CloseCut.",
+  "pdf": "CloseCut_Backend_Infrastructure_Security_Public_Edition_v1.pdf",
+  "manuscript": "manuscript.md",
+  "chapterDirectory": "chapters",
+  "htmlDirectory": "html",
+  "diagramDirectory": "diagrams",
+  "decisionDirectory": "decisions",
+  "glossary": "glossary/glossary.md",
+  "chapterCount": 14,
+  "decisionRecordCount": 11,
+  "diagramCount": 5,
+  "pageCount": 21,
+  "readingEdition": true,
+  "downloadable": true,
+  "documentStatus": "Public Reading Edition",
+  "publishedAt": "2026-07-14",
+  "updatedAt": "2026-07-14",
+  "chapters": [
+    {
+      "id": "01-platform-foundation",
+      "order": 1,
+      "title": "Platform Foundation",
+      "source": "chapters/01-platform-foundation.md",
+      "html": "html/01-platform-foundation.html"
+    },
+    {
+      "id": "02-system-context-and-boundaries",
+      "order": 2,
+      "title": "System Context and Boundaries",
+      "source": "chapters/02-system-context-and-boundaries.md",
+      "html": "html/02-system-context-and-boundaries.html"
+    },
+    {
+      "id": "03-identity-and-account-lifecycle",
+      "order": 3,
+      "title": "Identity and Account Lifecycle",
+      "source": "chapters/03-identity-and-account-lifecycle.md",
+      "html": "html/03-identity-and-account-lifecycle.html"
+    },
+    {
+      "id": "04-authorization-and-private-sharing",
+      "order": 4,
+      "title": "Authorization and Private Sharing",
+      "source": "chapters/04-authorization-and-private-sharing.md",
+      "html": "html/04-authorization-and-private-sharing.html"
+    },
+    {
+      "id": "05-data-ownership-and-lifecycle",
+      "order": 5,
+      "title": "Data Ownership and Lifecycle",
+      "source": "chapters/05-data-ownership-and-lifecycle.md",
+      "html": "html/05-data-ownership-and-lifecycle.html"
+    },
+    {
+      "id": "06-local-first-synchronization",
+      "order": 6,
+      "title": "Local-First Synchronization",
+      "source": "chapters/06-local-first-synchronization.md",
+      "html": "html/06-local-first-synchronization.html"
+    },
+    {
+      "id": "07-conflict-resolution-and-idempotency",
+      "order": 7,
+      "title": "Conflict Resolution and Idempotency",
+      "source": "chapters/07-conflict-resolution-and-idempotency.md",
+      "html": "html/07-conflict-resolution-and-idempotency.html"
+    },
+    {
+      "id": "08-security-and-privacy-principles",
+      "order": 8,
+      "title": "Security and Privacy Principles",
+      "source": "chapters/08-security-and-privacy-principles.md",
+      "html": "html/08-security-and-privacy-principles.html"
+    },
+    {
+      "id": "09-privacy-compliance-and-user-rights",
+      "order": 9,
+      "title": "Privacy, Compliance, and User Rights",
+      "source": "chapters/09-privacy-compliance-and-user-rights.md",
+      "html": "html/09-privacy-compliance-and-user-rights.html"
+    },
+    {
+      "id": "10-reliability-and-observability",
+      "order": 10,
+      "title": "Reliability and Observability",
+      "source": "chapters/10-reliability-and-observability.md",
+      "html": "html/10-reliability-and-observability.html"
+    },
+    {
+      "id": "11-cross-platform-backend-contract",
+      "order": 11,
+      "title": "Cross-Platform Backend Contract",
+      "source": "chapters/11-cross-platform-backend-contract.md",
+      "html": "html/11-cross-platform-backend-contract.html"
+    },
+    {
+      "id": "12-future-platform-evolution",
+      "order": 12,
+      "title": "Future Platform Evolution",
+      "source": "chapters/12-future-platform-evolution.md",
+      "html": "html/12-future-platform-evolution.html"
+    },
+    {
+      "id": "13-platform-governance",
+      "order": 13,
+      "title": "Platform Governance",
+      "source": "chapters/13-platform-governance.md",
+      "html": "html/13-platform-governance.html"
+    },
+    {
+      "id": "14-public-platform-decision-records",
+      "order": 14,
+      "title": "Public Platform Decision Records",
+      "source": "chapters/14-public-platform-decision-records.md",
+      "html": "html/14-public-platform-decision-records.html"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "BDR-001",
+      "source": "decisions/BDR-001.md"
+    },
+    {
+      "id": "BDR-002",
+      "source": "decisions/BDR-002.md"
+    },
+    {
+      "id": "BDR-003",
+      "source": "decisions/BDR-003.md"
+    },
+    {
+      "id": "BDR-004",
+      "source": "decisions/BDR-004.md"
+    },
+    {
+      "id": "BDR-005",
+      "source": "decisions/BDR-005.md"
+    },
+    {
+      "id": "BDR-007",
+      "source": "decisions/BDR-007.md"
+    },
+    {
+      "id": "BDR-008",
+      "source": "decisions/BDR-008.md"
+    },
+    {
+      "id": "BDR-010",
+      "source": "decisions/BDR-010.md"
+    },
+    {
+      "id": "BDR-011",
+      "source": "decisions/BDR-011.md"
+    },
+    {
+      "id": "BDR-012",
+      "source": "decisions/BDR-012.md"
+    },
+    {
+      "id": "BDR-015",
+      "source": "decisions/BDR-015.md"
+    }
+  ]
+}

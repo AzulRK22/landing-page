@@ -1,0 +1,15 @@
+flowchart LR
+  U[CloseCut User] --> IOS[iOS App]
+  IOS --> SD[(SwiftData Local Store)]
+  IOS --> AUTH[Firebase Authentication]
+  IOS --> FS[(Cloud Firestore)]
+  IOS --> FN[Callable Cloud Functions]
+  IOS --> ST[(Cloud Storage)]
+  IOS --> TMDB[TMDB API]
+  FN --> FS
+  FN --> AUTH
+  FN --> ST
+  FS --- RULES[Firestore Security Rules]
+  ST --- SRULES[Storage Security Rules]
+  AC[App Check] -. attestation .-> FS
+  AC -. attestation .-> FN

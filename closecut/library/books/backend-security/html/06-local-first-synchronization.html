@@ -1,0 +1,13 @@
+<h2 id="chapter-heading" tabindex="-1">Local-First Synchronization</h2>
+<p>CloseCut commits supported user actions locally before attempting remote replication. This protects responsiveness and preserves work during network or service failure.</p>
+<p>A durable pending-action model represents remote work that has not yet completed. Actions move through explicit states, retain retry information, and must be safe to execute more than once.</p>
+<h3 id="sync-contract">Sync contract</h3>
+<ol>
+<li>Validate user intent locally.</li>
+<li>Commit the local domain change.</li>
+<li>Enqueue the corresponding remote action.</li>
+<li>Attempt synchronization when conditions allow.</li>
+<li>Reconcile confirmed remote state.</li>
+<li>Preserve actionable failure information without exposing sensitive content.</li>
+</ol>
+<p>The public edition excludes internal queue schemas, operational telemetry fields, and recovery runbooks.</p>

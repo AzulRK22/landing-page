@@ -1,0 +1,11 @@
+flowchart TD
+  UI[User intent] --> LR[Local repository mutation]
+  LR --> SD[(SwiftData commit)]
+  SD --> Q[PendingAction enqueue]
+  Q --> W[Sync worker / explicit session sync]
+  W --> R{Remote result}
+  R -->|success| C[Mark completed and update sync metadata]
+  R -->|transient| B[Increment attempt and retry later]
+  R -->|permanent| F[Mark failed and surface recovery]
+  R -->|conflict| P[Apply conflict policy]
+  P --> REC[Reconcile local and remote]
