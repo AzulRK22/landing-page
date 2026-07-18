@@ -561,37 +561,6 @@ section.project-section[data-category].project-filter-hidden {
   line-height: 1.65;
 }
 
-/* ── Shop CTA ── */
-.shop-cta-container {
-  display: flex;
-  justify-content: flex-start;
-  margin: 1rem 0 1.5rem;
-}
-.shop-logo-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--r-lg);
-  padding: 10px 14px;
-  text-decoration: none;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  transition: border-color var(--t-fast);
-}
-.shop-logo-link:hover {
-  border-color: var(--border-3);
-}
-.shop-logo-img {
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 180ms ease;
-}
-.shop-logo-link:hover .shop-logo-img {
-  transform: translateY(-1px);
-}
-
 @media (max-width: 680px) {
   .project-header {
     flex-direction: column;

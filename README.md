@@ -120,8 +120,8 @@ CloseCut does not add analytics, advertising pixels, or third-party UI dependenc
 ├── projects.html
 ├── resume.html
 ├── tech.html
-├── Robots.txt
-└── Sitemap.xml
+├── robots.txt
+└── sitemap.xml
 ```
 
 ## Local development
@@ -161,7 +161,7 @@ The public TestFlight URL for the microsite is centralized in `closecut/closecut
 - `assets/js/home.js` — home reveals and performance metrics.
 - `assets/js/projects.js` — project filters, Swiper, and Lottie setup.
 - `assets/js/tech.js` — content reveals and Duolingo rendering.
-- `assets/js/analytics.js` — portfolio engagement and outbound-link events.
+- `assets/js/analytics.js` — shared, idempotent GA4 loader and engagement events for every standalone page.
 
 ### Duolingo data
 
@@ -176,9 +176,7 @@ The script tries the public endpoint first and can fall back to a Playwright log
 ### Styling
 
 - Runtime styles live in `assets/css/` and `closecut/closecut.css`.
-- `assets/sass/` contains the original HTML5 UP sources and legacy adjustments.
 - The portfolio background is `images/Background/bg.webp`.
-- Rebuilding the legacy Sass is not required for normal content or CloseCut maintenance.
 
 ## Release checklist
 
@@ -186,11 +184,13 @@ Before publishing changes:
 
 ```bash
 git diff --check
+node scripts/audit-site.mjs
 node --check closecut/closecut.js
+node --check assets/js/analytics.js
 node --check assets/js/home.js
 node --check assets/js/projects.js
 node --check assets/js/tech.js
-xmllint --noout Sitemap.xml
+xmllint --noout sitemap.xml
 ```
 
 Also verify:
