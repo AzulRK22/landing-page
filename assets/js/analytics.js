@@ -1,80 +1,37 @@
 /**
- * analytics.js — Google Analytics 4 Event Tracking
- * Tracks outbound clicks (especially Shopify store) + lightweight engagement events.
- *
- * Uses:
- * - data-analytics="shop-logo" / "shop-link" (preferred)
- * - fallback: any <a> that contains "shop.azulrk.com"
+ * Shared Google Analytics 4 loader and lightweight event tracking.
+ * Include this file once on every standalone HTML document.
  */
 
 (function () {
   "use strict";
 
+  const MEASUREMENT_ID = "G-4H06V4SLX7";
   const DEBUG = false;
 
-  // gtag must exist (loaded in <head>)
-  if (typeof window.gtag === "undefined") {
-    console.warn(
-      "Google Analytics (gtag) no disponible. Eventos personalizados no serán registrados.",
-    );
-    return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag =
+    window.gtag ||
+    function () {
+      window.dataLayer.push(arguments);
+    };
+
+  if (!document.querySelector(`script[data-ga4="${MEASUREMENT_ID}"]`)) {
+    const loader = document.createElement("script");
+    loader.async = true;
+    loader.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(MEASUREMENT_ID)}`;
+    loader.dataset.ga4 = MEASUREMENT_ID;
+    document.head.appendChild(loader);
+  }
+
+  if (!window.__azulrkGaInitialized) {
+    window.__azulrkGaInitialized = true;
+    window.gtag("js", new Date());
+    window.gtag("config", MEASUREMENT_ID);
   }
 
   function logDebug(...args) {
     if (DEBUG) console.log("[Analytics]", ...args);
-  }
-
-  function safeText(el) {
-    const txt = (el.textContent || "").trim();
-    return (
-      txt ||
-      el.getAttribute("aria-label") ||
-      el.getAttribute("title") ||
-      "unknown"
-    );
-  }
-
-  function getSectionId(el) {
-    return el.closest("section")?.id || "unknown";
-  }
-
-  function isShopifyHref(href) {
-    return typeof href === "string" && href.includes("shop.azulrk.com");
-  }
-
-  /**
-   * Delegated click tracking for links
-   */
-  function trackOutboundClicks() {
-    document.addEventListener("click", (e) => {
-      const link = e.target.closest("a");
-      if (!link) return;
-
-      const href = link.getAttribute("href") || "";
-      const analyticsTag = link.getAttribute("data-analytics") || "";
-
-      // Track Shopify outbound links (by tag OR by domain)
-      const shouldTrackShop =
-        analyticsTag.startsWith("shop-") || isShopifyHref(href);
-
-      if (!shouldTrackShop) return;
-
-      const label = analyticsTag || safeText(link);
-      const section = getSectionId(link);
-
-      window.gtag("event", "shop_link_click", {
-        event_category: "engagement",
-        event_label: `${section}_${label}`,
-        destination_url: href,
-        link_text: safeText(link),
-        link_id: analyticsTag || undefined,
-        source_page: window.location.pathname,
-      });
-
-      logDebug(
-        `Shop link clicked: label="${label}" section="${section}" href="${href}"`,
-      );
-    });
   }
 
   /**
@@ -121,7 +78,6 @@
    * Init
    */
   function init() {
-    trackOutboundClicks();
     trackProjectsPageEvent();
     trackEngagementTime();
     logDebug("Tracking initialized");
@@ -133,7 +89,6 @@
     init();
   }
 
-  // Optional helpers
   window.getUTMParams = function () {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -143,9 +98,5 @@
       content: params.get("utm_content"),
       term: params.get("utm_term"),
     };
-  };
-
-  window.debugUTMParams = function () {
-    console.table(window.getUTMParams());
   };
 })();

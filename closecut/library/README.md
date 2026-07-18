@@ -56,7 +56,7 @@ python3 -m json.tool closecut/library/books/engineering-architecture/manifest.js
 python3 -m json.tool closecut/library/books/backend-security/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/quality-release-operations/manifest.json > /dev/null
 python3 -m json.tool closecut/library/books/brand-marketing-growth/manifest.json > /dev/null
-xmllint --noout Sitemap.xml
+xmllint --noout sitemap.xml
 git diff --check
 ```
 
