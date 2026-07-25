@@ -4,23 +4,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CloseCut — A Private Journal for What You Watch</title>
+  <title>CloseCut — More Than Ratings for Movies and Series</title>
   <meta name="description"
-    content="Keep a private Journal of movies and series, remember why they mattered, and use your own taste history to choose what comes next." />
+    content="CloseCut is a private movie and series memory app for iPhone and iPad. Remember what you watched, understand your taste, and make the next choice easier. Public beta available on TestFlight." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#000000" />
   <meta name="apple-mobile-web-app-title" content="CloseCut" />
   <link rel="canonical" href="https://www.azulrk.com/closecut/" />
   <link rel="icon" href="../images/CloseCut/final%20icon%20closecut.webp" type="image/webp" />
   <link rel="apple-touch-icon" href="../images/CloseCut/final%20icon%20closecut.webp" />
-  <link rel="preload" as="image" href="assets/screenshots/personal-journal.webp"
-    imagesrcset="assets/screenshots/personal-journal-mobile.webp 600w, assets/screenshots/personal-journal.webp 883w"
-    imagesizes="(max-width: 720px) 78vw, 390px" />
+  <link rel="preload" as="image" href="assets/screenshots/journal-hero.webp"
+    imagesrcset="assets/screenshots/journal-hero-mobile.webp 600w, assets/screenshots/journal-hero.webp 883w"
+    imagesizes="(max-width: 720px) 76vw, 370px" />
   <meta property="og:site_name" content="CloseCut" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="CloseCut — A Private Journal for What You Watch" />
+  <meta property="og:title" content="CloseCut — More Than Ratings" />
   <meta property="og:description"
-    content="Capture the feeling, context, and memory behind every movie or series, then use your own taste history to choose what comes next." />
+    content="A private home for your movie and series memories. CloseCut 1.0 is currently in App Review, with a public beta available on TestFlight." />
   <meta property="og:url" content="https://www.azulrk.com/closecut/" />
   <meta property="og:image" content="https://www.azulrk.com/closecut/assets/social/closecut-og.png" />
   <meta property="og:image:type" content="image/png" />
@@ -28,12 +28,12 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="CloseCut logo centered on a dark purple background" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CloseCut — A Private Journal for What You Watch" />
-  <meta name="twitter:description" content="Remember what you watched, why it mattered, and what to watch next." />
+  <meta name="twitter:title" content="CloseCut — More Than Ratings" />
+  <meta name="twitter:description" content="A private home for your movie and series memories. CloseCut 1.0 is currently in App Review, with a public beta available on TestFlight." />
   <meta name="twitter:image" content="https://www.azulrk.com/closecut/assets/social/closecut-og.png" />
   <meta name="twitter:image:alt" content="CloseCut logo centered on a dark purple background" />
   <script type="application/ld+json">
-      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CloseCut","url":"https://www.azulrk.com/closecut/","applicationCategory":"EntertainmentApplication","operatingSystem":"iOS","description":"A private Journal for movies and series that helps you remember what you watched, why it mattered, and what to watch next."}
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"CloseCut","url":"https://www.azulrk.com/closecut/","applicationCategory":"EntertainmentApplication","operatingSystem":"iOS, iPadOS","description":"A private home for your movie and series memories. CloseCut 1.0 has been submitted to App Review and the public TestFlight beta remains open."}
     </script>
   <link rel="stylesheet" href="../assets/css/base.css" />
   <link rel="stylesheet" href="closecut.css" />
@@ -49,9 +49,11 @@
         aria-controls="marketing-nav"><span></span><span></span><span class="sr-only">Open navigation</span></button>
       <nav id="marketing-nav" class="marketing-nav" aria-label="CloseCut navigation">
         <a href="#top">Home</a><a href="#features">Features</a><a href="library/">Library</a><a
-          href="privacy/">Privacy</a><a href="terms/">Terms</a><a href="support/">Support</a><a href="../index.html"
-          class="nav-secondary">Portfolio</a><a href="#testflight" class="nav-cta" data-testflight-link>Join
-          TestFlight</a>
+          href="privacy/" data-analytics="privacy-link" data-analytics-location="navigation">Privacy</a><a
+          href="terms/">Terms</a><a href="support/" data-analytics="support-link"
+          data-analytics-location="navigation">Support</a><a href="../index.html"
+          class="nav-secondary">Portfolio</a><a href="#testflight" class="nav-cta" data-release-cta
+          data-cta-location="navigation">Join the public beta</a>
       </nav>
     </div>
   </header>
@@ -61,22 +63,22 @@
       <div class="hero-copy reveal">
         <div class="product-lockup"><img src="../images/CloseCut/final%20icon%20closecut.webp" alt="CloseCut app icon"
             width="64" height="64" /><span>CloseCut for iPhone</span></div>
-        <p class="eyebrow">Private by default · Currently in beta</p>
-        <h1 id="hero-title">A private Journal for what you watch.</h1>
-        <p class="hero-lede">Capture the feeling, context, and memory behind every movie or series, then use your own
-          taste history to choose what comes next.</p>
-        <div class="button-row"><a class="button button-primary" href="#testflight" data-testflight-link>Join the
-            TestFlight Beta <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="#features">Explore
-            the product</a></div>
-        <p class="fine-print">Internal TestFlight beta · No ads, subscriptions, or in-app purchases in the current
-          version.</p>
+        <p class="eyebrow" data-release-eyebrow>Submitted to the App Store</p>
+        <h1 id="hero-title">More than ratings.</h1>
+        <p class="hero-lede">CloseCut is a private home for your movie and series memories—remember what you watched, understand your taste, and make the next choice easier.</p>
+        <div class="button-row"><a class="button button-primary" href="#testflight" data-release-cta
+            data-cta-location="hero-primary">Join the public beta <span aria-hidden="true">↗</span></a><a
+            class="button button-quiet" href="#features" data-analytics="explore-cta"
+            data-analytics-location="hero-secondary">Explore CloseCut</a></div>
+        <p class="fine-print"><span data-release-status>CloseCut 1.0 is currently in App Review.</span> <span
+            data-release-supporting>The public beta remains available through TestFlight.</span></p>
       </div>
-      <figure class="hero-device reveal">
-        <div class="screenshot-frame screenshot-frame-hero">
+      <figure class="hero-device feature-art feature-art-full reveal">
+        <div class="feature-art-shell">
           <picture>
-            <source media="(max-width: 720px)" srcset="assets/screenshots/personal-journal-mobile.webp" /><img
-              src="assets/screenshots/personal-journal.webp"
-              alt="CloseCut Journal showing recent watch memories and controls to add past watches" width="883"
+            <source media="(max-width: 720px)" srcset="assets/screenshots/journal-hero-mobile.webp" /><img
+              src="assets/screenshots/journal-hero.webp"
+              alt="CloseCut Journal showing recent private watch memories and controls to add past watches" width="883"
               height="1920" fetchpriority="high" />
           </picture>
         </div>
@@ -96,22 +98,22 @@
     <div id="features">
       <section class="product-section marketing-container" aria-labelledby="journal-title">
         <div class="section-copy reveal"><span class="section-number">01</span>
-          <p class="eyebrow">Private Journal</p>
-          <h2 id="journal-title">Keep the memory behind the title.</h2>
-          <p>Build a personal watch history with moods, notes, tags, quotes, verdicts, watch context, and cinema
-            details. Entries begin private and stay yours until you explicitly share them.</p>
+          <p class="eyebrow">Personal memory</p>
+          <h2 id="journal-title">Keep the mood, moment, and meaning.</h2>
+          <p>Entry Detail keeps the personal context behind a title together: memory, key moment, verdict, feelings,
+            watch context, and the signals you chose to save.</p>
           <ul class="feature-list">
-            <li>Rich memories, not public performance</li>
-            <li>Movies and series together</li>
-            <li>Private by default</li>
+            <li>Moods, notes and context</li>
+            <li>Preserve the moment with Entry Detail</li>
+            <li>Local-first personal history</li>
           </ul>
         </div>
-        <figure class="product-shot reveal">
-          <div class="screenshot-frame">
+        <figure class="product-shot feature-art feature-art-crop feature-art-entry reveal">
+          <div class="feature-art-shell">
             <picture>
               <source media="(max-width: 720px)" srcset="assets/screenshots/entry-detail-mobile.webp" /><img
                 src="assets/screenshots/entry-detail.webp"
-                alt="CloseCut entry detail showing a title, watch date, personal memory, quote, and verdict" width="883"
+                alt="Entry Detail showing a saved memory, key moment, verdict, and feelings for one movie" width="883"
                 height="1920" loading="lazy" decoding="async" />
             </picture>
           </div>
@@ -120,8 +122,8 @@
 
       <section class="product-section product-section-alt feature-showcase" aria-labelledby="quick-add-title">
         <div class="marketing-container product-grid">
-          <figure class="product-shot reveal">
-            <div class="screenshot-frame">
+          <figure class="product-shot feature-art feature-art-crop reveal">
+            <div class="feature-art-shell">
               <picture>
                 <source media="(max-width: 720px)" srcset="assets/screenshots/quick-add-mobile.webp" /><img
                   src="assets/screenshots/quick-add.webp"
@@ -149,18 +151,18 @@
 
       <section class="product-section marketing-container" aria-labelledby="timeline-title">
         <div class="section-copy reveal"><span class="section-number">03</span>
-          <p class="eyebrow">Timeline</p>
-          <h2 id="timeline-title">See how your taste becomes a history.</h2>
-          <p>Revisit recent memories, notice recurring signals, and see which entries are private or shared. The
-            Timeline grows from the moments you choose to keep.</p>
+          <p class="eyebrow">Find and revisit</p>
+          <h2 id="timeline-title">Search, filter, and return to any memory.</h2>
+          <p>Library brings Journal entries into one searchable view with media, favorite, shared, and recency
+            filters.</p>
         </div>
-        <figure class="product-shot reveal">
-          <div class="screenshot-frame">
+        <figure class="product-shot feature-art feature-art-crop reveal">
+          <div class="feature-art-shell">
             <picture>
-              <source media="(max-width: 720px)" srcset="assets/screenshots/timeline-mobile.webp" /><img
-                src="assets/screenshots/timeline.webp"
-                alt="CloseCut Timeline showing Journal totals, private and shared counts, taste signals, and recent watches"
-                width="883" height="1920" loading="lazy" decoding="async" />
+              <source media="(max-width: 720px)" srcset="assets/screenshots/library-mobile.webp" /><img
+                src="assets/screenshots/library.webp"
+                alt="Library view with saved titles, filters, and search" width="883" height="1920" loading="lazy"
+                decoding="async" />
             </picture>
           </div>
         </figure>
@@ -168,8 +170,8 @@
 
       <section class="product-section product-section-alt feature-showcase" aria-labelledby="quickpick-title">
         <div class="marketing-container product-grid">
-          <figure class="product-shot reveal">
-            <div class="screenshot-frame">
+          <figure class="product-shot feature-art feature-art-crop reveal">
+            <div class="feature-art-shell">
               <picture>
                 <source media="(max-width: 720px)" srcset="assets/screenshots/quickpick-mobile.webp" /><img
                   src="assets/screenshots/quickpick.webp"
@@ -180,9 +182,8 @@
           </figure>
           <div class="section-copy reveal"><span class="section-number">04</span>
             <p class="eyebrow">QuickPick</p>
-            <h2 id="quickpick-title">One private pick, with a reason.</h2>
-            <p>QuickPick is rule-based and grounded in your Journal. It uses signals such as moods, tags, genres, and
-              past entries to offer a focused option and explain why it appeared.</p>
+            <h2 id="quickpick-title">One thoughtful pick, with a reason.</h2>
+            <p>QuickPick uses explainable, rule-based signals from your Journal to narrow the choice.</p>
             <div class="feature-notes">
               <article><strong>Understand the pick</strong><span>See the taste signals that brought a title
                   forward.</span></article>
@@ -191,104 +192,130 @@
               <article><strong>Stay in control</strong><span>Save it, mark it watched, dismiss it, or ask for
                   another.</span></article>
             </div>
+            <p class="honest-note">QuickPick requires at least three eligible Journal entries and becomes more useful
+              as your history grows.</p>
           </div>
         </div>
       </section>
 
-      <section class="product-section marketing-container" aria-labelledby="watchlist-title">
+      <section class="product-section marketing-container" aria-labelledby="battle-title">
         <div class="section-copy reveal"><span class="section-number">05</span>
-          <p class="eyebrow">Want to Watch</p>
-          <h2 id="watchlist-title">Save the possibility. Decide when you are ready.</h2>
-          <p>Keep titles for later, search your list, compare them privately, or turn one into a Journal entry or Watch
-            Plan when the moment arrives.</p>
+          <p class="eyebrow">Decide your way</p>
+          <h2 id="battle-title">Choose in the way that fits the moment.</h2>
+          <p>Use guided choices, take turns with Pass &amp; Play on one device, or decide with shared Circle context.</p>
+          <ul class="feature-list">
+            <li>Choose for Me</li>
+            <li>Pass &amp; Play</li>
+            <li>Play with a Circle</li>
+          </ul>
         </div>
-        <figure class="product-shot reveal">
-          <div class="screenshot-frame">
+        <figure class="product-shot feature-art feature-art-crop reveal">
+          <div class="feature-art-shell">
             <picture>
-              <source media="(max-width: 720px)" srcset="assets/screenshots/want-to-watch-mobile.webp" /><img
-                src="assets/screenshots/want-to-watch.webp"
-                alt="Want to Watch list with saved titles and options to search or compare the list" width="883"
-                height="1920" loading="lazy" decoding="async" />
+              <source media="(max-width: 720px)" srcset="assets/screenshots/battle-mobile.webp" /><img
+                src="assets/screenshots/battle.webp"
+                alt="Battle screen offering Choose for Me, Pass and Play on one device, and Circle-based choices"
+                width="883" height="1920" loading="lazy" decoding="async" />
             </picture>
           </div>
         </figure>
       </section>
     </div>
 
-    <section class="privacy-feature" id="privacy" aria-labelledby="privacy-title">
-      <div class="marketing-container privacy-grid">
-        <div class="section-copy reveal"><span class="section-number">06</span>
-          <p class="eyebrow">Privacy</p>
-          <h2 id="privacy-title">Private first. Sharing is a choice.</h2>
-          <p>CloseCut is local-first with supported Firebase synchronization. Journal entries are private by default,
-            and sharing happens only when you explicitly select a Circle.</p>
-          <div class="privacy-cards">
-            <article><strong>Local-first</strong><span>Supported content is written locally before pending sync.</span>
-            </article>
-            <article><strong>Explicit sharing</strong><span>You choose the entry and the private Circle.</span>
-            </article>
-            <article><strong>Account controls</strong><span>Password reset, sign out, and account deletion are
-                available.</span></article>
-            <article><strong>No advertising model</strong><span>No ads, subscriptions, or in-app purchases in the
-                current version.</span></article>
-          </div>
-          <div class="text-links"><a href="privacy/">Privacy Policy</a><a href="privacy/es/" lang="es">Política de
-              Privacidad</a><a href="terms/">Terms of Use</a></div>
-        </div>
-        <figure class="product-shot privacy-shot reveal">
-          <div class="screenshot-frame">
-            <picture>
-              <source media="(max-width: 720px)" srcset="assets/screenshots/privacy-settings-mobile.webp" /><img
-                src="assets/screenshots/privacy-settings.webp"
-                alt="CloseCut Settings showing profile, notifications, appearance, language, and Privacy controls"
-                width="883" height="1920" loading="lazy" decoding="async" />
-            </picture>
-          </div>
-        </figure>
-      </div>
-    </section>
-
     <section class="social-section marketing-container" aria-labelledby="circles-title">
-      <div class="section-copy reveal"><span class="section-number">07</span>
-        <p class="eyebrow">Circles</p>
-        <h2 id="circles-title">For the people you actually watch with.</h2>
-        <p>Create private Circles, share selected entries, and see permitted comments, reactions, and activity with
-          people you trust. CloseCut is not a public social network.</p>
+      <div class="section-copy reveal"><span class="section-number">06</span>
+        <p class="eyebrow">Trusted coordination</p>
+        <h2 id="circles-title">Turn a shared choice into a real plan.</h2>
+        <p>Share selected memories with a private Circle, discuss a title, and keep the plan in context.</p>
+        <ul class="feature-list">
+          <li>Membership-based private Circles</li>
+          <li>Comments, reactions, and explicit sharing</li>
+          <li>Proposed, waiting, confirmed, and follow-up plan states</li>
+          <li>Local Watch Plan reminders</li>
+        </ul>
+        <p class="honest-note">Circle QuickPick requires at least three eligible memories already shared in that Circle
+          context.</p>
       </div>
-      <figure class="product-shot reveal">
-        <div class="screenshot-frame">
+      <figure class="product-shot feature-art feature-art-crop reveal">
+        <div class="feature-art-shell">
           <picture>
-            <source media="(max-width: 720px)" srcset="assets/screenshots/circles-watch-plan-mobile.webp" /><img
-              src="assets/screenshots/circles-watch-plan.webp"
-              alt="CloseCut Circles screen with private Circle controls and upcoming Watch Plans" width="883"
-              height="1920" loading="lazy" decoding="async" />
+            <source media="(max-width: 720px)" srcset="assets/screenshots/circles-plans-mobile.webp" /><img
+              src="assets/screenshots/circles-plans.webp"
+              alt="Private Circles and Watch Plans showing proposed, waiting, confirmed, and follow-up states"
+              width="883" height="1920" loading="lazy" decoding="async" />
           </picture>
         </div>
       </figure>
     </section>
 
-    <section class="watch-plan-section" aria-labelledby="plans-title">
-      <div class="marketing-container watch-plan-inner reveal">
-        <p class="eyebrow">Watch Together</p>
-        <h2 id="plans-title">Make a plan. Keep it simple.</h2>
-        <p>Choose a title, propose a time or place, invite Circle members, and collect responses. Watch Plans support
-          thoughtful coordination at your own pace.</p>
-        <div class="plan-flow" aria-label="Watch Plan flow"><span>Choose a title</span><i
-            aria-hidden="true">→</i><span>Propose a plan</span><i aria-hidden="true">→</i><span>Collect responses</span>
+    <section class="product-section product-section-alt feature-showcase" aria-labelledby="insights-title">
+      <div class="marketing-container product-grid">
+        <figure class="product-shot feature-art feature-art-crop reveal">
+          <div class="feature-art-shell">
+            <picture>
+              <source media="(max-width: 720px)" srcset="assets/screenshots/insights-mobile.webp" /><img
+                src="assets/screenshots/insights.webp"
+                alt="Insights showing a Taste Signature, movie and series breakdown, and genre patterns" width="883"
+                height="1920" loading="lazy" decoding="async" />
+            </picture>
+          </div>
+        </figure>
+        <div class="section-copy reveal"><span class="section-number">07</span>
+          <p class="eyebrow">Insights</p>
+          <h2 id="insights-title">See the shape of your taste.</h2>
+          <p>Discover patterns across what you remember, rewatch, and choose.</p>
+          <p class="honest-note">Insights appear as your history grows. Some breakdowns can appear from three active
+            entries where supported. Taste Signature requires at least five active entries and enough supported
+            signals.</p>
         </div>
       </div>
     </section>
 
-    <section class="cinema-section marketing-container" aria-labelledby="cinema-title">
-      <div class="cinema-card reveal">
-        <div><span class="section-number">08</span>
-          <p class="eyebrow">Cinema Memories</p>
-          <h2 id="cinema-title">Remember the room, not just the release.</h2>
-          <p>Save cinema name, room type, screen, audio, comfort, and the details that shaped the experience. It stays
-            part of your personal memory—not a public theater review.</p>
+    <section class="privacy-feature" id="privacy" aria-labelledby="privacy-title">
+      <div class="marketing-container privacy-editorial">
+        <div class="section-copy reveal"><span class="section-number">08</span>
+          <p class="eyebrow">Privacy</p>
+          <h2 id="privacy-title">Private by default.</h2>
+          <p>Your personal memories stay private unless you explicitly choose to share them with a Circle.</p>
+          <div class="privacy-cards">
+            <article><strong>Local-first personal history</strong><span>Supported personal data is written locally
+                first and may synchronize through Firebase when available.</span></article>
+            <article><strong>Explicit Circle sharing</strong><span>A personal memory is shared only when you choose the
+                entry and its Circle.</span></article>
+            <article><strong>No advertising-based tracking</strong><span>CloseCut does not use ads or
+                advertising-based tracking.</span></article>
+            <article><strong>Controls remain yours</strong><span>Manage sharing, export supported content, sign out, or
+                request account deletion from the app.</span></article>
+          </div>
+          <div class="text-links"><a href="privacy/" data-analytics="privacy-link"
+              data-analytics-location="privacy-section-en">Privacy Policy</a><a href="privacy/es/" lang="es"
+              data-analytics="privacy-link" data-analytics-location="privacy-section-es">Política de
+              Privacidad</a><a href="terms/">Terms of Use</a></div>
         </div>
-        <div class="cinema-tags" aria-label="Examples of cinema context"><span>Room type</span><span>Great
-            screen</span><span>Great sound</span><span>Comfort</span><span>Experience notes</span></div>
+      </div>
+    </section>
+
+    <section class="also-section marketing-container" aria-labelledby="also-title">
+      <div class="also-inner reveal">
+        <p class="eyebrow">Also in CloseCut</p>
+        <h2 id="also-title">More features you’ll find</h2>
+        <ul class="also-list">
+          <li>Want to Watch</li>
+          <li>Cinema context</li>
+          <li>Awards Picks</li>
+          <li>Wrap summaries</li>
+          <li>Shareable cards</li>
+          <li>Calendar export</li>
+          <li>Light, Dark and System</li>
+          <li>English, Spanish, Brazilian Portuguese</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="devices-section marketing-container" aria-labelledby="devices-title">
+      <div class="devices-inner reveal"><p class="eyebrow">Built for</p>
+        <h2 id="devices-title">Built for iPhone and iPad</h2>
+        <p>Available in English, Spanish, and Brazilian Portuguese. Light, Dark, and System appearance supported.</p>
       </div>
     </section>
 
@@ -296,13 +323,58 @@
       <div class="marketing-container testflight-inner reveal"><img
           src="../images/CloseCut/final%20icon%20closecut.webp" alt="CloseCut app icon" width="88" height="88"
           loading="lazy" />
-        <p class="eyebrow">Help shape CloseCut</p>
-        <h2 id="testflight-title">Join the TestFlight Beta.</h2>
-        <p>Try the current iPhone beta and share feedback while CloseCut continues to take shape.</p><a
-          class="button button-primary" href="support/" data-testflight-link>Join the TestFlight Beta <span
-            aria-hidden="true">↗</span></a><small>Requires Apple's TestFlight app. Beta builds may change.</small>
+        <p class="eyebrow" data-release-final-eyebrow>Public beta available</p>
+        <h2 id="testflight-title" data-release-final-title>Try CloseCut while 1.0 is in App Review.</h2>
+        <p data-release-final-body>Build your history, try QuickPick, and share focused feedback through TestFlight.</p><a
+          class="button button-primary" href="support/" data-release-cta data-cta-location="final-cta">Join the public
+          beta <span aria-hidden="true">↗</span></a><small data-release-fine-print>Requires Apple’s TestFlight app.
+          Beta availability may change.</small>
       </div>
     </section>
+
+    <section class="faq-section marketing-container" aria-labelledby="faq-title">
+      <div class="faq-inner reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 id="faq-title">Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary class="faq-toggle" data-qa="app-store">Is CloseCut available on the App Store?</summary>
+            <div class="faq-body" data-release-faq>No. CloseCut 1.0 has been submitted and is currently in App Review.
+              The public TestFlight beta remains open.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="social">What can a Circle see?</summary>
+            <div class="faq-body">Only content explicitly shared with that Circle and Circle-scoped activity.
+              Membership does not expose the private Journal.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="ai">Does CloseCut use AI recommendations?</summary>
+            <div class="faq-body">No. QuickPick currently uses explainable, rule-based signals from your history.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="streaming">Does CloseCut show where a title is streaming?</summary>
+            <div class="faq-body">No. CloseCut uses TMDB for title metadata but does not currently provide streaming availability.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="devices">What devices and languages are supported?</summary>
+            <div class="faq-body">CloseCut is built for iPhone and iPad and supports English, Spanish, and Brazilian Portuguese.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="quickpick">When does QuickPick become available?</summary>
+            <div class="faq-body">QuickPick requires at least three eligible Journal entries and becomes more useful as
+              your history grows.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="insights">When do Insights appear?</summary>
+            <div class="faq-body">Some insights can appear after several active entries. Taste Signature requires at
+              least five active entries and enough supported signals.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="battle">Is Battle multiplayer?</summary>
+            <div class="faq-body">No. Pass &amp; Play works on one device, while Circle-based choices use shared Circle
+              context. It is not remote multiplayer.</div>
+          </details>
+          <details><summary class="faq-toggle" data-qa="export">Can CloseCut export or share content?</summary>
+            <div class="faq-body">You can explicitly share generated cards through the iOS share sheet and export
+              supported Watch Plans to a calendar. The selected external service handles the exported content under
+              its own policies.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="marketing-footer">
@@ -311,11 +383,14 @@
             height="36" loading="lazy" /><span>CloseCut</span></a>
         <p>A private Journal for movies and series, independently made.</p>
       </div>
-      <nav aria-label="Product links"><strong>Product</strong><a href="#features">Features</a><a
-          href="#privacy">Privacy</a><a href="support/">Support</a><a href="#testflight"
-          data-testflight-link>TestFlight</a></nav>
-      <nav aria-label="Legal links"><strong>Legal</strong><a href="privacy/">Privacy EN</a><a href="privacy/es/"
-          lang="es">Privacy ES</a><a href="terms/">Terms</a><a href="../index.html">Portfolio</a></nav>
+        <nav aria-label="Product links"><strong>Product</strong><a href="#features">Features</a><a
+          href="#privacy">Privacy</a><a href="support/" data-analytics="support-link"
+          data-analytics-location="footer-product">Support</a><a href="#testflight" data-release-cta
+          data-cta-location="footer-product">Join the public beta</a></nav>
+        <nav aria-label="Legal links"><strong>Legal</strong><a href="privacy/" data-analytics="privacy-link"
+          data-analytics-location="footer-legal-en">Privacy EN</a><a href="privacy/es/" lang="es"
+          data-analytics="privacy-link" data-analytics-location="footer-legal-es">Privacy ES</a><a
+          href="terms/">Terms</a><a href="../index.html">Portfolio</a></nav>
       <div class="tmdb-attribution"><a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer"><img
             src="assets/TMDBLogo.png" alt="The Movie Database" width="147" height="83" loading="lazy" /></a>
         <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>

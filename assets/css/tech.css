@@ -157,195 +157,30 @@
   text-decoration: underline;
 }
 
-/* ── Duolingo panel ── */
-#duolingo.panel {
-  padding: 3.5rem 0;
-  border-top: 1px solid var(--border);
-}
-.section-head {
-  margin-bottom: 1.5rem;
-}
-.section-head h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 700;
-  color: var(--cream);
-  margin: 0 0 0.3rem;
-}
-.section-head .sub {
-  font-size: 0.875rem;
-  color: var(--ink-2);
-  margin: 0;
-}
-
-.duo-card {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 1.5rem 1.75rem;
-  color: var(--cream);
-  max-width: 580px;
-}
-
-.duo-row.top {
+.capability-grid {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
-.duo-appicon img {
-  width: 44px;
-  height: 44px;
-  display: block;
-}
 
-.duo-streak-line {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: clamp(1rem, 1.5vw + 0.75rem, 1.4rem);
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--cream);
-}
-.duo-streak small {
-  font-size: 0.75rem;
-  color: var(--ink-3);
-  font-weight: 400;
-  font-family: var(--font-body);
-}
-
-.flame {
-  width: 26px;
-  height: 26px;
-  border-radius: var(--r-pill);
-  background: linear-gradient(135deg, #ff9800, #ff5722);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.flame::before {
-  content: "🔥";
-  font-size: 14px;
-}
-
-.duo-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.55rem 1rem;
-  border-radius: var(--r-md);
-  background: var(--surface-4);
-  border: 1px solid var(--border-2);
-  color: var(--cream);
-  font-size: 0.82rem;
-  font-weight: 500;
-  font-family: var(--font-body);
-  text-decoration: none;
-  transition:
-    background var(--t-fast),
-    border-color var(--t-fast);
-}
-.duo-btn:hover {
-  background: var(--surface-4);
-  border-color: var(--border-3);
-}
-
-.duo-divider {
-  margin: 1.1rem 0;
-  border: 0;
-  height: 1px;
-  background: var(--border);
-}
-
-.duo-block + .duo-block {
-  margin-top: 0.8rem;
-}
-.duo-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-  margin-bottom: 0.5rem;
-}
-
-.duo-langlist {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.duo-lang {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--surface-3);
+.capability-grid article {
+  padding: 1.4rem;
   border: 1px solid var(--border);
-  border-radius: var(--r-pill);
-  padding: 0.3rem 0.7rem;
-  font-size: 0.82rem;
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
 }
-.duo-lang .flag {
+
+.capability-grid h3 {
+  margin: 0 0 0.55rem;
+  color: var(--cream);
   font-size: 1rem;
-  line-height: 1;
-}
-.duo-lang .name {
-  font-weight: 500;
-  color: var(--cream);
-}
-.duo-lang .lvl {
-  font-size: 0.72rem;
-  font-weight: 600;
-  background: rgba(26, 108, 255, 0.15);
-  color: #7ab0ff;
-  padding: 1px 6px;
-  border-radius: var(--r-sm);
-}
-.duo-lang .xp {
-  font-size: 0.72rem;
-  color: var(--ink-3);
 }
 
-.duo-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
+.capability-grid p {
   margin: 0;
-  list-style: none;
-}
-.duo-stat {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--surface-3);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
-  padding: 0.35rem 0.65rem;
-  font-size: 0.82rem;
-  color: var(--cream);
-}
-
-.duo-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-.duo-badge {
-  background: var(--warm-dim);
-  border: 1px solid rgba(224, 122, 58, 0.2);
-  color: var(--warm);
-  border-radius: var(--r-md);
-  padding: 0.3rem 0.55rem;
-  font-size: 0.78rem;
-  font-weight: 600;
+  color: var(--ink-2);
+  font-size: 0.84rem;
+  line-height: 1.65;
 }
 
 /* ── Reveal ── */
@@ -359,6 +194,15 @@
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.media-cta {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.media-cta .btn-primary {
+  display: inline-flex;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -375,18 +219,8 @@
 
 /* ── Responsive ── */
 @media (max-width: 760px) {
-  .duo-row.top {
+  .capability-grid {
     grid-template-columns: 1fr;
-    justify-items: center;
-    text-align: center;
-    gap: 0.75rem;
-  }
-  .duo-btn {
-    width: 100%;
-    max-width: 320px;
-  }
-  .duo-streak-line {
-    justify-content: center;
   }
   .tiktok-grid {
     grid-template-columns: 1fr;

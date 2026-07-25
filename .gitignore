@@ -1,3 +1,4 @@
-# Source screenshots are retained locally after verified WebP conversion.
-closecut/assets/[1-8]-*.png
-closecut/assets/[1-8]-*:*.png
+# Local operating-system and Python build artifacts.
+.DS_Store
+__pycache__/
+*.pyc

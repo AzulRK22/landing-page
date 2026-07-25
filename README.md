@@ -46,7 +46,7 @@ The main site is designed as more than a project gallery. It includes:
 
 ## Independent product: CloseCut
 
-CloseCut is one part of the wider portfolio: a private, local-first iOS Journal that helps people remember what they watched, why it mattered, and what to watch next. It is currently available as an internal TestFlight beta.
+CloseCut is one part of the wider portfolio: a private, local-first iOS Journal that helps people remember what they watched, why it mattered, and what to watch next. Public TestFlight beta available. CloseCut 1.0 has been submitted to the App Store and is currently in App Review.
 
 Its independent `/closecut/` microsite includes:
 
@@ -94,7 +94,6 @@ CloseCut does not add analytics, advertising pixels, or third-party UI dependenc
 ```text
 .
 ├── assets/
-│   ├── animations/          # Lottie assets
 │   ├── css/                 # Shared and page-level portfolio styles
 │   ├── data/                # Local content data
 │   ├── js/                  # Portfolio behavior and analytics
@@ -114,8 +113,7 @@ CloseCut does not add analytics, advertising pixels, or third-party UI dependenc
 ├── docs/                     # Resume PDF
 ├── images/                   # Portfolio and shared brand imagery
 ├── scripts/
-│   ├── convert_images_to_webp.py
-│   └── update-duo.mjs
+│   └── convert_images_to_webp.py
 ├── index.html
 ├── projects.html
 ├── resume.html
@@ -141,37 +139,28 @@ Using a server instead of opening files directly ensures folder routes, relative
 
 ## CloseCut asset workflow
 
-Real iOS screenshots are converted into optimized full-size and mobile WebP variants with the existing conversion script:
+The optimized desktop and mobile WebP pairs used by the landing live in
+`closecut/assets/screenshots/`. Their current source, dimensions, quality settings, and replacement
+history are recorded in `audit/README.md`; obsolete conversion masters are not shipped.
 
-```bash
-python3 scripts/convert_images_to_webp.py --closecut-screenshots
-```
-
-The optional conversion utility requires [Pillow](https://pillow.readthedocs.io/) in the active Python environment. The website itself does not depend on Python or Pillow at runtime.
-
-Generated assets use descriptive kebab-case names inside `closecut/assets/screenshots/`. Source PNG screenshots are retained locally as conversion masters and ignored by Git.
-
-The public TestFlight URL for the microsite is centralized in `closecut/closecut.js`. Update `TESTFLIGHT_URL` there if the beta destination changes; every element marked with `data-testflight-link` reads from that constant.
+Release status and destinations are centralized in `CLOSECUT_RELEASE` inside
+`closecut/closecut.js`. Elements marked with `data-release-cta` receive the validated destination and
+state-appropriate copy at runtime.
 
 ## Content and maintenance
 
 ### Portfolio scripts
 
 - `assets/js/nav.js` — shared mobile navigation.
-- `assets/js/home.js` — home reveals and performance metrics.
+- `assets/js/home.js` — lightweight home-section reveals.
 - `assets/js/projects.js` — project filters, Swiper, and Lottie setup.
-- `assets/js/tech.js` — content reveals and Duolingo rendering.
-- `assets/js/analytics.js` — shared, idempotent GA4 loader and engagement events for every standalone page.
+- `assets/js/tech.js` — accessible content reveals for Engineering & Media.
+- `assets/js/analytics.js` — shared GA4 loader with explicit event/property allowlists.
 
-### Duolingo data
-
-The widget reads from `assets/data/duolingo.json`. Refresh it with:
-
-```bash
-node scripts/update-duo.mjs
-```
-
-The script tries the public endpoint first and can fall back to a Playwright login flow. That fallback requires Playwright to be available locally. Environment variables such as `DUO_PROFILE`, `DUO_USER`, and `DUO_PASS` may be required and must never be committed.
+The home language-learning snapshot is refreshed daily by
+`.github/workflows/update-language-learning.yml`. The updater stores only the public profile URL,
+streak, total XP, summarized course XP, and snapshot date in
+`assets/data/language-learning.json`; it requires no account credentials or browser automation.
 
 ### Styling
 

@@ -636,3 +636,20 @@ section.project-section[data-category].project-filter-hidden {
     font-size: 0.82rem;
   }
 }
+
+.project-stack {
+  margin-bottom: 1rem;
+}
+
+.tag-muted {
+  opacity: 0.75;
+}
+
+.projects-flagship {
+  max-width: 760px;
+  margin: 1.5rem auto 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+}

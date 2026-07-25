@@ -34,61 +34,6 @@
     if (DEBUG) console.log("[Analytics]", ...args);
   }
 
-  /**
-   * Page-level event for projects page (avoid manual page_view duplication)
-   */
-  function trackProjectsPageEvent() {
-    const pathname = window.location.pathname;
-
-    if (pathname.includes("projects.html")) {
-      window.gtag("event", "projects_view", {
-        event_category: "navigation",
-        page_title: document.title,
-        page_location: window.location.href,
-        source_page: pathname,
-      });
-
-      logDebug("projects_view fired");
-    }
-  }
-
-  /**
-   * Engagement time (very lightweight)
-   */
-  function trackEngagementTime() {
-    let fired = false;
-
-    const timer = setTimeout(() => {
-      if (fired) return;
-      fired = true;
-
-      window.gtag("event", "engaged_10s", {
-        event_category: "engagement_time",
-        engagement_type: "extended_view",
-        page: window.location.pathname,
-      });
-
-      logDebug("engaged_10s fired");
-    }, 10000);
-
-    window.addEventListener("beforeunload", () => clearTimeout(timer));
-  }
-
-  /**
-   * Init
-   */
-  function init() {
-    trackProjectsPageEvent();
-    trackEngagementTime();
-    logDebug("Tracking initialized");
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
-
   window.getUTMParams = function () {
     const params = new URLSearchParams(window.location.search);
     return {
@@ -99,4 +44,88 @@
       term: params.get("utm_term"),
     };
   };
+
+  const CLOSECUT_EVENTS = new Set([
+    "testflight_cta_click",
+    "explore_closecut_click",
+    "privacy_link_click",
+    "support_link_click",
+    "faq_open",
+  ]);
+  const CLOSECUT_PROPERTIES = new Set([
+    "location",
+    "release_state",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+  ]);
+  const PORTFOLIO_EVENTS = new Set([
+    "selected_project_click",
+    "resume_download",
+    "contact_click",
+    "closecut_visit",
+  ]);
+  const PORTFOLIO_PROPERTIES = new Set([
+    "location",
+    "project",
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+  ]);
+
+  function allowlistedPayload(payload, properties) {
+    const allowed = {};
+    const utm = window.getUTMParams?.() || {};
+    if (payload && typeof payload === "object") {
+      Object.keys(payload).forEach((key) => {
+        if (properties.has(key) && typeof payload[key] === "string" && payload[key]) {
+          allowed[key] = payload[key].slice(0, 100);
+        }
+      });
+    }
+    Object.entries({
+      utm_source: utm.source,
+      utm_medium: utm.medium,
+      utm_campaign: utm.campaign,
+      utm_content: utm.content,
+      utm_term: utm.term,
+    }).forEach(([key, value]) => {
+      if (value) allowed[key] = String(value).slice(0, 100);
+    });
+    return allowed;
+  }
+
+  // Lightweight analytics shim used by CloseCut. Both event names and properties
+  // are allowlisted so arbitrary page or user-authored data cannot be forwarded.
+  window.closeCutAnalytics = window.closeCutAnalytics || {};
+  window.closeCutAnalytics.track = window.closeCutAnalytics.track || function (eventName, payload) {
+    try {
+      if (!CLOSECUT_EVENTS.has(eventName)) return;
+
+      window.gtag("event", eventName, allowlistedPayload(payload, CLOSECUT_PROPERTIES));
+    } catch (e) {
+      if (DEBUG) console.warn('closeCutAnalytics.track failed', e);
+    }
+  };
+
+  window.portfolioAnalytics = window.portfolioAnalytics || {};
+  window.portfolioAnalytics.track = window.portfolioAnalytics.track || function (eventName, payload) {
+    if (!PORTFOLIO_EVENTS.has(eventName)) return;
+    window.gtag("event", eventName, allowlistedPayload(payload, PORTFOLIO_PROPERTIES));
+  };
+
+  document.addEventListener("click", (event) => {
+    const target = event.target.closest("[data-portfolio-event]");
+    if (!target) return;
+    window.portfolioAnalytics.track(target.dataset.portfolioEvent, {
+      location: target.dataset.analyticsLocation || "unknown",
+      project: target.dataset.analyticsProject || "",
+    });
+  });
+
+  logDebug("Tracking initialized");
 })();

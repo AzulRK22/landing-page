@@ -139,6 +139,16 @@
   overflow: hidden;
 }
 
+.pdf-fallback {
+  padding: 2rem;
+  color: var(--ink-2);
+  text-align: center;
+}
+
+.pdf-fallback a {
+  color: var(--accent);
+}
+
 /* ── Print ── */
 @media print {
   body {

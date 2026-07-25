@@ -7,12 +7,14 @@
   function openNav() {
     body.classList.add("nav-open");
     btn?.setAttribute("aria-expanded", "true");
+    btn?.setAttribute("aria-label", "Close menu");
     backdrop?.removeAttribute("hidden");
   }
 
   function closeNav() {
     body.classList.remove("nav-open");
     btn?.setAttribute("aria-expanded", "false");
+    btn?.setAttribute("aria-label", "Open menu");
     backdrop?.setAttribute("hidden", "");
   }
 
