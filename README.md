@@ -1,173 +1,153 @@
-# AzulRK — Frontend Engineer & Product Builder
+# AzulRK — Portfolio and Product Work
 
-The source behind [www.azulrk.com](https://www.azulrk.com): the personal portfolio of Azul Grisel Ramirez Kuri, a frontend software engineer building enterprise systems, native mobile products, award-winning hackathon projects, and technical content from Mexico City.
+The source behind [azulrk.com](https://www.azulrk.com), my personal portfolio and the public home of the products, experiments and engineering work I am building from Mexico City.
 
-[Visit the portfolio](https://www.azulrk.com) · [View projects](https://www.azulrk.com/projects.html) · [Tech & media](https://www.azulrk.com/tech.html) · [Resume](https://www.azulrk.com/resume.html)
+I’m a software engineer focused on creating clear, polished experiences across **frontend, native mobile, AI-assisted products and practical technology**.
 
-## About this repository
+This portfolio brings those areas together through real projects, product stories, technical evidence and the decisions behind the work.
 
-This repository brings together the different sides of my work:
+[Visit the portfolio](https://www.azulrk.com) · [Explore projects](https://www.azulrk.com/projects.html) · [View engineering and media](https://www.azulrk.com/tech.html)
 
-- **Professional experience** across frontend engineering, enterprise delivery, Android, and product development.
-- **Selected products and case studies** spanning web, AI-assisted tools, mobility, environmental intelligence, commerce, and native iOS.
-- **Hackathon work and awards**, including placements at HDC México, HDC Brasil, and HackNation.
-- **Technical advocacy** through YouTube, TikTok, learning activity, and practical product storytelling.
-- **Credentials and resume**, with certifications across frontend, mobile, cloud, and software engineering.
-- **Independent products**, including CloseCut and its dedicated public microsite.
+---
 
-The project is intentionally lightweight: semantic HTML, modular CSS, and vanilla JavaScript deployed through GitHub Pages. There is no framework, package manager, bundler, or build step required for the public site.
+## What this portfolio represents
 
-## Selected work
+This is not only a project gallery.
 
-| Project | Focus | Highlight |
-| --- | --- | --- |
-| **CloseCut** | Native iOS product · SwiftUI · SwiftData · Firebase | Private, local-first Journal for movies and series; currently in TestFlight beta |
-| **EcoVentus** | UAV monitoring · React · Python · Huawei Cloud | 2nd Place at HDC México 2024 |
-| **HoneyRoute** | Offline-first PWA · AI-assisted diagnostics · Rural technology | 2nd Place at HDC Brasil 2025 |
-| **CongestionAI** | Mobility planning · Next.js · TypeScript · Google Routes | Top 12 at HackNation |
-| **The Signature Experience** | Editorial product experience · Fragrance discovery | Immersive identity, comparison, and confidence experience |
-| **Android Commerce Platform** | Kotlin · Java · REST APIs · Scrum | Production-focused marketplace flows built at Xolotl Creative Labs |
+It documents my evolution from frontend-focused development toward broader **product engineering**: understanding a problem, defining the experience, building the interface, connecting the necessary systems and turning the result into something people can actually use.
 
-Detailed stories, screenshots, architecture notes, outcomes, and project links live on the [Projects page](https://www.azulrk.com/projects.html).
+Across the site you’ll find:
 
-## Portfolio experience
+* independent products and detailed case studies;
+* professional and enterprise engineering experience;
+* native iOS, web, cloud and AI-assisted work;
+* hackathon projects focused on sustainability and mobility;
+* technical content and public learning;
+* certifications, events and professional milestones;
+* the public product site for CloseCut.
 
-The main site is designed as more than a project gallery. It includes:
+---
 
-- professional experience and responsibilities;
-- skills across React, JavaScript, TypeScript, SwiftUI, SwiftData, Kotlin, Firebase, REST APIs, and cloud fundamentals;
-- measurable achievements and hackathon outcomes;
-- an editorial “What I bring” section;
-- technical advocacy and media;
-- photography and event highlights;
-- Meta, AWS, Google, and Infosys certifications;
-- an accessible HTML resume summary and downloadable PDF;
-- responsive project galleries and progressive enhancement.
+## Selected products
 
-## Independent product: CloseCut
+### CloseCut
 
-CloseCut is one part of the wider portfolio: a private, local-first iOS Journal that helps people remember what they watched, why it mattered, and what to watch next. Public TestFlight beta available. CloseCut 1.0 has been submitted to the App Store and is currently in App Review.
+A private, local-first iOS journal for movies and series.
 
-Its independent `/closecut/` microsite includes:
+Rather than reducing every watch to a score or public review, CloseCut helps people remember the personal context around it: when they watched it, how it felt, what stayed with them and what they might want to watch next.
 
-- a responsive product landing page built with real app screenshots;
-- Private Journal, Quick Add, Timeline, QuickPick, Want to Watch, Circles, Watch Plans, and Cinema Memories;
-- accessible mobile navigation and reduced-motion support;
-- Privacy Policy in English and Spanish;
-- Terms of Use and Support;
-- real TestFlight calls to action;
-- a six-volume CloseCut Library foundation with all book content intentionally unpublished;
-- TMDB attribution;
-- Open Graph, Twitter, canonical, Apple, and JSON-LD metadata.
+The product includes a native SwiftUI application and its own cinematic public website.
 
-The product site has its own dark, cinematic visual system in `closecut/closecut.css`, while remaining connected to the main portfolio through navigation and shared deployment infrastructure.
+[Visit CloseCut](https://www.azulrk.com/closecut/)
 
-## Site map
+---
 
-| Route | Purpose |
-| --- | --- |
-| `/` | Portfolio home, experience, certifications, gallery, and featured projects |
-| `/projects.html` | Detailed project stories and current CloseCut product status |
-| `/tech.html` | Technical content and learning activity |
-| `/resume.html` | Embedded and downloadable resume |
-| `/closecut/` | Official CloseCut marketing site |
-| `/closecut/library/` | CloseCut Library catalog foundation |
-| `/closecut/privacy/` | CloseCut Privacy Policy in English |
-| `/closecut/privacy/es/` | Política de Privacidad de CloseCut en español |
-| `/closecut/terms/` | CloseCut Terms of Use |
-| `/closecut/support/` | CloseCut support and beta feedback guidance |
+### HoneyRoute
+
+An offline-first apiary intelligence experience designed around the conditions in which beekeepers actually work.
+
+It combines field observations, environmental context, camera-assisted inputs and accessible decision support in a PWA that can remain useful when connectivity is limited.
+
+---
+
+### EcoVentus
+
+A UAV monitoring platform that helps translate drone and environmental data into understandable soil and land insights.
+
+The project explores how geospatial interfaces and cloud-connected systems can support more informed sustainability decisions.
+
+---
+
+### CongestionAI
+
+A mobility planning product that converts traffic and route information into a clearer recommendation about when to leave.
+
+Its focus is not simply visualizing congestion, but helping someone make a practical decision with less uncertainty.
+
+---
+
+## Repository experience
+
+The portfolio includes four primary areas:
+
+| Area                    | Purpose                                                                  |
+| ----------------------- | ------------------------------------------------------------------------ |
+| **Home**                | Positioning, selected products, experience and professional evidence     |
+| **Projects**            | Deeper product stories, outcomes, screenshots and implementation context |
+| **Engineering & Media** | Capabilities, technical content and public learning                      |
+| **CloseCut**            | Independent public product site, support and legal information           |
+
+---
+
+## Design and engineering approach
+
+The website is intentionally lightweight.
+
+It uses semantic HTML, modular CSS and vanilla JavaScript so that the public experience remains fast, portable and easy to maintain without introducing a framework only for the sake of using one.
+
+The implementation prioritizes:
+
+* responsive layouts;
+* semantic structure;
+* keyboard navigation;
+* reduced-motion support;
+* optimized images;
+* progressive enhancement;
+* clear project storytelling;
+* straightforward GitHub Pages deployment.
+
+---
 
 ## Technology
 
-- HTML5 with semantic landmarks and accessible navigation
-- Modular CSS with shared foundations and page-specific styles
-- Vanilla JavaScript with progressive enhancement
-- Responsive WebP product imagery
-- Swiper and Lottie on the Projects page
-- Google Analytics 4 on the main portfolio
-- GitHub Pages with the custom domain `www.azulrk.com`
+* Semantic HTML5
+* Modular CSS
+* Vanilla JavaScript
+* GitHub Pages
+* WebP image optimization
+* Swiper and Lottie for selected project experiences
+* Google Analytics on the main portfolio
+* GitHub Actions for automated public-data updates
 
-CloseCut does not add analytics, advertising pixels, or third-party UI dependencies.
+The CloseCut microsite does not include advertising pixels or product analytics.
 
-## Repository structure
+---
+
+## Project structure
 
 ```text
 .
-├── assets/
-│   ├── css/                 # Shared and page-level portfolio styles
-│   ├── data/                # Local content data
-│   ├── js/                  # Portfolio behavior and analytics
-│   └── sass/                # Legacy HTML5 UP Sass sources
-├── closecut/
-│   ├── assets/
-│   │   ├── screenshots/     # Optimized desktop and mobile WebP pairs
-│   │   └── TMDBLogo.png
-│   ├── privacy/
-│   │   └── es/
-│   ├── library/             # Catalog and temporary reader foundation
-│   ├── support/
-│   ├── terms/
-│   ├── closecut.css         # CloseCut marketing design system
-│   ├── closecut.js          # Navigation, TestFlight URL, and reveals
-│   └── index.html
-├── docs/                     # Resume PDF
-├── images/                   # Portfolio and shared brand imagery
-├── scripts/
-│   └── convert_images_to_webp.py
-├── index.html
-├── projects.html
-├── resume.html
-├── tech.html
-├── robots.txt
-└── sitemap.xml
+├── assets/              Shared styles, scripts and local data
+├── closecut/            CloseCut public product website
+├── docs/                Resume and public documents
+├── images/              Portfolio imagery
+├── scripts/             Maintenance and validation utilities
+├── index.html           Portfolio home
+├── projects.html        Product and project case studies
+├── tech.html            Engineering capabilities and media
+└── resume.html          Accessible resume page
 ```
 
-## Local development
+---
 
-No installation is required. Start any static file server from the repository root:
+## Run locally
+
+The site has no package installation or build requirement.
+
+Start a local static server from the repository root:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open:
+Then visit:
 
-- Portfolio: <http://localhost:8000/>
-- CloseCut: <http://localhost:8000/closecut/>
+* Portfolio: `http://localhost:8000/`
+* CloseCut: `http://localhost:8000/closecut/`
 
-Using a server instead of opening files directly ensures folder routes, relative assets, and navigation behave like GitHub Pages.
+---
 
-## CloseCut asset workflow
-
-The optimized desktop and mobile WebP pairs used by the landing live in
-`closecut/assets/screenshots/`. Their current source, dimensions, quality settings, and replacement
-history are recorded in `audit/README.md`; obsolete conversion masters are not shipped.
-
-Release status and destinations are centralized in `CLOSECUT_RELEASE` inside
-`closecut/closecut.js`. Elements marked with `data-release-cta` receive the validated destination and
-state-appropriate copy at runtime.
-
-## Content and maintenance
-
-### Portfolio scripts
-
-- `assets/js/nav.js` — shared mobile navigation.
-- `assets/js/home.js` — lightweight home-section reveals.
-- `assets/js/projects.js` — project filters, Swiper, and Lottie setup.
-- `assets/js/tech.js` — accessible content reveals for Engineering & Media.
-- `assets/js/analytics.js` — shared GA4 loader with explicit event/property allowlists.
-
-The home language-learning snapshot is refreshed daily by
-`.github/workflows/update-language-learning.yml`. The updater stores only the public profile URL,
-streak, total XP, summarized course XP, and snapshot date in
-`assets/data/language-learning.json`; it requires no account credentials or browser automation.
-
-### Styling
-
-- Runtime styles live in `assets/css/` and `closecut/closecut.css`.
-- The portfolio background is `images/Background/bg.webp`.
-
-## Release checklist
+## Quality checks
 
 Before publishing changes:
 
@@ -182,25 +162,22 @@ node --check assets/js/tech.js
 xmllint --noout sitemap.xml
 ```
 
-Also verify:
-
-- local routes and relative assets;
-- mobile navigation and keyboard focus;
-- 320 px through 1440 px layouts without horizontal overflow;
-- portfolio cards, galleries, embeds, and resume access;
-- `prefers-reduced-motion` behavior;
-- Privacy, Terms, and Support links;
-- the public TestFlight destination;
-- canonical URLs, sitemap entries, and robots configuration;
-- that no credentials, tester data, or source-only assets are staged.
-
-## Contact
-
-- Website: [www.azulrk.com](https://www.azulrk.com)
-- Email: [azularamk@gmail.com](mailto:azularamk@gmail.com)
-- LinkedIn: [Azul Grisel Ramirez Kuri](https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/)
-- GitHub: [@AzulRK22](https://github.com/AzulRK22)
+Changes should also be reviewed across mobile and desktop widths, keyboard navigation, reduced-motion preferences, public routes, product links and legal pages.
 
 ---
 
-© Azul Grisel Ramirez Kuri. Portfolio foundation originally derived from [HTML5 UP Massively](https://html5up.net/massively).
+## About me
+
+I’m Azul Grisel Ramírez Kuri, a software engineer based in Mexico City.
+
+I’m interested in product engineering, frontend, native mobile, AI-assisted experiences and technology that helps people make clearer decisions.
+
+* [Portfolio](https://www.azulrk.com)
+* [Projects](https://www.azulrk.com/projects.html)
+* [LinkedIn](https://www.linkedin.com/in/azulrk/)
+* [GitHub](https://github.com/AzulRK22)
+
+---
+
+© Azul Grisel Ramírez Kuri
+
