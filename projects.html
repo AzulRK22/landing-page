@@ -8,22 +8,22 @@
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#111009" />
     <meta name="description"
-        content="Selected products, AI tools, frontend systems, and mobile builds by Azul Grisel Ramirez Kuri." />
+        content="Selected products and engineering work by Azul Grisel Ramirez Kuri, including the publicly shipped CloseCut iOS app." />
     <link rel="canonical" href="https://www.azulrk.com/projects.html" />
 
     <meta property="og:site_name" content="AzulRK" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Projects — Azul Grisel Ramirez Kuri" />
     <meta property="og:description"
-        content="Selected products, AI tools, frontend systems, and mobile builds by Azul Grisel Ramirez Kuri." />
+        content="Selected products and engineering work by Azul Grisel Ramirez Kuri, including the publicly shipped CloseCut iOS app." />
     <meta property="og:url" content="https://www.azulrk.com/projects.html" />
-    <meta property="og:image" content="https://www.azulrk.com/images/Ecoventus/home.webp" />
+    <meta property="og:image" content="https://www.azulrk.com/closecut/assets/social/closecut-og.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Projects — Azul Grisel Ramirez Kuri" />
     <meta name="twitter:description"
-        content="Selected products, AI tools, frontend systems, and mobile builds by Azul Grisel Ramirez Kuri." />
-    <meta name="twitter:image" content="https://www.azulrk.com/images/Ecoventus/home.webp" />
+        content="Selected products and engineering work by Azul Grisel Ramirez Kuri, including the publicly shipped CloseCut iOS app." />
+    <meta name="twitter:image" content="https://www.azulrk.com/closecut/assets/social/closecut-og.png" />
 
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
@@ -85,7 +85,7 @@
                 </p>
                 <p class="projects-flagship">
                     <strong>Current flagship:</strong> CloseCut 1.0 is a native iOS product I designed, engineered,
-                    documented, and submitted to the App Store. <a href="#upcoming-projects">View CloseCut below</a>.
+                    validated, and publicly shipped. <a href="#upcoming-projects">View the case study below</a>.
                 </p>
 
                 <div class="project-filters">
@@ -763,10 +763,11 @@
 
                 <div class="upcoming-header">
                     <div>
-                        <h2 class="section-title upcoming-title">CloseCut — Submitted to the App Store</h2>
+                        <h2 class="section-title upcoming-title">CloseCut — From personal project to shipped iOS product</h2>
                         <p class="upcoming-intro">
-                            CloseCut is a private, local-first iOS Journal for movies and series, built around
-                            memories, moods, trusted Circles, and better watch decisions.
+                            CloseCut is a private, local-first movie and series Journal built on one idea: what stayed
+                            with you matters more than a score. I took it from product definition and UX through native
+                            implementation, beta validation, production debugging, and App Store release.
                         </p>
                     </div>
                 </div>
@@ -777,69 +778,110 @@
                         loading="lazy" />
                     <div class="upcoming-visual-copy">
                         <p>CloseCut</p>
-                        <span>SwiftUI · SwiftData · Firebase · TMDB</span>
+                        <span>SwiftUI · SwiftData · Firebase · Product Design</span>
                     </div>
                 </div>
 
                 <p class="upcoming-lead reveal">
-                    The current beta combines local-first persistence, SwiftUI and SwiftData with supported Firebase
-                    synchronization, explicit Circle sharing, and a personal Timeline.
+                    The product keeps personal memories private by default, supports fast past-watch capture with
+                    Quick Add, uses Journal context to make QuickPick decisions easier, and brings in lightweight
+                    Circle context only when someone explicitly chooses to share.
                 </p>
 
                 <div class="links-row closecut-cta-row">
                     <a href="closecut/" class="link-btn closecut-cta-primary" data-portfolio-event="closecut_visit"
-                        data-analytics-location="projects-closecut">View CloseCut →</a>
-                    <a href="https://testflight.apple.com/join/76tV85ZZ" class="link-btn closecut-cta-secondary" target="_blank"
-                        rel="noopener noreferrer">Join TestFlight</a>
+                        data-analytics-location="projects-closecut">View product site →</a>
+                    <a href="https://apps.apple.com/mx/app/closecut-journal/id6786807402?l=en-GB" class="link-btn closecut-cta-secondary" target="_blank"
+                        rel="noopener noreferrer">View on App Store</a>
+                </div>
+
+                <div class="closecut-case-grid reveal">
+                    <article>
+                        <h3>Product and experience</h3>
+                        <p>“More than ratings” became a private-by-default memory system spanning Journal entries,
+                            Quick Add, Want to Watch, QuickPick, and intentionally lightweight Circles.</p>
+                    </article>
+                    <article>
+                        <h3>Architecture and craft</h3>
+                        <p>I built the native experience with SwiftUI, SwiftData, local-first persistence, and
+                            supported Firebase synchronization, while covering privacy, accessibility, localization,
+                            testable domain logic, and release engineering.</p>
+                    </article>
+                    <article>
+                        <h3>Production debugging</h3>
+                        <p>Shortly before release, a TestFlight-only watchdog crash appeared in the full Journal flow.
+                            I traced it through iOS crash logs to SwiftUI layout and focus invalidation, stabilized the
+                            flow, and validated the fix on physical devices before submitting a new build.</p>
+                    </article>
+                </div>
+
+                <div class="closecut-product-gallery reveal" aria-label="CloseCut production screens">
+                    <figure>
+                        <img src="closecut/assets/screenshots/journal-hero-mobile.webp"
+                            alt="CloseCut Journal showing recent private viewing memories" loading="lazy" />
+                        <figcaption>Private Journal and personal history</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="closecut/assets/screenshots/quick-add-mobile.webp"
+                            alt="CloseCut Quick Add flow for adding a past watch" loading="lazy" />
+                        <figcaption>Quick Add for past watches</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="closecut/assets/screenshots/quickpick-mobile.webp"
+                            alt="CloseCut QuickPick showing a personal watch suggestion and its reasons" loading="lazy" />
+                        <figcaption>QuickPick decision support</figcaption>
+                    </figure>
                 </div>
 
                 <div class="upcoming-timeline" aria-label="CloseCut development timeline">
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
-                        <span class="timeline-step-tag">Done</span>
+                        <span class="timeline-step-tag">Foundation</span>
                         <h3>Product definition</h3>
                         <p>
-                            The product direction is clear: a private, mood-aware way to remember what I watch, when I
-                            watched it, and why it mattered.
+                            Defined a private, mood-aware way to remember what someone watched, when they watched it,
+                            and why it mattered—without turning the product into a public ratings feed.
                         </p>
                     </article>
 
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
-                        <span class="timeline-step-tag">Done</span>
-                        <h3>UX foundation</h3>
+                        <span class="timeline-step-tag">Design</span>
+                        <h3>UX and product system</h3>
                         <p>
-                            Core flows are mapped around onboarding, quick past-watch capture, entry details, personal
-                            timeline, settings, and close-circle sharing.
+                            Designed onboarding, Quick Add, detailed memories, personal history, QuickPick, settings,
+                            and explicit Circle sharing across accessible, localized flows.
                         </p>
                     </article>
 
                     <article class="timeline-step reveal">
                         <span class="timeline-marker" aria-hidden="true"></span>
-                        <span class="timeline-step-tag">Done</span>
-                        <h3>Core iOS build</h3>
+                        <span class="timeline-step-tag">Engineering</span>
+                        <h3>Native iOS implementation</h3>
                         <p>
-                            The current build includes SwiftUI screens, SwiftData models, Firebase authentication,
-                            supported synchronization, form validation, and the app's core domain logic.
+                            Built the app with SwiftUI, SwiftData, Firebase authentication, supported synchronization,
+                            local-first persistence, validation, and testable domain logic.
+                        </p>
+                    </article>
+
+                    <article class="timeline-step reveal">
+                        <span class="timeline-marker" aria-hidden="true"></span>
+                        <span class="timeline-step-tag">Validation</span>
+                        <h3>TestFlight and release hardening</h3>
+                        <p>
+                            Used beta feedback, real-device testing, crash logs, and production debugging to harden
+                            full Journal flows before release.
                         </p>
                     </article>
 
                     <article class="timeline-step current reveal" aria-current="step">
                         <span class="timeline-marker" aria-hidden="true"></span>
-                        <span class="timeline-step-tag">Current</span>
-                        <h3>Currently in App Review</h3>
+                        <span class="timeline-step-tag">Live</span>
+                        <h3>CloseCut 1.0 shipped</h3>
                         <p>
-                            CloseCut 1.0 has been submitted to the App Store and is currently in App Review. The public TestFlight beta remains available for testers to build history and provide feedback.
-                        </p>
-                    </article>
-
-                    <article class="timeline-step reveal">
-                        <span class="timeline-marker" aria-hidden="true"></span>
-                        <span class="timeline-step-tag">Next</span>
-                        <h3>Release follow-through</h3>
-                        <p>
-                            Keep launch status, support, privacy documentation, screenshots, and product learnings
-                            aligned as review and public release progress.
+                            CloseCut 1.0 is publicly available on the App Store. The product is now entering
+                            real-user feedback and continued iteration without moving away from its private,
+                            memory-first foundation.
                         </p>
                     </article>
                 </div>
