@@ -46,7 +46,7 @@
   };
 
   const CLOSECUT_EVENTS = new Set([
-    "testflight_cta_click",
+    "app_store_cta_click",
     "explore_closecut_click",
     "privacy_link_click",
     "support_link_click",
