@@ -107,6 +107,21 @@
   flex-wrap: wrap;
 }
 
+.hero-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.65rem 0.25rem;
+  color: var(--cream-2);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.hero-text-link:hover {
+  color: var(--cream);
+}
+
 /* ── Section layouts ── */
 #experience {
   padding: 4rem 0;

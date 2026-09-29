@@ -11,13 +11,13 @@ document.documentElement.classList.add("js");
   const RELEASE_COPY = {
     live: {
       eyebrow: "Now on the App Store",
-      status: "CloseCut 1.0 is available now on iPhone through the App Store.",
+      status: "CloseCut 1.4 is available now on iPhone through the App Store.",
       supporting: "",
       cta: "Download on the App Store",
-      finalEyebrow: "CloseCut 1.0 is available now",
+      finalEyebrow: "CloseCut 1.4 is available now",
       finalTitle: "Make your watch history worth remembering.",
       finalBody: "Get CloseCut on the App Store for iPhone.",
-      faq: "Yes. CloseCut 1.0 is available now on iPhone through the App Store.",
+      faq: "Yes. CloseCut 1.4 is available now on iPhone through the App Store.",
     },
   };
 

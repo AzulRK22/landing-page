@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Put the shipped product first: it is the strongest evidence of end-to-end ownership.
+  const pageHero = document.querySelector(".projects-page-hero");
+  const closeCutCaseStudy = document.querySelector("#upcoming-projects");
+  if (pageHero && closeCutCaseStudy) {
+    pageHero.insertAdjacentElement("afterend", closeCutCaseStudy);
+    if (window.location.hash === "#upcoming-projects") {
+      requestAnimationFrame(() => closeCutCaseStudy.scrollIntoView());
+    }
+  }
+
   const revealEls = document.querySelectorAll(".reveal");
 
   if ("IntersectionObserver" in window) {
