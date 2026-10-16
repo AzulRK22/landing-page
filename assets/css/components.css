@@ -269,6 +269,28 @@
   object-fit: contain;
   flex-shrink: 0;
 }
+.cert-card-featured {
+  grid-column: 1 / -1;
+  border-color: rgba(216, 119, 82, 0.42);
+  background: linear-gradient(135deg, rgba(216, 119, 82, 0.12), var(--surface-2) 58%);
+}
+.cert-card-featured img {
+  width: 72px;
+  height: 72px;
+}
+.cert-card-kicker {
+  margin: 0 0 0.2rem;
+  color: #e39473;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cert-card-date {
+  margin: 0.35rem 0 0;
+  color: var(--cream-2);
+  font-size: 0.72rem;
+}
 .cert-card-name {
   font-size: 0.875rem;
   font-weight: 500;
@@ -284,10 +306,6 @@
   font-size: 0.7rem;
   color: var(--cream-2);
   margin: 0.3rem 0 0;
-  opacity: 0;
-  transition: opacity var(--t-fast);
-}
-.cert-card:hover .cert-hover-detail {
   opacity: 1;
 }
 

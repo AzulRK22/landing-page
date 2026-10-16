@@ -106,10 +106,10 @@ The implementation prioritizes:
 * GitHub Pages
 * WebP image optimization
 * Swiper and Lottie for selected project experiences
-* Google Analytics on the main portfolio
+* Centralized Google Analytics 4 across public portfolio and CloseCut pages
 * GitHub Actions for automated public-data updates
 
-The CloseCut microsite does not include advertising pixels or product analytics.
+The site does not include advertising pixels. GA4 uses a shared loader and an allowlisted set of portfolio and CloseCut interaction events without forwarding journal or other user-authored product data.
 
 ---
 
@@ -174,10 +174,9 @@ I’m interested in product engineering, frontend, native mobile, AI-assisted ex
 
 * [Portfolio](https://www.azulrk.com)
 * [Projects](https://www.azulrk.com/projects.html)
-* [LinkedIn](https://www.linkedin.com/in/azulrk/)
+* [LinkedIn](https://www.linkedin.com/in/azul-grisel-ramirez-kuri-7a213018a/)
 * [GitHub](https://github.com/AzulRK22)
 
 ---
 
 © Azul Grisel Ramírez Kuri
-

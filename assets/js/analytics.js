@@ -66,6 +66,7 @@
     "resume_download",
     "contact_click",
     "closecut_visit",
+    "app_store_click",
   ]);
   const PORTFOLIO_PROPERTIES = new Set([
     "location",

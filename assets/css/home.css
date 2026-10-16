@@ -358,6 +358,20 @@
 #certifications {
   padding: 4rem 0;
 }
+.credential-profile {
+  margin: -0.8rem 0 1.4rem;
+  color: var(--ink-3);
+  font-size: 0.82rem;
+}
+.credential-profile a {
+  color: var(--cream-2);
+  text-decoration: underline;
+  text-decoration-color: var(--border-3);
+  text-underline-offset: 0.3em;
+}
+.credential-profile a:hover {
+  color: var(--cream);
+}
 .section-label-spaced {
   display: block;
   margin-top: 0.5rem;
